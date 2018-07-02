@@ -1,0 +1,45 @@
+.inclusion {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #f3f4f5;
+}
+
+.view_top {
+  width: 100%;
+  height: 214px;
+  background: #fff;
+}
+
+.img_style {
+  width: 750px;
+  height: 69px;
+}
+
+.view_img {
+  display: flex;
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  margin: -60px auto;
+  border: #e7e7e7 3px solid;
+}
+
+.text_name {
+  display: block;
+  margin-top: 75px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 28px;
+  color: #000000;
+}
+
+.text_phone {
+  display: block;
+  margin-top: 10px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  color: #666666;
+}
