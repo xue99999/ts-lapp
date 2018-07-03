@@ -1,0 +1,55 @@
+/* pages/home/home.wxss */
+.heads{
+  width: 100%;
+  height:609px;
+  background: #FE6F71;
+  padding-top: 63px;
+}
+.imgs{
+  text-align: center;
+}
+.imgs image{
+  width: 77px;
+  height: 51px;
+}
+.texts{
+  margin-top: 60px;
+  text-align: center;
+  color: white;
+}
+.texts text{
+  font-size: 24px;
+}
+.images{
+  margin-top: 69px;
+  width: 100%;
+  display: flex;
+}
+.images view{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.images_menst,.images_mom{
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #FD918D;
+
+}
+.images_menst image{
+  width: 31px;
+  height: 41px;
+}
+.images_mom image{
+  width: 23.6px;
+  height: 41px;
+}
+.images view text{
+  margin-top: 20px;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
