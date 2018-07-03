@@ -1,0 +1,25 @@
+<!--pages/home/home.wxml-->
+<view class='heads'>
+      <view class='imgs'>
+            <image src='../img/logo@3x.png'></image>
+      </view>
+      <view class='texts'>
+            <text>选择人生阶段</text>
+      </view>
+      <view class='images'>
+            <view bindtap='clickPeriod'>
+                  <view class='images_menst'>
+                        <image src='../img/menstruation@3x.png'></image>
+                  </view>
+                  <text>只记经期</text>
+            </view>
+            <view>
+                  <view class='images_mom'>
+                        <image src='../img/mom@3x.png'></image>
+                  </view>
+                  <text>我是辣妈</text>
+            </view>
+
+      </view>
+
+</view>
