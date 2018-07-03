@@ -1,8 +1,24 @@
 <view class='inclusion'>
   <view class='view_top'>
     <image class='img_style' src='../img/my_top.png'></image>
-    <image class='view_img' src='../img/placeholder.jpg'></image>
-    <text class='text_name'>{{name}}</text>
-    <text class='text_phone'>{{phone}}</text>
+    <image class='view_img' mode="scaleToFill" src="{{avatarUrl===''?'../img/placeholder.jpg':avatarUrl}}"></image>
+    <text class='text_name'>{{nickName===""?"哇哦":nickName}}</text>
+
+    <text class='text_phone1' wx:if="{{phone===''}}" bindtap='onClickPhone'>绑定手机号</text>
+    <text class='text_phone' wx:else>{{phone}}</text>
   </view>
+  <text class='text_suggest'>常用功能</text>
+  <view class="weui-grids">
+    <view class="weui-grid" wx:for="{{routers}}" wx:key="name">
+      <navigator url="{{item.url+'?name='+item.name+'&code='+item.code}}">
+        <view class='weui-grid__bg'>
+          <view class="weui-grid__icon">
+            <image src=" {{item.icon}}" mode="scaleToFill" />
+          </view>
+          <text class="weui-grid__label" open-type="contact">{{item.name}}</text>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
 </view>

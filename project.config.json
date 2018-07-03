@@ -38,7 +38,14 @@
 				{
 					"id": -1,
 					"name": "我的",
-					"pathName": "pages/my/my"
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "记录",
+					"pathName": "pages/logs/logs",
+					"query": ""
 				}
 			]
 		}
