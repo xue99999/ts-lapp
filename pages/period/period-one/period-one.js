@@ -10,7 +10,44 @@ Page({
     dateArr: [],
     isToday: 0,
     isTodayWeek: false,
-    todayIndex: 0
+    todayIndex: 0,
+    select:0,
+    curIdx: null,
+    listInfo: [
+      // {
+      //   imgUrl: '../../img/choose1@3x.png',
+      //   curUrl: '../../img/choose@3x.png',
+      // },
+      {
+        imgUrl: '../../img/choose1@3x.png',
+        curUrl: '../../img/choose@3x.png',
+      }
+    ]
+  },
+  chooseImg: function (e) {
+    
+    this.setData({
+      curIdx: e.currentTarget.dataset.current
+    })
+     console.log(e)
+     console.log(this.data.curIdx) 
+  
+  },
+  navto:function(){
+      wx.navigateTo({
+        url: '../period-two/period-two',
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+  },
+  chooseCatalog: function (data) {
+    var that = this;
+    that.setData({//把选中值放入判断值
+      isToday: data.currentTarget.dataset.isToday
+    })
+    console.log(data)
+
   },
   onLoad: function () {
     let now = new Date();

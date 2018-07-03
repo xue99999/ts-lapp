@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.1.1",
 	"appid": "wx9373cbf07b9a07d6",
-	"projectname": "ts",
+	"projectname": "ts-weap",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -33,12 +33,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
 					"name": "我的",
 					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "home",
+					"pathName": "pages/home/home",
 					"query": ""
 				}
 			]
