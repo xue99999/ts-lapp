@@ -1,13 +1,15 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/home/home",
+    "pages/period/period-one/period-one"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FE6F71",
     "navigationBarTitleText": "她师",
-    "backgroundColor":"#f3f4f5"
+    "backgroundColor": "#f3f4f5"
   }
 }
