@@ -33,17 +33,12 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": -1,
 					"name": "我的",
 					"pathName": "pages/my/my",
-					"query": ""
-				},
-				{
-					"name": "主页",
-					"pathName": "pages/home/home",
 					"query": ""
 				}
 			]

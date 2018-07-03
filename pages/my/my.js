@@ -1,4 +1,5 @@
 var app=getApp();
+const { ownerQuery}= require('../../service/user.js')
 
 Page({
 
@@ -49,17 +50,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that = this;
-    wx.request({
-      url: 'http://192.168.9.171:8080/app/mock/20//owner/query', //仅为示例，并非真实的接口地址
-      success(res) {
-        console.log(res);
-        that.setData({
-          nickName: res.data.nickName,
-          phone: res.data.phone,
-          avatarUrl: res.data.avatarUrl,
-        })
-      }
+    ownerQuery().then(res=>{
+      console.log(res);
     })
   },
 
@@ -91,7 +83,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-
+    
   },
 
   /**

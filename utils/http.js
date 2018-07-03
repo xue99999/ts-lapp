@@ -1,3 +1,40 @@
+// request
+function Request(method, requestHandler) {
+  const { url, params, headers } = requestHandler
+
+  console.table(requestHandler)
+
+  wx.showLoading && wx.showLoading({ title: 'Loading...' })
+
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: url,
+      data: params,
+      method: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'].indexOf(method) > -1 ? method : 'GET',
+      header: Object.assign({
+        'Content-Type': 'application/json'
+        /*
+        这里可以自定义全局的头信息，这是一个栗子
+        'Authorization': 'Bearer ' + wx.getStorageSync('token'),
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/x-www-form-urlencoded'
+        */
+      }, headers),
+      success: function (res) {
+        const { data, statusCode } = res
+        // 处理数据
+        statusCode === 200 ? resolve(data) : reject(data, statusCode)
+      },
+      fail: function () {
+        reject('Network request failed')
+      },
+      complete: function () {
+        wx.hideLoading && wx.hideLoading()
+      }
+    })
+  })
+}
+
 var Http = {
   /**
    * [HTTP GET 请求]
@@ -12,7 +49,7 @@ var Http = {
         params: {}
       }
     }
-    return this.Request('GET', requestHandler)
+    return Request('GET', requestHandler)
   },
 
   /**
@@ -21,7 +58,7 @@ var Http = {
    * HTTP.post({url: url, params: [JSON Object], headers: [JSON Object] }).then((data) => {}).catch((error) => {})
    */
   post: function(requestHandler) {
-    return this.Request('POST', requestHandler)
+    return Request('POST', requestHandler)
   },
 
   /**
@@ -29,7 +66,7 @@ var Http = {
    * HTTP.patch({url: url, params: [JSON Object], headers: [JSON Object] }).then((data) => {}).catch((error) => {})
    */
   patch: function(requestHandler) {
-    return this.Request('PATCH', requestHandler)
+    return Request('PATCH', requestHandler)
   },
 
   /**
@@ -37,7 +74,7 @@ var Http = {
    * HTTP.put({url: url, params: [JSON Object], headers: [JSON Object] }).then((data) => {}).catch((error) => {})
    */
   put: function(requestHandler) {
-    return this.Request('PUT', requestHandler)
+    return Request('PUT', requestHandler)
   },
 
   /**
@@ -45,45 +82,10 @@ var Http = {
    * HTTP.delete({url: url, params: [JSON Object], headers: [JSON Object] }).then((data) => {}).catch((error) => {})
    */
   delete: function(requestHandler) {
-    return this.Request('DELETE', requestHandler)
+    return Request('DELETE', requestHandler)
   },
 
-  // request
-  Request: function(method, requestHandler) {
-    const { url, params, headers } = requestHandler
-
-    console.table(requestHandler)
-
-    wx.showLoading && wx.showLoading({title: 'Loading...'})
-
-    return new Promise((resolve, reject) => {
-      wx.request({
-        url: url,
-        data: params,
-        method: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'].indexOf(method) > -1 ? method : 'GET',
-        header: Object.assign({
-          'Content-Type': 'application/json'
-          /*
-          这里可以自定义全局的头信息，这是一个栗子
-          'Authorization': 'Bearer ' + wx.getStorageSync('token'),
-          'X-Requested-With': 'XMLHttpRequest',
-          'Content-Type': 'application/x-www-form-urlencoded'
-          */
-        }, headers),
-        success: function (res) {
-          const { data, statusCode } = res
-          // 处理数据
-          statusCode === 200 ? resolve(data) : reject(data, statusCode)
-        },
-        fail: function () {
-          reject('Network request failed')
-        },
-        complete: function () {
-          wx.hideLoading && wx.hideLoading()
-        }
-      })
-    })
-  }
+ 
 }
 
 module.exports = Http;
