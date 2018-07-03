@@ -4,7 +4,9 @@
     "pages/logs/logs",
     "pages/my/my",
     "pages/home/home",
-    "pages/period/period-one/period-one"
+    "pages/period/period-one/period-one",
+    "pages/mycourse/course"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,84 @@
+/* pages/mycourse/course.wxss */
+
+.inclusion {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #e1e1e1;
+}
+
+.list_view {
+  width: 100%;
+  height: 107px;
+  display: flex;
+  background: #FFFFFF;
+  align-items: center;
+  justify-content: cente;
+}
+
+.list_itme_view {
+  width: 100%;
+  height: 107px;
+  flex: 20%;
+  flex-direction: row;
+}
+
+.list_itme_text_view {
+  width: 100%;
+  height: 107px;
+  flex: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.list_item_img {
+  width: 66px;
+  height: 66px;
+  margin: 21px 12px 22px 16px;
+}
+
+.list_item_text1, .list_item_text2, .list_item_text3 {
+   flex: 1;
+}
+
+.list_item_text1 {
+  width: 100%;
+
+  margin-top: 21px;
+  color: #000;
+  font-size: 20px;
+
+}
+
+.list_item_text2 {
+  width: 100%;
+
+  color: #9C9C9C;
+  font-size: 18px;
+}
+
+.list_item_text3 {
+  width: 100%;
+height: 10px;
+    font-size: 16px;
+    color: #9C9C9C;
+    align-items: center;
+  justify-content: cente;
+}
+.list_item_view_all{
+    width: 100%;
+
+  display: block;
+
+}
+.view_solid {
+display: inherit;
+  width: 100%;
+  height: 4px;
+ margin-top: 14px;
+
+  background: #e1e1e1;
+   background: red;
+
+  
+}

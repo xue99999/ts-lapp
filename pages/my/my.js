@@ -12,6 +12,7 @@ Page({
     nickName: "",
     phone: "",
     avatarUrl: "",
+    integral:"",
     routers: [{
         name: '辣妈经期',
         url: '',
@@ -26,7 +27,7 @@ Page({
       },
       {
         name: '我的课程',
-        url: '',
+        url: '../mycourse/course',
         icon: '../img/course@3x.png',
         code: '10'
       },
@@ -51,7 +52,14 @@ Page({
    */
   onLoad: function(options) {
     ownerQuery().then(res=>{
-      console.log(res);
+      console.log('个人信息查询',res);
+        this.setData({
+          nickName: res.nickName,
+          phone: res.phone,
+          avatarUrl: res.avatarUrl,
+          integral: res.integral,
+        })
+
     })
   },
 

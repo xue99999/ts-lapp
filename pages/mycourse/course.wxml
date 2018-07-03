@@ -1,0 +1,21 @@
+<!--我的课程-->
+<view class='inclusion'>
+
+  <view class='list_view' wx:for="{{list}}"  wx:for-item="item" wx:key="{{item.remark+item.sectionName}}">
+
+    <view class='list_itme_view'>
+      <image class='list_item_img' src='../img/placeholder.jpg'></image>
+    </view>
+    <view class='list_itme_text_view'>
+      <text class='list_item_text1'>{{item.sectionName}}</text>
+      <text class='list_item_text2'>{{item.remark}}</text>
+      <view  class='list_item_view_all'>
+      <text class='list_item_text3'>{{item.playNum}}</text>
+      </view>
+      
+    </view>
+    <view class='view_solid'></view>
+
+  </view>
+
+</view>

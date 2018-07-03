@@ -21,43 +21,97 @@
   width: 80px;
   height: 80px;
   border-radius: 40px;
-  margin: -60px auto;
+  margin: -70px auto;
   border: #e7e7e7 3px solid;
 }
 
 .text_name {
   display: block;
   margin-top: 75px;
-  height: 30px;
+  height: 24px;
   text-align: center;
-  line-height: 30px;
-  font-size: 28px;
-  color: #000000;
+  line-height: 24px;
+  font-size: 18px;
+  color: #000;
 }
 
 .text_phone {
   display: block;
-  margin-top: 10px;
-  height: 24px;
-  line-height: 24px;
+  margin-top: 6px;
+  height: 14px;
+  line-height: 14px;
   text-align: center;
-  color: #666666;
+  font-size: 14px;
+  color: #666;
 }
-.text_phone1{
-    display: block;
-  margin-top: 10px;
-  height: 24px;
-  line-height: 24px;
+
+.text_phone1 {
+  display: block;
+  margin-top: 6px;
+  height: 14px;
+  line-height: 14px;
   text-align: center;
-  color: #1A8FFD;
+  font-size: 14px;
+  color: #1a8ffd;
 }
-.text_suggest{
+.view_solid {
+
+  width: 750px;
+  margin: 14px 10px 0 10px;
+  
+  height: 1px;
+  background: #e1e1e1;
+  
+}
+.layout_horizontal {
+
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+}
+
+.layout_horizontal_view {
+  flex: 1;
+  height: 64px;
+  background-color: #fff;
+  align-items: center;
+  justify-content: cente;
+}
+
+.horizontal_img {
+  width: 30px;
+  height: 30px;
+  margin-left: 60px;
+  margin-top: 17px;
+}
+
+.horizontal_text {
+  position: absolute;
+  width: px;
+  height: 30px;
+  margin-left: 10px;
+  color: #000;
+  font-size: 20px;
+  line-height: 64px;
+  text-align: center;
+}
+
+
+
+.view_solid_vertical {
+  width: 1px;
+  height: 40px;
+  background: #e1e1e1;
+  margin: auto;
+}
+
+.text_suggest {
   display: block;
   width: 100;
   height: 40px;
-  margin-top: 10px;
-  background: #FFFFFF;
-  color: #000000;
+  margin-top: 14px;
+  background: #fff;
+  color: #000;
   font-size: 20px;
   line-height: 40px;
   text-align: left;
@@ -65,118 +119,114 @@
 }
 
 .weui-grids {
-    position: relative;
-    overflow: hidden;
-    background: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
 }
- 
- .weui-grids:before {
-    content: " ";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 1px;
-    border-top: 1px solid #d9d9d9;
-    color: #d9d9d9;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
-} 
- 
- .weui-grids:after {
-    content: " ";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1px;
-    bottom: 0;
-    border-left: 1px solid #d9d9d9;
-    color: #d9d9d9;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scaleX(0.5);
-    transform: scaleX(0.5);
-} 
- 
- 
- 
+
+.weui-grids:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #d9d9d9;
+  color: #d9d9d9;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.weui-grids:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-left: 1px solid #d9d9d9;
+  color: #d9d9d9;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+}
+
 .weui-grid {
-    position: relative;
-    float: left;
-    padding: 20px 10px;
-    width: 25%;
-    box-sizing: border-box;
+  position: relative;
+  float: left;
+  padding: 20px 10px;
+  width: 25%;
+  box-sizing: border-box;
 }
- 
- .weui-grid:before {
-    content: " ";
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 1px;
-    bottom: 0;
-    border-right: 1px solid #d9d9d9;
-    color: #d9d9d9;
-    -webkit-transform-origin: 100% 0;
-    transform-origin: 100% 0;
-    -webkit-transform: scaleX(0.5);
-    transform: scaleX(0.5);
-} 
- 
- .weui-grid:after {
-    content: " ";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 1px;
-    border-bottom: 1px solid #d9d9d9;
-    color: #d9d9d9;
-    -webkit-transform-origin: 0 100%;
-    transform-origin: 0 100%;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
-} 
- 
-  .weui-grid:active {
-    background-color: #ECECEC;
-}  
- 
+
+.weui-grid:before {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1px;
+  bottom: 0;
+  border-right: 1px solid #d9d9d9;
+  color: #d9d9d9;
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+  -webkit-transform: scaleX(0.5);
+  transform: scaleX(0.5);
+}
+
+.weui-grid:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #d9d9d9;
+  color: #d9d9d9;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+
+.weui-grid:active {
+  background-color: #ececec;
+}
+
 .weui-grid__bg {
-    position: relative;
-    float: left;
-    padding: 0px 0px;
-    width: 100%;
-    box-sizing: border-box;
+  position: relative;
+  float: left;
+  padding: 0px 0px;
+  width: 100%;
+  box-sizing: border-box;
 }
- 
+
 .weui-grid__icon {
-    width: 44px;
-    height: 44px;
-    margin: 0 auto;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto;
 }
- 
- 
+
 .weui-grid__icon image {
-    display: block;
-    width: 100%;
-    height: 100%;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
- 
+
 .weui-grid__icon + .weui-grid__label {
-    margin-top: 15px;
+  margin-top: 15px;
 }
- 
- 
+
 .weui-grid__label {
-    display: block;
-    text-align: center;
-    font-weight: bold;
-    color: #333333;
-    font-size: 14px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

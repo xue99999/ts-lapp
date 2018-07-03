@@ -6,6 +6,19 @@
 
     <text class='text_phone1' wx:if="{{phone===''}}" bindtap='onClickPhone'>绑定手机号</text>
     <text class='text_phone' wx:else>{{phone}}</text>
+    <view class='view_solid'></view>
+    <view class="layout_horizontal">
+      <view class='layout_horizontal_view'>
+        <image class='horizontal_img' src='../img/Record period@3x.png'></image>
+        <text class='horizontal_text'>记经期 </text>
+      </view>
+      <view class='view_solid_vertical'></view>
+      <view class='layout_horizontal_view'>
+        <image class='horizontal_img' src='../img/integral@3x.png'></image>
+        <text class='horizontal_text'>{{integral===""?100:integral}}积分</text>
+      </view>
+    </view>
+
   </view>
   <text class='text_suggest'>常用功能</text>
   <view class="weui-grids">
