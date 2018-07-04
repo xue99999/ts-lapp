@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.1.1",
 	"appid": "wx9373cbf07b9a07d6",
-	"projectname": "ts",
+	"projectname": "ts-weap",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -48,10 +48,12 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "课程详情",
-					"pathName": "pages/courseDetails/courseDetails",
-					"query": "id=123344"
+
+					"id": 1,
+					"name": "home",
+					"pathName": "pages/home/home",
+					"query": ""
+
 				}
 			]
 		}

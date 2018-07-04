@@ -5,9 +5,12 @@
     "pages/my/my",
     "pages/home/home",
     "pages/period/period-one/period-one",
+
     "pages/myCourse/course",
     "pages/myCollection/collection",
-    "pages/courseDetails/courseDetails"
+    "pages/courseDetails/courseDetails",
+    "pages/period/period-two/period-two"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

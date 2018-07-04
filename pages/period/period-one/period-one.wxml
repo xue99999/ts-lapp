@@ -1,26 +1,59 @@
 <view class='wrap'>
+
+  <view class='view-buzou'>
+        <image src='../../img/buzou1.png'></image>
+  </view> 
+  <view class='view-tes'>您上一次月经何时开始？</view>
+	<view class='header'>
+		<view wx:for='{{date}}'wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}<view></view></view>
+	</view>
 	<view>
 		<view class='date-show'>
 			<view class='lt-arrow' bindtap='lastMonth'>
-				<image src='../images/nextMonth.png' mode='aspectFit'></image>
+      〈
+				<!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
 			</view>
-			{{year}}年{{month}}月
+			 {{year}}年{{month}}月
 			<view class='rt-arrow' bindtap='nextMonth'>
-				<image src='../images/nextMonth.png' mode='aspectFit'></image>
+      〉
+				<!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
 			</view>
 		</view>
 	</view>
+  <!-- <view class='view-month'> {{year}}年{{month}}月 </view> -->
+         
+	<!-- <view class='date-box'>
+		<view wx:for='{{dateArr}}' wx:key>			
+			<view class='date-head'>
+				<view class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}' bindtap="chooseCatalog">
+          {{item.dateNum}}
+          </view>
+			</view>
+			<!-- <view class='date-weight'>{{item.weight}}</view> 
+		</view>
+	</view> -->
 	<view class='header'>
-		<view wx:for='{{date}}' class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}<view></view></view>
 	</view>
 	<view class='date-box'>
 		<view wx:for='{{dateArr}}' class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>			
 			<view class='date-head'>
 				<view>{{item.dateNum}}</view>
 			</view>
-			<!-- <view class='date-weight'>{{item.weight}}</view> -->
 		</view>
 	</view>
+
+  <view class='view-fot'>
+      <view class='fot-one'>
+            <view class='box'>
+              <view  class='box_list' wx:for="{{listInfo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+                  <image class="box-image" hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+                  <image class="box-image" hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
+              </view>
+            </view>
+            <text>我不记得了</text>      
+      </view>
+      <button class='btn' bindtap='navto'>下一步</button>
+  </view>
 
 </view>
 
