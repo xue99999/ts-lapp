@@ -1,31 +1,34 @@
 /* pages/home/home.wxss */
 .heads{
   width: 100%;
-  height:609px;
+  height:1333rpx;
   background: #FE6F71;
   padding-top: 63px;
 }
 .imgs{
-  text-align: center;
+    /* text-align: center;   */
+
 }
 .imgs image{
-  width: 77px;
-  height: 51px;
+  margin-left: 306rpx;
+  width: 138rpx;
+  height: 94rpx;
+  /* border: 1px solid black; */
 }
 .texts{
-  margin-top: 60px;
+  margin-top: 108rpx;
   text-align: center;
   color: white;
 }
 .texts text{
-  font-size: 24px;
+  font-size: 124%;
 }
 .images{
-  margin-top: 69px;
+  margin-top: 127rpx;
   width: 100%;
   display: flex;
 }
-.images view{
+.images>view{
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -33,23 +36,26 @@
   align-items: center;
 }
 .images_menst,.images_mom{
-  width: 84px;
-  height: 84px;
+  width:152rpx;
+  height: 152rpx;
   border-radius: 50%;
   background: #FD918D;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .images_menst image{
-  width: 31px;
-  height: 41px;
+  width: 53.7rpx;
+  height: 71.8rpx;
 }
 .images_mom image{
-  width: 23.6px;
-  height: 41px;
+  width: 41.6rpx;
+  height: 71.8rpx;
 }
 .images view text{
-  margin-top: 20px;
+  margin-top: 33rpx;
   color: white;
-  font-size: 18px;
-  letter-spacing: 2px;
+  font-size: 90%;
+  letter-spacing: 3.3rpx;
 }

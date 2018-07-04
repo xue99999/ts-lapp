@@ -5,21 +5,54 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    array: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'],
+    objectArray: [
+      {
+        id: 0,
+        name: '1'
+      },
+      {
+        id: 1,
+        name: '2'
+      },
+      {
+        id: 2,
+        name: '3'
+      },
+      {
+        id: 3,
+        name: '4'
+      }
+    ],
+    index: 0,
+  },
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+  navto: function () {
+    wx.navigateTo({
+      url: '../period-two/period-two',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**

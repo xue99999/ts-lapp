@@ -1,2 +1,12 @@
-<!--pages/period/period-two/period-two.wxml-->
-<text>pages/period/period-two/period-two.wxml</text>
+<view>
+      <view class='view-buzou'>
+            <image src='../../img/buzou2.png'></image>
+      </view>
+      <view class='view-tes'>一般上, 您的月经持续多久?</view>
+      <!-- 选择器 -->
+      <scroll-view style="height: 550rpx;" scroll-y class='scroll-array'>
+          <view wx:for='{{array}}' wx:key class='view-array'>{{item}}</view>
+      </scroll-view>
+
+      <component-foot></component-foot>
+</view>
