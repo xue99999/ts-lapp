@@ -1,0 +1,83 @@
+/* 课程详情 */
+
+.inclusion {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #f3f4f5;
+}
+
+.view_top {
+  width: 100%;
+  height: 289rpx;
+  background: #fff;
+  display: flex;
+}
+
+.view_top_img {
+  width: 220rpx;
+  height: 220rpx;
+  margin: 42.42rpx 49.69rpx 39.39rpx 36.96rpx;
+}
+
+.view_top_text_view_all {
+  flex: 3;
+}
+
+.view_top_text1, .view_top_text2, .view_top_text3 {
+  display: block;
+  color: #000;
+}
+
+.view_top_text1 {
+  height: 44rpx;
+  margin-top: 42.42rpx;
+  line-height: 44rpx;
+  font-size: 42.42rpx;
+}
+
+.view_top_img_head {
+  margin-top: 39.39rpx;
+  /*   
+     display: block;
+      当时用头像功能是 none换成block!
+    */
+  display: none;
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+}
+
+.view_top_text2 {
+  height: 32rpx;
+  margin-top: 39.39rpx;
+  font-size: 32rpx;
+  color: #5c8edc;
+  margin-left: 52rpx;
+}
+
+.view_top_img_subscri {
+  margin-top: 64rpx;
+  position: absolute;
+  width: 20rpx;
+  height: 30rpx;
+  display: block;
+}
+
+.view_top_text3 {
+  height: 32rpx;
+  margin-top: 60rpx;
+  font-size: 32rpx;
+  margin-left: 28rpx;
+}
+
+
+/*模块  */
+.course_list{
+  width: 92rpx;
+  height: 100%;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+}

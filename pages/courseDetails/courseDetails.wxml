@@ -1,0 +1,23 @@
+<!--课程详情-->
+<view class='inclusion'>
+  <view class='view_top'>
+    <image class='view_top_img' src='../img/placeholder.jpg'></image>
+    <view class='view_top_text_view_all'>
+      <text class='view_top_text1'>{{courseData.courseName}}</text>
+
+      <image class='view_top_img_head' src='../img/placeholder.jpg'></image>
+      <text class='view_top_text2'>{{courseData.teacherName}}</text>
+
+      <image class='view_top_img_subscri' src='../img/hot@3x.png'></image>
+      <text class='view_top_text3'>{{courseData.subscribeTotal}}次订阅</text>
+    </view>
+  </view>
+
+<template name="course_list">
+  <view class='course_list'>
+<image class='course_list_img' src='../img/play@3x.png'></image>
+<text class='course_list_text'>全部播放</text>
+  </view>
+</template>
+</view>
+  

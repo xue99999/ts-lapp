@@ -1,35 +1,31 @@
-// pages/mycourse/course.js
+// pages/collection/collection.js
 const { apiCourseCollectList } = require('../../service/user.js')
-var time = require('../../utils/time.js');
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   list:[],
-   url:'../courseDetails/courseDetails',
-
+    list: [],
+    url:'../courseDetails/courseDetails',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-      var data={
-        courseType:"01",
-        page:"1",
-        rows:"20",
-      }
-      apiCourseCollectList(data).then(result=>{
-      console.log('我的课程',result);
+    var data = {
+      courseType: "02",
+      page: "1",
+      rows: "20",
+    }
+    apiCourseCollectList(data).then(result => {
+      console.log('我的收藏', result);
       this.setData({
-        list:result.list,
-      
+        list: result.list,
+
       })
-  
+
     })
   },
 
@@ -44,7 +40,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+  
   },
 
   /**
@@ -81,8 +77,8 @@ Page({
   onShareAppMessage: function () {
   
   },
-  getTime(timeDate) {
-    console.log(timeDate);
-  return  time.formatTime(timeDate, 'h:m')
+  get: function(mPx){
+    console.log(mPx / 1.65);
+    return mPx/1.65;
   }
 })

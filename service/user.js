@@ -8,6 +8,7 @@ function ownerQuery(params){
     params
   })
 }
+//课程列表
 const {post}=Http;
  function apiSection(params){
    return post({
@@ -15,8 +16,24 @@ const {post}=Http;
      params
    })
  }
+ //我的课程和我的收藏
+function apiCourseCollectList(params){
+  return get({
+    url: baseUrl + 'api/course/collectList',
+    params
+  })
+}
+//课程详情
+function apiCourseId(params){
+  return get({
+    url: baseUrl + 'api/course/:id',
+    params
+  })
+}
 
 module.exports = {
   ownerQuery,
   apiSection,
+  apiCourseCollectList,
+  apiCourseId,
 };

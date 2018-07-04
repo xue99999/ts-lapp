@@ -1,15 +1,15 @@
-// pages/mycourse/course.js
-const { apiCourseCollectList } = require('../../service/user.js')
-var time = require('../../utils/time.js');
+// pages/courseDetails/courseDetails.js
 
+const { apiCourseId, apiSection } = require('../../service/user.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-   list:[],
-   url:'../courseDetails/courseDetails',
+    courseData:{},
+    sectionList:[],
+
 
   },
 
@@ -17,20 +17,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-      var data={
-        courseType:"01",
-        page:"1",
-        rows:"20",
-      }
-      apiCourseCollectList(data).then(result=>{
-      console.log('我的课程',result);
+    console.log(options.id);
+    apiCourseId().then(result=>{
+      console.log('课程详情',result);
       this.setData({
-        list:result.list,
-      
+        courseData: result.data,
       })
-  
-    })
+    });
+    apiSection().then(result=>{
+      console.log('课程列表', result);
+      this.setData({
+        sectionList: result.list,
+      })
+    });
   },
 
   /**
@@ -44,7 +43,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+  
   },
 
   /**
@@ -80,9 +79,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  getTime(timeDate) {
-    console.log(timeDate);
-  return  time.formatTime(timeDate, 'h:m')
   }
 })
