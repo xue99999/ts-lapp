@@ -110,7 +110,7 @@
   letter-spacing: 1.656rpx;
 }
 .view-buzou image{
-  width: 750rpx; 
+   width: 750rpx; 
    height: 144.9rpx;
 }
 .view-fot{
@@ -157,4 +157,12 @@
 .box-image{
   width: 33rpx;
   height: 33rpx;
+}
+.active:hover{
+	width: 60rpx;
+  margin: 0 auto;
+  text-align: center;
+	border-radius: 50%;
+  background: red;
+  color: white;
 }

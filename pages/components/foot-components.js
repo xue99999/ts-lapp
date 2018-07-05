@@ -12,10 +12,6 @@ Component({
    */
   data: {
     listInfo: [
-      // {
-      //   imgUrl: '../../img/choose1@3x.png',
-      //   curUrl: '../../img/choose@3x.png',
-      // },
       {
         imgUrl: '../img/choose1@3x.png',
         curUrl: '../img/choose@3x.png',

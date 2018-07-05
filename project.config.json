@@ -50,7 +50,13 @@
 				{
 					"id": 2,
 					"name": "home",
-					"pathName": "pages/home/home",
+					"pathName": "pages/period/period-one/period-one",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "index",
+					"pathName": "pages/index/index",
 					"query": ""
 				}
 			]

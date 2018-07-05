@@ -30,12 +30,26 @@ function apiCourseId(params){
     params
   })
 }
-
+// 用户信息同步
+function authUserInfo(params){
+  return post({
+    url: baseUrl + '/auth/userInfo',
+    params
+  })
+}
+  // 登录微信授权
+function authWechatLogin(params) {
+  return post({
+    url: baseUrl + '/auth/wechatLogin',
+    params
+  })
+}
 module.exports = {
   ownerQuery,
   apiSection,
   apiCourseCollectList,
   apiCourseId,
-
+  authUserInfo,
+  authWechatLogin
   
 };

@@ -14,10 +14,6 @@ Page({
     select:0,
     curIdx: null,
     listInfo: [
-      // {
-      //   imgUrl: '../../img/choose1@3x.png',
-      //   curUrl: '../../img/choose@3x.png',
-      // },
       {
         imgUrl: '../../img/choose1@3x.png',
         curUrl: '../../img/choose@3x.png',
@@ -29,7 +25,7 @@ Page({
     this.setData({
       curIdx: e.currentTarget.dataset.current
     })
-     console.log(e)
+    //  console.log(e)
      console.log(this.data.curIdx) 
   
   },
@@ -48,6 +44,10 @@ Page({
     })
     console.log(data)
 
+  },
+  dianji:function(e){
+    console.log(this.data.dateArr)
+    console.log(e.currentTarget.dataset.index)
   },
   onLoad: function () {
     let now = new Date();

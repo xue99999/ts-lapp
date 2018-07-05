@@ -22,22 +22,12 @@
 	</view>
   <!-- <view class='view-month'> {{year}}年{{month}}月 </view> -->
          
-	<!-- <view class='date-box'>
-		<view wx:for='{{dateArr}}' wx:key>			
-			<view class='date-head'>
-				<view class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}' bindtap="chooseCatalog">
-          {{item.dateNum}}
-          </view>
-			</view>
-			<!-- <view class='date-weight'>{{item.weight}}</view> 
-		</view>
-	</view> -->
 	<view class='header'>
 	</view>
 	<view class='date-box'>
-		<view wx:for='{{dateArr}}' class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>			
+		<view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>			
 			<view class='date-head'>
-				<view>{{item.dateNum}}</view>
+				<view data-index='{{index}}' bindtap='dianji'class="active" >{{item.dateNum}}</view>
 			</view>
 		</view>
 	</view>
