@@ -1,0 +1,44 @@
+.view-buzou image{
+  width: 750rpx; 
+   height: 144.9rpx;
+}
+.view-tes{
+  text-align: center;
+  font-weight: bold;
+  font-size: 30rpx;
+  letter-spacing: 1.656rpx;
+}
+.scroll-array{
+  margin-top: 100rpx;
+}
+/* 隐藏滚动条 */
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+.view-array{
+  text-align: center;
+  font-size: 80rpx;
+  line-height: 97rpx;
+  color: #D3D3D3;
+}
+.view-array:hover{
+  color: #FE6F71;
+  background: #FFF4F4;
+}
+
+.btn{
+  width: 714rpx;
+  height: 72rpx;
+  margin:0 18rpx;
+  background: #FE6F71;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80%;
+    position: fixed;
+  bottom: 36rpx;
+  letter-spacing: 1.656rpx;
+}

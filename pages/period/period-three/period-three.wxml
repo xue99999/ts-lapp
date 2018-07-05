@@ -1,0 +1,23 @@
+<view>
+      <view class='view-buzou'>
+            <image src='../../img/buzou3.png'></image>
+      </view>
+      <view class='view-tes'>一般上, 您的经期有多长?</view>
+      <!-- 选择器 -->
+      <scroll-view style="height: 550rpx;" scroll-y class='scroll-array'scroll-top='{{scrollTop}}'>
+          <view wx:for='{{array}}' wx:key class='view-array'>{{item}}</view>
+      </scroll-view>
+
+     <view class='view-fot'>
+      <view class='fot-one'>
+            <view class='box'>
+              <view  class='box_list' wx:for="{{listInfo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+                  <image class="box-image" hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+                  <image class="box-image" hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
+              </view>
+            </view>
+            <text>我不记得了</text>      
+      </view>
+      <button class='btn' bindtap='navto'>下一步</button>
+  </view>
+</view>

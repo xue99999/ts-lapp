@@ -1,6 +1,6 @@
 var app=getApp();
 const { ownerQuery}= require('../../service/user.js')
-
+var time = require('../../utils/time.js');
 Page({
 
   /**
@@ -12,6 +12,7 @@ Page({
     nickName: "",
     phone: "",
     avatarUrl: "",
+    integral:"",
     routers: [{
         name: '辣妈经期',
         url: '',
@@ -26,12 +27,13 @@ Page({
       },
       {
         name: '我的课程',
-        url: '',
+        url: '../myCourse/course',
         icon: '../img/course@3x.png',
         code: '10'
       },
       {
         name: '我的收藏',
+        url:'../myCollection/collection',
         icon: '../img/collection@3x.png',
         code: '11'
       },
@@ -51,7 +53,14 @@ Page({
    */
   onLoad: function(options) {
     ownerQuery().then(res=>{
-      console.log(res);
+      console.log('个人信息查询',res);
+        this.setData({
+          nickName: res.nickName,
+          phone: res.phone,
+          avatarUrl: res.avatarUrl,
+          integral: res.integral,
+        })
+
     })
   },
 
@@ -111,6 +120,11 @@ Page({
    */
   onClickPhone() {
     console.log('这里是绑定手机号')
-  }
+  },
+
+    getTime(timeDate){
+      console.log(timeDate);
+      time.formatTime(timeDate, 'h:m')
+    }
 
 })

@@ -33,12 +33,18 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": -1,
 					"name": "我的",
 					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的课程",
+					"pathName": "pages/mycourse/course",
 					"query": ""
 				},
 				{
