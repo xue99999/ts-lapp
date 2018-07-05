@@ -5,19 +5,16 @@
     "pages/my/my",
     "pages/home/home",
     "pages/period/period-one/period-one",
-<<<<<<< .mine
+
     "pages/period/period-two/period-two",
     "pages/period/period-three/period-three",
     "pages/period/period-four/period-four",
-    "pages/taber/taber"
-
-=======
-
+    "pages/taber/taber",
     "pages/myCourse/course",
     "pages/myCollection/collection",
-    "pages/courseDetails/courseDetails",
-    "pages/period/period-two/period-two"
->>>>>>> .theirs
+    "pages/courseDetails/courseDetails"
+   
+
 
   ],
   "window": {
