@@ -12,12 +12,54 @@
       <text class='view_top_text3'>{{courseData.subscribeTotal}}次订阅</text>
     </view>
   </view>
+  <scroll-view scroll-x="true" class="tab-h" scroll-left="{{scrollLeft}}">
+    <view class="tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="swichNav">简介</view>
+    <view class="tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="swichNav">课程({{total}})</view>
 
-<template name="course_list">
-  <view class='course_list'>
-<image class='course_list_img' src='../img/play@3x.png'></image>
-<text class='course_list_text'>全部播放</text>
+  </scroll-view>
+
+  <template is="{{currentTab % 2 == 0?'course_remark':'course_list'}}" data="{{sectionList}}" />
+  <template name="course_list">
+    <view class='course_list' bindtap='onClickAllPlay'>
+      <image class='course_list_img' src='../img/play@3x.png'></image>
+      <text class='course_list_text'>全部播放</text>
+    </view>
+    <scroll-view class='scroll_view' scroll-y="true">
+      <view wx:for="{{sectionList}}" wx:for-item="item" wx:key="{{item.playNum+item.duration}}">
+        <navigator class='course_list_itme' url="{{url+'?id='+item.id}}">
+          <view class='course_list_itme_text1'>{{(index+1)>9?(index+1):'0'+(index+1)}}</view>
+          <view class='course_list_itme_text2'>
+            <view class='course_list_itme_text_title'>{{item.sectionName}}</view>
+            <view class='list_item_view_all'>
+              <image class='list_item_view_all_img' src='../img/play1@3x.png'></image>
+              <text class='list_item_text3'>{{item.playNum}}万</text>
+              <image class='list_item_view_all_img1' src='../img/time@3x.png'></image>
+              <text class='list_item_text4'>{{item.duration}}</text>
+            </view>
+
+          </view>
+          <view class='view_solid'> </view>
+
+        </navigator>
+      </view>
+    </scroll-view>
+
+  </template>
+
+  <template name="course_remark">
+    <view class='course_remark_view'>
+      <view style='padding-top:16rpx;font-size: 36rpx;'>内容简介</view>
+      <text style='padding-top:16rpx; color: #686868;font-size: 24.24rpx;'> 简介:  {{item.remark}}</text>
+    </view>
+
+  </template>
+  <view class="view_bottom">
+   <image class="view_bottom_img" src='../img/share@3x.png'></image>
+    <view class="view_bottom_button1" bindtap='onClickShare'>
+       <text class="view_bottom_button1_text">分享课程</text>
+   
+    </view>
+    <view class="view_bottom_button2" bindtap='onClickSubscriber'>{{isSubscibe===0?"订阅 | {{price}} 元":"已订阅"}}</view>
   </view>
-</template>
+
 </view>
-  

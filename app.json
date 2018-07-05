@@ -12,6 +12,8 @@
     "pages/myCourse/course",
     "pages/myCollection/collection",
     "pages/courseDetails/courseDetails"
+
+
   ],
   "window": {
     "backgroundTextStyle": "light",
