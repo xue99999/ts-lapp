@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -42,15 +42,15 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "我的课程",
 					"pathName": "pages/mycourse/course",
 					"query": ""
 				},
 				{
-					"id": 1,
+					"id": 2,
 					"name": "home",
-					"pathName": "pages/taber/taber",
+					"pathName": "pages/home/home",
 					"query": ""
 				}
 			]
