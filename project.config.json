@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -52,6 +52,18 @@
 					"name": "home",
 					"pathName": "pages/home/home",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "课程详情",
+					"pathName": "pages/home/home",
+					"query": "id=2121211221"
+				},
+				{
+					"id": -1,
+					"name": "课程详情",
+					"pathName": "pages/courseDetails/courseDetails",
+					"query": "id=2121211221"
 				}
 			]
 		}
