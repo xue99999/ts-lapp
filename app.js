@@ -34,6 +34,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    shaonv: '01',
+    lama: '02',
+    menstrualStartTime:'2017-06-07'
   }
 })

@@ -25,16 +25,19 @@ Page({
       }
     ],
     index: 0,
+    show: false,
+    imgUrl: '../../img/choose1@3x.png',
+    curUrl: '../../img/choose@3x.png'
   },
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
+    // console.log(e.target.dataset.index)
+    var zhi = e.target.dataset.index+=1
+    console.log('月经持续多久'+zhi+'天')
+
   },
   navto: function () {
     wx.navigateTo({
-      url: '../period-two/period-two',
+      url: '../period-three/period-three',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -47,7 +50,14 @@ Page({
   onLoad: function (options) {
 
   },
+  chooseImg: function (e) {
 
+    this.setData({
+      show: !this.data.show
+    })
+    console.log(e)
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

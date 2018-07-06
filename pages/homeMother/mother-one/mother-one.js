@@ -11,35 +11,37 @@ Page({
     isToday: 0,
     isTodayWeek: false,
     todayIndex: 0,
-    show:false,
+    select: 0,
+    // curIdx: null,
+    show: false,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png'
-      
+
   },
   chooseImg: function (e) {
-    
+
     this.setData({
-      show:!this.data.show
+      show: !this.data.show
     })
-
+  },
+  navto: function () {
+    wx.navigateTo({
+      url: '../mother-two/mother-two',
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  chooseCatalog: function (data) {
+    var that = this;
+    that.setData({//把选中值放入判断值
+      isToday: data.currentTarget.dataset.isToday
+    })
+    console.log(data)
 
   },
-  navto:function(){
-    if (this.data.show==true) {
-      wx.navigateTo({
-        url: '../period-two/period-two?menstrualStartTime=' + app.globalData.menstrualStartTime,
-        success: function (res) { 
-          console.log(app.globalData.menstrualStartTime)
-        },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    }
-
-  },
-
-  dianji:function(e){
-    // console.log(this.data.dateArr)
+  dianji: function (e) {
+    console.log(this.data.dateArr)
     console.log(e.currentTarget.dataset.index)
   },
   onLoad: function () {

@@ -1,7 +1,8 @@
 <view class='wrap'>
 
   <view class='view-buzou'>
-        <image src='../../img/buzou1.png'></image>
+        <text>步骤 1   共有6步骤</text>
+        <image src='../../img/buzhou1.png'></image>
   </view> 
   <view class='view-tes'>您上一次月经何时开始？</view>
 	<view class='header'>

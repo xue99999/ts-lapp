@@ -27,24 +27,33 @@ Page({
         name: '4'
       }
     ],
-    listInfo: [
-      // {
-      //   imgUrl: '../../img/choose1@3x.png',
-      //   curUrl: '../../img/choose@3x.png',
-      // },
-      {
-        imgUrl: '../../img/choose1@3x.png',
-        curUrl: '../../img/choose@3x.png',
-      }
-    ],
+    show:false,
+    imgUrl: '../../img/choose1@3x.png',
+    curUrl: '../../img/choose@3x.png',
+      
     index: 0,
-    scrollTop:1130
+    scrollTop:1130,
+    scrollShow:true
+  },
+  chooseImg: function (e) {
+
+    this.setData({
+      show: !this.data.show
+    })
+    if (this.data.show) {
+      this.setData({
+        scrollShow: false
+      })
+    }
+    else{
+      this.setData({
+        scrollShow: true
+      })      
+    }
   },
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
+    var zhi2 = e.target.dataset.index += 1
+    console.log('月经有多长' + zhi2 + '天')
   },
   navto: function () {
     wx.navigateTo({

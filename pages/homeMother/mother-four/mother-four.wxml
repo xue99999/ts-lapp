@@ -1,11 +1,12 @@
 <view>
       <view class='view-buzou'>
-            <image src='../../img/buzou4.png'></image>
+        <text>步骤 4   共有6步骤</text>
+        <image src='../../img/buzhou4.png'></image>
       </view>
       <view class='view-tes'>您在哪一年出生？</view>
       <!-- 选择器 -->
       <scroll-view style="height: 550rpx;" scroll-y class='scroll-array'scroll-top='{{scrollTop}}'>
-            <view wx:for='{{array}}' wx:key class='view-array' bindtap='bindPickerChange' data-nian='{{item}}'>{{item}}</view>
+          <view wx:for='{{array}}' wx:key class='view-array'>{{item}}</view>
       </scroll-view>
 
 
