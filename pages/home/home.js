@@ -1,16 +1,27 @@
 // pages/home/home.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    shaonv:app.globalData.shaonv,
+    lama: app.globalData.lama
   },
-  clickPeriod(){
+  // 少女入口
+  clickGirl(e){
       wx.navigateTo({
         url: '../period/period-one/period-one',
       })
+      console.log(e)
+  },
+  // 辣妈入口
+  clickMother(e) {
+    wx.navigateTo({
+      url: '../homeMother/mother-one/mother-one',
+    })
+    console.log(e)
   },
 
   /**

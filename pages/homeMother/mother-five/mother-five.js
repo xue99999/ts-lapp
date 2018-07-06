@@ -5,34 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991',
-      '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'],
-    objectArray: [
-      {
-        id: 0,
-        name: '1'
-      },
-      {
-        id: 1,
-        name: '2'
-      },
-      {
-        id: 2,
-        name: '3'
-      },
-      {
-        id: 3,
-        name: '4'
-      } 
-    ],
-    index: 0,
-  },
-  bindPickerChange: function (options) {
-    console.log(options.currentTarget.dataset.nian+'年出生。')
+    array: ['小公主', '小王子'],
   },
   navto: function () {
-    wx.switchTab({
-      url: '../../taber/taber',
+    wx.navigateTo({
+      url: '../mother-six/mother-six',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

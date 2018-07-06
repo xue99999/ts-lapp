@@ -8,6 +8,18 @@
   font-size: 30rpx;
   letter-spacing: 1.656rpx;
 }
+.view-else{
+  width: 100%;
+  margin-top: 40%;
+}
+.view-tet{
+  width: 100%;
+  font-weight: bold;
+  font-size: 30rpx;
+  letter-spacing: 1.656rpx;
+  text-align: center;
+  margin-top: 5rpx;
+}
 .scroll-array{
   margin-top: 100rpx;
 }

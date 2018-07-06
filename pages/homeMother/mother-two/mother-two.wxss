@@ -1,12 +1,22 @@
-.view-buzou image{
-  width: 750rpx; 
-   height: 144.9rpx;
-}
+
 .view-tes{
   text-align: center;
   font-weight: bold;
+  margin-top: 54rpx;
   font-size: 30rpx;
   letter-spacing: 1.656rpx;
+}
+.view-buzou text{
+  margin-left: 294rpx;
+  margin-top: 39rpx;
+  font-size: 20rpx;
+  color: #666666;
+}
+.view-buzou image{
+  margin-left: 211rpx;
+  margin-top: 17rpx;
+  width: 326rpx;
+  height: 18rpx;
 }
 .scroll-array{
   margin-top: 100rpx;
@@ -27,7 +37,6 @@ color: transparent;
   color: #FE6F71;
   background: #FFF4F4;
 }
-
 .view-fot{
   position: fixed;
   bottom: 36rpx;

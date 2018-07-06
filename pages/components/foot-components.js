@@ -11,12 +11,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    listInfo: [
-      {
+        show:false,
         imgUrl: '../img/choose1@3x.png',
-        curUrl: '../img/choose@3x.png',
-      }
-    ]
+        curUrl: '../img/choose@3x.png'
   },
 
   /**
@@ -25,19 +22,15 @@ Component({
   methods: {
     navto: function () {
       wx.navigateTo({
-        url: '../period-three/period-three',
-        success: function (res) { },
-        fail: function (res) { },
-        complete: function (res) { },
+        url: '../period-three/period-three'
       })
     },
     chooseImg: function (e) {
 
       this.setData({
-        curIdx: e.currentTarget.dataset.current
+        show:!this.data.show
       })
       console.log(e)
-      console.log(this.data.curIdx)
 
     }
   }

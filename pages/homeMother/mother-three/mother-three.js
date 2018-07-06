@@ -5,8 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991',
-      '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'],
+    array: [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',
+      '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30'
+    ],
     objectArray: [
       {
         id: 0,
@@ -23,16 +25,35 @@ Page({
       {
         id: 3,
         name: '4'
-      } 
+      }
     ],
+    show: false,
+    imgUrl: '../../img/choose1@3x.png',
+    curUrl: '../../img/choose@3x.png',
+
     index: 0,
+    scrollTop: 1130,
+    scrollShow: true
   },
-  bindPickerChange: function (options) {
-    console.log(options.currentTarget.dataset.nian+'年出生。')
+  chooseImg: function (e) {
+
+    this.setData({
+      show: !this.data.show
+    })
+    if (this.data.show) {
+      this.setData({
+        scrollShow: false
+      })
+    }
+    else {
+      this.setData({
+        scrollShow: true
+      })
+    }
   },
   navto: function () {
-    wx.switchTab({
-      url: '../../taber/taber',
+    wx.navigateTo({
+      url: '../mother-four/mother-four',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

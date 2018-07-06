@@ -5,8 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991',
-      '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'],
+    array: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'],
     objectArray: [
       {
         id: 0,
@@ -23,20 +22,33 @@ Page({
       {
         id: 3,
         name: '4'
-      } 
+      }
     ],
     index: 0,
-  },
-  bindPickerChange: function (options) {
-    console.log(options.currentTarget.dataset.nian+'年出生。')
+    show: false,
+    imgUrl: '../../img/choose1@3x.png',
+    curUrl: '../../img/choose@3x.png'
   },
   navto: function () {
-    wx.switchTab({
-      url: '../../taber/taber',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+    wx.navigateTo({
+      url: '../mother-three/mother-three'
     })
+  },
+  chooseImg: function (e) {
+
+    this.setData({
+      show: !this.data.show
+    })
+    if (this.data.show) {
+      this.setData({
+        scrollShow: false
+      })
+    }
+    else {
+      this.setData({
+        scrollShow: true
+      })
+    }
   },
 
   /**

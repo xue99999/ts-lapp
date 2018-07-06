@@ -39,12 +39,6 @@
   font-size: 80%;
   letter-spacing: 1.656rpx;
 }
-.box {
-
-}
-.box_list{
-
-}
 .box-image{
   width: 33rpx;
   height: 33rpx;
