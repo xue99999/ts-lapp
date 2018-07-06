@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -61,15 +61,21 @@
 				},
 				{
 					"id": -1,
-					"name": "课程详情",
-					"pathName": "pages/home/home",
-					"query": "id=2121211221"
+					"name": "success",
+					"pathName": "pages/pay/wxStatus/wxstatus",
+					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "课程详情",
-					"pathName": "pages/courseDetails/courseDetails",
-					"query": "id=2121211221"
+					"name": "success",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "success",
+					"pathName": "pages/pay/wxPay/wxpay",
+					"query": ""
 				}
 			]
 		}

@@ -1,0 +1,89 @@
+/*微信支付 */
+
+.inclusion {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #e1e1e1;
+}
+
+.view_pay1 {
+  display: flex;
+  width: 100%;
+  height: 62rpx;
+  background: #fff;
+  flex-direction: row;
+  margin-top: 20rpx;
+  align-content: center;
+  justify-content: cente;
+  border-bottom: 1rpx #e1e1e1 solid;
+}
+
+.view_pay_text_left, .view_pay_text_right, .view_pay_input_right {
+  width: 50%;
+  height: 27rpx;
+  line-height: 27rpx;
+  font-size: 27rpx;
+  margin: auto;
+}
+
+.view_pay_text_left {
+  padding-left: 27rpx;
+  color: #999;
+}
+
+.view_pay_text_right {
+  text-align: right;
+  padding-right: 27rpx;
+  color: #000;
+}
+
+.view_pay2 {
+  display: flex;
+  width: 100%;
+  height: 62rpx;
+  background: #fff;
+  flex-direction: row;
+  align-content: center;
+  justify-content: cente;
+  border-bottom: 1rpx #e1e1e1 solid;
+}
+
+.view_pay_text_right1 {
+  width: 50%;
+  height: 27rpx;
+  line-height: 27rpx;
+  font-size: 27rpx;
+  margin: auto;
+  text-align: right;
+  color: #fe6f71;
+}
+
+.view_pay_text_right2 {
+  line-height: 27rpx;
+  font-size: 27rpx;
+  margin: auto;
+  padding-right: 27rpx;
+}
+
+.view_pay_input_right {
+  width: 100%;
+  font-size: 27rpx;
+  padding-right: 27rpx;
+  height: 27rpx;
+  line-height: 27rpx;
+  text-align: right;
+}
+
+.view_pay_button {
+  position: fixed;
+  bottom: 0;
+  width: 95%;
+  height: 74rpx;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 74rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 51rpx;
+}

@@ -11,8 +11,8 @@ function ownerQuery(params){
 //课程列表
 const {post}=Http;
  function apiSection(params){
-   return post({
-     url: baseUrl + 'api/section',
+   return get({
+     url: baseUrl + 'api/section/:courseId',
      params
    })
  }
@@ -44,12 +44,39 @@ function authWechatLogin(params) {
     params
   })
 }
+//企业码
+function icketQuery(params){
+  return get({
+    url: baseUrl + '/ticket/query',
+    params
+  })
+}
+//统一下单
+function payUnifiedorder(params){
+  return post({
+    url: baseUrl + '/pay/unifiedorder',
+    params
+  })
+
+  
+}
+//订单查询接口
+function orderQuery(params) {
+  return get({
+    url: baseUrl + 'order/query',
+    params
+  })
+}
 module.exports = {
   ownerQuery,
   apiSection,
   apiCourseCollectList,
   apiCourseId,
   authUserInfo,
-  authWechatLogin
+  authWechatLogin,
+  icketQuery,
+  payUnifiedorder,
+  orderQuery
+
   
 };
