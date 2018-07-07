@@ -20,7 +20,7 @@
 
   <!-- <template is="{{currentTab % 2 == 0?'course_remark':'course_list'}}" data="{{sectionList}}" /> -->
   <template wx:if="{{currentTab % 2 == 0}}" is="course_remark" data="{{...courseData}}" />
-  <template wx:else is="course_list" data="{{sectionList}}" />
+  <template wx:else is="course_list" data="{{sectionList,url,teacherName}}" />
   <template name="course_list">
     <view class='course_list' bindtap='onClickAllPlay'>
       <image class='course_list_img' src='../img/play@3x.png'></image>
@@ -28,7 +28,7 @@
     </view>
     <scroll-view class='scroll_view' scroll-y="true">
       <view wx:for="{{sectionList}}" wx:for-item="item" wx:key="{{item.playNum+item.duration}}">
-        <navigator class='course_list_itme' url="{{url+'?id='+item.id}}">
+        <navigator class='course_list_itme' url="{{url+'&id='+item.id+'&teacherName='+teacherName}}">
           <view class='course_list_itme_text1'>{{(index+1)>9?(index+1):'0'+(index+1)}}</view>
           <view class='course_list_itme_text2'>
             <view class='course_list_itme_text_title'>{{item.sectionName}}</view>

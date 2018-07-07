@@ -67,6 +67,14 @@ function orderQuery(params) {
     params
   })
 }
+//课节播放
+function apiSectionPlay(params){
+  return get({
+    url: baseUrl + 'api/section/play',
+    params
+  })
+
+}
 module.exports = {
   ownerQuery,
   apiSection,
@@ -76,7 +84,8 @@ module.exports = {
   authWechatLogin,
   icketQuery,
   payUnifiedorder,
-  orderQuery
+  orderQuery,
+  apiSectionPlay
 
   
 };

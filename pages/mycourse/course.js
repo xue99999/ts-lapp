@@ -9,7 +9,7 @@ Page({
    */
   data: {
   //  list:[],
-   url:'../courseDetails/courseDetails',
+   url:'/pages/courseDetails/courseDetails',
 
   },
 

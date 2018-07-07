@@ -1,0 +1,49 @@
+<!--视频播放-->
+<view class="section_tc">
+  <video id="myVideo" src="{{filePath}}" duration="{{durations}}"  ></video>
+  <view class='list'>
+    <text class='view_fileName'>{{sectionName}}</text>
+    <text class='view_teacherName'>{{teacherName}}</text>
+    <!--进度条-->
+    <progress class='view_progress' percent="80" active />
+    <view class='view_schedule'>
+      <text class='view_schedule_text1'>00:00</text>
+      <text class='view_schedule_text2'>06:00</text>
+    </view>
+    <view class='view_1'>
+
+   
+      <view class='view_2' bindtap='onClickList'>
+        <!-- <image class='view_play_list_img' src='../img/list @3x.png'> </image> -->
+         <i-icon type="other" size="28"  />
+        <view class='view_play_list_text'> 课程列表</view>
+      </view>
+      <image class='view_play_img1' src='../img/backward@3x.png '></image>
+      <image class='view_play_img2' src='../img/suspended@3x.png'></image>
+      <image class='view_play_img3' src='../img/speed@3x.png '></image>
+    </view>
+  </view>
+  <view class='view_remark'>
+    <view class='view_remark_view'>本节课程内容</view>
+    <text class='view_remark_text'>简介:  {{remark}}</text>
+  </view>
+  <i-action-sheet visible="{{ visible1 }}" actions="{{ sections}}" show-cancel bind:cancel="handleCancel1" bind:click="handleClickItem1" />
+  <i-message id="message" />
+  <!-- <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+  <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    <view class='view_playlist'>
+      课程列表
+    </view>
+
+    <scroll-view class='scroll_view' scroll-y="true">
+      <view class='view_list_item' wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark}}">
+        <image class='list_item_view_all_img' src='../img/In the play@3x.png' wx:if="{{item.id===id}}" ></image>
+        <text class='list_item_text3'>{{item.remark}}</text>
+      </view>
+    </scroll-view>
+     <view class='view_shut' bindtap='hideModal'>
+     关闭
+    </view>
+  </view> -->
+
+</view>

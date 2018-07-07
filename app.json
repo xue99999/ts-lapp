@@ -9,7 +9,6 @@
     "pages/period/period-three/period-three",
     "pages/period/period-four/period-four",
     "pages/taber/taber",
-    "pages/mycourse/course",
     "pages/myCollection/collection",
     "pages/courseDetails/courseDetails",
     "pages/homeMother/mother-one/mother-one",
@@ -20,7 +19,9 @@
     "pages/homeMother/mother-six/mother-six",
     "pages/pay/wxPay/wxpay",
     "pages/pay/wxStatus/wxStatus",
-    "pages/pay/wxStatus/wxstatus"
+    "pages/pay/wxStatus/wxstatus",
+    "pages/courseVideo/coursevideo",
+    "pages/myCourse/course"
   ],
   "window": {
     "backgroundTextStyle": "light",

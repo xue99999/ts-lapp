@@ -15,9 +15,11 @@ Page({
     id:"",
     price: 0,
     courseName:"",
+    teacherName:"",
     courseData:{},
-    sectionList:[],
-    url:'写的电视添加路径',
+    sectionList:[
+    ],
+
     
    
   },
@@ -27,23 +29,30 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id);
-    apiCourseId().then(result=>{
+    var dataid={
+      id: options.id
+    }
+    apiCourseId(dataid).then(result=>{
       console.log('课程详情',result);
       this.setData({
         id: result.data.id,
         courseName: result.data.courseName,
         isSubscibe: result.data.isSubscibe,
         price: result.data.price,
-        
+        teacherName: result.data.teacherName,
         courseData: result.data,
       })
     });
-    apiSection().then(result=>{
+    var data = {
+      courseId: options.id
+    }
+    apiSection(data).then(result=>{
       console.log('课程列表', result);
       this.setData({
 
         total: result.total,
         sectionList: result.list,
+        url: '../courseVideo/coursevideo?courseId='+this.data.id,
       })
     });
   },
