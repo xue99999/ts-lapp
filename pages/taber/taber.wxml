@@ -1,0 +1,31 @@
+	
+<view class='box'>
+
+  <view class='header'>
+		<view wx:for='{{date}}'wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}</view>
+
+	</view>
+  <view class='headers'>
+     <view wx:for='{{arr}}' wx:key data-index="{{item}}" class='{{ index == 2? "weekMark" : ""}}' bindtap='clickArr'>{{item}}            </view>
+  </view>
+
+  <view class='view-tishi'>
+        <view>今日提示</view>
+  </view> 
+  <view class='view-img'>
+        <image src='../img/can.png'></image>
+  </view>
+
+  <view class='view-bu'>
+        <view></view>
+        <view class='bushu'>
+              <image src='../img/step number@3x.png'></image>
+              <!-- <text>16 步数</text> -->
+        </view> 
+        <view class='tupian'>
+              <image src='../img/add@3x.png'></image>
+        </view>
+  </view>
+
+
+</view>

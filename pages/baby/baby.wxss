@@ -1,0 +1,22 @@
+.body-sheng{
+    width: 100%;
+    padding: 24rpx 0;
+    font-size: 28rpx;
+    display: flex;
+    border-bottom: 1rpx solid gainsboro;
+}
+.sheng{
+    margin-left: 33rpx;
+}
+.gao{
+    margin-left: 513rpx;
+}
+.btn{
+  margin-top: 60rpx;
+  width: 90%;
+  line-height: 66rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: white;
+  background: #FE6F71;
+}

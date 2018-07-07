@@ -1,0 +1,27 @@
+<view class='body-sheng'>
+  <view class='sheng'>身高</view>
+  <view class='gao'>
+
+
+    <view class="section">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}cm
+        </view>
+      </picker> 
+    </view>
+
+  </view>
+</view>
+
+<view class='body-sheng'>
+  <view class='sheng'>体重</view>
+  <view class='gao' style='margin-left: 513rpx; color:gray'>
+    <picker bindchange="bindPickerChange1" value="{{index}}" range="{{array2}}">
+      <view class="picker">
+        {{array2[index]}}-kg
+      </view>
+    </picker> 
+  </view>
+</view>
+<button class='btn'>确 定</button>

@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.1.1",
 	"appid": "wx9373cbf07b9a07d6",
-	"projectname": "ts-wap",
+	"projectname": "ts-webapp",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -50,7 +50,7 @@
 				{
 					"id": 2,
 					"name": "home",
-					"pathName": "pages/home/home",
+					"pathName": "pages/baby/baby",
 					"query": ""
 				},
 				{

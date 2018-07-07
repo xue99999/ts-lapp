@@ -1,4 +1,5 @@
 // pages/period/period-two/period-two.js
+const app = getApp()
 Page({
 
   /**
@@ -6,34 +7,18 @@ Page({
    */
   data: {
     array: [
-              '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',
-              '17','18','19','20','21','22','23','24','25','26','27','28','29','30'
-            ],
-    objectArray: [
-      {
-        id: 0,
-        name: '1' 
-      },
-      {
-        id: 1,
-        name: '2'
-      },
-      {
-        id: 2,
-        name: '3'
-      },
-      {
-        id: 3,
-        name: '4'
-      }
+      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',
+      '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30'
     ],
-    show:false,
+    show: false,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
-      
+
     index: 0,
-    scrollTop:1130,
-    scrollShow:true
+    scrollTop: 1130,
+    scrollShow: true,
+    menstrualCycle: null,  //持续多久
+    menstrualTimes: null    //经期有多长
   },
   chooseImg: function (e) {
 
@@ -45,15 +30,19 @@ Page({
         scrollShow: false
       })
     }
-    else{
+    else {
       this.setData({
         scrollShow: true
-      })      
+      })
     }
   },
   bindPickerChange: function (e) {
-    var zhi2 = e.target.dataset.index += 1
-    console.log('月经有多长' + zhi2 + '天')
+    var menstrualCycle = e.target.dataset.index += 1
+    console.log('月经有多长' + menstrualCycle + '天')
+    this.setData({
+      menstrualCycle: menstrualCycle
+    })
+
   },
   navto: function () {
     wx.navigateTo({
@@ -62,6 +51,15 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+    console.log(this.data.menstrualTimes)
+    console.log(this.data.menstrualCycle)
+    var obj = {
+
+      'menstrualTimes': this.data.menstrualTimes,
+      'menstrualCycle': this.data.menstrualCycle
+    }
+    wx.setStorageSync('xinxi', obj)
+
   },
 
   /**
@@ -69,6 +67,10 @@ Page({
    */
   onLoad: function (options) {
 
+    var menstrualTimes = options.menstrualTimes
+    this.setData({
+      menstrualTimes: menstrualTimes
+    })
   },
 
   /**

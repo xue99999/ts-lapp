@@ -17,7 +17,9 @@
     "pages/homeMother/mother-three/mother-three",
     "pages/homeMother/mother-four/mother-four",
     "pages/homeMother/mother-five/mother-five",
-    "pages/homeMother/mother-six/mother-six"
+    "pages/homeMother/mother-six/mother-six",
+    "pages/calendar/calendar",
+    "pages/baby/baby"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,7 +41,7 @@
       },
       {
         "text": "日历",
-        "pagePath": "pages/taber/taber",
+        "pagePath": "pages/calendar/calendar",
         "iconPath": "pages/img/calendar@3x.png",
         "selectedIconPath": "pages/img/calendar1@3x.png"
       },
