@@ -1,0 +1,27 @@
+<!--pages/pay/wxPay/wxpay.wxml-->
+<view class='inclusion'> 
+<view class='view_pay1'>
+    <text class='view_pay_text_left'> 课程</text>
+     <text class='view_pay_text_right'>{{courseName}}</text>
+</view>
+<view class='view_pay2'>
+    <text class='view_pay_text_left'> 集数</text>
+     <text class='view_pay_text_right'>预计更新{{total}}集</text>
+</view>
+<view class='view_pay2'>
+    <text class='view_pay_text_left'> 价格</text>
+     <text class='view_pay_text_right1'>{{price}}</text>
+     <text class='view_pay_text_right2'>元</text>
+</view>
+<view class='view_pay2'>
+    <text class='view_pay_text_left'> 企业兑换码</text>
+      <input class='view_pay_input_right' focus="{{focus}}" type="text" cursor='' bindblur="bindObtain" auto-focus placeholder="请输入您的企业兑换码"/>
+</view>
+<view class='view_pay1'>
+    <text class='view_pay_text_left'> 总价</text>
+     <text class='view_pay_text_right1'>{{theTotalPrice>0?theTotalPrice:"0.00"}}</text>
+     <text class='view_pay_text_right2'>元</text>
+</view>
+<button  class='view_pay_button' type="warn" size="{{warnSize}}"  plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="onClickPay" > 微信支付 </button>
+</view>

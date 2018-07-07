@@ -12,7 +12,9 @@ Page({
     scrollLeft: 0, //tab标题的滚动条位置
     total:"",
     isSubscibe:'',
+    id:"",
     price: 0,
+    courseName:"",
     courseData:{},
     sectionList:[],
     url:'写的电视添加路径',
@@ -28,8 +30,11 @@ Page({
     apiCourseId().then(result=>{
       console.log('课程详情',result);
       this.setData({
+        id: result.data.id,
+        courseName: result.data.courseName,
         isSubscibe: result.data.isSubscibe,
         price: result.data.price,
+        
         courseData: result.data,
       })
     });
@@ -119,5 +124,8 @@ Page({
   } ,
   onClickSubscriber() {
     console.log("订阅");
+    wx.navigateTo({
+      url: '../pay/wxPay/wxpay?id='+this.data.id+'&total='+this.data.total+'&courseName='+this.data.courseName+'&price='+this.data.price
+    })
   } 
 })
