@@ -19,10 +19,10 @@
     "pages/homeMother/mother-five/mother-five",
     "pages/homeMother/mother-six/mother-six",
     "pages/pay/wxPay/wxpay",
-    "pages/pay/wxStatus/wxStatus",
     "pages/pay/wxStatus/wxstatus",
     "pages/courseVideo/coursevideo",
     "pages/myCourse/course"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

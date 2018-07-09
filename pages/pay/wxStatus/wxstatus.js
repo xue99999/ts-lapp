@@ -2,6 +2,9 @@
 const { 
   orderQuery
  } = require('../../../service/user.js');
+
+ var id= "";
+ var orderNo="";
 Page({
 
   /**
@@ -12,9 +15,7 @@ Page({
     // payfailed: "如有问题,请联系客服",
    */
   data: {
- 
-    id:"",
-    orderNo:"",
+
   
   },
 
@@ -23,15 +24,13 @@ Page({
    */
   onLoad: function(options) {
     console.log(options);
-    this.setData({
-      id: options.id,
-      orderNo: options.orderNo
-    })
+      id= options.id,
+      orderNo=options.orderNo
     if (options.orderNo.length>0){
-    var data={
-      orderNo: options.orderNo
-    }
-    orderQuery(data).then(result=>{
+    // var data={
+    //   orderNo: options.orderNo
+    // }
+    orderQuery().then(result=>{
         console.log(result);
         if (result.status==='01'){
               this.setData({
@@ -61,7 +60,7 @@ Page({
     console.log('课程详情');
 
     wx.redirectTo({
-      url: '/pages/courseDetails/courseDetails?id=' + this.data.id
+      url: '/pages/courseDetails/courseDetails?id=' + id
     })
 
   },
@@ -69,7 +68,7 @@ Page({
   onCourseList() {
     console.log('课程列表');
     wx.redirectTo({
-      url: '/pages/myCourse/course?courseType=01' 
+      url: '/pages/myCourse/course' 
     })
   }
 })

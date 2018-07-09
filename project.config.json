@@ -70,6 +70,12 @@
 					"name": "视频",
 					"pathName": "pages/courseVideo/coursevideo",
 					"query": "id=1234444&courseId=44455454545454545"
+				},
+				{
+					"id": -1,
+					"name": "微信支付",
+					"pathName": "pages/pay/wxPay/wxpay",
+					"query": ""
 				}
 			]
 		}

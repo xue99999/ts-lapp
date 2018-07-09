@@ -22,7 +22,6 @@ Page({
 
     var user = wx.getStorageSync('userInfo')
     var code = wx.getStorageSync('code')
-    console.log(user)
     var data = {
       code: code,
       userInfo: user.userInfo,
@@ -33,6 +32,7 @@ Page({
       console.log(res);
 
     })
+ 
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -100,6 +100,10 @@ Page({
           authUserInfo(data).then(res => {
             console.log(res);
 
+          }),
+          //登录微信授权
+          authWechatLogin(data).then(result => {
+            console.log('登录微信授权',result);
           })
         }
       }
