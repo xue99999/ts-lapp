@@ -23,7 +23,7 @@
               <!-- <text>16 步数</text> -->
         </view> 
         <view class='tupian'>
-              <image src='../img/add@3x.png'></image>
+              <image src='../img/add@3x.png' bindtap='navState'></image>
         </view>
   </view>
 

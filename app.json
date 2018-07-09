@@ -1,10 +1,10 @@
-
 {
   "pages": [
+    "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
     "pages/my/my",
-    "pages/home/home",
+
     "pages/period/period-one/period-one",
     "pages/period/period-two/period-two",
     "pages/period/period-three/period-three",
@@ -19,10 +19,12 @@
     "pages/homeMother/mother-five/mother-five",
     "pages/homeMother/mother-six/mother-six",
     "pages/pay/wxPay/wxpay",
-    "pages/pay/wxStatus/wxStatus",
     "pages/pay/wxStatus/wxstatus",
     "pages/courseVideo/coursevideo",
-    "pages/myCourse/course"
+    "pages/mycourse/course",
+    "pages/calendar/calendar",
+    "pages/state/state",
+    "pages/baby/baby"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -37,16 +39,22 @@
     "backgroundColor": "#f9f9f9",
     "list": [
       {
-        "text": "试",
+        "text": "今天",
         "pagePath": "pages/taber/taber",
         "iconPath": "pages/img/today@3x.png",
         "selectedIconPath": "pages/img/toady1@3x.png"
       },
       {
-        "text": "试试",
-        "pagePath": "pages/taber/taber",
+        "text": "日历",
+        "pagePath": "pages/calendar/calendar",
         "iconPath": "pages/img/calendar@3x.png",
         "selectedIconPath": "pages/img/calendar1@3x.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/my/my",
+        "iconPath": "pages/img/homepage@3x.png",
+        "selectedIconPath": "pages/img/homepage1@3x.png"
       }
     ]
   }

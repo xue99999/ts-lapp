@@ -1,30 +1,12 @@
-// pages/baby/baby.js
+// pages/state/state.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    multiArray: [[50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60],['.0cm', '.1cm','.2cm','.3cm']],
-    multiIndex: [3, 2],
-    multiArray1:[[1,2,3,4,5,6,7,8,9],['.0kg','.1kg','.2kg','.3kg']],
-    multiIndex1: [7, 1]
-
+  
   },
-  changeMultiPicker(e) {
-    this.setData({ multiIndex: e.detail.value })
-
-  },
-  changeMultiPicker1(e) {
-    this.setData({ multiIndex1: e.detail.value })
-        console.log(e)
-  },
-  navto:function(e){
-    wx.switchTab({
-      url:'../taber/taber'
-    })
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
