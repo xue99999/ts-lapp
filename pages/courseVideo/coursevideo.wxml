@@ -26,7 +26,7 @@
   <!-- <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
   <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
     <view class='view_playlist'>
-      课程列表
+      课程列表的点点滴滴
     </view>
 
     <scroll-view class='scroll_view' scroll-y="true">
