@@ -1,0 +1,80 @@
+    <view class='view-an'>
+        <view class='view-mo'>
+              <image src='../img/menstruation2@3x.png'></image>
+              <text>月经量</text>
+        </view>
+        <view class='view-mo1'>
+              <image src='../img/Knead back@3x.png'></image>
+              <image src='../img/belly@3x.png'></image>
+        </view>
+    </view>
+        <view class='view-an'>
+        <view class='view-mo'>
+              <image src='../img/leucorrhea@3x.png'></image>
+              <text>白带</text>
+        </view>
+        <view class='view-mo1'>
+              <image src='../img/Knead back@3x.png'></image>
+              <image src='../img/belly@3x.png'></image>
+        </view>
+    </view>
+        <view class='view-an'>
+        <view class='view-mo'>
+              <image src='../img/breast@3x.png'></image>
+              <text>乳房胀痛</text>
+        </view>
+        <view class='view-mo1'>
+              <image src='../img/Knead back@3x.png'></image>
+              <image src='../img/belly@3x.png'></image>
+        </view>
+    </view>
+        <view class='view-an'>
+        <view class='view-mo'>
+              <image src='../img/lower abdomen@3x.png'></image>
+              <text>小腹痛</text>
+        </view>
+        <view class='view-mo1'>
+              <image src='../img/Knead back@3x.png'></image>
+              <image src='../img/belly@3x.png'></image>
+        </view>
+    </view>
+        <view class='view-an'>
+        <view class='view-mo'>
+              <image src='../img/mood@3x.png'></image>
+              <text>心情</text>
+        </view>
+        <view class='view-mo1'>
+              <image src='../img/Knead back@3x.png'></image>
+              <image src='../img/belly@3x.png'></image>
+        </view>
+    </view>
+        <view class='view-an'>
+        <view class='view-mo'>
+              <image src='../img/headache@3x.png'></image>
+              <text>经期头痛</text>
+        </view>
+        <view class='view-mo1'>
+              <image src='../img/Knead back@3x.png'></image>
+              <image src='../img/belly@3x.png'></image>
+        </view>
+    </view>
+        <view class='view-an'>
+        <view class='view-mo'>
+              <image src='../img/cold@3x.png'></image>
+              <text>怕冷</text>
+        </view>
+        <view class='view-mo1'>
+              <image src='../img/Knead back@3x.png'></image>
+              <image src='../img/belly@3x.png'></image>
+        </view>
+    </view>
+        <view class='view-an'>
+        <view class='view-mo'>
+              <image src='../img/No tired@3x.png'></image>
+              <text>乏力</text>
+        </view>
+        <view class='view-mo1'>
+              <image src='../img/Knead back@3x.png'></image>
+              <image src='../img/belly@3x.png'></image>
+        </view>
+    </view>

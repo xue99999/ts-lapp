@@ -2,13 +2,12 @@
   <view class='sheng'>身高</view>
   <view class='gao'>
 
-
     <view class="section">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker bindchange="changeMultiPicker" mode="multiSelector" value="{{multiIndex}}" range="{{multiArray}}">
         <view class="picker">
-          {{array[index]}}cm
+          {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}
         </view>
-      </picker> 
+      </picker>
     </view>
 
   </view>
@@ -17,11 +16,14 @@
 <view class='body-sheng'>
   <view class='sheng'>体重</view>
   <view class='gao' style='margin-left: 513rpx; color:gray'>
-    <picker bindchange="bindPickerChange1" value="{{index}}" range="{{array2}}">
-      <view class="picker">
-        {{array2[index]}}-kg
-      </view>
-    </picker> 
+    <view class="section">
+    
+      <picker bindchange="changeMultiPicker1" mode="multiSelector" value="{{multiIndex1}}" range="{{multiArray1}}">
+        <view class="picker">
+          {{multiArray1[0][multiIndex1[0]]}}{{multiArray1[1][multiIndex1[1]]}}
+        </view>
+      </picker>
+    </view>
   </view>
 </view>
-<button class='btn'>确 定</button>
+<button class='btn' bindtap='navto'>确 定</button>

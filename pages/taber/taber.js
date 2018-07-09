@@ -11,6 +11,11 @@ Page({
   clickArr:function(e){
     console.log(e.currentTarget.dataset.index)
   },
+  navState:function(){
+    wx.navigateTo({
+      url: '../state/state',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
