@@ -57,54 +57,6 @@ Page({
     });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
   // 滚动切换标签样式
   switchTab: function (e) {
     this.setData({
@@ -128,13 +80,30 @@ Page({
   onClickAllPlay(){
     console.log("全部播放");
   },
-  onClickShare(){
-    console.log("分享");
-  } ,
   onClickSubscriber() {
     console.log("订阅");
     wx.navigateTo({
       url: '../pay/wxPay/wxpay?id='+this.data.id+'&total='+this.data.total+'&courseName='+this.data.courseName+'&price='+this.data.price
     })
-  } 
+  } ,
+  onShareAppMessage: function (ops) {
+
+    if (ops.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(ops.target)
+    
+    }
+    return {
+      title: '她师小程序',
+      path: '/pages/courseDetails/courseDetails',
+      success: function (res) {
+        // 转发成功
+        console.log("转发成功:" + JSON.stringify(res));
+      },
+      fail: function (res) {
+        // 转发失败
+        console.log("转发失败:" + JSON.stringify(res));
+      }
+    }
+  }
 })

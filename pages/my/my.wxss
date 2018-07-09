@@ -47,24 +47,22 @@
 
 .text_phone1 {
   display: block;
- margin-top: 18rpx;
+  margin-top: 18rpx;
   height: 18rpx;
   line-height: 18rpx;
   text-align: center;
   font-size: 14px;
   color: #1a8ffd;
 }
+
 .view_solid {
- 
   width: 100%;
   margin: 35rpx 29rpx 0 29rpx;
-  
   height: 1rpx;
   background: #e1e1e1;
-  
 }
-.layout_horizontal {
 
+.layout_horizontal {
   height: 116.36rpx;
   display: flex;
   flex-direction: row;
@@ -94,8 +92,6 @@
   line-height: 116.36rpx;
   text-align: center;
 }
-
-
 
 .view_solid_vertical {
   width: 1px;
@@ -228,4 +224,20 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.deg button {
+   margin-top: 15px;
+  border: none;
+  height: 40rpx;
+  background: none;
+  border-radius: 0;
+  line-height: 40rpx;
+  color: #333;
+  font-size: 20rpx;
+  text-align: center;
+}
+
+.deg button:after {
+  border: none;
 }
