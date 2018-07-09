@@ -16,7 +16,7 @@ Page({
     filePath: "",
     teacherName:"",
     durations: 0,
-    remark: "撒大声地所所斯蒂芬斯蒂芬国史大纲水电士大夫士大夫撒旦法 费广东省分公司电饭锅的双方各大范甘迪发 ",
+    remark: "",
     list:[],
     // 小节列表
     sections:[]
@@ -46,6 +46,7 @@ Page({
       const sections=[];
       var sectionName="";
       var durations=0;
+      var remark="";
       // 数据转换
       for(let i=0;i<list.length;i++){
         const section=list[i];
@@ -63,6 +64,7 @@ Page({
           console.log('durations>>>>>>>>>', durations)
           //请求播放列表
           this.doPlay(list[i].id);
+          remark = list[i].remark;
         }
       }
       console.log('sectionName>>>>>>>>>', sectionName)
@@ -71,6 +73,7 @@ Page({
         sectionName,
         teacherName: options.teacherName,
         durations,
+        remark,
       })
 
    
@@ -163,5 +166,18 @@ Page({
         showModalStatus: false
       })
     }.bind(this), 200)
+  },
+  //下一首
+  toNext:function(){
+  
+  },
+  //上一首
+  toLast:function(){
+  
+  },
+  //暂停
+  onSuspend:function(){
+    //暂停
+    videoContext.pause();
   }
 })

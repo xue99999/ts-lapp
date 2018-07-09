@@ -4,23 +4,17 @@
   <view class='list'>
     <text class='view_fileName'>{{sectionName}}</text>
     <text class='view_teacherName'>{{teacherName}}</text>
-    <!--进度条-->
-    <progress class='view_progress' percent="80" active />
-    <view class='view_schedule'>
-      <text class='view_schedule_text1'>00:00</text>
-      <text class='view_schedule_text2'>06:00</text>
-    </view>
+ <view class='hahahaha'></view>
     <view class='view_1'>
 
    
       <view class='view_2' bindtap='onClickList'>
-        <!-- <image class='view_play_list_img' src='../img/list @3x.png'> </image> -->
          <i-icon type="other" size="28"  />
         <view class='view_play_list_text'> 课程列表</view>
       </view>
-      <image class='view_play_img1' src='../img/backward@3x.png '></image>
-      <image class='view_play_img2' src='../img/suspended@3x.png'></image>
-      <image class='view_play_img3' src='../img/speed@3x.png '></image>
+      <image class='view_play_img1'  bindtap='toLast' src='../img/backward@3x.png '></image>
+      <image class='view_play_img2' bindtap='onSuspend' src='../img/suspended@3x.png'></image>
+      <image class='view_play_img3' bindtap='toNext' src='../img/speed@3x.png '></image>
     </view>
   </view>
   <view class='view_remark'>
