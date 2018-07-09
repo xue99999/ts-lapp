@@ -2,14 +2,19 @@
   <view class='view-buzou'>
     <image src='../../img/buzou2.png'></image>
   </view>
-  <view class='view-tes'>一般上, 您的月经持续多久?</view>
-  <!-- 选择器 -->
-  <scroll-view style="height: 550rpx;" scroll-y class='scroll-array'>
-    <view wx:for='{{array}}' wx:key class='view-array' bindtap='bindPickerChange' data-index='{{index}}'>
-      {{item}}
-    </view>
-  </scroll-view>
-
+  <view wx:if="{{scrollShow==true}}">
+    <view class='view-tes'>一般上, 您的月经持续多久?</view>
+    <!-- 选择器 -->
+    <scroll-view style="height: 550rpx;" scroll-y class='scroll-array'>
+      <view wx:for='{{array}}' wx:key class='view-array' bindtap='bindPickerChange' data-index='{{index}}'>
+        {{item}}
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:else class='view-else'>
+        <view class='view-tet'>她师会将周期来潮天数设定为28天 。</view>
+        <view class='view-tet'>您使用她师的次数越多 , 预测就越准确 。</view>
+  </view>
   <view class='view-fot'>
     <view class='fot-one'>
       <view class='box'>

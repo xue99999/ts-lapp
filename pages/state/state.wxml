@@ -1,11 +1,12 @@
-    <view class='view-an'>
+      <view class='view-an'>
         <view class='view-mo'>
               <image src='../img/menstruation2@3x.png'></image>
               <text>月经量</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/menstruation2-weak@3x.png'></image>
+              <image src='../img/menstruation2-centre@3x.png'></image>
+              <image src='../img/menstruation2-more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -14,8 +15,9 @@
               <text>白带</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/leucorrhea-weak.png'></image>
+              <image src='../img/leucorrhea-centre.png'></image>
+              <image src='../img/leucorrhea-more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -24,8 +26,9 @@
               <text>乳房胀痛</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/weak.png'></image>
+              <image src='../img/centre@3x.png'></image>
+              <image src='../img/more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -33,9 +36,13 @@
               <image src='../img/lower abdomen@3x.png'></image>
               <text>小腹痛</text>
         </view>
+      <!-- 小标签     -->
+          <view class='label'>超开心的</view>
+
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/weak.png'></image>
+              <image src='../img/centre@3x.png'></image>
+              <image src='../img/more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -44,8 +51,9 @@
               <text>心情</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/happy@3x.png'></image>
+              <image src='../img/general@3x.png'></image>
+              <image src='../img/unhappy@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -54,8 +62,9 @@
               <text>经期头痛</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/weak.png'></image>
+              <image src='../img/centre@3x.png'></image>
+              <image src='../img/more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -64,8 +73,9 @@
               <text>怕冷</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/cold-weak@3x.png'></image>
+              <image src='../img/cold-centres@3x.png'></image>
+              <image src='../img/cold-more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -74,7 +84,8 @@
               <text>乏力</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/tired-weak@3x.png'></image>
+              <image src='../img/tired-centre@3x.png'></image>
+              <image src='../img/tired-more@3x.png'></image>
         </view>
     </view>

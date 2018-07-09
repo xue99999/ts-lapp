@@ -204,3 +204,17 @@
   margin-top: 10rpx;
   background: #F4F4F4;
 }
+
+.wx-switch-input{width:42px !important;height:20px !important;}
+.wx-switch-input::before{width:41px !important;height: 20px !important;}
+.wx-switch-input::after{width: 18px !important;height: 18px !important;} 
+
+.label{
+  width: 200rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background: #FE9A9B;
+  color: white;
+  border-radius: 25px;
+  margin-right: 110rpx;
+}

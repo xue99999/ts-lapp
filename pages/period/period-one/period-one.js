@@ -25,7 +25,6 @@ Page({
 
   },
   navto:function(){
-    if (this.data.show==true) {
       wx.navigateTo({
         url: '../period-two/period-two?menstrualStartTime=' + app.globalData.menstrualStartTime,
         success: function (res) { 
@@ -33,7 +32,7 @@ Page({
         fail: function (res) { },
         complete: function (res) { },
       })
-    }
+    
 
   },
 

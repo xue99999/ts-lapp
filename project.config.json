@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 8,
 			"list": [
 				{
 					"id": -1,
@@ -55,8 +55,8 @@
 				},
 				{
 					"id": 3,
-					"name": "index",
-					"pathName": "pages/index/index",
+					"name": "日历",
+					"pathName": "pages/calendar/calendar",
 					"query": ""
 				},
 				{
@@ -72,15 +72,21 @@
 					"query": "id=1234444&courseId=44455454545454545"
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "taber",
-					"pathName": "pages/taber/taber",
+					"pathName": "pages/period/period-one/period-one",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "six",
+					"pathName": "pages/Record/Record",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "six",
-					"pathName": "pages/homeMother/mother-six/mother-six",
+					"name": "设置经期",
+					"pathName": "pages/setPeriod/setPeriod",
 					"query": ""
 				}
 			]

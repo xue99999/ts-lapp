@@ -1,79 +1,81 @@
 <view class='wrap'>
-		<view class='date-show'>
-			<view class='lt-arrow' bindtap='lastMonth'>
+  <view class='date-show'>
+    <view class='lt-arrow' bindtap='lastMonth'>
       〈
-				<!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
-			</view>
-			 {{year}}年{{month}}月
-			<view class='rt-arrow' bindtap='nextMonth'>
+      <!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
+    </view>
+    {{year}}年{{month}}月
+    <view class='rt-arrow' bindtap='nextMonth'>
       〉
-				<!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
-			</view>
-		</view>
-	<view class='header'>
-		<view wx:for='{{date}}'wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}<view></view></view>
-	</view>
-	<view>
+      <!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
+    </view>
+  </view>
+  <view class='header'>
+    <view wx:for='{{date}}' wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}
+      <view></view>
+    </view>
+  </view>
+  <view>
 
-	</view>
-   <view class='view-month'> {{month}}月 </view> 
-         
-	<view class='header'>
-	</view>
-	<view class='date-box'>
-		<view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>			
-			<view class='date-head'>
-				<view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='dianji'class="active" >{{item.dateNum}}</view>
-			</view>
-		</view>
-	</view> 
-  
+  </view>
+  <view class='view-month'> {{month}}月 </view>
+
+  <view class='header'>
+  </view>
+  <view class='date-box'>
+    <view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
+      <view class='date-head'>
+        <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='dianji' class="active">{{item.dateNum}}</view>
+      </view>
+    </view>
+  </view>
+
   <view class='view-list'>
-          <view class='view-jing'>
-                <image src='../img/Oviposit day@3x.png'></image>
-                <text>月经期</text>
-          </view>
-          <view class='view-luan'>
-                <image src='../img/Oviposit day@3x.png'></image>
-                <text>排卵期</text>
-          </view>
-          <view class='view-ri'>
-                <image src='../img/Oviposit day@3x.png'></image>
-                <text>排卵日</text>
-          </view>
-          <view>></view>
+    <view class='view-jing'>
+      <image src='../img/Oviposit day@3x.png'></image>
+      <text>月经期</text>
+    </view>
+    <view class='view-luan'>
+      <image src='../img/Oviposit day@3x.png'></image>
+      <text>排卵期</text>
+    </view>
+    <view class='view-ri'>
+      <image src='../img/Oviposit day@3x.png'></image>
+      <text>排卵日</text>
+    </view>
   </view>
   <view class='view-an'>
-        <view class='view-mo'>
-              <image src='../img/massage@3x.png'></image>
-              <text>按摩</text>
-        </view>
-        <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
-        </view>
+    <view class='view-mo'>
+      <image src='../img/massage@3x.png'></image>
+      <text>按摩</text>
+    </view>
+    <view class='view-mo1'>
+      <image src='../img/Knead back@3x.png'></image>
+      <image src='../img/belly@3x.png'></image>
+    </view>
   </view>
 
   <view class='kong'></view>
-    <view class='view-an'>
-        <view class='view-mo'>
-              <image src='../img/menstruation1@3x.png'></image>
-              <text>大姨妈走喽</text>
-        </view>
-        <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
-        </view>
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/menstruation1@3x.png'></image>
+      <text>大姨妈走喽</text>
+    </view>
+    <view class="view-mo1">
+      <switch checked bindchange="switch1Change"  color='#FE6F71'/>
+      <switch bindchange="switch2Change"color='#FE6F71' />
+    </view>
   </view>
 
-    <view class='view-an'>
+      <view class='view-an'>
         <view class='view-mo'>
               <image src='../img/menstruation2@3x.png'></image>
               <text>月经量</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/menstruation2-weak@3x.png'></image>
+              <image src='../img/menstruation2-centre@3x.png'></image>
+              <image src='../img/menstruation2-more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -82,8 +84,9 @@
               <text>白带</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/leucorrhea-weak.png'></image>
+              <image src='../img/leucorrhea-centre.png'></image>
+              <image src='../img/leucorrhea-more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -92,8 +95,9 @@
               <text>乳房胀痛</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/weak.png'></image>
+              <image src='../img/centre@3x.png'></image>
+              <image src='../img/more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -101,9 +105,13 @@
               <image src='../img/lower abdomen@3x.png'></image>
               <text>小腹痛</text>
         </view>
+      <!-- 小标签     -->
+          <view class='label'>超开心的</view>
+
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/weak.png'></image>
+              <image src='../img/centre@3x.png'></image>
+              <image src='../img/more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -112,8 +120,9 @@
               <text>心情</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/happy@3x.png'></image>
+              <image src='../img/general@3x.png'></image>
+              <image src='../img/unhappy@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -122,8 +131,9 @@
               <text>经期头痛</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/weak.png'></image>
+              <image src='../img/centre@3x.png'></image>
+              <image src='../img/more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -132,8 +142,9 @@
               <text>怕冷</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/cold-weak@3x.png'></image>
+              <image src='../img/cold-centres@3x.png'></image>
+              <image src='../img/cold-more@3x.png'></image>
         </view>
     </view>
         <view class='view-an'>
@@ -142,16 +153,13 @@
               <text>乏力</text>
         </view>
         <view class='view-mo1'>
-              <image src='../img/Knead back@3x.png'></image>
-              <image src='../img/belly@3x.png'></image>
+              <image src='../img/tired-weak@3x.png'></image>
+              <image src='../img/tired-centre@3x.png'></image>
+              <image src='../img/tired-more@3x.png'></image>
         </view>
     </view>
 
 
 
 
-
-
-
 </view>
-

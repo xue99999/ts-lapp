@@ -12,7 +12,8 @@ Page({
     show: false,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
-    menstrualTimes:null
+    menstrualTimes:null,
+    scrollShow: true,
   },
   bindPickerChange: function (e) {
     // console.log(e.target.dataset.index)
@@ -45,7 +46,16 @@ Page({
       show: !this.data.show
     })
     console.log(e)
-
+    if (this.data.show) {
+      this.setData({
+        scrollShow: false
+      })
+    }
+    else {
+      this.setData({
+        scrollShow: true
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

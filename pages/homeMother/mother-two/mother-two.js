@@ -27,7 +27,8 @@ Page({
     index: 0,
     show: false,
     imgUrl: '../../img/choose1@3x.png',
-    curUrl: '../../img/choose@3x.png'
+    curUrl: '../../img/choose@3x.png',
+    scrollShow: true,
   },
   navto: function () {
     wx.navigateTo({

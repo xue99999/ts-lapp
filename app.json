@@ -4,7 +4,6 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/my/my",
-
     "pages/period/period-one/period-one",
     "pages/period/period-two/period-two",
     "pages/period/period-three/period-three",
@@ -24,7 +23,8 @@
     "pages/mycourse/course",
     "pages/calendar/calendar",
     "pages/state/state",
-    "pages/baby/baby"
+    "pages/baby/baby",
+    "pages/setPeriod/setPeriod"
   ],
   "window": {
     "backgroundTextStyle": "light",
