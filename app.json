@@ -1,3 +1,4 @@
+
 {
   "pages": [
     "pages/index/index",
@@ -36,13 +37,13 @@
     "backgroundColor": "#f9f9f9",
     "list": [
       {
-        "text": "今天",
+        "text": "试",
         "pagePath": "pages/taber/taber",
         "iconPath": "pages/img/today@3x.png",
         "selectedIconPath": "pages/img/toady1@3x.png"
       },
       {
-        "text": "日历",
+        "text": "试试",
         "pagePath": "pages/taber/taber",
         "iconPath": "pages/img/calendar@3x.png",
         "selectedIconPath": "pages/img/calendar1@3x.png"

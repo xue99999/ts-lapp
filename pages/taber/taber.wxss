@@ -1,1 +1,78 @@
-/* pages/taber/taber.wxss */
+.box{
+  width: 100%;
+  height: 1111rpx;
+  background: #EEE1EB;
+}
+.header{
+  width: 100%;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: space-around;
+  font-size: 26rpx;
+}
+.headers{
+  width: 100%;
+  line-height: 50rpx;
+  display: flex;
+  justify-content: space-around;
+  font-size: 26rpx;
+}
+.weekMark{
+  width: 50rpx;
+  height: 50rpx;
+  background: red;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+}
+.view-tishi{
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 30rpx;
+}
+.view-tishi view{
+  width: 180rpx;
+  text-align: center;
+  border-radius: 140px;
+  background: #FEA2A3;
+  color: white;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.view-img image{
+  width: 100%;
+  height: 700rpx;
+  border-radius: 50%;
+}
+.view-bu{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 130rpx;
+}
+.view-bu view{
+  width: 33.3%;
+
+}
+.bushu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30rpx;
+}
+.bushu image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.tupian{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 40rpx;
+}
+.tupian image{
+  width: 70rpx;
+  height: 70rpx;
+}

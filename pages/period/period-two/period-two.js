@@ -1,4 +1,6 @@
 // pages/period/period-two/period-two.js
+const app = getApp()
+
 Page({
 
   /**
@@ -6,42 +8,29 @@ Page({
    */
   data: {
     array: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16'],
-    objectArray: [
-      {
-        id: 0,
-        name: '1'
-      },
-      {
-        id: 1,
-        name: '2'
-      },
-      {
-        id: 2,
-        name: '3'
-      },
-      {
-        id: 3,
-        name: '4'
-      }
-    ],
     index: 0,
     show: false,
     imgUrl: '../../img/choose1@3x.png',
-    curUrl: '../../img/choose@3x.png'
+    curUrl: '../../img/choose@3x.png',
+    menstrualTimes:null
   },
   bindPickerChange: function (e) {
     // console.log(e.target.dataset.index)
-    var zhi = e.target.dataset.index+=1
-    console.log('月经持续多久'+zhi+'天')
-
+    var menstrualTimes = e.target.dataset.index+=1
+    console.log('月经持续多久' + menstrualTimes+'天')
+    this.setData({
+      menstrualTimes: menstrualTimes
+    })
+ 
   },
   navto: function () {
     wx.navigateTo({
-      url: '../period-three/period-three',
+      url: '../period-three/period-three?menstrualTimes=' + this.data.menstrualTimes,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
     })
+    
   },
 
   /**
@@ -68,8 +57,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-  
+  onShow: function (e) {
+
   },
 
   /**

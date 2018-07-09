@@ -1,16 +1,28 @@
-// pages/taber/taber.js
+// pages/baby/baby.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    date: ['日', '一', '二', '三', '四', '五', '六'],
-    arr:[4,5,6,7,8,9,10]
+    array:[50,51,52,53,54,55,56,57,58,59,60],
+    array1: [50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
+    array2:[1,2,3,4,5,6,7,8,9]
   },
-  clickArr:function(e){
-    console.log(e.currentTarget.dataset.index)
+
+  bindPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
+  bindPickerChange1: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

@@ -11,33 +11,22 @@ Page({
     isToday: 0,
     isTodayWeek: false,
     todayIndex: 0,
-    show:false,
+    show: false,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png'
-      
+
   },
   chooseImg: function (e) {
-    
+
     this.setData({
-      show:!this.data.show
+      show: !this.data.show
     })
 
 
   },
-  navto:function(){
-    if (this.data.show==true) {
-      wx.navigateTo({
-        url: '../period-two/period-two?menstrualStartTime=' + app.globalData.menstrualStartTime,
-        success: function (res) { 
-        },
-        fail: function (res) { },
-        complete: function (res) { },
-      })
-    }
 
-  },
 
-  dianji:function(e){
+  dianji: function (e) {
     // console.log(this.data.dateArr)
     console.log(e.currentTarget.dataset)
   },
