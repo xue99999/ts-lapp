@@ -3,7 +3,7 @@ const {
   payUnifiedorder
 } = require('../../../service/user.js');
 var input = '';
-var id = '';
+var id ;
 Page({
 
   /**
@@ -27,8 +27,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log('微信支付>>>>', options);
-    id: options.id;
+    console.log('微信支付>>>>', options.courseId);
+   
+    id= options.courseId;
     this.setData({
 
       total: options.total,
@@ -39,6 +40,7 @@ Page({
   onClickPay() {
     console.log('微信支付');
     console.log(input);
+    console.log('id>>>>>',id);
     if (input === '') {
       wx.showToast({
         title: '企业兑换码不能为空',

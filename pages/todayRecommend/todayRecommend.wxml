@@ -1,34 +1,42 @@
 <!--今日推荐-->
 <view class='inclusion'>
-
-<view class='view_top'> 
-
-
-</view>
-
-
- <scroll-view class='scroll_view' scroll-y="true" bindscrolltolower="lower"  bindscrolltoupper="upper">
-  <view class='headline'>课程推荐</view>
-  <view class='list_view1' wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark+item.sectionName}}">
-   <navigator class='list_view' url="{{url+'?id='+item.id}}">
-    <image class='list_item_img' src='../img/placeholder.jpg'></image>
-    <view class='list_itme_text_view'>
-      <text class='list_item_text1'>{{item.courseName}}</text>
-      <text class='list_item_text2'>{{item.teacherName}}    共{{item.courseCount}}节课</text>
-      <view class='list_item_view_all'>
-         <image class='list_item_view_all_img' src='../img/play1@3x.png'></image>
-         <!--添加默认次数  -->
-        <text class='list_item_text3'>{{item.subscribeTotal===''?0:item.subscribeTotal}}次订阅</text>
-        <!--
-        我的课程没有 时长 价格  labelcourse  -->
-          <image class='list_item_view_all_img1' src='../img/time@3x.png'></image>
-        <text class='list_item_text4'>{{item.duration}}</text>
-        <text class='list_item_text5'>¥{{item.price}}</text>
-      
+  <view class='view_top'>
+    <view class='view_top_s'>
+    <view class='text_view'>
+      <text class='view_top_text' wx:if="{{physiologicalCycle==='01'}}" >{{content01}}</text>
+      <text class='view_top_text' wx:elif="{{physiologicalCycle==='02'}}" >{{content02}}</text>
+      <text class='view_top_text' wx:elif="{{physiologicalCycle==='03'}}" >{{content03}}</text>
+      <text class='view_top_text' wx:elif="{{physiologicalCycle==='04'}}" >{{content04}}</text>
+      </view>
+      <view class='view_top_img'>
+        <image class='view_top_img1' src='../img/placeholder.jpg'></image>
+        <image class='view_top_img2' src='../img/placeholder.jpg'></image>
+        <image class='view_top_img3' src='../img/placeholder.jpg'></image>
       </view>
     </view>
-      </navigator>
   </view>
+  <scroll-view class='scroll_view' scroll-y="true" bindscrolltolower="lower" bindscrolltoupper="upper">
+    <view class='headline'>课程推荐</view>
+    <view class='list_view1' wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark+item.sectionName}}">
+      <navigator class='list_view' url="{{url+'?id='+item.id}}">
+        <image class='list_item_img' src='../img/placeholder.jpg'></image>
+        <view class='list_itme_text_view'>
+          <text class='list_item_text1'>{{item.courseName}}</text>
+          <text class='list_item_text2'>{{item.teacherName}}    共{{item.courseCount}}节课</text>
+          <view class='list_item_view_all'>
+            <image class='list_item_view_all_img' src='../img/play1@3x.png'></image>
+            <!--添加默认次数  -->
+            <text class='list_item_text3'>{{item.subscribeTotal===''?0:item.subscribeTotal}}次订阅</text>
+            <!--
+        我的课程没有 时长 价格  labelcourse  -->
+            <image class='list_item_view_all_img1' src='../img/time@3x.png'></image>
+            <text class='list_item_text4'>{{item.duration}}</text>
+            <text class='list_item_text5'>¥{{item.price}}</text>
 
-   </scroll-view> 
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+  </scroll-view>
 </view>
