@@ -101,7 +101,14 @@
 				{
 					"id": -1,
 					"name": "今日推荐",
-					"pathName": "pages/todayRecommend/todayRecommend"
+					"pathName": "pages/todayRecommend/todayRecommend",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "全部课程",
+					"pathName": "pages/ labelCourse / labelCourse",
+					"query": ""
 				}
 			]
 		}
