@@ -9,13 +9,13 @@
     <view class='view_solid'></view>
     <view class="layout_horizontal">
       <view class='layout_horizontal_view'>
-        <image class='horizontal_img' src='../img/Record period@3x.png'></image>
+        <image class='horizontal_img' src='../img/Recordperiod@3x.png'></image>
         <text class='horizontal_text'>记经期 </text>
       </view>
       <view class='view_solid_vertical'></view>
       <view class='layout_horizontal_view'>
         <image class='horizontal_img' src='../img/integral@3x.png'></image>
-        <text class='horizontal_text'>{{integral===""?100:integral}}积分</text>
+        <text class='horizontal_text'>{{integral===""?0:integral}}积分</text>
       </view>
     </view>
 
@@ -28,7 +28,14 @@
           <view class="weui-grid__icon">
             <image src=" {{item.icon}}" mode="scaleToFill" />
           </view>
-          <text class="weui-grid__label" open-type="contact">{{item.name}}</text>
+
+          <view class="deg">
+            <button open-type="contact" session-from="weapp">
+              {{item.name}}
+            </button>
+          </view>
+
+
         </view>
       </navigator>
     </view>

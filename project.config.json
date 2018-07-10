@@ -33,7 +33,11 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< .mine
 			"current": 8,
+=======
+			"current": 0,
+>>>>>>> .theirs
 			"list": [
 				{
 					"id": -1,
@@ -73,6 +77,12 @@
 				},
 				{
 					"id": 6,
+					"name": "微信支付",
+					"pathName": "pages/pay/wxPay/wxpay",
+					"query": ""
+				},
+				{
+					"id": -1,
 					"name": "taber",
 					"pathName": "pages/period/period-one/period-one",
 					"query": ""
@@ -82,12 +92,21 @@
 					"name": "six",
 					"pathName": "pages/Record/Record",
 					"query": ""
+<<<<<<< .mine
 				},
 				{
 					"id": -1,
 					"name": "设置经期",
 					"pathName": "pages/setPeriod/setPeriod",
 					"query": ""
+=======
+				},
+				{
+					"id": -1,
+					"name": "课程详情",
+					"pathName": "pages/courseDetails/courseDetails",
+					"query": ""
+>>>>>>> .theirs
 				}
 			]
 		}

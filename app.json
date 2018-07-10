@@ -20,11 +20,12 @@
     "pages/pay/wxPay/wxpay",
     "pages/pay/wxStatus/wxstatus",
     "pages/courseVideo/coursevideo",
-    "pages/mycourse/course",
+    "pages/myCourse/course",
     "pages/calendar/calendar",
     "pages/state/state",
     "pages/baby/baby",
     "pages/setPeriod/setPeriod"
+
   ],
   "window": {
     "backgroundTextStyle": "light",

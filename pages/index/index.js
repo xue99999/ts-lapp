@@ -3,6 +3,10 @@
 const app = getApp()
 const { authUserInfo, authWechatLogin } = require('../../service/user.js')
 var Http = require('../../utils/http.js');
+var data={};
+var userInfo = {};
+var iv = "";
+var encryptedData = "";
 Page({
   data: {
     userInfo: {},
@@ -22,17 +26,18 @@ Page({
 
     var user = wx.getStorageSync('userInfo')
     var code = wx.getStorageSync('code')
-    console.log(user)
-    var data = {
-      code: code,
-      userInfo: user.userInfo,
-      iv: user.iv,
-      encryptedData: user.encryptedData
-    }
-    authUserInfo(data).then(res => {
-      console.log(res);
+  //  data = {
+  //    // code: code,
+  //     userInfo: user.userInfo,
+  //     iv: user.iv,
+  //     encryptedData: user.encryptedData
+  //   }
+     //信息同步
+    // authUserInfo(data).then(res => {
+    //   console.log(res);
 
-    })
+    // })
+ 
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
@@ -64,10 +69,16 @@ Page({
 
 
   },
+  
+
   getUserInfo: function (e) {
     console.log(e)
-
-
+    
+  
+    userInfo = e.detail.rawData;
+    encryptedData = e.detail.encryptedData;
+    iv = e.detail.iv;
+  
     // 将用户信息存到本地
     wx.setStorageSync('userInfo', e.detail)
 
@@ -91,17 +102,29 @@ Page({
     wx.login({
       success(res) {
         console.log(res.code)
-        wx.setStorageSync('code', res.code)
+       // wx.setStorageSync('code', res.code)
         if (res.code) {
-          // 登录微信授权接口
-          var data = {
-            code: res.code
+
+          console.log(userInfo);
+          console.log(encryptedData);
+          console.log(iv);
+          data = {
+            code: res.code,
+            userInfo: userInfo,
+            iv: iv,
+            encryptedData: encryptedData
           }
+         
+          //信息同步
           authUserInfo(data).then(res => {
             console.log(res);
 
           })
-        }
+        //   //登录微信授权
+        //   authWechatLogin(data).then(result => {
+        //     console.log('登录微信授权',result);
+        //   })
+       }
       }
     })
   }

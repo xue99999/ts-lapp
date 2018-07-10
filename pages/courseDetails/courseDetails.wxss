@@ -75,7 +75,6 @@
 /*模块  */
 
 .course_list {
-
   width: 100%;
   height: 92rpx;
   background: #fff;
@@ -178,7 +177,6 @@
 /*简介*/
 
 .course_remark_view {
-
   width: 100%;
   height: 310.30rpx;
   background: #fff;
@@ -187,7 +185,7 @@
 }
 
 .tab-h {
-    margin-top: 20rpx;
+  margin-top: 20rpx;
   height: 80rpx;
   width: 100%;
   box-sizing: border-box;
@@ -195,22 +193,21 @@
   line-height: 80rpx;
   background: #fff;
   font-size: 16px;
- display: flex;
-
- border-bottom: 1rpx #e8e8e8 solid;
+  display: flex;
+  border-bottom: 1rpx #e8e8e8 solid;
 }
 
 .tab-item {
   flex: 1;
- width: 50%;
+  width: 50%;
   display: inline-block;
   text-align: center;
-   align-items: center;
+  align-items: center;
   justify-content: cente;
 }
 
 .tab-item.active {
-  color: #FE6F71;
+  color: #fe6f71;
   position: relative;
 }
 
@@ -219,53 +216,61 @@
   display: block;
   height: 8rpx;
   width: 130rpx;
-  background: #FE6F71;
+  background: #fe6f71;
   position: absolute;
   bottom: 0;
- margin-left:  120rpx;
+  margin-left: 120rpx;
   border-radius: 16rpx;
-   align-items: center;
+  align-items: center;
   justify-content: cente;
-
 }
+
 /*底部*/
-.view_bottom{
-position:fixed;
- bottom:0;
- width: 750rpx;
-display: flex;
-flex-direction: row;
-height: 90.90rpx;
-margin-bottom: 10rpx;
+
+.view_bottom {
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  height: 90.90rpx;
+  margin-bottom: 10rpx;
 }
 
-.view_bottom_button1,.view_bottom_button2{
-flex: 1;
-background:#FE6F71;
+.view_bottom_button1, .view_bottom_button2 {
+
+  flex: 1;
+  background: #fe6f71;
   text-align: center;
- line-height: 90.90rpx;
+  line-height: 90.90rpx;
 }
-.view_bottom_button1{
-  background:#fff;
+
+.view_bottom_button1 {
+  background: #fff;
+    display: flex;
+ 
+  
 }
-.view_bottom_button2{
+
+.view_bottom_button2 {
   color: #fff;
 }
 
-.view_bottom_img{
+.view_bottom_img {
+
   width: 45rpx;
   height: 45rpx;
-position: absolute;
-margin-top: 25.25rpx;
-margin-left: 100rpx;
+
 
 }
 
-.view_bottom_button1_text{
-  margin-left:60rpx;
-  text-align: center;
+.view_bottom_button1_text {
+  
+   flex: 1;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   
+
 }
-
-
-
-

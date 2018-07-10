@@ -1,5 +1,8 @@
 import Http from '../utils/http.js';
+//RAP2 开发阶段测试路径
 const baseUrl = 'http://192.168.9.171:8080/app/mock/20/';
+//程东林 本地测试路径
+//const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
 const {get}=Http;
 
 function ownerQuery(params){
@@ -44,7 +47,7 @@ function authWechatLogin(params) {
     params
   })
 }
-//企业码
+//企业码 目前作废
 function icketQuery(params){
   return get({
     url: baseUrl + '/ticket/query',
