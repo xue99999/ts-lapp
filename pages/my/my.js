@@ -39,8 +39,16 @@ Page({
       },
       {
         name: '建议反馈',
+        url: '../myCollection/collection------------',
         icon: '../img/feedback@3x.png',
         code: '10'
+      },
+      {
+        name: '标签模式',
+        rul:'../todayRecommend/todayRecommend',
+        icon: '../img/feedback@3x.png',
+        code: '10'
+
       }
 
     ]

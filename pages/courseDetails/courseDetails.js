@@ -17,6 +17,7 @@ Page({
     courseName:"",
     teacherName:"",
     courseData:{},
+    remark:"",
     sectionList:[
     ],
 
@@ -43,16 +44,15 @@ Page({
         courseData: result.data,
       })
     });
-    var data = {
-      courseId: options.id
-    }
-    apiSection(data).then(result=>{
+  
+    apiSection(options.id).then(result=>{
       console.log('课程列表', result);
       this.setData({
 
         total: result.total,
         sectionList: result.list,
-        url: '../courseVideo/coursevideo?courseId='+this.data.id,
+        remark: result.list[0].remark,
+        url: '../courseVideo/coursevideo?courseId=' + options.id,
       })
     });
   },

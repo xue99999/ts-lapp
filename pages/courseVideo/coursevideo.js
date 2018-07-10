@@ -41,11 +41,9 @@ Page({
       id: options.id,
 
     })
-    var data = {
-      courseId: options.courseId
-    }
+   
 
-    apiSection(data).then(result => {
+    apiSection(options.courseId).then(result => {
       console.log('课节播放列表', result);
       const {
         list = []
@@ -93,10 +91,7 @@ Page({
   },
   doPlay: function(id) {
 
-    var data = {
-      id: id
-    }
-    apiSectionPlay(data).then(result => {
+    apiSectionPlay(id).then(result => {
       console.log('课节播放', result)
       this.setData({
         filePath: result.filePath
@@ -120,8 +115,8 @@ Page({
       }
     }
 
-  },
-  //绑定视频播放事件
+  }, 
+  //绑定视频播放事件  
   onReady: function(res) {
     this.videoContext = wx.createVideoContext('myVideo')
   },
