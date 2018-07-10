@@ -78,6 +78,22 @@ function apiSectionPlay(params){
   })
 
 }
+//登录经期信息
+function userInfoAdd(params) {
+  return post({
+    url: baseUrl + '/userInfo/add',
+    params
+  })
+
+}
+//查询一天的经期信息
+function userInfoQueryMenByDay(params) {
+  return get({
+    url: baseUrl + '/userInfo/queryMenByDay',
+    params
+  })
+
+}
 module.exports = {
   ownerQuery,
   apiSection,
@@ -88,7 +104,9 @@ module.exports = {
   icketQuery,
   payUnifiedorder,
   orderQuery,
-  apiSectionPlay
+  apiSectionPlay,
+  userInfoAdd,
+  userInfoQueryMenByDay
 
   
 };

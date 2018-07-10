@@ -33,11 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-<<<<<<< .mine
-			"current": 8,
-=======
-			"current": 0,
->>>>>>> .theirs
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -54,7 +50,7 @@
 				{
 					"id": 2,
 					"name": "home",
-					"pathName": "pages/index/index",
+					"pathName": "pages/period/period-one/period-one",
 					"query": ""
 				},
 				{
@@ -82,31 +78,22 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "taber",
-					"pathName": "pages/period/period-one/period-one",
-					"query": ""
-				},
-				{
 					"id": 7,
-					"name": "six",
-					"pathName": "pages/Record/Record",
+					"name": "taber",
+					"pathName": "pages/calendar/calendar",
 					"query": ""
-<<<<<<< .mine
 				},
 				{
 					"id": -1,
 					"name": "设置经期",
 					"pathName": "pages/setPeriod/setPeriod",
 					"query": ""
-=======
 				},
 				{
 					"id": -1,
 					"name": "课程详情",
 					"pathName": "pages/courseDetails/courseDetails",
 					"query": ""
->>>>>>> .theirs
 				}
 			]
 		}

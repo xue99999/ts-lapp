@@ -38,7 +38,8 @@ Page({
 
   dianji:function(e){
     // console.log(this.data.dateArr)
-    console.log(e.currentTarget.dataset)
+    console.log(e.currentTarget.dataset.day)
+    
   },
   onLoad: function () {
     let now = new Date();
