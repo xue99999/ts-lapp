@@ -43,8 +43,8 @@ Page({
     value: [115, 2, 14],
   },
   navto: function () {
-    wx.switchTab({
-      url: '../../taber/taber',
+    wx.navigateTo({
+      url: '../mother-one/mother-one',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

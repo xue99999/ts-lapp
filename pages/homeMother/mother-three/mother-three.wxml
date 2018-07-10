@@ -1,7 +1,7 @@
 <view>
       <view class='view-buzou'>
-        <text>步骤 3   共有6步骤</text>
-        <image src='../../img/buzhou3.png'></image>
+        <text>步骤 5   共有6步骤</text>
+        <image src='../../img/buzhou5.png'></image>
       </view>
       <view wx:if="{{scrollShow==true}}">
             <view class='view-tes'>一般上, 您的经期有多长?</view>

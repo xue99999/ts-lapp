@@ -33,21 +33,22 @@ Page({
   onReady: function () {
   
     var data = {
-      userModel: "01",
-      menstrualStartTime: "2017-06-07",
-      menstrualTimes: "5",
-      menstrualCycle:'28',
-      birthday:'2000',
-      babySex:'01',
-      babyBirthday:'2017'
+      'userModel': app.globalData.obj.shaonv,
+      'menstrualStartTime': "2017-06-07",
+      'menstrualTimes': 5,
+      'menstrualCycle':28,
+      'birthday':'2000',
+      // 'babySex':'01',
+      // 'babyBirthday':'2017'
     }
-    userInfoAdd(data).then(res => {
-      console.log('登录经期信息', res);
-      // this.setData({
-      //   list: res.list
-      // })
+    console.log(data.userModel)
+    // userInfoAdd(data).then(res => {
+    //   console.log('登录经期信息', res);
+    //   // this.setData({
+    //   //   list: res.list
+    //   // })
 
-    })
+    // })
 
   },
   clickjinri:function(){
@@ -60,16 +61,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var data = {
-      day:'2018-07-07'
-    }
-    userInfoQueryMenByDay(data).then(res => {
-      console.log('查询一天的经期信息', res);
-      // this.setData({
-      //   list: res.list
-      // })
-
-    })
+    // var data = {
+    //   day:'2018-07-07'
+    // }
+    // userInfoQueryMenByDay(data).then(res => {
+    //   console.log('查询一天的经期信息', res);
+    //   // this.setData({
+    //   //   list: res.list
+    //   // })
+    // })
   },
 
   /**

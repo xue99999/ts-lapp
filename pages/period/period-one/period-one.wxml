@@ -13,7 +13,7 @@
       〈
 				<!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
 			</view>
-			 {{year}}年{{month}}月
+			 {{year}}年{{month}}月{{day}}
 			<view class='rt-arrow' bindtap='nextMonth'>
       〉
 				<!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->

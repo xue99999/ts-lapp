@@ -18,7 +18,6 @@ Page({
     scrollTop: 1130,
     scrollShow: true,
     menstrualCycle: null,  //持续多久
-    menstrualTimes: null    //经期有多长
   },
   chooseImg: function (e) {
 
@@ -26,14 +25,21 @@ Page({
       show: !this.data.show
     })
     if (this.data.show) {
+
+      app.globalData.obj.menstrualCycle = 28   //默认28
       this.setData({
         scrollShow: false
       })
+
     }
     else {
+
+
       this.setData({
         scrollShow: true
       })
+      app.globalData.obj.menstrualCycle = this.data.menstrualCycle  //自己设置
+      console.log(app.globalData.obj.menstrualCycle)
     }
   },
   bindPickerChange: function (e) {
@@ -51,14 +57,14 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
-    console.log(this.data.menstrualTimes)
-    console.log(this.data.menstrualCycle)
-    var obj = {
+    // console.log(this.data.menstrualTimes)
+    // console.log(this.data.menstrualCycle)
+    // var obj = {
 
-      'menstrualTimes': this.data.menstrualTimes,
-      'menstrualCycle': this.data.menstrualCycle
-    }
-    wx.setStorageSync('xinxi', obj)
+    //   'menstrualTimes': this.data.menstrualTimes,
+    //   'menstrualCycle': this.data.menstrualCycle
+    // }
+    // wx.setStorageSync('xinxi', obj)
 
   },
 
@@ -67,10 +73,10 @@ Page({
    */
   onLoad: function (options) {
 
-    var menstrualTimes = options.menstrualTimes
-    this.setData({
-      menstrualTimes: menstrualTimes
-    })
+    // var menstrualTimes = options.menstrualTimes
+    // this.setData({
+    //   menstrualTimes: menstrualTimes
+    // })
   },
 
   /**

@@ -1,8 +1,13 @@
 import Http from '../utils/http.js';
 //RAP2 开发阶段测试路径
-const baseUrl = 'http://192.168.9.171:8080/app/mock/20/';
+//const baseUrl = 'http://192.168.9.171:8080/app/mock/20/';
 //程东林 本地测试路径
 //const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
+
+//李康 本地测试路径
+// const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
+
+
 const {get}=Http;
 
 function ownerQuery(params){
@@ -81,7 +86,7 @@ function apiSectionPlay(params){
 //登录经期信息
 function userInfoAdd(params) {
   return post({
-    url: baseUrl + '/userInfo/add',
+    url: baseUrl + 'userInfo/add',
     params
   })
 
@@ -89,7 +94,16 @@ function userInfoAdd(params) {
 //查询一天的经期信息
 function userInfoQueryMenByDay(params) {
   return get({
-    url: baseUrl + '/userInfo/queryMenByDay',
+    url: baseUrl + 'userInfo/queryMenByDay',
+    params
+  })
+
+}
+
+//查询设置经期与排卵
+function userInfoQueryMensAndOvulation(params) {
+  return get({
+    url: baseUrl + 'userInfo/queryMensAndOvulation',
     params
   })
 
@@ -106,7 +120,8 @@ module.exports = {
   orderQuery,
   apiSectionPlay,
   userInfoAdd,
-  userInfoQueryMenByDay
+  userInfoQueryMenByDay,
+  userInfoQueryMensAndOvulation
 
   
 };

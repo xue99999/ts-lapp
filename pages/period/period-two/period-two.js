@@ -47,6 +47,8 @@ Page({
     })
     console.log(e)
     if (this.data.show) {
+      app.globalData.obj.menstrualTimes = 5 
+      
       this.setData({
         scrollShow: false
       })
@@ -55,7 +57,11 @@ Page({
       this.setData({
         scrollShow: true
       })
+      app.globalData.obj.menstrualTimes = this.data.menstrualTimes
+
     }
+
+    console.log(app.globalData.obj.menstrualTimes)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

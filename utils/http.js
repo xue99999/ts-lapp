@@ -15,7 +15,8 @@ function Request(method, requestHandler) {
       method: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'].indexOf(method) > -1 ? method : 'GET',
       header: Object.assign({
         'Content-Type': 'application/json',
-        'token': token
+       // 'Authorization': wx.getStorageSync('token')
+        'Authorization': 'E9474A92E6194BB28E4B9BC4ADE147A1',
         /*
         这里可以自定义全局的头信息，这是一个栗子
         'Authorization': 'Bearer ' + wx.getStorageSync('token'),
