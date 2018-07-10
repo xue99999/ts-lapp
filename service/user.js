@@ -1,8 +1,11 @@
 import Http from '../utils/http.js';
 //RAP2 开发阶段测试路径
+
 const baseUrl = 'http://192.168.9.171:8080/app/mock/20/';
 //程东林 本地测试路径
 //const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
+//王丽娟 本地测试路径
+//const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 const {get}=Http;
 
 function ownerQuery(params){
@@ -11,12 +14,12 @@ function ownerQuery(params){
     params
   })
 }
-//课程列表
+//课节列表
 const {post}=Http;
  function apiSection(params){
    return get({
-     url: baseUrl + 'api/section/:courseId',
-     params
+     url: baseUrl + '/api/course/'+params+'/sections',
+     //params
    })
  }
  //我的课程和我的收藏
@@ -73,10 +76,18 @@ function orderQuery(params) {
 //课节播放
 function apiSectionPlay(params){
   return get({
-    url: baseUrl + 'api/section/play',
-    params
+    url: baseUrl + 'api/section/play/' + params,
+   
   })
 
+}
+
+function apiCourseRecommendList(params){
+
+  return get({
+    url: baseUrl +'api/course/recommendList',
+    params
+  })
 }
 module.exports = {
   ownerQuery,
@@ -88,7 +99,8 @@ module.exports = {
   icketQuery,
   payUnifiedorder,
   orderQuery,
-  apiSectionPlay
+  apiSectionPlay,
+  apiCourseRecommendList
 
   
 };

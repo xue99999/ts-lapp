@@ -114,16 +114,27 @@ Page({
             iv: iv,
             encryptedData: encryptedData
           }
-         
+          var LoginData={
+            code: res.code,
+          }
+          //登录微信授权
+          authWechatLogin(LoginData).then(result => {
+            console.log('登录微信授权', result);
+     
+          })
+
           //信息同步
           authUserInfo(data).then(res => {
-            console.log(res);
+            console.log('信息同步',res);
+            console.log('将要保存token', res.token);
+            wx.setStorage({
+              key: "token",
+              data: res.token,
 
+            })
+            console.log('保存token成功', res.token);
           })
-        //   //登录微信授权
-        //   authWechatLogin(data).then(result => {
-        //     console.log('登录微信授权',result);
-        //   })
+        
        }
       }
     })

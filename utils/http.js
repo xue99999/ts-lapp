@@ -1,24 +1,28 @@
 // request
 function Request(method, requestHandler) {
   const { url, params, headers } = requestHandler
-
   console.table(requestHandler)
 
   wx.showLoading && wx.showLoading({ title: 'Loading...' })
+  
+
 
   return new Promise((resolve, reject) => {
+    var token =   wx.getStorageSync('token')
     wx.request({
       url: url,
       data: params,
       method: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'].indexOf(method) > -1 ? method : 'GET',
       header: Object.assign({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'token': token
         /*
         这里可以自定义全局的头信息，这是一个栗子
         'Authorization': 'Bearer ' + wx.getStorageSync('token'),
         'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/x-www-form-urlencoded'
         */
+
       }, headers),
       success: function (res) {
         const { data, statusCode } = res
@@ -47,6 +51,7 @@ var Http = {
       requestHandler = {
         url: String(requestHandler),
         params: {}
+       
       }
     }
     return Request('GET', requestHandler)
