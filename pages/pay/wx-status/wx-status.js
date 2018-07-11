@@ -23,15 +23,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options);
+    console.log('orderNo>>>',options.orderNo);
       id= options.id,
-      orderNo=options.orderNo
-    if (options.orderNo.length>0){
-    // var data={
-    //   orderNo: options.orderNo
-    // }
-    orderQuery().then(result=>{
-        console.log(result);
+      orderQuery(options.orderNo).then(result=>{
+        console.log('订单查询接口',result);
         if (result.status==='01'){
               this.setData({
                 types: "success",
@@ -53,7 +48,7 @@ Page({
           })
         }
       })
-    }
+    
   },
   //去往课程详情
   onCourseDetails() {

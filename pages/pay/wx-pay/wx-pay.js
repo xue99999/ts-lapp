@@ -62,13 +62,9 @@ Page({
         })
         return;
       }
-    
+      const wechat = result.data.wechat;
       wx.requestPayment({
-        'timeStamp': result.data.wechat.timeStamp,
-        'nonceStr': result.data.wechat.nonceStr,
-        'package': result.data.wechat.package,
-        'signType': 'MD5',
-        'paySign': result.data.wechat.paySign,
+        ...wechat,
         //接口调用成功的回调函数
         'success': function(res) {
           console.log('成功', res);
