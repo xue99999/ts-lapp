@@ -27,13 +27,13 @@ Page({
       },
       {
         name: '我的课程',
-        url: '../myCourse/course',
+        url: '../my-course/course',
         icon: '../img/course@3x.png',
         code: '10'
       },
       {
         name: '我的收藏',
-        url:'../myCollection/collection',
+        url:'../my-collection/collection',
         icon: '../img/collection@3x.png',
         code: '11'
       },

@@ -44,14 +44,14 @@ function apiCourseId(params){
 // 用户信息同步
 function authUserInfo(params){
   return post({
-    url: baseUrl + 'auth/userInfo',
+    url: baseUrl + 'auth/wechat/login',
     params
   })
 }
   // 登录微信授权
 function authWechatLogin(params) {
   return post({
-    url: baseUrl + '/auth/wechatLogin',
+    url: baseUrl + 'auth/wechat/loginWithCode',
     params
   })
 }
