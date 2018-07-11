@@ -30,7 +30,11 @@
 			"list": []
 		},
 		"miniprogram": {
+<<<<<<< .mine
 			"current": 2,
+=======
+			"current": 13,
+>>>>>>> .theirs
 			"list": [
 				{
 					"id": -1,
@@ -114,6 +118,18 @@
 					"id": -1,
 					"name": "我的",
 					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "课程想起",
+					"pathName": "pages/course-details/course-details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "微信支付",
+					"pathName": "pages/course-details/course-details",
 					"query": ""
 				}
 			]

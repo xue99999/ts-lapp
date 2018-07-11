@@ -39,13 +39,13 @@ Page({
       },
       {
         name: '建议反馈',
-        url: '../myCollection/collection------------',
+        url: '',
         icon: '../img/feedback@3x.png',
         code: '10'
       },
       {
         name: '标签模式',
-        url:'../labelCourse/LabelCourse',
+        url:'../label-course/label-course',
         icon: '../img/feedback@3x.png',
         code: '10'
 

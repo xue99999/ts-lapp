@@ -1,5 +1,8 @@
 // pages/collection/collection.js
-const { apiCourseCollectList } = require('../../service/user.js')
+const {
+  apiCourseCollectList
+} = require('../../service/user.js')
+var page='1';
 Page({
 
   /**
@@ -7,25 +10,45 @@ Page({
    */
   data: {
     list: [],
-    url:'../course-details/course-details',
+    url: '../course-details/course-details',
   },
+  //到顶部
+  upper: function (e) {
 
+    this.getapiCourseCollectList(page )
+  },
+  //到底部
+  lower: function (e) {
+    console.log(e)
+    page += 1;
+   
+    this.getapiCourseCollectList(page)
+
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+   this.getapiCourseCollectList()
+  },
+  getapiCourseCollectList(page) {
     var data = {
       courseType: "02",
-      page: "1",
+      page: page,
       rows: "20",
     }
     apiCourseCollectList(data).then(result => {
+      var list = this.data.list;
       console.log('我的收藏', result);
-      this.setData({
-        list: result.list,
-
-      })
-
+      if (result.code === 200) {
+        for (var i = 0; i < result.data.list.length; i++) {
+          list.push(result.data.list[i]);
+        }
+        this.setData({
+          list: list,
+        })
+      }
     })
   }
 })

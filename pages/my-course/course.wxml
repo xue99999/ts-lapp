@@ -1,6 +1,6 @@
 <!--我的课程-->
 <view class='inclusion'>
- <scroll-view class='scroll_view' scroll-y="true" >
+ <scroll-view class='scroll_view' scroll-y="true"  bindscrolltoupper="upper" bindscrolltolower="lower">
   
   <view class='list_view1' wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark+item.sectionName}}">
    <navigator class='list_view' url="{{url+'?id='+item.id}}">
