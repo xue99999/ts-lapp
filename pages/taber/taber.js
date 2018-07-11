@@ -35,7 +35,7 @@ Page({
   },
   clickjinri:function(){
       wx.navigateTo({
-        url: '../todayRecommend/todayRecommend'
+        url: '../today-recommend/today-recommend'
       })
   },
 

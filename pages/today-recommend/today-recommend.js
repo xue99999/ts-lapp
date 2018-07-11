@@ -49,11 +49,11 @@ Page({
       page: page,
       rows: rows
     }
-    apiCourseRecommendList(data).then(result => {
-      console.log('今日推荐', result);
-      this.setData({
-        list: result.list,
-      })
-    })
+    // apiCourseRecommendList(data).then(result => {
+    //   console.log('今日推荐', result);
+    //   this.setData({
+    //     list: result.list,
+    //   })
+    // })
   }
 })
