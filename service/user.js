@@ -74,8 +74,8 @@ function payUnifiedorder(params){
 //订单查询接口
 function orderQuery(params) {
   return get({
-    url: baseUrl + 'order/query',
-    params
+    url: baseUrl + 'order/' + params,
+ 
   })
 }
 //课节播放
