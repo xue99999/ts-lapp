@@ -21,6 +21,7 @@ Page({
       ],
 
     curIdx: null,
+    
     anmo: [
       {
         imgUrl: '../img/belly@3x.png',
@@ -151,22 +152,215 @@ Page({
       }
     ],
   },
-  clickAmount:function(){
+  // clickAmount:function(){
 
-    wx.showToast({
-      title: '月经量偏少',
-      mask:false,
-      icon: 'none',
-      duration: 1000
-    })
+  //   wx.showToast({
+  //     title: '月经量偏少',
+  //     mask:false,
+  //     icon: 'none',
+  //     duration: 1000
+  //   })
 
-  },
-  chooseImg: function (e) {
+  // },
+  chooseImg1: function (e) {
     this.setData({
       curIdx: e.currentTarget.dataset.current
     })
-     console.log(e)
      console.log(this.data.curIdx) 
+     if (this.data.curIdx==0){
+       wx.showToast({
+         title: '月经量偏少',
+         icon: 'none',
+         duration: 1000
+       }) 
+     }
+     else if (this.data.curIdx ==1){
+       wx.showToast({
+         title: '月经量正常',
+         icon: 'none',
+         duration: 1000
+       }) 
+     }
+     else if (this.data.curIdx == 2){
+       wx.showToast({
+         title: '月经量很多',
+         icon: 'none',
+         duration: 1000
+       })       
+     }
+
+  },
+  chooseImg2: function (e) {
+    this.setData({
+      curIdx: e.currentTarget.dataset.current
+    })
+    console.log(this.data.curIdx)
+
+  },
+  chooseImg3: function (e) {
+    this.setData({
+      curIdx: e.currentTarget.dataset.current
+    })
+    console.log(this.data.curIdx)
+    if (this.data.curIdx == 0) {
+      wx.showToast({
+        title: '基本不痛',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 1) {
+      wx.showToast({
+        title: '轻微痛',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 2) {
+      wx.showToast({
+        title: '非常痛',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+
+  },
+  chooseImg4: function (e) {
+    this.setData({
+      curIdx: e.currentTarget.dataset.current
+    })
+    console.log(this.data.curIdx)
+    if (this.data.curIdx == 0) {
+      wx.showToast({
+        title: '月经量偏少',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 1) {
+      wx.showToast({
+        title: '月经量正常',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 2) {
+      wx.showToast({
+        title: '月经量很多',
+        duration: 1000
+      })
+    }
+
+  },
+  chooseImg5: function (e) {
+    this.setData({
+      curIdx: e.currentTarget.dataset.current
+    })
+    console.log(this.data.curIdx)
+    if (this.data.curIdx == 0) {
+      wx.showToast({
+        title: '超开心的',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 1) {
+      wx.showToast({
+        title: '心情一般',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 2) {
+      wx.showToast({
+        title: '好伤心',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+
+  },
+  chooseImg6: function (e) {
+    this.setData({
+      curIdx: e.currentTarget.dataset.current
+    })
+    console.log(this.data.curIdx)
+    if (this.data.curIdx == 0) {
+      wx.showToast({
+        title: '月经量偏少',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 1) {
+      wx.showToast({
+        title: '月经量正常',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 2) {
+      wx.showToast({
+        title: '月经量很多',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+
+  },
+  chooseImg7: function (e) {
+    this.setData({
+      curIdx: e.currentTarget.dataset.current
+    })
+    console.log(this.data.curIdx)
+    if (this.data.curIdx == 0) {
+      wx.showToast({
+        title: '不怕冷',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 1) {
+      wx.showToast({
+        title: '微微冷',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 2) {
+      wx.showToast({
+        title: '很冷',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+
+  },
+  chooseImg8: function (e) {
+    this.setData({
+      curIdx: e.currentTarget.dataset.current
+    })
+    console.log(this.data.curIdx)
+    if (this.data.curIdx == 0) {
+      wx.showToast({
+        title: '不乏力',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 1) {
+      wx.showToast({
+        title: '轻微乏力',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (this.data.curIdx == 2) {
+      wx.showToast({
+        title: '非常乏力',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+
   },
 
 
