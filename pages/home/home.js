@@ -24,7 +24,7 @@ Page({
   clickMother(e) {
     app.globalData.obj.shaonv = '02'
     wx.navigateTo({
-      url: '../homeMother/mother-five/mother-five',
+      url: '../home-mother/mother-five/mother-five',
     })
     console.log(e)
   },
