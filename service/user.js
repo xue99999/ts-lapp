@@ -3,9 +3,9 @@ import Http from '../utils/http.js';
 
 //const baseUrl = 'http://192.168.9.171:8080/app/mock/20/';
 //程东林 本地测试路径
-//const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
+const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
 //王丽娟 本地测试路径
-const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
+//const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 //刘小东 本地测试路径
 //const baseUrl = 'http://192.168.5.113:8083/ts-app-web/';
 const {get}=Http;

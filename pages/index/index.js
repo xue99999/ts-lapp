@@ -15,6 +15,7 @@ Page({
     list: [],
     user: {},
     code: ''
+
   },
   //事件处理函数
   bindViewTap: function () {
@@ -26,20 +27,12 @@ Page({
 
     var user = wx.getStorageSync('userInfo')
     var code = wx.getStorageSync('code')
-  //  data = {
-  //    // code: code,
-  //     userInfo: user.userInfo,
-  //     iv: user.iv,
-  //     encryptedData: user.encryptedData
-  //   }
-     //信息同步
-    // authUserInfo(data).then(res => {
-    //   console.log(res);
 
-    // })
- 
   },
   onLoad: function () {
+
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
