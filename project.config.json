@@ -31,7 +31,6 @@
 		},
 		"miniprogram": {
 			"current": 13,
-
 			"list": [
 				{
 					"id": -1,
@@ -120,7 +119,14 @@
 				{
 					"id": -1,
 					"name": "课程想起",
-					"pathName": "pages/course-details/course-details"
+					"pathName": "pages/course-details/course-details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "微信支付",
+					"pathName": "pages/course-details/course-details",
+					"query": ""
 				}
 			]
 		}

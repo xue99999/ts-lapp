@@ -39,7 +39,7 @@ Page({
       },
       {
         name: '建议反馈',
-        url: '../myCollection/collection------------',
+        url: '',
         icon: '../img/feedback@3x.png',
         code: '10'
       },
