@@ -80,7 +80,6 @@
         <view  class='view-mo1' wx:for="{{listInfo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
             <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
             <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
-            <!-- <text class="box-text">{{item.title}}{{index}}</text> -->
         </view>
     </view>
         <view class='view-an'>

@@ -1,5 +1,7 @@
 // pages/period/period-two/period-two.js
 const app = getApp()
+// const { userInfoAdd} = require('../../service/user.js')
+// var Http = require('../../utils/http.js');
 Page({
 
   /**
@@ -25,6 +27,26 @@ Page({
 
   },
   navto: function () {
+
+    // var data = {
+    //   'userModel': app.globalData.obj.shaonv,
+    //   'menstrualStartTime': "2017-06-07",
+    //   'menstrualTimes': 5,
+    //   'menstrualCycle': 28,
+    //   'birthday': '2000',
+    //   // 'babySex':'01',
+    //   // 'babyBirthday':'2017'
+    // }
+    // console.log(data.userModel)
+
+    // userInfoAdd(data).then(res => {
+    //   console.log('登录经期信息', res);
+    //   // this.setData({
+    //   //   list: res.list
+    //   // })
+
+    // })
+
     wx.switchTab({
       url: '../../taber/taber',
       success: function (res) { },

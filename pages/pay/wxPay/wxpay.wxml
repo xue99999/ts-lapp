@@ -19,7 +19,7 @@
 </view>
 <view class='view_pay1'>
     <text class='view_pay_text_left'> 总价</text>
-     <text class='view_pay_text_right1'>{{theTotalPrice>0?theTotalPrice:"0.00"}}</text>
+     <text class='view_pay_text_right1'>{{price>0?price:"0.00"}}</text>
      <text class='view_pay_text_right2'>元</text>
 </view>
 <button  class='view_pay_button' type="warn" size="{{warnSize}}"  plain="{{plain}}"

@@ -1,3 +1,25 @@
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/massage@3x.png'></image>
+      <text>按摩</text>
+    </view>
+    <view class='view-mo1'>
+      <image src='../img/Knead back@3x.png'></image>
+      <image src='../img/belly@3x.png'></image>
+    </view>
+  </view>
+
+  <view class='kong'></view>
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/menstruation1@3x.png'></image>
+      <text>大姨妈走喽</text>
+    </view>
+    <view class="view-mo1">
+      <switch checked bindchange="switch1Change"  color='#FE6F71'/>
+      <switch bindchange="switch2Change"color='#FE6F71' />
+    </view>
+  </view>
       <view class='view-an'>
         <view class='view-mo'>
               <image src='../img/menstruation2@3x.png'></image>
