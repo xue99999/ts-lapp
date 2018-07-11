@@ -77,7 +77,7 @@
               <image src='../img/menstruation2-centre@3x.png'></image>
               <image src='../img/menstruation2-more@3x.png'></image>
         </view> -->
-        <view  class='view-mo1' wx:for="{{listInfo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+        <view  class='view-mo1' wx:for="{{listInfo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg1">
             <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
             <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
@@ -87,7 +87,7 @@
               <image src='../img/leucorrhea@3x.png'></image>
               <text>白带</text>
         </view>
-        <view  class='view-mo1' wx:for="{{leucorrheas}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+        <view  class='view-mo1' wx:for="{{leucorrheas}}"  data-curren="{{index}}" wx:key="this" bindtap="chooseImg2">
             <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
             <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
@@ -99,7 +99,7 @@
               <text>乳房胀痛</text>
         </view>
 
-        <view  class='view-mo1' wx:for="{{breastTenderness}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+        <view  class='view-mo1' wx:for="{{breastTenderness}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg3">
             <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
             <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
@@ -113,7 +113,7 @@
       <!-- 小标签     -->
           <!-- <view class='label'>超开心的</view> -->
 
-        <view  class='view-mo1' wx:for="{{abdominalPains}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+        <view  class='view-mo1' wx:for="{{abdominalPains}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg4">
             <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
             <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
@@ -123,7 +123,7 @@
               <image src='../img/mood@3x.png'></image>
               <text>心情</text>
         </view>
-        <view  class='view-mo1' wx:for="{{moods}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+        <view  class='view-mo1' wx:for="{{moods}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg5">
             <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
             <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
@@ -134,7 +134,7 @@
               <image src='../img/headache@3x.png'></image>
               <text>经期头痛</text>
         </view>
-        <view  class='view-mo1' wx:for="{{menstrualHeadaches}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+        <view  class='view-mo1' wx:for="{{menstrualHeadaches}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg6">
             <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
             <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
@@ -144,7 +144,7 @@
               <image src='../img/cold@3x.png'></image>
               <text>怕冷</text>
         </view>
-        <view  class='view-mo1' wx:for="{{fearColds}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+        <view  class='view-mo1' wx:for="{{fearColds}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg7">
             <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
             <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
@@ -154,7 +154,7 @@
               <image src='../img/No tired@3x.png'></image>
               <text>乏力</text>
         </view>
-        <view  class='view-mo1' wx:for="{{weaks}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+        <view  class='view-mo1' wx:for="{{weaks}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg8">
             <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
             <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
