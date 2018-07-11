@@ -1,8 +1,5 @@
 {
-	"description": "项目配置文件。",
-	"packOptions": {
-		"ignore": []
-	},
+	"ignore": [],
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
@@ -33,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 0,
 			"list": [
 				{
 					"id": -1,
@@ -97,8 +94,14 @@
 				},
 				{
 					"id": -1,
-					"name": "state",
-					"pathName": "pages/state/state",
+					"name": "今日推荐",
+					"pathName": "pages/todayRecommend/todayRecommend",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "全部课程",
+					"pathName": "pages/ labelCourse / labelCourse",
 					"query": ""
 				}
 			]

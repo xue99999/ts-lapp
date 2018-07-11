@@ -58,12 +58,10 @@ Page({
         const section = list[i];
         section['name'] = section.sectionName;
         sections.push(section);
-        // if (list[i].id === sectionID){
-        //   sectionName = list[i].sectionName;
-        //   //请求播放列表
-        //   this.onPlay(section[i].id);
-        // }
-        if (i === 0) {
+        if (list[i].id === sectionID){
+          // sectionName = list[i].sectionName;
+          // //请求播放列表
+          // this.onPlay(section[i].id);
           pos = i;
           console.log('id>>>>>>>>>', list[i].id)
           sectionName = list[i].sectionName;
@@ -73,6 +71,7 @@ Page({
           this.doPlay(list[i].id);
           remark = list[i].remark;
         }
+      
       }
       console.log('sectionName>>>>>>>>>', sectionName)
       this.setData({
@@ -154,6 +153,7 @@ Page({
         console.log('<<<>>>',i);
         console.log('加一', SectionList[i + 1].id);
         if ((i + 1) > SectionList.length){
+         
           wx.showToast({
             title: '当前已是最后一个视频',
             icon: 'none',
@@ -161,6 +161,7 @@ Page({
           })
           return;
         }
+        pos = i + 1;
         this.doPlay(SectionList[i + 1].id);
       }
     }

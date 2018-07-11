@@ -45,7 +45,7 @@ Page({
       },
       {
         name: '标签模式',
-        rul:'../todayRecommend/todayRecommend',
+        url:'../labelCourse/LabelCourse',
         icon: '../img/feedback@3x.png',
         code: '10'
 

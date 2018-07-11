@@ -24,9 +24,7 @@
     "pages/calendar/calendar",
     "pages/state/state",
     "pages/baby/baby",
-    "pages/setPeriod/setPeriod",
-    "pages/mother/motherDay/motherDay",
-    "pages/mother/motherState/motherState"
+    "pages/todayRecommend/todayRecommend"
   ],
   "window": {
     "backgroundTextStyle": "light",

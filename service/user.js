@@ -8,6 +8,10 @@ import Http from '../utils/http.js';
 // const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
 
 
+//王丽娟 本地测试路径
+// const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
+//刘小东 本地测试路径
+//const baseUrl = 'http://192.168.5.113:8083/ts-app-web/';
 const {get}=Http;
 
 function ownerQuery(params){
@@ -16,12 +20,12 @@ function ownerQuery(params){
     params
   })
 }
-//课程列表
+//课节列表
 const {post}=Http;
  function apiSection(params){
    return get({
-     url: baseUrl + 'api/section/:courseId',
-     params
+     url: baseUrl + '/api/course/'+params+'/sections',
+     //params
    })
  }
  //我的课程和我的收藏
@@ -34,14 +38,14 @@ function apiCourseCollectList(params){
 //课程详情
 function apiCourseId(params){
   return get({
-    url: baseUrl + 'api/course/:id',
-    params
+    url: baseUrl + 'api/course/' + params,
+   
   })
 }
 // 用户信息同步
 function authUserInfo(params){
   return post({
-    url: baseUrl + '/auth/userInfo',
+    url: baseUrl + 'auth/userInfo',
     params
   })
 }
@@ -62,7 +66,7 @@ function icketQuery(params){
 //统一下单
 function payUnifiedorder(params){
   return post({
-    url: baseUrl + '/pay/unifiedorder',
+    url: baseUrl + 'pay/unifiedorder',
     params
   })
 
@@ -78,10 +82,25 @@ function orderQuery(params) {
 //课节播放
 function apiSectionPlay(params){
   return get({
-    url: baseUrl + 'api/section/play',
-    params
+    url: baseUrl + 'api/section/play/' + params,
+   
   })
 
+}
+
+function apiCourseRecommendList(params){
+
+  return get({
+    url: baseUrl +'api/course/recommendList',
+    params
+  })
+}
+
+function apiCourseSeriesList(params){
+return get({
+  url: baseUrl +'/api/course/seriesList',
+  params
+})
 }
 //登录经期信息
 function userInfoAdd(params) {
@@ -121,7 +140,10 @@ module.exports = {
   apiSectionPlay,
   userInfoAdd,
   userInfoQueryMenByDay,
-  userInfoQueryMensAndOvulation
+  userInfoQueryMensAndOvulation,
+  apiCourseRecommendList,
+  apiCourseSeriesList
+
 
   
 };

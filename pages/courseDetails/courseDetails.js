@@ -1,6 +1,7 @@
 // pages/courseDetails/courseDetails.js
 
-const { apiCourseId, apiSection } = require('../../service/user.js')
+const { apiCourseId, apiSection } = require('../../service/user.js');
+var id;
 Page({
 
   /**
@@ -30,10 +31,8 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id);
-    var dataid={
-      id: options.id
-    }
-    apiCourseId(dataid).then(result=>{
+    id = options.id;
+    apiCourseId(options.id).then(result=>{
       console.log('课程详情',result);
       this.setData({
         id: result.data.id,
@@ -83,7 +82,7 @@ Page({
   onClickSubscriber() {
     console.log("订阅");
     wx.navigateTo({
-      url: '../pay/wxPay/wxpay?id='+this.data.id+'&total='+this.data.total+'&courseName='+this.data.courseName+'&price='+this.data.price
+      url: '../pay/wxPay/wxpay?courseId=' + id+'&total='+this.data.total+'&courseName='+this.data.courseName+'&price='+this.data.price
     })
   } ,
   onShareAppMessage: function (ops) {
