@@ -49,10 +49,10 @@
       <image src='../img/massage@3x.png'></image>
       <text>按摩</text>
     </view>
-    <view class='view-mo1'>
-      <image src='../img/Knead back@3x.png'></image>
-      <image src='../img/belly@3x.png'></image>
-    </view>
+     <view  class='view-mo1' wx:for="{{anmo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+        <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+        <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
+    </view> 
   </view>
 
   <view class='kong'></view>
@@ -87,22 +87,23 @@
               <image src='../img/leucorrhea@3x.png'></image>
               <text>白带</text>
         </view>
-        <view class='view-mo1'>
-              <image src='../img/leucorrhea-weak.png'></image>
-              <image src='../img/leucorrhea-centre.png'></image>
-              <image src='../img/leucorrhea-more@3x.png'></image>
+        <view  class='view-mo1' wx:for="{{leucorrheas}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
+
     </view>
         <view class='view-an'>
         <view class='view-mo'>
               <image src='../img/breast@3x.png'></image>
               <text>乳房胀痛</text>
         </view>
-        <view class='view-mo1'>
-              <image src='../img/weak.png'></image>
-              <image src='../img/centre@3x.png'></image>
-              <image src='../img/more@3x.png'></image>
+
+        <view  class='view-mo1' wx:for="{{breastTenderness}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
+
     </view>
         <view class='view-an'>
         <view class='view-mo'>
@@ -112,10 +113,9 @@
       <!-- 小标签     -->
           <!-- <view class='label'>超开心的</view> -->
 
-        <view class='view-mo1'>
-              <image src='../img/weak.png'></image>
-              <image src='../img/centre@3x.png'></image>
-              <image src='../img/more@3x.png'></image>
+        <view  class='view-mo1' wx:for="{{abdominalPains}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
     </view>
         <view class='view-an'>
@@ -123,21 +123,20 @@
               <image src='../img/mood@3x.png'></image>
               <text>心情</text>
         </view>
-        <view class='view-mo1'>
-              <image src='../img/happy@3x.png'></image>
-              <image src='../img/general@3x.png'></image>
-              <image src='../img/unhappy@3x.png'></image>
+        <view  class='view-mo1' wx:for="{{moods}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
+
     </view>
         <view class='view-an'>
         <view class='view-mo'>
               <image src='../img/headache@3x.png'></image>
               <text>经期头痛</text>
         </view>
-        <view class='view-mo1'>
-              <image src='../img/weak.png'></image>
-              <image src='../img/centre@3x.png'></image>
-              <image src='../img/more@3x.png'></image>
+        <view  class='view-mo1' wx:for="{{menstrualHeadaches}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
     </view>
         <view class='view-an'>
@@ -145,10 +144,9 @@
               <image src='../img/cold@3x.png'></image>
               <text>怕冷</text>
         </view>
-        <view class='view-mo1'>
-              <image src='../img/cold-weak@3x.png'></image>
-              <image src='../img/cold-centres@3x.png'></image>
-              <image src='../img/cold-more@3x.png'></image>
+        <view  class='view-mo1' wx:for="{{fearColds}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
     </view>
         <view class='view-an'>
@@ -156,10 +154,9 @@
               <image src='../img/No tired@3x.png'></image>
               <text>乏力</text>
         </view>
-        <view class='view-mo1'>
-              <image src='../img/tired-weak@3x.png'></image>
-              <image src='../img/tired-centre@3x.png'></image>
-              <image src='../img/tired-more@3x.png'></image>
+        <view  class='view-mo1' wx:for="{{weaks}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
     </view>
 

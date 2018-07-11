@@ -124,7 +124,38 @@ function userInfoQueryMensAndOvulation(params) {
     url: baseUrl + 'userInfo/queryMensAndOvulation',
     params
   })
+}
 
+//查询身体状态接口
+function userInfoQueryBodyStatus(params) {
+  return get({
+    url: baseUrl + 'userInfo/queryBodyStatus',
+    params
+  })
+}
+
+//更新身体状态
+function userInfoUpdateBodyStatus(params) {
+  return post({
+    url: baseUrl + 'userInfo/updateBodyStatus',
+    params
+  })
+}
+
+//设置经期排卵接口
+function userinfoUpdateMensAndOvulation(params) {
+  return post({
+    url: baseUrl + 'userinfo/updateMensAndOvulation',
+    params
+  })
+}
+
+//日历查询
+function userInfoQueryCalendar(params) {
+  return post({
+    url: baseUrl + 'userInfo/queryCalendar',
+    params
+  })
 }
 module.exports = {
   ownerQuery,
@@ -141,8 +172,9 @@ module.exports = {
   userInfoQueryMenByDay,
   userInfoQueryMensAndOvulation,
   apiCourseRecommendList,
-  apiCourseSeriesList
-
-
-  
+  apiCourseSeriesList,
+  userInfoQueryBodyStatus,
+  userInfoUpdateBodyStatus,
+  userinfoUpdateMensAndOvulation,
+  userInfoQueryCalendar
 };

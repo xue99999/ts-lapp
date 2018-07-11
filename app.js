@@ -36,8 +36,8 @@ App({
   globalData: {
     userInfo: null,
     obj:{
-      shaonv: '01',
-      lama: '02',
+      shaonv: null,
+      // lama: '02',
       menstrualStartTime: '2017-06-07',
       menstrualTimes:null,
       menstrualCycle:null,

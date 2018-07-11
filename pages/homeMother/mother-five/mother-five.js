@@ -1,4 +1,5 @@
 // pages/period/period-two/period-two.js
+var app = getApp();
 Page({
 
   /**
@@ -17,12 +18,14 @@ Page({
   },
   bindChange:function(e){
   console.log(e.target.dataset.index[0])
+  // var nv = e.target.dataset.index[0]
+  // var nan = e.target.dataset.index[1]
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(app.globalData.obj.shaonv)
   },
 
   /**

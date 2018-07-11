@@ -1,4 +1,6 @@
-// pages/state/state.js
+const app = getApp()
+const { userInfoUpdateBodyStatus } = require('../../service/user.js')
+var Http = require('../../utils/http.js');
 Page({
 
   /**
@@ -26,7 +28,31 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    //   var data = {
+    //     chiropractic: 01,
+    //     frictionalAbdomen: 01,
+    //     menstrualStatus: 01 , 
+    //     menstrualVolume:01,
+    //     leucorrhea:01,
+    //     breastTenderness:01,
+    //     abdominalPain:01,
+    //     mood:01,
+    //     menstrualHeadache:01,
+    //     fearCold:01,
+    //     weak:01,
+    //     physiologicalCycle:01,
+    //     day: 2018-06-08,
+    //     isPredict:01,
+    //     userModel:01,
+    //     babyMonth:02
+
+    // }
+    //   userInfoUpdateBodyStatus(data).then(res => {
+    //   console.log('更新身体状态接口', res);
+    //   // this.setData({
+    //   //   list: res.list
+    //   // })
+    // })
   },
 
   /**

@@ -1,5 +1,5 @@
 const app = getApp()
-const { userInfoQueryMensAndOvulation } = require('../../service/user.js')
+const { userInfoQueryMensAndOvulation, userinfoUpdateMensAndOvulation} = require('../../service/user.js')
 var Http = require('../../utils/http.js');
 Page({
 
@@ -25,19 +25,32 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    userInfoQueryMensAndOvulation().then(res => {
+      console.log('查询设置经期与排卵', res);
+      // this.setData({
+      //   list: res.list
+      // })
+    })
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    userInfoQueryMensAndOvulation().then(res => {
-      console.log('设置经期与排卵', res);
-      // this.setData({
-      //   list: res.list
-      // })
-    })
+    //   var data = {
+    //       mayConception: 01 , 
+    //       // lutealPhase:'' ,  //黄体期
+    //       improve: 02 ,
+    //       menstrualCycle: 28,
+    //       menstrualTimes: 5 
+
+    // }
+    //   userinfoUpdateMensAndOvulation(data).then(res => {
+    //   console.log('设置经期与排卵', res);
+    //   // this.setData({
+    //   //   list: res.list
+    //   // })
+    // })
   },
 
   /**

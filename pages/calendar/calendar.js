@@ -1,7 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+const { userInfoUpdateBodyStatus } = require('../../service/user.js')
+var Http = require('../../utils/http.js');
 Page({
   data: {
     year: 0,
@@ -20,6 +21,16 @@ Page({
       ],
 
     curIdx: null,
+    anmo: [
+      {
+        imgUrl: '../img/belly@3x.png',
+        curUrl: '../img/Knead back@3x.png',
+      },
+      {
+        imgUrl: '../img/belly@3x.png',
+        curUrl: '../img/Knead back@3x.png',
+      }
+    ],
     listInfo: [
       {
         imgUrl: '../img/menstruation2-weak@3x.png',
@@ -33,9 +44,112 @@ Page({
         imgUrl: '../img/menstruation2-centre@3x.png',
         curUrl: '../img/menstruation2-more@3x.png',
       }
+    ],
+    leucorrheas: [ 
+      {
+        imgUrl: '../img/leucorrhea-centre.png',
+        curUrl: '../img/leucorrhea-weak.png',
 
-    ]
+      },
+      {
+        imgUrl: '../img/leucorrhea-centre.png',
+        curUrl: '../img/leucorrhea-weak.png',
+      },
+      {
+        imgUrl: '../img/leucorrhea-more@3x.png',
+        curUrl: '../img/leucorrhea-weak.png',
+      }
+    ],
+    breastTenderness: [
+      {
+        imgUrl: '../img/centre@3x.png',
+        curUrl: '../img/weak.png',
 
+      },
+      {
+        imgUrl: '../img/centre@3x.png',
+        curUrl: '../img/weak.png',
+      },
+      {
+        imgUrl: '../img/more@3x.png',
+        curUrl: '../img/weak.png',
+      }
+    ],
+    abdominalPains: [
+      {
+        imgUrl: '../img/centre@3x.png',
+        curUrl: '../img/weak.png',
+
+      },
+      {
+        imgUrl: '../img/centre@3x.png',
+        curUrl: '../img/weak.png',
+      },
+      {
+        imgUrl: '../img/more@3x.png',
+        curUrl: '../img/weak.png',
+      }
+    ],
+    moods: [
+      {
+        imgUrl: '../img/general@3x.png',
+        curUrl: '../img/happy@3x.png',
+
+      },
+      {
+        imgUrl: '../img/general@3x.png',
+        curUrl: '../img/happy@3x.png',
+      },
+      {
+        imgUrl: '../img/unhappy@3x.png',
+        curUrl: '../img/happy@3x.png',
+      }
+    ],
+    menstrualHeadaches: [
+      {
+        imgUrl: '../img/centre@3x.png',
+        curUrl: '../img/weak.png',
+
+      },
+      {
+        imgUrl: '../img/centre@3x.png',
+        curUrl: '../img/weak.png',
+      },
+      {
+        imgUrl: '../img/more@3x.png',
+        curUrl: '../img/weak.png',
+      }
+    ],
+    fearColds: [  //怕冷
+      {
+        imgUrl: '../img/cold-centres@3x.png',
+        curUrl: '../img/cold-weak@3x.png',
+
+      },
+      {
+        imgUrl: '../img/cold-centres@3x.png',
+        curUrl: '../img/cold-weak@3x.png',
+      },
+      {
+        imgUrl: '../img/cold-more@3x.png',
+        curUrl: '../img/cold-weak@3x.png',
+      }
+    ],
+    weaks: [  //乏力
+      {
+        imgUrl: '../img/tired-weak@3x.png',
+        curUrl: '../img/tired-more@3x.png',
+
+      },
+      {
+        imgUrl: '../img/tired-centre@3x.png',
+        curUrl: '../img/tired-more@3x.png',
+      },
+      {
+        imgUrl: '../img/tired-centre@3x.png',
+        curUrl: '../img/tired-more@3x.png',
+      }
+    ],
   },
   clickAmount:function(){
 
@@ -70,6 +184,41 @@ Page({
       month: month,
       isToday: '' + year + month + now.getDate()
     })
+    
+  },
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    //   var data = {
+    //  startDay： '2018-06-01'，
+        // endDay: '2018-07-02
+
+    // }
+    //   userInfoQueryBodyStatus(data).then(res => {
+    //   console.log('查询身体状态接口', res);
+    //   // this.setData({
+    //   //   list: res.list
+    //   // })
+    // })
+
+
+    //   var data = {
+    //  queryMonth: -1
+
+    // }
+    //   userInfoQueryCalendar(data).then(res => {
+    //   console.log('日历查询', res);
+    //   // this.setData({
+    //   //   list: res.list
+    //   // })
+    // })
+
+
   },
   dateInit: function (setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
