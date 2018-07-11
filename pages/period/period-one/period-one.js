@@ -50,9 +50,14 @@ Page({
     if (e.currentTarget.dataset.day< 10) {
       day = '0' + e.currentTarget.dataset.day
     }
-    var dates = this.data.year + "" + month + "" + day;
+    else {
+      day = e.currentTarget.dataset.day
+    }
+
+    var dates = this.data.year + "-" + month + "-" + day;
     console.log('日期', dates);
-    app.globalData.menstrualStartTime = dates;
+    
+    app.globalData.obj.menstrualStartTime = dates;
     this.setData({
       day: e.currentTarget.dataset.day
     })

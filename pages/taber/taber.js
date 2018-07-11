@@ -26,14 +26,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-       var data = {
-      day:'2018-07-11'
-    }
-      userInfoQueryMenByDay(data).then(res => {
-      console.log('查询一天的经期信息', res);
-      physiologicalCycle = res.physiologicalCycle;
-    })
-    console.log(app.globalData.obj.birthday)
+    //    var data = {
+    //   day:'2018-07-11'
+    // }
+    //   userInfoQueryMenByDay(data).then(res => {
+    //   console.log('查询一天的经期信息', res);
+    //   physiologicalCycle = res.physiologicalCycle;
+    // })
+    // console.log(app.globalData.obj.birthday)
+    console.log(app.globalData.obj)
   },
 
   /**

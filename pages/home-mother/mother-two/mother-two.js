@@ -1,4 +1,5 @@
 // pages/period/period-two/period-two.js
+const app = getApp()
 Page({
 
   /**
@@ -30,6 +31,16 @@ Page({
     curUrl: '../../img/choose@3x.png',
     scrollShow: true,
   },
+  bindPickerChange: function (e) {
+    // console.log(e.target.dataset.index)
+    var menstrualTimes = e.target.dataset.index += 1
+    // console.log('月经持续多久' + menstrualTimes + '天')
+    this.setData({
+      menstrualTimes: menstrualTimes
+    })
+    app.globalData.obj.menstrualTimes = menstrualTimes
+    console.log('月经持续时间----' + menstrualTimes)
+  },
   navto: function () {
     wx.navigateTo({
       url: '../mother-three/mother-three'
@@ -40,7 +51,10 @@ Page({
     this.setData({
       show: !this.data.show
     })
+    console.log(e)
     if (this.data.show) {
+      app.globalData.obj.menstrualTimes = 5
+
       this.setData({
         scrollShow: false
       })
@@ -49,7 +63,11 @@ Page({
       this.setData({
         scrollShow: true
       })
+      app.globalData.obj.menstrualTimes = this.data.menstrualTimes
+
     }
+
+    console.log('默认时间----'+app.globalData.obj.menstrualTimes)
   },
 
   /**

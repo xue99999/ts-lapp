@@ -1,4 +1,5 @@
 var time = require('../../../utils/time.js');
+const app = getApp()
 const date = new Date()
 const years = []
 const months = []
@@ -75,5 +76,26 @@ Page({
     })
     // formatTime()
     // console.log(this.data.year)
+
+
+
+    console.log(day)
+    // console.log(this.data.month)
+    // console.log(this.data.year)
+    if (month < 10) {
+      month = '0' + month
+    }
+    if (day < 10) {
+      day = '0' + day
+    }
+    else {
+      day = day
+    }
+
+    var dates = year + "-" + month + "-" + day;
+    console.log('日期', dates);
+
+    app.globalData.obj.menstrualStartTime = dates;
+
   }
 })

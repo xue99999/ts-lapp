@@ -37,7 +37,6 @@ App({
     userInfo: null,
     obj:{
       shaonv: null,
-      // lama: '02',
       menstrualStartTime: null,
       menstrualTimes:null,
       menstrualCycle:null,

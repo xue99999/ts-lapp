@@ -26,7 +26,6 @@ Page({
     wx.navigateTo({
       url: '../home-mother/mother-five/mother-five',
     })
-    console.log(e)
   },
 
   /**

@@ -17,15 +17,18 @@ Page({
     })
   },
   bindChange:function(e){
-  console.log(e.target.dataset.index[0])
-  // var nv = e.target.dataset.index[0]
-  // var nan = e.target.dataset.index[1]
+    if (e.detail.value==0){
+      app.globalData.obj.babySex = '01'
+    }
+    else if (e.detail.value == 1){
+      app.globalData.obj.babySex = '02'      
+    }
+    console.log('宝宝信息-----'+app.globalData.obj.babySex)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.obj.shaonv)
   },
 
   /**

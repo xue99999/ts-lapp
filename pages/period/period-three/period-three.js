@@ -20,8 +20,7 @@ Page({
     menstrualCycle: null,  //持续多久
   },
   chooseImg: function (e) {
-
-    this.setData({
+     this.setData({
       show: !this.data.show
     })
     if (this.data.show) {
@@ -33,8 +32,6 @@ Page({
 
     }
     else {
-
-
       this.setData({
         scrollShow: true
       })
@@ -44,10 +41,11 @@ Page({
   },
   bindPickerChange: function (e) {
     var menstrualCycle = e.target.dataset.index += 1
-    console.log('月经有多长' + menstrualCycle + '天')
+    // console.log('月经有多长' + menstrualCycle + '天')
     this.setData({
       menstrualCycle: menstrualCycle
     })
+    app.globalData.obj.menstrualCycle = menstrualCycle
 
   },
   navto: function () {
