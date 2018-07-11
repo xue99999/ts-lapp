@@ -40,6 +40,19 @@ Page({
   dianji:function(e){
     // console.log(this.data.dateArr)
     console.log(e.currentTarget.dataset.day)
+    console.log(this.data.month)
+    console.log(this.data.year)
+    var month;
+    if (this.data.month<10){
+      month = '0' + this.data.month
+    }
+    var day;
+    if (e.currentTarget.dataset.day< 10) {
+      day = '0' + e.currentTarget.dataset.day
+    }
+    var dates = this.data.year + "" + month + "" + day;
+    console.log('日期', dates);
+    app.globalData.menstrualStartTime = dates;
     this.setData({
       day: e.currentTarget.dataset.day
     })

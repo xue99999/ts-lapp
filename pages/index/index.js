@@ -34,9 +34,15 @@ Page({
                   console.log('微信授权成功,进入首页幷传入参数code', result);
                   if (result.code === 200) {
                     if (result.userFlag==='02'){
+                
+
                       wx.redirectTo({
-                        url: '../home/home?userFlag=' + result.userFlag,
+                        url: '../home/home?userFlag=' + res.userFlag,
                       })
+
+                      // wx.switchTab({
+                      //   url: '../taber/taber',
+                      // })
                     }
                       
                    
