@@ -1,2 +1,40 @@
-<!--pages/home-mother/mother-one/mother-one.wxml-->
-<text>pages/home-mother/mother-one/mother-one.wxml</text>
+<view class='wrap'>
+
+  <view class='view-buzou'>
+        <text>步骤 3   共有6步骤</text>
+        <image src='../../img/buzhou3.png'></image>
+  </view> 
+  <view class='view-tes'>您上一次月经何时开始？</view>
+	<view class='header'>
+		<view wx:for='{{date}}'wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}<view></view></view>
+	</view>
+	<view>
+		<view class='date-show'>
+			<view class='lt-arrow' bindtap='lastMonth'>
+      〈
+				<!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
+			</view>
+			 {{year}}年{{month}}月
+			<view class='rt-arrow' bindtap='nextMonth'>
+      〉
+				<!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
+			</view>
+		</view>
+	</view>
+  <!-- <view class='view-month'> {{year}}年{{month}}月 </view> -->
+         
+	<view class='header'>
+	</view>
+	<view class='date-box'>
+		<view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>			
+			<view class='date-head'>
+				<view data-index='{{index}}' bindtap='dianji'class="active" >{{item.dateNum}}</view>
+			</view>
+		</view>
+	</view>
+
+
+      <button class='btn' bindtap='navto'>下一步</button>
+  
+</view>
+

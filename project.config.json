@@ -30,7 +30,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 13,
+
 			"list": [
 				{
 					"id": -1,
@@ -47,7 +48,7 @@
 				{
 					"id": 2,
 					"name": "home",
-					"pathName": "pages/homeMother/mother-six/mother-six",
+					"pathName": "pages/home-mother/mother-six/mother-six",
 					"query": ""
 				},
 				{

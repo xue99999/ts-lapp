@@ -17,7 +17,7 @@ Page({
   bindPickerChange: function (e) {
     // console.log(e.currentTarget.dataset.nian+'年出生。')
     var birthday = e.currentTarget.dataset.nian
-
+    console.log('年份', birthday);
     app.globalData.obj.birthday = this.data.birthday
     console.log(app.globalData.obj.birthday)
     this.setData({

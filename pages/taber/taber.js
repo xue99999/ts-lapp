@@ -52,8 +52,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
-    // if (app.globalData.obj.shaonv==01){
+    var shaonvid = app.globalData.obj.shaonv
+      console.log(shaonvid)
+    // if (){
 
     //   console.log(app.globalData.obj.shaonv)
     // }
