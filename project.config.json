@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -50,7 +50,7 @@
 				{
 					"id": 2,
 					"name": "home",
-					"pathName": "pages/period/period-four/period-four",
+					"pathName": "pages/homeMother/mother-five/mother-five",
 					"query": ""
 				},
 				{
