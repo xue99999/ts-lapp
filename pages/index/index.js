@@ -107,10 +107,23 @@ Page({
             iv: iv,
             encryptedData: encryptedData
           }
+
           var LoginData={
             code: res.code,
           }
+          //登录微信授权
+          authWechatLogin(LoginData).then(result => {
+            console.log('登录微信授权', result);
+     
+          })
+
+        
        
+
+
+
+
+
 
           //信息同步
           authUserInfo(data).then(res => {
@@ -124,12 +137,22 @@ Page({
             console.log('保存token成功', res.token);
           })
 
+        
+
+
+
+
+
+
+
+
           // //登录微信授权
           // authWechatLogin(LoginData).then(result => {
           //   console.log('登录微信授权', result);
 
           // })
         
+
        }
       }
     })

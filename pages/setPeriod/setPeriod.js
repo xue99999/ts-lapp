@@ -1,4 +1,6 @@
-// pages/setPeriod/setPeriod.js
+const app = getApp()
+const { userInfoQueryMensAndOvulation } = require('../../service/user.js')
+var Http = require('../../utils/http.js');
 Page({
 
   /**
@@ -30,7 +32,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    userInfoQueryMensAndOvulation().then(res => {
+      console.log('设置经期与排卵', res);
+      // this.setData({
+      //   list: res.list
+      // })
+    })
   },
 
   /**

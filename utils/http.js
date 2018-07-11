@@ -8,13 +8,14 @@ function Request(method, requestHandler) {
 
 
   return new Promise((resolve, reject) => {
-  
+    var token =   wx.getStorageSync('token')
     wx.request({
       url: url,
       data: params,
       method: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'].indexOf(method) > -1 ? method : 'GET',
       header: Object.assign({
         'Content-Type': 'application/json',
+        'Authorization': 'E9474A92E6194BB28E4B9BC4ADE147A1',
         'Authorization': wx.getStorageSync('token'),
         //'Authorization':'E9474A92E6194BB28E4B9BC4ADE147A1'
         /*

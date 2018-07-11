@@ -10,7 +10,7 @@
             </scroll-view>
       </view>
       <view wx:else class='view-else'>
-            <view class='view-tet'>她师会将月经来潮天数设定为5天 。</view>
+            <view class='view-tet'>她师会将周期来潮天数设定为28天 。</view>
             <view class='view-tet'>您使用她师的次数越多 , 预测就越准确 。</view>
       </view>
 

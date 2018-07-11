@@ -72,10 +72,14 @@
               <image src='../img/menstruation2@3x.png'></image>
               <text>月经量</text>
         </view>
-        <view class='view-mo1'>
-              <image src='../img/menstruation2-weak@3x.png'></image>
+        <!-- <view class='view-mo1'>
+              <image src='../img/menstruation2-weak@3x.png' bindtap='clickAmount'></image>
               <image src='../img/menstruation2-centre@3x.png'></image>
               <image src='../img/menstruation2-more@3x.png'></image>
+        </view> -->
+        <view  class='view-mo1' wx:for="{{listInfo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
+            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
+            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
         </view>
     </view>
         <view class='view-an'>
@@ -106,7 +110,7 @@
               <text>小腹痛</text>
         </view>
       <!-- 小标签     -->
-          <view class='label'>超开心的</view>
+          <!-- <view class='label'>超开心的</view> -->
 
         <view class='view-mo1'>
               <image src='../img/weak.png'></image>

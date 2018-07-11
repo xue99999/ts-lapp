@@ -10,7 +10,7 @@
   </view>
 
   <view class='view-tishi'>
-        <view>今日提示</view>
+        <view bindtap='clickjinri'>今日提示</view>
   </view> 
   <view class='view-img'>
         <image src='../img/can.png'></image>

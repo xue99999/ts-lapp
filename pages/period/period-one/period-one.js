@@ -13,7 +13,8 @@ Page({
     todayIndex: 0,
     show:false,
     imgUrl: '../../img/choose1@3x.png',
-    curUrl: '../../img/choose@3x.png'
+    curUrl: '../../img/choose@3x.png',
+    day:''
       
   },
   chooseImg: function (e) {
@@ -38,7 +39,10 @@ Page({
 
   dianji:function(e){
     // console.log(this.data.dateArr)
-    console.log(e.currentTarget.dataset)
+    console.log(e.currentTarget.dataset.day)
+    this.setData({
+      day: e.currentTarget.dataset.day
+    })
   },
   onLoad: function () {
     let now = new Date();

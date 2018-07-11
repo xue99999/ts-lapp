@@ -1,11 +1,11 @@
 /*今日推荐 */
-
 .inclusion {
   position: fixed;
   height: 100%;
   width: 100%;
   background: #e1e1e1;
 }
+
 
 .view_top {
   height: 345rpx;
@@ -102,6 +102,7 @@ height: 212rpx;
   height: 26.66rpx;
   font-size: 18px;
 }
+
 
 .list_item_text2, .list_item_text3, .list_item_text4 {
   height: 23rpx;

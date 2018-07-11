@@ -1,7 +1,7 @@
 <view>
       <view class='view-buzou'>
-        <text>步骤 4   共有6步骤</text>
-        <image src='../../img/buzhou4.png'></image>
+        <text>步骤 6   共有6步骤</text>
+        <image src='../../img/buzhou6.png'></image>
       </view>
       <view class='view-tes'>您在哪一年出生？</view>
       <!-- 选择器 -->

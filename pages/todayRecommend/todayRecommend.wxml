@@ -1,5 +1,4 @@
-<!--今日推荐-->
-<view class='inclusion'>
+
   <view class='view_top'>
     <view class='view_top_s'>
     <view class='text_view'>
@@ -39,4 +38,3 @@
     </view>
 
   </scroll-view>
-</view>

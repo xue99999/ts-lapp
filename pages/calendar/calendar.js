@@ -13,16 +13,46 @@ Page({
     todayIndex: 0,
     show: false,
     imgUrl: '../../img/choose1@3x.png',
-    curUrl: '../../img/choose@3x.png'
+    curUrl: '../../img/choose@3x.png',
+    text:[
+      ['月经量偏少','月经量正常','月经量很多'],
+      
+      ],
+
+    curIdx: null,
+    listInfo: [
+      {
+        imgUrl: '../img/menstruation2-weak@3x.png',
+        curUrl: '../img/menstruation2-more@3x.png',
+      },
+      {
+        imgUrl: '../img/menstruation2-centre@3x.png',
+        curUrl: '../img/menstruation2-more@3x.png',
+      },
+      {
+        imgUrl: '../img/menstruation2-centre@3x.png',
+        curUrl: '../img/menstruation2-more@3x.png',
+      }
+
+    ]
+
+  },
+  clickAmount:function(){
+
+    wx.showToast({
+      title: '月经量偏少',
+      mask:false,
+      icon: 'none',
+      duration: 1000
+    })
 
   },
   chooseImg: function (e) {
-
     this.setData({
-      show: !this.data.show
+      curIdx: e.currentTarget.dataset.current
     })
-
-
+     console.log(e)
+     console.log(this.data.curIdx) 
   },
 
 

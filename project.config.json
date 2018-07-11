@@ -47,7 +47,7 @@
 				{
 					"id": 2,
 					"name": "home",
-					"pathName": "pages/index/index",
+					"pathName": "pages/homeMother/mother-five/mother-five",
 					"query": ""
 				},
 				{
@@ -75,19 +75,13 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "taber",
-					"pathName": "pages/period/period-one/period-one",
-					"query": ""
-				},
-				{
 					"id": 7,
-					"name": "six",
-					"pathName": "pages/Record/Record",
+					"name": "taber",
+					"pathName": "pages/taber/taber",
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 8,
 					"name": "设置经期",
 					"pathName": "pages/setPeriod/setPeriod",
 					"query": ""

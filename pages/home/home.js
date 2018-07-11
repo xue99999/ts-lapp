@@ -19,7 +19,7 @@ Page({
   // 辣妈入口
   clickMother(e) {
     wx.navigateTo({
-      url: '../homeMother/mother-one/mother-one',
+      url: '../homeMother/mother-five/mother-five',
     })
     console.log(e)
   },
