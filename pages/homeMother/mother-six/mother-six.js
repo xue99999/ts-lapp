@@ -1,3 +1,4 @@
+var time = require('../../../utils/time.js');
 const date = new Date()
 const years = []
 const months = []
@@ -72,5 +73,7 @@ Page({
       day,
       days: mdays
     })
+    // formatTime()
+    // console.log(this.data.year)
   }
 })

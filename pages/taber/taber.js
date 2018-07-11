@@ -43,6 +43,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+    // if (app.globalData.obj.shaonv==01){
+
+    //   console.log(app.globalData.obj.shaonv)
+    // }
     // var data = {
     //   day:'2018-07-07'
     // }
@@ -52,7 +57,7 @@ Page({
     //   //   list: res.list
     //   // })
     // })
-    console.log(app.globalData.obj.birthday)
+    // console.log(app.globalData.obj.birthday)
   },
 
   /**
