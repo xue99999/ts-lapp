@@ -30,7 +30,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 13,
+
 			"list": [
 				{
 					"id": -1,
@@ -102,6 +103,18 @@
 					"id": -1,
 					"name": "全部课程",
 					"pathName": "pages/ labelCourse / labelCourse",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "111",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
 					"query": ""
 				}
 			]

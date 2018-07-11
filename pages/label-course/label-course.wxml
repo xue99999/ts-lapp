@@ -1,0 +1,19 @@
+<!--课程标签-->
+<view class='inclusion'>
+ <scroll-view class='scroll_view' scroll-y="true"   bindscrolltoupper="upper" bindscrolltolower="lower">
+  <view wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark+item.sectionName}}">
+  <navigator class='list_view' url="{{url+'?id='+item.id}}">
+    <image class='list_item_img' src='../img/placeholder.jpg'></image>
+    <view class='list_itme_text_view'>
+      <text class='list_item_text1'>{{item.courseName}}</text>
+      <text class='list_item_text2'>{{item.teacherName}}   共{{item.courseCount}}课节</text>
+      <view class='list_item_view_all'>
+         <image class='list_item_view_all_img' src='../img/play1@3x.png'></image>
+        <text class='list_item_text3'>{{item.subscribeTotal}}次订阅</text>
+        <text class='list_item_text5'>¥{{item.price}}</text>
+      </view>
+    </view>
+      </navigator>
+  </view>
+   </scroll-view>
+</view>

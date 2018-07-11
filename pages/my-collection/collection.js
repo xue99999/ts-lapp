@@ -7,7 +7,7 @@ Page({
    */
   data: {
     list: [],
-    url:'../courseDetails/courseDetails',
+    url:'../course-details/course-details',
   },
 
   /**

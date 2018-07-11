@@ -2,14 +2,13 @@ import Http from '../utils/http.js';
 //RAP2 开发阶段测试路径
 //const baseUrl = 'http://192.168.9.171:8080/app/mock/20/';
 //程东林 本地测试路径
-//const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
+const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
+//王丽娟 本地测试路径
+//const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 
 //李康 本地测试路径
 // const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
 
-
-//王丽娟 本地测试路径
-// const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 //刘小东 本地测试路径
 //const baseUrl = 'http://192.168.5.113:8083/ts-app-web/';
 const {get}=Http;
@@ -45,14 +44,14 @@ function apiCourseId(params){
 // 用户信息同步
 function authUserInfo(params){
   return post({
-    url: baseUrl + 'auth/userInfo',
+    url: baseUrl + 'auth/wechat/login',
     params
   })
 }
   // 登录微信授权
 function authWechatLogin(params) {
   return post({
-    url: baseUrl + '/auth/wechatLogin',
+    url: baseUrl + 'auth/wechat/loginWithCode',
     params
   })
 }

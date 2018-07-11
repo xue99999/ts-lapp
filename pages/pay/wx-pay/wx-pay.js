@@ -50,7 +50,7 @@ Page({
       return;
     };
     var data = {
-      coursesId: id,
+      courseId: id,
       ticketCode: input
     };
 
@@ -58,7 +58,7 @@ Page({
       console.log('微信统一下单', result);
       if (result.returnCode === 201) {
         wx.redirectTo({
-          url: '/pages/pay/wxStatus/wxstatus?orderNo=' + result.data.orderNo + '&id=' + id
+          url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
         })
         return;
       }
@@ -82,11 +82,11 @@ Page({
           console.log('成功失败通用', res);
           if (res.errMsg === 'requestPayment:ok') {
             wx.redirectTo({
-              url: '/pages/pay/wxStatus/wxstatus?orderNo=' + result.data.orderNo + '&id=' + id
+              url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
             })
           } else {
             wx.redirectTo({
-              url: '/pages/pay/wxStatus/wxstatus?orderNo=' + result.data.orderNo + '&id=' + id
+              url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
             })
           }
         }

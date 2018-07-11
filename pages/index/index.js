@@ -1,167 +1,115 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const { authUserInfo, authWechatLogin } = require('../../service/user.js')
+const {
+  authUserInfo,
+  authWechatLogin
+} = require('../../service/user.js')
 var Http = require('../../utils/http.js');
-var data={};
-var userInfo = {};
-var iv = "";
-var encryptedData = "";
+
+var data, LoginData, iv, encryptedData;
+var userInfo="";
 Page({
   data: {
-    userInfo: {},
-    hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    list: [],
-    user: {},
-    code: ''
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../home/home'
-    }) 
-  },
-  onReady: function () {
+  onLoad: function() {
 
-    var user = wx.getStorageSync('userInfo')
-    var code = wx.getStorageSync('code')
-  //  data = {
-  //    // code: code,
-  //     userInfo: user.userInfo,
-  //     iv: user.iv,
-  //     encryptedData: user.encryptedData
-  //   }
-     //信息同步
-    // authUserInfo(data).then(res => {
-    //   console.log(res);
+    // 查看是否授权
+    wx.getSetting({
+      success: function(res) {
+        if (res.authSetting['scope.userInfo']) {
+          console.log('已授权', res);
 
-    // })
- 
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
+          // //微信code
+          wx.login({
+            success(res) {
+              console.log('微信code', res.code)
+              if (res != '') {
+                LoginData = {
+                  code: res.code,
+                }
+                //登录微信授权
+                authWechatLogin(LoginData).then(result => {
+                  console.log('微信授权成功,进入首页幷传入参数code', result);
+                  if (result.code === 200) {
+                    if (result.userFlag==='02'){
+                      wx.redirectTo({
+                        url: '../home/home?userFlag=' + result.userFlag,
+                      })
+                    }
+                      
+                   
+                  }
+                })
+              }
+
+
+            }
           })
+
+        } else {
+          console.log('尚未授权', res);
+
+
         }
-      })
-    }
+      }
+    })
 
 
   },
-  
+  bindGetUserInfo: function() {
+    // 查看是否授权
+    wx.getSetting({
+      success: function(res) {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: function(res) {
+              console.log('点击授权给后台传入对应的信息', res);
+              userInfo = res.userInfo;
+              iv = res.iv;
+              encryptedData = res.encryptedData;
+              // //微信code
+              wx.login({
+                success(res) {
+                  console.log('微信code', res.code)
+                  //参数 第一次授权的时候         
+                  data = {
+                    code: res.code,
+                    userInfo: userInfo,
+                    iv: iv,
+                    encryptedData: encryptedData
+                  }
 
-  getUserInfo: function (e) {
-    console.log(e)
-    
-  
-    userInfo = e.detail.rawData;
-    encryptedData = e.detail.encryptedData;
-    iv = e.detail.iv;
-  
-    // 将用户信息存到本地
-    wx.setStorageSync('userInfo', e.detail)
+                  //微信登录
+                  authUserInfo(data).then(res => {
+                    console.log('微信登录', res);
+                    if (res.code === 200) {
+                      console.log('将要保存token', res.token);
+                      wx.setStorage({
+                        key: "token",
+                        data: res.token,
+                      })
+                      console.log('保存token成功,进入首页', res.token);
 
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-
-    wx.navigateTo({
-      url: '../home/home',
-    })
-    this.login();
-
-
-
-
-  },
-  login() {
-
-    wx.login({
-      success(res) {
-        console.log(res.code)
-       // wx.setStorageSync('code', res.code)
-        if (res.code) {
-
-          console.log(userInfo);
-          console.log(encryptedData);
-          console.log(iv);
-          data = {
-            code: res.code,
-            userInfo: userInfo,
-            iv: iv,
-            encryptedData: encryptedData
-          }
-
-          var LoginData={
-            code: res.code,
-          }
-          //登录微信授权
-          authWechatLogin(LoginData).then(result => {
-            console.log('登录微信授权', result);
-     
+                      wx.redirectTo({
+                        url: '../home/home?userFlag=' + res.userFlag,
+                      })
+                    }
+                  })
+                }
+              })
+            }
           })
 
-        
-       
-
-
-
-
-
-
-          //信息同步
-          authUserInfo(data).then(res => {
-            console.log('信息同步',res);
-            console.log('将要保存token', res.token);
-            wx.setStorage({
-              key: "token",
-              data: res.token,
-
-            })
-            console.log('保存token成功', res.token);
-          })
-
-        
-
-
-
-
-
-
-
-
-          // //登录微信授权
-          // authWechatLogin(LoginData).then(result => {
-          //   console.log('登录微信授权', result);
-
-          // })
-        
-
-       }
+        }
       }
     })
   }
+
+
+
+
+
+
 })

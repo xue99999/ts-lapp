@@ -31,7 +31,9 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id);
-    id = options.id;
+  //  id = options.id;
+    id = "b05bb1a5ae2742c7a799cf620911edf4";
+    options.id = "b05bb1a5ae2742c7a799cf620911edf4";
     apiCourseId(options.id).then(result=>{
       console.log('课程详情',result);
       this.setData({
@@ -51,7 +53,7 @@ Page({
         total: result.total,
         sectionList: result.list,
         remark: result.list[0].remark,
-        url: '../courseVideo/coursevideo?courseId=' + options.id,
+        url: '../course-video/course-video?courseId=' + options.id,
       })
     });
   },
@@ -82,7 +84,7 @@ Page({
   onClickSubscriber() {
     console.log("订阅");
     wx.navigateTo({
-      url: '../pay/wxPay/wxpay?courseId=' + id+'&total='+this.data.total+'&courseName='+this.data.courseName+'&price='+this.data.price
+      url: '../pay/wx-pay/wx-pay?courseId=' + id+'&total='+this.data.total+'&courseName='+this.data.courseName+'&price='+this.data.price
     })
   } ,
   onShareAppMessage: function (ops) {
