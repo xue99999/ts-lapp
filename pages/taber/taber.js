@@ -45,11 +45,7 @@ Page({
   },
   clickjinri:function(){
       wx.navigateTo({
-<<<<<<< .mine
-        url: '../today-recommend/today-recommend?=' + this.data.physiologicalCycle
-=======
         url: '../today-recommend/today-recommend?physiologicalCycle=' + physiologicalCycle
->>>>>>> .theirs
       })
   },
 
@@ -60,7 +56,6 @@ Page({
     var shaonvid = app.globalData.obj.shaonv
       console.log(shaonvid)
     if (shaonvid=='01'){
-<<<<<<< .mine
     // var data = {
     //   day:'2018-07-07'
     // }
@@ -83,31 +78,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-=======
- 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
-  
   },
 
 })

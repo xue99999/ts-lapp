@@ -37,11 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-<<<<<<< .mine
-			"current": 2,
-=======
 			"current": 12,
->>>>>>> .theirs
 			"list": [
 				{
 					"id": -1,
