@@ -35,7 +35,7 @@ Page({
                   if (result.code === 200) {
                     if (result.userFlag==='02'){
                       wx.redirectTo({
-                        url: '../home/home?userFlag=' + result.userFlag,
+                        url: '../taber/taber',
                       })
                     }
                       

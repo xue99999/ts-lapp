@@ -2,6 +2,7 @@
 const app = getApp()
 const { userInfoAdd, userInfoQueryMenByDay} = require('../../service/user.js')
 var Http = require('../../utils/http.js');
+var physiologicalCycle;
 Page({
 
   /**
@@ -24,6 +25,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+       var data = {
+      day:'2018-07-11'
+    }
+      userInfoQueryMenByDay(data).then(res => {
+      console.log('查询一天的经期信息', res);
+      physiologicalCycle = res.physiologicalCycle;
+    })
+    console.log(app.globalData.obj.birthday)
   },
 
   /**
@@ -35,7 +44,7 @@ Page({
   },
   clickjinri:function(){
       wx.navigateTo({
-        url: '../today-recommend/today-recommend'
+        url: '../today-recommend/today-recommend?physiologicalCycle=' + physiologicalCycle
       })
   },
 
@@ -48,50 +57,8 @@ Page({
 
     //   console.log(app.globalData.obj.shaonv)
     // }
-    // var data = {
-    //   day:'2018-07-07'
-    // }
-    // userInfoQueryMenByDay(data).then(res => {
-    //   console.log('查询一天的经期信息', res);
-    //   // this.setData({
-    //   //   list: res.list
-    //   // })
-    // })
-    // console.log(app.globalData.obj.birthday)
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+ 
   
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })
