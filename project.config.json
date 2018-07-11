@@ -128,6 +128,11 @@
 					"name": "年份",
 					"pathName": "pages/period/period-four/period-four",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "weixin",
+					"pathName": "pages/course-details/course-details"
 				}
 			]
 		}
