@@ -10,6 +10,7 @@ Page({
   data: {
     date: ['日', '一', '二', '三', '四', '五', '六'],
     arr:[4,5,6,7,8,9,10],
+    physiologicalCycle:''
     // list:[]
   },
   clickArr:function(e){
@@ -35,7 +36,7 @@ Page({
   },
   clickjinri:function(){
       wx.navigateTo({
-        url: '../today-recommend/today-recommend'
+        url: '../today-recommend/today-recommend?=' + this.data.physiologicalCycle
       })
   },
 
@@ -45,10 +46,7 @@ Page({
   onShow: function () {
     var shaonvid = app.globalData.obj.shaonv
       console.log(shaonvid)
-    // if (){
-
-    //   console.log(app.globalData.obj.shaonv)
-    // }
+    if (shaonvid=='01'){
     // var data = {
     //   day:'2018-07-07'
     // }
@@ -59,6 +57,12 @@ Page({
     //   // })
     // })
     // console.log(app.globalData.obj.birthday)
+
+    }
+    else if (shaonvid == '02'){
+      
+    }
+
   },
 
   /**
