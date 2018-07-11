@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 14,
 			"list": [
 				{
 					"id": -1,
@@ -115,6 +115,11 @@
 					"name": "我的",
 					"pathName": "pages/my/my",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "课程想起",
+					"pathName": "pages/course-details/course-details"
 				}
 			]
 		}

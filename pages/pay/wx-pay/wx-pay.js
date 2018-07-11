@@ -41,14 +41,14 @@ Page({
     console.log('微信支付');
     console.log(input);
     console.log('id>>>>>',id);
-    if (input === '') {
-      wx.showToast({
-        title: '企业兑换码不能为空',
-        icon: 'none',
-        duration: 2000
-      })
-      return;
-    };
+    // if (input === '') {
+    //   wx.showToast({
+    //     title: '企业兑换码不能为空',
+    //     icon: 'none',
+    //     duration: 2000
+    //   })
+    //   return;
+    // };
     var data = {
       courseId: id,
       ticketCode: input

@@ -45,7 +45,7 @@ Page({
       },
       {
         name: '标签模式',
-        url:'../labelCourse/LabelCourse',
+        url:'../label-course/label-course',
         icon: '../img/feedback@3x.png',
         code: '10'
 
