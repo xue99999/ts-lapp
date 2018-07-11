@@ -153,6 +153,7 @@ Page({
         console.log('<<<>>>',i);
         console.log('加一', SectionList[i + 1].id);
         if ((i + 1) > SectionList.length){
+         
           wx.showToast({
             title: '当前已是最后一个视频',
             icon: 'none',
@@ -160,6 +161,7 @@ Page({
           })
           return;
         }
+        pos = i + 1;
         this.doPlay(SectionList[i + 1].id);
       }
     }
