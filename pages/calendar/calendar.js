@@ -19,13 +19,20 @@ Page({
     curUrl: '../../img/choose@3x.png',
     curIdx: null,
     physiologicalCycle:null,
+    currentDay: {},
     
     anmo: [
       {
+        name: '捏脊',
+        code: 'frictionalAbdomen',
+        select: false,
         imgUrl: '../img/belly@3x.png',
         curUrl: '../img/Knead back@3x.png',
       },
       {
+        code: 'chiropractic',
+        name: '摩腹',
+        select: false,
         imgUrl: '../img/belly@3x.png',
         curUrl: '../img/Knead back@3x.png',
       }
@@ -202,35 +209,37 @@ Page({
     const index = e.currentTarget.dataset.index;
 
     const list1 = this.data.anmo;
-
+    let selectTag = false;
     for (let i = 0; i < list1.length; i++) {
       if (i == index) {
-        list1[i].select = true;
-      } else {
-        list1[i].select = false;
+        const {
+          select,
+          code
+        } = list1[i];
+        list1[i].select = !select;
+        const updateData = {};
+        if (list1[i].select) {
+          selectTag = true;
+          wx.showToast({
+            title: list1[i].name,
+            icon: 'none',
+            duration: 500
+          })
+        }
       }
     }
-    console.log(list1);
+    let updateData = {};
+    if (index === 0) {
+      updateData = { frictionalAbdomen: selectTag ? "01" : "02" }
+    } else {
+      updateData = { chiropractic: selectTag ? "01" : "02" }
+    }
+
+    this.updateStatus(updateData)
 
     this.setData({
       anmo: list1
     })
-
-    if (index == 0) {
-      wx.showToast({
-        title: '按摩',
-        icon: 'none',
-        duration: 1000
-      })
-    }
-    else if (index == 1) {
-      wx.showToast({
-        title: '正常',
-        icon: 'none',
-        duration: 1000
-      })
-    }
-
   },
   // 点击月经量
   chooseImg1: function (e) {
@@ -518,7 +527,6 @@ Page({
         this.setData({
           currentDay:dd
         })
-
         break;
       }
     }

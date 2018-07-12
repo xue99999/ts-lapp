@@ -25,7 +25,7 @@
     <view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
       <view class='date-head'>
         <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili'
-         class="active">
+         class="">
          {{item.dateNum}}
          </view>
       </view>
@@ -60,11 +60,11 @@
   <view class='view-an'>
     <view class='view-mo'>
       <image src='../img/menstruation1@3x.png'></image>
-      <text>大姨妈走喽</text>
+      <text>大姨妈{{currentDay.menstrualStatus==='01'?'走了':'来了'}}喽</text>
     </view>
     <view class="view-mo1">
-      <switch checked bindchange="switch1Change" color='#FE6F71' />
-      <switch bindchange="switch2Change" color='#FE6F71' />
+      <switch checked bindchange="switch1Change" checked="{{currentDay.menstrualStatus==='01'}}" color='#FE6F71' />
+      <!-- <switch bindchange="switch2Change" color='#FE6F71' /> -->
     </view>
   </view>
 
