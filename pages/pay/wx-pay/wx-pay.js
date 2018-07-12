@@ -3,7 +3,7 @@ const {
   payUnifiedorder
 } = require('../../../service/user.js');
 var input = '';
-var id ;
+var id;
 Page({
 
   /**
@@ -28,8 +28,8 @@ Page({
    */
   onLoad: function(options) {
     console.log('微信支付>>>>', options.courseId);
-   
-    id= options.courseId;
+
+    id = options.courseId;
     this.setData({
 
       total: options.total,
@@ -40,15 +40,8 @@ Page({
   onClickPay() {
     console.log('微信支付');
     console.log(input);
-    console.log('id>>>>>',id);
-    // if (input === '') {
-    //   wx.showToast({
-    //     title: '企业兑换码不能为空',
-    //     icon: 'none',
-    //     duration: 2000
-    //   })
-    //   return;
-    // };
+    console.log('id>>>>>', id);
+
     var data = {
       courseId: id,
       ticketCode: input
@@ -56,6 +49,16 @@ Page({
 
     payUnifiedorder(data).then(result => {
       console.log('微信统一下单', result);
+      //企业兑换码code=503的时候不进行支付并且return 
+      if (result.code===503) {
+        wx.showToast({
+          title: '企业兑换码错误',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      };
+
       if (result.returnCode === 201) {
         wx.redirectTo({
           url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
