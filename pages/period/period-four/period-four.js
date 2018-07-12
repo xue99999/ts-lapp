@@ -23,6 +23,10 @@ Page({
   },
   navto: function () {
 
+
+    //当用户点击下一步的时候保存定位属性
+    app.globalData.goTo = "ok";
+
     // var data = {
     //   'userModel': app.globalData.obj.shaonv,
     //   'menstrualStartTime': "2017-06-07",

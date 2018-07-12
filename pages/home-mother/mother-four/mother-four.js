@@ -9,6 +9,8 @@ Page({
       '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'],
   },
   navto: function () {
+  //当用户点击下一步的时候保存定位属性
+   app.globalData.goTo="ok";
     wx.switchTab({
       url: '../../taber/taber',
       success: function (res) { },

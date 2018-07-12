@@ -43,7 +43,10 @@ App({
       menstrualCycle:null,
       birthday:null,
       babySex:null,
-      babyBirthday:null
+      babyBirthday:null,
+      //区分用户是否走完了引导页
+      goTo:null
+    
     }
 
   }

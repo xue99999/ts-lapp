@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/home/home",
     "pages/index/index",
+    "pages/home/home",
     "pages/logs/logs",
     "pages/my/my",
     "pages/period/period-one/period-one",
@@ -24,12 +24,12 @@
     "pages/calendar/calendar",
     "pages/state/state",
     "pages/baby/baby",
-
     "pages/today-recommend/today-recommend",
     "pages/label-course/label-course"
 
   ],
   "window": {
+    
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FE6F71",
     "navigationBarTitleText": "她师",

@@ -8,7 +8,7 @@ const {
 var Http = require('../../utils/http.js');
 
 var data, LoginData, iv, encryptedData;
-var userInfo="";
+var userInfo = "";
 Page({
   data: {
     userInfo: {},
@@ -68,19 +68,27 @@ Page({
                       data: result.token,
                     })
                     console.log('保存token成功,进入首页', result.token);
-                    if (result.userFlag==='02'){
-                
+                    if (result.userFlag === '02') {
+                          //当不是新用户的时候
+                          //判断是不是走完了引导页
+                          //如果走完了就直接去首页 -taber
+                      if (app.globalData.goTo === 'ok') {
+                        wx.switchTab({
+                          url: '../taber/taber',
+                        })
+                      } else {
+                        //没有走完就重新走
+                        wx.redirectTo({
+                          url: '../home/home?userFlag=' + res.userFlag,
+                        })
+                      }
 
-                      wx.redirectTo({
-                        url: '../home/home?userFlag=' + res.userFlag,
-                      })
-
-                      // wx.switchTab({
-                      //   url: '../taber/taber',
-                      // })
-                    }
-                      
                    
+
+
+                    }
+
+
                   }
                 })
               }
@@ -99,7 +107,7 @@ Page({
 
 
   },
-  getUserInfo: function (e) {
+  getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
