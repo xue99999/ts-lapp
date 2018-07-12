@@ -18,6 +18,7 @@ Page({
     courseName:"",
     teacherName:"",
     courseData:{},
+    pictureUrl:"",
     remark:"",
     sectionList:[
     ],
@@ -43,6 +44,7 @@ Page({
         price: result.data.price,
         teacherName: result.data.teacherName,
         courseData: result.data,
+        pictureUrl: result.pictureUrl,
       })
     });
   

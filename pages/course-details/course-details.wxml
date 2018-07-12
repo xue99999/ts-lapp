@@ -1,7 +1,7 @@
 <!--课程详情-->
 <view class='inclusion'>
   <view class='view_top'>
-    <image class='view_top_img' src='../img/placeholder.jpg'></image>
+    <image class='view_top_img' src="{{pictureUrl===''?'../img/placeholder.jpg':pictureUrl}}"></image>
     <view class='view_top_text_view_all'>
       <text class='view_top_text1'>{{courseData.courseName}}</text>
 

@@ -10,6 +10,8 @@ import Http from '../utils/http.js';
 //李康 本地测试路径
 const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
 
+//刘小东 本地测试路径
+//const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 const {get}=Http;
 
 function ownerQuery(params){
@@ -85,7 +87,7 @@ function apiSectionPlay(params){
   })
 
 }
-
+//课程--推荐
 function apiCourseRecommendList(params){
 
   return get({
