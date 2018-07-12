@@ -12,8 +12,10 @@
   <view class='view-tishi'>
         <view bindtap='clickjinri'>今日提示</view>
   </view> 
-  <view class='view-img'>
+  <view class='view-img'  wx:key>
         <image src='../img/can.png'></image>
+         <view>{{item.physiologicalCycle}}</view>
+        <view>{{item.userModel}}</view> 
   </view>
 
   <view class='view-bu'>

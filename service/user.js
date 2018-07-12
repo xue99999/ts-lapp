@@ -109,14 +109,6 @@ function userInfoAdd(params) {
   })
 
 }
-//查询一天的经期信息
-function userInfoQueryMenByDay(params) {
-  return get({
-    url: baseUrl + 'userInfo/queryMenByDay',
-    params
-  })
-
-}
 
 //查询设置经期与排卵
 function userInfoQueryMensAndOvulation(params) {
@@ -169,7 +161,6 @@ module.exports = {
   orderQuery,
   apiSectionPlay,
   userInfoAdd,
-  userInfoQueryMenByDay,
   userInfoQueryMensAndOvulation,
   apiCourseRecommendList,
   apiCourseSeriesList,

@@ -24,10 +24,8 @@
     "pages/calendar/calendar",
     "pages/state/state",
     "pages/baby/baby",
-
     "pages/today-recommend/today-recommend",
     "pages/label-course/label-course"
-
   ],
   "window": {
     "backgroundTextStyle": "light",

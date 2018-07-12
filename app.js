@@ -43,7 +43,11 @@ App({
       birthday:null,
       babySex:null,
       babyBirthday:null
-    }
+    },
+    obj2:[],
+    
+    
+
 
   }
 })
