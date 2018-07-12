@@ -4,14 +4,6 @@ var Http = require('../../utils/http.js');
 
 
 var weak;
-var weak;
-var weak;
-var weak;
-var weak;
-var weak;
-var weak;
-var weak;
-var weak;
 Page({
 
   /**
@@ -522,16 +514,16 @@ Page({
   onShow: function () {
     var data = {
       day: null,
-      chiropractic: '01',
-      frictionalAbdomen: '02',
-      menstrualStatus: '01',
-      menstrualVolume: '02',
-      leucorrhea: '01',
-      breastTenderness: '01',
-      abdominalPain: '02',
-      mood: '01',
-      menstrualHeadache: '01',
-      fearCold: '01',
+      // chiropractic: chiropractic,
+      // frictionalAbdomen: frictionalAbdomen,
+      // menstrualStatus: menstrualStatus,
+      // menstrualVolume: menstrualVolume,
+      // leucorrhea: leucorrhea,
+      // breastTenderness: breastTenderness,
+      // abdominalPain: abdominalPain,
+      // mood: mood,
+      // menstrualHeadache: menstrualHeadache,
+      // fearCold: fearCold,
       weak: weak
     }
     userInfoUpdateBodyStatus(data).then(res => {

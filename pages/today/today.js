@@ -89,6 +89,7 @@ Page({
       //     userModel: '辣妈'
       //   })
       // }
+    // })
     console.log(app.globalData.obj.birthday)
     console.log(app.globalData.obj)
   },

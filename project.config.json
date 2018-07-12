@@ -79,8 +79,8 @@
 				},
 				{
 					"id": 7,
-					"name": "今日",
-					"pathName": "pages/today/today",
+					"name": "taber",
+					"pathName": "pages/taber/taber",
 					"query": ""
 				},
 				{
