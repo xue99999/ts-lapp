@@ -1,4 +1,4 @@
-// pages/period/period-two/period-two.js
+const app = getApp()
 Page({
 
   /**
@@ -7,6 +7,12 @@ Page({
   data: {
     array: ['1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991',
       '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'],
+  },
+  bindPickerChange: function (e) {
+    // console.log(e.currentTarget.dataset.nian+'年出生。')
+    var birthday = e.currentTarget.dataset.nian
+    app.globalData.obj.birthday = birthday
+    console.log(birthday)
   },
   navto: function () {
   //当用户点击下一步的时候保存定位属性

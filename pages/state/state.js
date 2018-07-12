@@ -7,9 +7,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    list: [
+      {
+        "chiropractic": "01",
+        "frictionalAbdomen": "01",
+        "menstrualStatus": "01",
+        "menstrualVolume": "0101010101010101010101",
+        "leucorrhea": "01",
+        "breastTenderness": "01",
+        "abdominalPain": "01",
+        "mood": "01",
+        "menstrualHeadache": "01",
+        "fearCold": "01",
+        "weak": "01",
+        "physiologicalCycle": "01",
+        "day": "2018-06-07",
+        "isPredict": "1",
+        "userModel": "",
+        "babyMonth": ""
+      }
+    ],
+    se:{
+      a:'../img/Knead back@3x.png',
+      b:'../img/belly@3x.png'
+    }
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -28,25 +50,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    //   var data = {
-    //     chiropractic: 01,
-    //     frictionalAbdomen: 01,
-    //     menstrualStatus: 01 , 
-    //     menstrualVolume:01,
-    //     leucorrhea:01,
-    //     breastTenderness:01,
-    //     abdominalPain:01,
-    //     mood:01,
-    //     menstrualHeadache:01,
-    //     fearCold:01,
-    //     weak:01,
-    //     physiologicalCycle:01,
-    //     day: 2018-06-08,
-    //     isPredict:01,
-    //     userModel:01,
-    //     babyMonth:02
+      var data = {
+        openId:null,
+        day:null,
+        chiropractic: '01',
+        frictionalAbdomen: '02',
+        menstrualStatus: '01' , 
+        menstrualVolume:'02',
+        leucorrhea:'01',
+        breastTenderness:'01',
+        abdominalPain:'02',
+        mood:'01',
+        menstrualHeadache:'01',
+        fearCold:'01',
+        weak:'01',
+        abdominalPain:'01'
 
-    // }
+    }
     //   userInfoUpdateBodyStatus(data).then(res => {
     //   console.log('更新身体状态接口', res);
     //   // this.setData({

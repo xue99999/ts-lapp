@@ -1,4 +1,4 @@
-// pages/period/period-two/period-two.js
+const app = getApp()
 Page({
 
   /**
@@ -33,23 +33,39 @@ Page({
 
     index: 0,
     scrollTop: 1130,
-    scrollShow: true
+    scrollShow: true,
+    menstrualCycle:null
   },
   chooseImg: function (e) {
-
     this.setData({
       show: !this.data.show
     })
     if (this.data.show) {
+
+      app.globalData.obj.menstrualCycle = 28   //默认28
       this.setData({
         scrollShow: false
       })
+      console.log(app.globalData.obj.menstrualCycle)
     }
     else {
       this.setData({
         scrollShow: true
       })
+      app.globalData.obj.menstrualCycle = this.data.menstrualCycle  //自己设置
+      console.log(app.globalData.obj.menstrualCycle)
     }
+
+  },
+  bindPickerChange: function (e) {
+    var menstrualCycle = e.target.dataset.index += 1
+    // console.log('月经有多长' + menstrualCycle + '天')
+    app.globalData.obj.menstrualCycle = menstrualCycle
+    this.setData({
+      menstrualCycle:menstrualCycle
+    })
+
+    console.log(app.globalData.obj.menstrualCycle)
   },
   navto: function () {
     wx.navigateTo({

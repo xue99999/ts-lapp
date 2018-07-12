@@ -15,11 +15,7 @@ Page({
   bindPickerChange: function (e) {
     // console.log(e.currentTarget.dataset.nian+'年出生。')
     var birthday = e.currentTarget.dataset.nian
-  
     app.globalData.obj.birthday = birthday
-  
-
-
   },
   navto: function () {
 

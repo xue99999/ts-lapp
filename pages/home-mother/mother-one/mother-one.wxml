@@ -28,7 +28,7 @@
 	<view class='date-box'>
 		<view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>			
 			<view class='date-head'>
-				<view data-index='{{index}}' bindtap='dianji'class="active" >{{item.dateNum}}</view>
+				<view data-index='{{index}}' bindtap='dianji'class="active" data-day='{{item.dateNum}}'>{{item.dateNum}}</view>
 			</view>
 		</view>
 	</view>

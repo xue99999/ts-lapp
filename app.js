@@ -37,7 +37,6 @@ App({
     userInfo: null,
     obj:{
       shaonv: null,
-      // lama: '02',
       menstrualStartTime: null,
       menstrualTimes:null,
       menstrualCycle:null,
@@ -46,8 +45,6 @@ App({
       babyBirthday:null,
       //区分用户是否走完了引导页
       goTo:null
-    
-    }
-
+    },
   }
 })

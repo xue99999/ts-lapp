@@ -72,14 +72,9 @@
               <image src='../img/menstruation2@3x.png'></image>
               <text>月经量</text>
         </view>
-        <!-- <view class='view-mo1'>
-              <image src='../img/menstruation2-weak@3x.png' bindtap='clickAmount'></image>
-              <image src='../img/menstruation2-centre@3x.png'></image>
-              <image src='../img/menstruation2-more@3x.png'></image>
-        </view> -->
-        <view  class='view-mo1' wx:for="{{listInfo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg1">
-            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
-            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
+    
+        <view  class='view-mo1' wx:for="{{leucorrheas}}"  wx:for-index="idx" wx:for-item="item">
+            <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg1"  data-index="{{idx}}"  />
         </view>
     </view>
         <view class='view-an'>
@@ -87,9 +82,13 @@
               <image src='../img/leucorrhea@3x.png'></image>
               <text>白带</text>
         </view>
-        <view  class='view-mo1' wx:for="{{leucorrheas}}"  data-curren="{{index}}" wx:key="this" bindtap="chooseImg2">
+        <!-- <view  class='view-mo1' wx:for="{{leucorrheas}}"  data-curren="{{index}}" wx:key="this" bindtap="chooseImg2">
             <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
             <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
+        </view> -->
+
+        <view  class='view-mo1' wx:for="{{breastTenderness}}"  wx:for-index="idx" wx:for-item="item">
+            <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg2"  data-index="{{idx}}"  />
         </view>
 
     </view>

@@ -1,6 +1,6 @@
 // pages/taber/taber.js
 const app = getApp()
-const { userInfoAdd, userInfoQueryMenByDay} = require('../../service/user.js')
+const { userInfoAdd, userInfoQueryBodyStatus} = require('../../service/user.js')
 var Http = require('../../utils/http.js');
 var physiologicalCycle;
 Page({
@@ -11,8 +11,9 @@ Page({
   data: {
     date: ['日', '一', '二', '三', '四', '五', '六'],
     arr:[4,5,6,7,8,9,10],
-    physiologicalCycle:''
-    // list:[]
+    physiologicalCycle:'',
+    userModel:'',
+    list:[],
   },
   clickArr:function(e){
     console.log(e.currentTarget.dataset.index)
@@ -27,13 +28,52 @@ Page({
    */
   onLoad: function (options) {
        var data = {
-      day:'2018-07-11'
+         startDay:'2018-06-11',
+         endDay:'2018-07-11'
     }
-      userInfoQueryMenByDay(data).then(res => {
-      console.log('查询一天的经期信息', res);
-      physiologicalCycle = res.physiologicalCycle;
-    })
-    console.log(app.globalData.obj.birthday)
+    //   userInfoQueryBodyStatus(data).then(res => {
+    //   console.log('查询身体状态', res);
+
+    //   // 用户模式
+    //   const userModel=res.userModel
+    //   physiologicalCycle = res.list.physiologicalCycle
+    //   userModel = res.list.userModel
+    //   list = res.list
+    //   if (physiologicalCycle === '01'){
+    //     this.setData({
+    //       physiologicalCycle:'安全期'
+    //     })
+    //   }
+    //   else if (physiologicalCycle === '02') {
+    //     this.setData({
+    //       physiologicalCycle: '月经期'
+    //     })
+    //   }
+    //   else if (physiologicalCycle === '03') {
+    //     this.setData({
+    //       physiologicalCycle: '易孕期'
+    //     })
+    //   }
+    //   else if(physiologicalCycle === '04') {
+    //     this.setData({
+    //       physiologicalCycle: '排卵期'
+    //     })
+    //   }
+    //   if (userModel === '01'){
+    //     this.setData({
+    //       userModel: '少女'
+    //     })        
+    //   }
+    //   else if (userModel === '02') {
+    //     this.setData({
+    //       userModel: '辣妈'
+    //     })
+    //   }
+    //   app.globalData.obj2 = res.list
+    // })
+    // console.log(app.globalData.obj.birthday)
+    // console.log(app.globalData.obj)
+
   },
 
   /**
@@ -53,9 +93,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var shaonvid = app.globalData.obj.shaonv
-      console.log(shaonvid)
-    if (shaonvid=='01'){
+    // var shaonvid = app.globalData.obj.shaonv
+    //   console.log(shaonvid)
+    // if (shaonvid=='01'){
     // var data = {
     //   day:'2018-07-07'
     // }
@@ -67,10 +107,10 @@ Page({
     // })
     // console.log(app.globalData.obj.birthday)
 
-    }
-    else if (shaonvid == '02'){
+    // }
+    // else if (shaonvid == '02'){
       
-    }
+    // }
 
   },
 

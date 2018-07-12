@@ -46,21 +46,29 @@ Page({
         curUrl: '../img/menstruation2-more@3x.png',
       }
     ],
+    // 月经量数组
     leucorrheas: [ 
       {
-        imgUrl: '../img/leucorrhea-centre.png',
-        curUrl: '../img/leucorrhea-weak.png',
 
-      },
-      {
+        name:'月经量少',
         imgUrl: '../img/leucorrhea-centre.png',
         curUrl: '../img/leucorrhea-weak.png',
+        select:false,
       },
       {
+        name: '月经量少',
+        imgUrl: '../img/leucorrhea-centre.png',
+        curUrl: '../img/leucorrhea-weak.png',
+        select: false,
+      },
+      {
+        name: '月经量少',
         imgUrl: '../img/leucorrhea-more@3x.png',
         curUrl: '../img/leucorrhea-weak.png',
+        select: false,
       }
     ],
+    // 白带
     breastTenderness: [
       {
         imgUrl: '../img/centre@3x.png',
@@ -152,21 +160,25 @@ Page({
       }
     ],
   },
-  // clickAmount:function(){
-
-  //   wx.showToast({
-  //     title: '月经量偏少',
-  //     mask:false,
-  //     icon: 'none',
-  //     duration: 1000
-  //   })
-
-  // },
   chooseImg1: function (e) {
+    const index=e.currentTarget.dataset.index;
+
+    const list = this.data.leucorrheas;
+
+    for(let i=0;i<list.length;i++){
+      if (i == index){
+        list[i].select=true;
+      }else{
+        list[i].select=false;
+      }
+    }
+
+    console.log(list);
+
     this.setData({
-      curIdx: e.currentTarget.dataset.current
+      leucorrheas: list
     })
-     console.log(this.data.curIdx) 
+
      if (this.data.curIdx==0){
        wx.showToast({
          title: '月经量偏少',
@@ -191,10 +203,22 @@ Page({
 
   },
   chooseImg2: function (e) {
+    console.log(e)
+    const index = e.currentTarget.dataset.index;
+
+    const list = this.data.breastTenderness;
+
+    for (let i = 0; i < list.length; i++) {
+      if (i == index) {
+        list[i].select = true;
+      } else {
+        list[i].select = false;
+      }
+    }
     this.setData({
-      curIdx: e.currentTarget.dataset.current
+      breastTenderness: list
     })
-    console.log(this.data.curIdx)
+
 
   },
   chooseImg3: function (e) {

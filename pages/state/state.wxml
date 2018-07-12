@@ -1,12 +1,16 @@
+<view wx:for="{{list}}" wx:key='index'>
   <view class='view-an'>
     <view class='view-mo'>
       <image src='../img/massage@3x.png'></image>
       <text>按摩</text>
     </view>
-    <view class='view-mo1'>
-      <image src='../img/Knead back@3x.png'></image>
-      <image src='../img/belly@3x.png'></image>
+    <view class='view-mo1' bindtap='se'>
+       <!-- <image src='{{(01 == 01)? "a" : "b"}}'></image>
+       <image src='{{(01 == 02)? "a" : "b"}}'></image> -->
+      <!-- <image src='../img/Knead back@3x.png'></image>
+      <image src='../img/belly@3x.png'></image> -->
     </view>
+
   </view>
 
   <view class='kong'></view>
@@ -111,3 +115,4 @@
               <image src='../img/tired-more@3x.png'></image>
         </view>
     </view>
+</view>

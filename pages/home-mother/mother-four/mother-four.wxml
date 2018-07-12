@@ -6,7 +6,7 @@
       <view class='view-tes'>您在哪一年出生？</view>
       <!-- 选择器 -->
       <scroll-view style="height: 550rpx;" scroll-y class='scroll-array'scroll-top='{{scrollTop}}'>
-          <view wx:for='{{array}}' wx:key class='view-array'>{{item}}</view>
+          <view wx:for='{{array}}' wx:key class='view-array' bindtap='bindPickerChange' data-nian='{{item}}'>{{item}}</view>
       </scroll-view>
 
 

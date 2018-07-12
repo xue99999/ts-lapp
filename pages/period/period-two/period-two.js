@@ -22,6 +22,7 @@ Page({
     this.setData({
       menstrualTimes: menstrualTimes
     })
+    app.globalData.obj.menstrualTimes = menstrualTimes
  
   },
   navto: function () {
