@@ -58,14 +58,14 @@ Page({
 
   },
   bindPickerChange: function (e) {
-    var menstrualCycle = e.target.dataset.index += 1
+    const index = (e.detail.value * 1) + 1;
     // console.log('月经有多长' + menstrualCycle + '天')
-    app.globalData.obj.menstrualCycle = menstrualCycle
     this.setData({
-      menstrualCycle:menstrualCycle
+      menstrualCycle: index
     })
+    console.log(index)
+    app.globalData.obj.menstrualCycle = index
 
-    console.log(app.globalData.obj.menstrualCycle)
   },
   navto: function () {
     wx.navigateTo({

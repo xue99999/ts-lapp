@@ -3,7 +3,7 @@ function Request(method, requestHandler) {
   const { url, params, headers } = requestHandler
   console.table(requestHandler)
 
-  wx.showLoading && wx.showLoading({ title: 'Loading...' })
+  wx.showNavigationBarLoading()
   
 
 
@@ -35,7 +35,7 @@ function Request(method, requestHandler) {
         reject('Network request failed')
       },
       complete: function () {
-        wx.hideLoading && wx.hideLoading()
+        wx.hideNavigationBarLoading()
       }
     })
   })

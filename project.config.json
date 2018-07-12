@@ -33,12 +33,36 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
 					"name": "我的",
 					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "步骤4",
+					"pathName": "pages/period/period-three/period-three",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "辣妈5",
+					"pathName": "pages/home-mother/mother-three/mother-three",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "步骤4",
+					"pathName": "pages/period/period-two/period-two",
+					"query": "step=6"
+				},
+				{
+					"id": -1,
+					"name": "today",
+					"pathName": "pages/taber/taber",
 					"query": ""
 				}
 			]
