@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const moment = require('../../utils/moment.js');
 const { userInfoQueryBodyStatus } = require('../../service/user.js')
  var Http = require('../../utils/http.js');
 Page({
@@ -12,6 +13,7 @@ Page({
     isToday: 0,
     isTodayWeek: false,
     todayIndex: 0,
+    currentDay:{}, //当前选中数据
     show: false,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
@@ -492,26 +494,34 @@ Page({
   },
 
 
-  dianji: function (e) {
+  rili: function (e) {
     // console.log(e.currentTarget.dataset.day)
     // console.log(this.data.month)
     // console.log(this.data.year)
-    var month;
-    if (this.data.month < 10) {
-      month = '0' + this.data.month
+    let cmonth;
+    const { year, month, list } = this.data;
+    if (month < 10) {
+      cmonth = '0' + month
     }
     var day;
-    if (e.currentTarget.dataset.day < 10) {
-      day = '0' + e.currentTarget.dataset.day
-    }
-    else {
-      day = e.currentTarget.dataset.day
-    }
-
-    var dates = this.data.year + "-" + month + "-" + day;
+   
+    day = e.currentTarget.dataset.day
+   
+    var dates = year + "-" + cmonth + "-" + day;
     console.log('日期', dates);
 
-    wx.setStorageSync('startDay', dates)
+    //wx.setStorageSync('startDay', dates)
+
+    for (let i = 0; i < list.length;i++){
+      const dd=list[i]
+      if(dd.day===dates){
+        this.setData({
+          currentDay:dd
+        })
+
+        break;
+      }
+    }
 
   },
   onLoad: function () {
@@ -539,22 +549,30 @@ Page({
         startDay:'2018-07-01',
         endDay:'2018-07-31'
 
-    }
+      }
       userInfoQueryBodyStatus(data).then(res => {
       console.log('查询身体状态接口', res);
-      this.setData({
-        list: res.list
-      })
-      console.log(this.data.list)
+     const {list}= res;
+     const rlist=[];
+     let currentDay={}
+      for (let i = 0; i < list.length;i++){
+         const data=list[i]
+          if (i.physiologicalCycle == '01'){
+            console.log(physiologicalCycle)
+          }
 
-      for (let i = 0;i<this.data.list.length;i++){
-        i.day = i.day.slice(i.day-1)
-
-        if (i.physiologicalCycle == '01'){
-           
-          console.log(physiologicalCycle)
-        }
+          if(data.day===moment().format('YYYY-MM-D')){
+            console.log(data.day)
+            currentDay = data;
+          }
+          rlist.push(data);
       }
+
+      this.setData({
+        currentDay,
+        list: rlist
+      })
+      console.log(rlist)
     })
 
 
