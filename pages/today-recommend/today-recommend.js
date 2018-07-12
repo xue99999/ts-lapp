@@ -50,6 +50,8 @@ Page({
         this.setData({
           list: list,
         })
+      }else{
+        getApp().getShouHint();
       }
     })
 

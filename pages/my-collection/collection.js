@@ -27,7 +27,7 @@ Page({
     apiCourseCollectList(data).then(result => {
 
         console.log('我的收藏', result);
-       // if (result.code === 200) {
+      if (result.code === 200) {
           var list = this.data.list;
           if (page > 1) {
           for (var i = 0; i < result.list.length; i++) {
@@ -40,7 +40,9 @@ Page({
         this.setData({
           list: list,
         })
-     // }
+   }else{
+        getApp().getShouHint();
+   }
     })
 },
 

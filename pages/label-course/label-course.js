@@ -57,6 +57,8 @@ Page({
         that.setData({
           list: list
         })
+   }else{
+       getApp().getShouHint();
    }
 
     })

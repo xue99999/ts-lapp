@@ -43,7 +43,7 @@ Page({
         })
       }else{
 
-        getApp().getShou();
+        getApp().getShouHint();
       }
      
 
