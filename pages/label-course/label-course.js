@@ -24,13 +24,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
     auth();
-
-    label = options.label;
+    label = options.label||"";
     if (label !== "") {
       wx.setNavigationBarTitle({
-        title: "精简课程" //页面标题为路由参数
+        title: "精选课程" //页面标题为路由参数
       })
     }
 

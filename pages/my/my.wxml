@@ -3,9 +3,9 @@
     <image class='img_style' src='../img/my_top.png'></image>
     <image class='view_img' mode="scaleToFill" src="{{avatarUrl===''?'../img/placeholder.jpg':avatarUrl}}"></image>
     <text class='text_name'>{{nickName===""?"哇哦":nickName}}</text>
-
-    <text class='text_phone1' wx:if="{{phone===''}}" bindtap='onClickPhone'>绑定手机号</text>
-    <text class='text_phone' wx:else>{{phone}}</text>
+<!--目前手机号不会使用先行注释 在my.is文件里打开 phone注释  -->
+    <!-- <text class='text_phone1' wx:if="{{phone===''}}" bindtap='onClickPhone'>绑定手机号</text>
+    <text class='text_phone' wx:else>{{phone}}</text> -->
     <view class='view_solid'></view>
     <view class="layout_horizontal">
       <view class='layout_horizontal_view'>

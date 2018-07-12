@@ -35,17 +35,15 @@ Page({
 
     userInfoAdd(data).then(res => {
       console.log('登录经期信息', res);
-      // this.setData({
-      //   list: res.list
-      // })
-
+      wx.switchTab({
+        url: '../../today/today',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
     })
-    console.log(app.globalData.obj)
-    wx.switchTab({
-      url: '../../taber/taber',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    
+    
   }
+
 })

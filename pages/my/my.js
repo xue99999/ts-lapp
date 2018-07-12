@@ -10,7 +10,7 @@ Page({
   data: {
 
     nickName: "",
-    phone: "",
+  //  phone: "",
     avatarUrl: "",
     integral:"",
     routers: [{

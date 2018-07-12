@@ -56,11 +56,15 @@
 
   </template>
   <view class="view_bottom">
-   
-    <view class="view_bottom_button1" >
-       
-      <button class="view_bottom_button1_text"  data-name="shareBtn"   open-type="share" >  <image class="view_bottom_img" src='../img/share@3x.png'></image> 分享课程</button>
- 
+
+    <view class="view_bottom_button1">
+      <view  class='collect-view' bindtap='isCollect'>
+        <image class="collect-view-img"    src="{{isCollect===0?'../img/collection1@3x.png':'../img/placeholder.jpg'}}"></image>
+        
+      </view>
+
+      <button class="view_bottom_button1_text" data-name="shareBtn" open-type="share">
+        <image class="view_bottom_img" src='../img/share@3x.png'></image></button>
     </view>
     <view class="view_bottom_button2" bindtap='onClickSubscriber'>{{isSubscibe===0?"订阅 | "+ price+ "元":"已订阅"}}</view>
   </view>

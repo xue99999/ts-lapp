@@ -45,6 +45,9 @@ Page({
 
     apiSection(options.courseId).then(result => {
       console.log('课节播放列表', result);
+      if (result.code===200){
+       
+     
       const {
         list = []
       } = result;
@@ -55,10 +58,14 @@ Page({
       SectionList = list;
       // 数据转换
       for (let i = 0; i < list.length; i++) {
+
+        i
         const section = list[i];
         section['name'] = section.sectionName;
         sections.push(section);
         if (list[i].id === sectionID){
+
+        
           // sectionName = list[i].sectionName;
           // //请求播放列表
           // this.onPlay(section[i].id);
@@ -83,7 +90,7 @@ Page({
         remark,
       })
 
-
+      }
 
     });
 
@@ -92,9 +99,20 @@ Page({
 
     apiSectionPlay(id).then(result => {
       console.log('课节播放', result)
-      this.setData({
-        filePath: result.filePath
-      })
+
+      if (result.code===200){
+        this.setData({
+          filePath: result.filePath
+        })
+      }else{
+        wx.showToast({
+          title: 当前课节无权播放请订阅,
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
+      
     })
   },
   onPlay: function(id) {

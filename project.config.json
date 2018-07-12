@@ -154,6 +154,18 @@
 					"name": "state",
 					"pathName": "pages/today/today",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "今日推荐",
+					"pathName": "pages/today-recommend/today-recommend",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "课程详情",
+					"pathName": "pages/course-details/course-details",
+					"query": ""
 				}
 			]
 		}
