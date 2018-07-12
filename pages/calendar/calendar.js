@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
- const { userInfoQueryBodyStatus } = require('../../service/user.js')
+const { userInfoQueryBodyStatus } = require('../../service/user.js')
  var Http = require('../../utils/http.js');
 Page({
   data: {
@@ -16,6 +16,7 @@ Page({
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
     curIdx: null,
+    physiologicalCycle:null,
     
     anmo: [
       {
@@ -547,7 +548,11 @@ Page({
       console.log(this.data.list)
 
       for (let i = 0;i<this.data.list.length;i++){
+        i.day = i.day.slice(i.day-1)
+
         if (i.physiologicalCycle == '01'){
+           
+          console.log(physiologicalCycle)
         }
       }
     })

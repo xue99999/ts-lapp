@@ -28,7 +28,8 @@ App({
           fearCold: null,
           weak: null,
           abdominalPain: null,
-
+          
+          dates:null
 
 
         },
