@@ -60,9 +60,9 @@
 					"query": "step=6"
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "today",
-					"pathName": "pages/taber/taber",
+					"pathName": "pages/today-today",
 					"query": ""
 				}
 			]

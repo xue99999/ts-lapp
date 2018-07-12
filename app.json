@@ -42,7 +42,7 @@
     "list": [
       {
         "text": "今天",
-        "pagePath": "pages/taber/taber",
+        "pagePath": "pages/today/today",
         "iconPath": "pages/img/today@3x.png",
         "selectedIconPath": "pages/img/toady1@3x.png"
       },
