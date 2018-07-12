@@ -89,11 +89,6 @@ Page({
       //     userModel: '辣妈'
       //   })
       // }
-<<<<<<< HEAD:pages/taber/taber.js
-      // app.globalData.obj2 = res.list
-=======
-     
->>>>>>> 324d8b9431aa58b897483a55d8cbcd13ca5e91c7:pages/today/today.js
     // })
     console.log(app.globalData.obj.birthday)
     console.log(app.globalData.obj)
