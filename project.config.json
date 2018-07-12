@@ -54,7 +54,7 @@
 				{
 					"id": 2,
 					"name": "home",
-					"pathName": "pages/home-mother/mother-four/mother-four",
+					"pathName": "pages/home/home",
 					"query": ""
 				},
 				{
@@ -133,6 +133,18 @@
 					"id": -1,
 					"name": "weixin",
 					"pathName": "pages/course-details/course-details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "授权",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
 					"query": ""
 				}
 			]

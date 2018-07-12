@@ -15,11 +15,6 @@ Page({
     show: false,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
-    text:[
-      ['月经量偏少','月经量正常','月经量很多'],
-      
-      ],
-
     curIdx: null,
     
     anmo: [
@@ -32,43 +27,49 @@ Page({
         curUrl: '../img/Knead back@3x.png',
       }
     ],
-    listInfo: [
+    // 月经量
+    menstrualVolume: [
       {
+        name: '月经量偏少',
         imgUrl: '../img/menstruation2-weak@3x.png',
         curUrl: '../img/menstruation2-more@3x.png',
+        select: false
       },
       {
+        name: '月经量正常',
         imgUrl: '../img/menstruation2-centre@3x.png',
         curUrl: '../img/menstruation2-more@3x.png',
-      },
-      {
-        imgUrl: '../img/menstruation2-centre@3x.png',
-        curUrl: '../img/menstruation2-more@3x.png',
-      }
-    ],
-    // 月经量数组
-    leucorrheas: [ 
-      {
-
-        name:'月经量少',
-        imgUrl: '../img/leucorrhea-centre.png',
-        curUrl: '../img/leucorrhea-weak.png',
-        select:false,
-      },
-      {
-        name: '月经量少',
-        imgUrl: '../img/leucorrhea-centre.png',
-        curUrl: '../img/leucorrhea-weak.png',
         select: false,
       },
       {
-        name: '月经量少',
-        imgUrl: '../img/leucorrhea-more@3x.png',
-        curUrl: '../img/leucorrhea-weak.png',
+        name: '月经量很多',
+        imgUrl: '../img/menstruation2-centre@3x.png',
+        curUrl: '../img/menstruation2-more@3x.png',
         select: false,
       }
     ],
     // 白带
+    leucorrheas: [ 
+      {
+
+
+        imgUrl: '../img/leucorrhea-centre.png',
+        curUrl: '../img/leucorrhea-weak.png',
+
+      },
+      {
+
+        imgUrl: '../img/leucorrhea-centre.png',
+        curUrl: '../img/leucorrhea-weak.png',
+      },
+      {
+
+        imgUrl: '../img/leucorrhea-more@3x.png',
+        curUrl: '../img/leucorrhea-weak.png',
+
+      }
+    ],
+    // 乳房胀痛
     breastTenderness: [
       {
         imgUrl: '../img/centre@3x.png',
@@ -84,6 +85,7 @@ Page({
         curUrl: '../img/weak.png',
       }
     ],
+    // 小腹痛
     abdominalPains: [
       {
         imgUrl: '../img/centre@3x.png',
@@ -99,6 +101,7 @@ Page({
         curUrl: '../img/weak.png',
       }
     ],
+    // 心情
     moods: [
       {
         imgUrl: '../img/general@3x.png',
@@ -114,6 +117,7 @@ Page({
         curUrl: '../img/happy@3x.png',
       }
     ],
+    // 经常头痛
     menstrualHeadaches: [
       {
         imgUrl: '../img/centre@3x.png',
@@ -129,7 +133,8 @@ Page({
         curUrl: '../img/weak.png',
       }
     ],
-    fearColds: [  //怕冷
+    //怕冷
+    fearColds: [  
       {
         imgUrl: '../img/cold-centres@3x.png',
         curUrl: '../img/cold-weak@3x.png',
@@ -144,7 +149,8 @@ Page({
         curUrl: '../img/cold-weak@3x.png',
       }
     ],
-    weaks: [  //乏力
+    //乏力
+    weaks: [  
       {
         imgUrl: '../img/tired-weak@3x.png',
         curUrl: '../img/tired-more@3x.png',
