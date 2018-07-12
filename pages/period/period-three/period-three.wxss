@@ -50,6 +50,8 @@ color: transparent;
    justify-content: center;
    flex-direction: column;
    background: #F7F7F7;
+
+   
 }
 .fot-one{
   width: 100%;

@@ -1,4 +1,4 @@
-
+const moment =require('./moment.js');
 
 function formatTime(date) {
   var year = date.getFullYear()
@@ -43,7 +43,34 @@ function formatTimeTwo(number, format) {
   return format;
 }
 
+/**
+ * 获取当前周
+ * 格式 :7 1 2 3 4 5 6 
+ */
+function currentWeek(){
+  //console.log(moment('2018-7-31').endOf('week').format('D'))
+  // console.log(moment('2018-7-31').startOf('week').format('D'))
+  var returnArr = [];
+  var weekOfday = moment().format('E');
+  for (let i = weekOfday; i>=1 ; i--) {
+    const day = moment().subtract(i, 'days').format('DD');
+    returnArr.push(day);
+  }
+
+  var today = moment().format('DD');
+  returnArr.push(today);
+
+  for (let i = 1; i <(7 - weekOfday);i++){
+    const day = moment().add(i, 'days').format('DD');
+    returnArr.push(day);
+  }
+
+  return returnArr;
+ 
+}
+
 module.exports = {
+  currentWeek,
   formatTime: formatTime,
   formatTimeTwo: formatTimeTwo
 }

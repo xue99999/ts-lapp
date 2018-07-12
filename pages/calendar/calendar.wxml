@@ -24,7 +24,10 @@
   <view class='date-box'>
     <view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
       <view class='date-head'>
-        <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='dianji' class="active">{{item.dateNum}}</view>
+        <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili'
+         class="">
+         {{item.dateNum}}
+         </view>
       </view>
     </view>
   </view>
@@ -48,117 +51,97 @@
       <image src='../img/massage@3x.png'></image>
       <text>按摩</text>
     </view>
-     <view  class='view-mo1' wx:for="{{anmo}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg">
-        <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
-        <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
-    </view> 
+    <view class='view-mo1' wx:for="{{anmo}}" wx:for-index="idx" wx:for-item="item" wx:key>
+      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg" data-index="{{idx}}" />
+    </view>
   </view>
 
   <view class='kong'></view>
   <view class='view-an'>
     <view class='view-mo'>
       <image src='../img/menstruation1@3x.png'></image>
-      <text>大姨妈走喽</text>
+      <text>大姨妈{{currentDay.menstrualStatus==='01'?'走了':'来了'}}喽</text>
     </view>
     <view class="view-mo1">
-      <switch checked bindchange="switch1Change"  color='#FE6F71'/>
-      <switch bindchange="switch2Change"color='#FE6F71' />
+      <switch checked bindchange="switch1Change" checked="{{currentDay.menstrualStatus==='01'}}" color='#FE6F71' />
+      <!-- <switch bindchange="switch2Change" color='#FE6F71' /> -->
     </view>
   </view>
 
-      <view class='view-an'>
-        <view class='view-mo'>
-              <image src='../img/menstruation2@3x.png'></image>
-              <text>月经量</text>
-        </view>
-    
-        <view  class='view-mo1' wx:for="{{menstrualVolume}}"  wx:for-index="idx" wx:for-item="item">
-            <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg1"  data-index="{{idx}}"  />
-        </view>
-    </view>
-        <view class='view-an'>
-        <view class='view-mo'>
-              <image src='../img/leucorrhea@3x.png'></image>
-              <text>白带</text>
-        </view>
-        <!-- <view  class='view-mo1' wx:for="{{leucorrheas}}"  data-curren="{{index}}" wx:key="this" bindtap="chooseImg2">
-            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
-            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
-        </view> -->
-
-        <view  class='view-mo1' wx:for="{{breastTenderness}}"  wx:for-index="idx" wx:for-item="item">
-            <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg2"  data-index="{{idx}}"  />
-        </view>
-
-    </view>
-        <view class='view-an'>
-        <view class='view-mo'>
-              <image src='../img/breast@3x.png'></image>
-              <text>乳房胀痛</text>
-        </view>
-
-        <view  class='view-mo1' wx:for="{{breastTenderness}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg3">
-            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
-            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
-        </view>
-
-    </view>
-        <view class='view-an'>
-        <view class='view-mo'>
-              <image src='../img/lower abdomen@3x.png'></image>
-              <text>小腹痛</text>
-        </view>
-      <!-- 小标签     -->
-          <!-- <view class='label'>超开心的</view> -->
-
-        <view  class='view-mo1' wx:for="{{abdominalPains}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg4">
-            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
-            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
-        </view>
-    </view>
-        <view class='view-an'>
-        <view class='view-mo'>
-              <image src='../img/mood@3x.png'></image>
-              <text>心情</text>
-        </view>
-        <view  class='view-mo1' wx:for="{{moods}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg5">
-            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
-            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
-        </view>
-
-    </view>
-        <view class='view-an'>
-        <view class='view-mo'>
-              <image src='../img/headache@3x.png'></image>
-              <text>经期头痛</text>
-        </view>
-        <view  class='view-mo1' wx:for="{{menstrualHeadaches}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg6">
-            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
-            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
-        </view>
-    </view>
-        <view class='view-an'>
-        <view class='view-mo'>
-              <image src='../img/cold@3x.png'></image>
-              <text>怕冷</text>
-        </view>
-        <view  class='view-mo1' wx:for="{{fearColds}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg7">
-            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
-            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
-        </view>
-    </view>
-        <view class='view-an'>
-        <view class='view-mo'>
-              <image src='../img/No tired@3x.png'></image>
-              <text>乏力</text>
-        </view>
-        <view  class='view-mo1' wx:for="{{weaks}}"  data-current="{{index}}" wx:key="this" bindtap="chooseImg8">
-            <image  hidden='{{curIdx===index}}' src="{{item.imgUrl}}"></image>
-            <image  hidden='{{curIdx!==index}}' src="{{item.curUrl}}"></image>
-        </view>
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/menstruation2@3x.png'></image>
+      <text>月经量</text>
     </view>
 
+    <view class='view-mo1' wx:for="{{menstrualVolume}}" wx:for-index="idx" wx:for-item="item" wx:key>
+      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg1" data-index="{{idx}}" />
+    </view>
+  </view>
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/leucorrhea@3x.png'></image>
+      <text>白带</text>
+    </view>
+    <view class='view-mo1' wx:for="{{leucorrheas}}" wx:for-index="idx" wx:for-item="item" wx:key>
+      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg2" data-index="{{idx}}" />
+    </view>
 
+  </view>
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/breast@3x.png'></image>
+      <text>乳房胀痛</text>
+    </view>
+    <view class='view-mo1' wx:for="{{breastTenderness}}" wx:for-index="idx" wx:for-item="item" wx:key>
+      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg3" data-index="{{idx}}" />
+    </view>
 
+  </view>
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/lower abdomen@3x.png'></image>
+      <text>小腹痛</text>
+    </view>
+    <view class='view-mo1' wx:for="{{abdominalPain}}" wx:for-index="idx" wx:for-item="item" wx:key>
+      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg4" data-index="{{idx}}" />
+    </view>
+  </view>
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/mood@3x.png'></image>
+      <text>心情</text>
+    </view>
+    <view class='view-mo1' wx:for="{{mood}}" wx:for-index="idx" wx:for-item="item" wx:key>
+      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg5" data-index="{{idx}}" />
+    </view>
 
+  </view>
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/headache@3x.png'></image>
+      <text>经期头痛</text>
+    </view>
+    <view class='view-mo1' wx:for="{{menstrualHeadache}}" wx:for-index="idx" wx:for-item="item" wx:key>
+      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg6" data-index="{{idx}}" />
+    </view>
+  </view>
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/cold@3x.png'></image>
+      <text>怕冷</text>
+    </view>
+    <view class='view-mo1' wx:for="{{fearCold}}" wx:for-index="idx" wx:for-item="item" wx:key>
+      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg7" data-index="{{idx}}" />
+    </view>
+  </view>
+  <view class='view-an'>
+    <view class='view-mo'>
+      <image src='../img/No tired@3x.png'></image>
+      <text>乏力</text>
+    </view>
+    <view class='view-mo1 bottm' wx:for="{{weak}}" wx:for-index="idx" wx:for-item="item" wx:key>
+      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg8" data-index="{{idx}}" />
+    </view>
+  </view>
 </view>

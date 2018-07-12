@@ -25,7 +25,8 @@
     "pages/state/state",
     "pages/baby/baby",
     "pages/today-recommend/today-recommend",
-    "pages/label-course/label-course"
+    "pages/label-course/label-course",
+    "pages/set-period/set-period"
   ],
   "window": {
     

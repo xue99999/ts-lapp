@@ -12,27 +12,19 @@ Page({
     show: false,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
-    menstrualTimes: 6,
+    menstrualTimes:null,
     scrollShow: true,
-    steps: {
-       "2": {img:'../../img/buzou2.png'},
-       "6": {img: '../../img/buzhou4.png'}
-       },
-    step: "2",
-    imgurl:'',
   },
-
-  // 日期选择
-  bindChange: function (e) {
-    const index = (e.detail.value * 1) + 1;
-    console.log(index)
+  bindPickerChange: function (e) {
+    // console.log(e.target.dataset.index)
+    var menstrualTimes = e.target.dataset.index+=1
+    console.log('月经持续多久' + menstrualTimes+'天')
     this.setData({
-      menstrualTimes: index
+      menstrualTimes: menstrualTimes
     })
-    app.globalData.obj.menstrualTimes = index
-   
+    app.globalData.obj.menstrualTimes = menstrualTimes
+ 
   },
-
   navto: function () {
     wx.navigateTo({
       url: '../period-three/period-three?menstrualTimes=' + this.data.menstrualTimes,
@@ -40,20 +32,14 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
-
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     if(options&&options.step){
-       const imgurl = this.data.steps[options.step].img;
-        this.setData({
-          imgurl,
-          step: options.step
-        })
-     }
+
   },
   chooseImg: function (e) {
 
@@ -62,8 +48,8 @@ Page({
     })
     console.log(e)
     if (this.data.show) {
-      app.globalData.obj.menstrualTimes = 5
-
+      app.globalData.obj.menstrualTimes = 5 
+      
       this.setData({
         scrollShow: false
       })
@@ -77,53 +63,5 @@ Page({
     }
 
     console.log(app.globalData.obj.menstrualTimes)
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function (e) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

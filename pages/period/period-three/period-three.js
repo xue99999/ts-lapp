@@ -17,9 +17,8 @@ Page({
     index: 0,
     scrollTop: 1130,
     scrollShow: true,
-    menstrualCycle: 28,  //持续多久
+    menstrualCycle: null,  //持续多久
   },
-
   chooseImg: function (e) {
      this.setData({
       show: !this.data.show
@@ -41,13 +40,12 @@ Page({
     }
   },
   bindPickerChange: function (e) {
-    const index = (e.detail.value * 1) + 1;
+    var menstrualCycle = e.target.dataset.index += 1
     // console.log('月经有多长' + menstrualCycle + '天')
     this.setData({
-      menstrualCycle: index
+      menstrualCycle: menstrualCycle
     })
-    console.log(index)
-    app.globalData.obj.menstrualCycle = index
+    app.globalData.obj.menstrualCycle = menstrualCycle
 
   },
   navto: function () {
@@ -57,66 +55,5 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
-   
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-    // var menstrualTimes = options.menstrualTimes
-    // this.setData({
-    //   menstrualTimes: menstrualTimes
-    // })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })

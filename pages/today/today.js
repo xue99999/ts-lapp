@@ -1,6 +1,7 @@
-// pages/taber/taber.js
+  // pages/taber/taber.js
 const app = getApp()
 const moment = require('../../utils/moment.js');
+const { currentWeek} =require('../../utils/time.js');
 const { userInfoQueryBodyStatus} = require('../../service/user.js')
 // var Http = require('../../utils/http.js');
 Page({
@@ -10,17 +11,20 @@ Page({
    */
   data: {
     date: ['日', '一', '二', '三', '四', '五', '六'],
-    arr:[4,5,6,7,8,9,10],
+    days:[],
     userModel:'',
     list:[],
-    today:null
+    today:moment().format('YYYY-MM-DD'),
+    currentDay:{},
+    formatDay:null,
   },
   clickArr:function(e){
     console.log(e.currentTarget.dataset.index)
   },
   navState:function(){
+    const day=this.data.formatDay;
     wx.navigateTo({
-      url: '../state/state',
+      url: `/pages/state/state?day=${day}`,
     })
   },
   /**
@@ -30,20 +34,26 @@ Page({
     const day=moment().format("YYYY-MM-DD");
      //const endDay = moment().add(5,'days').format("YYYY-MM-DD");
     //console.log(day,endDay)
-    //console.log(moment().weekday(0))
-       var data = {
+       this.setData({
+         today:moment().format('D'),
+         days:currentWeek(),
+         formatDay: day
+        })
+
+       var query = {
          startDay: day,
          endDay: day
-    }
+       }
 
-       userInfoQueryBodyStatus(data).then(res => {
-         const {list} = res
+    userInfoQueryBodyStatus(query).then(res => {
+      const {list} = res;
+      app.globalData.bodyStatus=list;
 
-         for (let i = 0; i < list.length;i++){
+        for (let i = 0; i < list.length;i++){
            const dy=list[i];
            if(dy.day===day){
                 this.setData({
-                  today:dy.day
+                  currentDay:dy
                 })
            }
          }
@@ -86,7 +96,6 @@ Page({
       //     userModel: '辣妈'
       //   })
       // }
-     
     // })
     console.log(app.globalData.obj.birthday)
     console.log(app.globalData.obj)
@@ -101,24 +110,8 @@ Page({
   },
   clickjinri:function(){
       wx.navigateTo({
-        //拿不到信息先注释
-       // url: '../today-recommend/today-recommend?physiologicalCycle=' + physiologicalCycle
-        url: '../today-recommend/today-recommend?physiologicalCycle=01'
+        url: '../today-recommend/today-recommend?day=' + this.data.formatDay
       })
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
   },
 
 })
