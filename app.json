@@ -8,7 +8,7 @@
     "pages/period/period-two/period-two",
     "pages/period/period-three/period-three",
     "pages/period/period-four/period-four",
-    "pages/taber/taber",
+    "pages/today/today",
     "pages/my-collection/collection",
     "pages/course-details/course-details",
     "pages/home-mother/mother-one/mother-one",
@@ -43,7 +43,7 @@
     "list": [
       {
         "text": "今天",
-        "pagePath": "pages/taber/taber",
+        "pagePath": "pages/today/today",
         "iconPath": "pages/img/today@3x.png",
         "selectedIconPath": "pages/img/toady1@3x.png"
       },

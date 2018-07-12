@@ -1,5 +1,5 @@
-<!--微信支付状态页面-->
-<view  > 
+<!--微信支付状态页面 wx:if="{{!status==='01'}}"-->
+<view   > 
 <icon  class='view_icon' type="{{types}}" size="{{100}}"/>
 <text class='view_text' >{{pays}}</text>
 <text class='view_text1' > {{paysorderNo}}</text>

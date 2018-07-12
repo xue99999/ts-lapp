@@ -8,14 +8,15 @@ App({
     obj:{
       shaonv: null,
       menstrualStartTime: null,
-      menstrualTimes:null,
-      menstrualCycle:null,
-      birthday:null,
-      babySex:null,
-      babyBirthday:null,
+      menstrualTimes:5,
+      menstrualCycle:28,
+      birthday:1990,
+      babySex:"01",
+      babyBirthday:"2018-06-15",
       //区分用户是否走完了引导页
       goTo:null
     },
+<<<<<<< HEAD
     chiropractic: null,
     frictionalAbdomen: null,
     menstrualStatus: null,
@@ -31,5 +32,16 @@ App({
 
 
   },
+=======
+  },
+  //当页面没有数据的时候调用次方法
+  getShouHint(){
+    wx.showToast({
+      title: '服务器走散了',
+      icon: 'loading',
+      duration: 2500
+    })
+  }
+>>>>>>> 324d8b9431aa58b897483a55d8cbcd13ca5e91c7
 
 })

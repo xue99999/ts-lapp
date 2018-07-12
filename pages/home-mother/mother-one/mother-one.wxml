@@ -1,40 +1,56 @@
 <view class='wrap'>
 
   <view class='view-buzou'>
-        <text>步骤 3   共有6步骤</text>
-        <image src='../../img/buzhou3.png'></image>
-  </view> 
-  <view class='view-tes'>您上一次月经何时开始？</view>
-	<view class='header'>
-		<view wx:for='{{date}}'wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}<view></view></view>
-	</view>
-	<view>
-		<view class='date-show'>
-			<view class='lt-arrow' bindtap='lastMonth'>
-      〈
-				<!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
-			</view>
-			 {{year}}年{{month}}月
-			<view class='rt-arrow' bindtap='nextMonth'>
-      〉
-				<!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
-			</view>
-		</view>
-	</view>
+    <text>步骤 3   共有6步骤</text>
+    <image src='../../img/buzhou3.png'></image>
+  </view>
+
+  <view wx:if="{{show==true}}">
+
+    <view class='view-tes'>您上一次月经何时开始？</view>
+    <view class='header'>
+      <view wx:for='{{date}}' wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>
+        {{item}}
+        <view></view>
+      </view>
+    </view>
+
+    <view class="date-show"  wx:if="{{show==true}}">
+      <view class="lt-arrow" bindtap="lastMonth">
+        〈
+        <!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
+      </view>
+      {{year}}年{{month}}月
+      <view class='rt-arrow' bindtap='nextMonth'>
+        〉
+        <!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
+      </view>
+    </view>
+    <view class='header'>
+  </view>
+  <view class='date-box'>
+    <view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
+      <view class='date-head'>
+        <view data-index='{{index}}' bindtap='dianji' class="active" data-day='{{item.dateNum}}'>{{item.dateNum}}</view>
+      </view>
+    </view>
+  </view>
+  </view>
+
+
+  <view wx:else class='view-else'>
+    <view class='view-tet'>如果您跳过,她师则不再记录您的经期信息。</view>
+  </view>
+
   <!-- <view class='view-month'> {{year}}年{{month}}月 </view> -->
-         
-	<view class='header'>
-	</view>
-	<view class='date-box'>
-		<view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>			
-			<view class='date-head'>
-				<view data-index='{{index}}' bindtap='dianji'class="active" data-day='{{item.dateNum}}'>{{item.dateNum}}</view>
-			</view>
-		</view>
-	</view>
 
-
-      <button class='btn' bindtap='navto'>下一步</button>
-  
+  <view class='view-fot'>
+    <view class='fot-one'>
+      <view class='box_list' data-current="{{index}}" bindtap="chooseImg">
+        <image class="box-image" src="{{show ? imgUrl : curUrl}}"></image>
+        <text>跳过</text>
+      </view>
+    </view>
+    <button class='btn' bindtap='navto'>下一步</button>
+  </view>
 </view>
-

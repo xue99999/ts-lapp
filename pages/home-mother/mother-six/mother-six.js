@@ -42,7 +42,7 @@ Page({
     days: days,
     day: 1,
     year: date.getFullYear(),
-    value: [115, 2, 14],
+    value: [118, 5, 14],
   },
   navto: function () {
     wx.navigateTo({

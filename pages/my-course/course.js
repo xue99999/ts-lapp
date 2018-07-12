@@ -4,6 +4,7 @@ const {
 } = require('../../service/user.js')
 var time = require('../../utils/time.js');
 var page = 1;
+
 Page({
 
   /**
@@ -37,10 +38,14 @@ Page({
           list = [];
           list = result.list
         }
+        this.setData({
+          list: list,
+        })
+      }else{
+
+        getApp().getShouHint();
       }
-      this.setData({
-        list: list,
-      })
+     
 
     })
   },

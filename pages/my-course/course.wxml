@@ -3,7 +3,7 @@
   <view class='scroll_view' scroll-y="true">
     <view  wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark+item.sectionName}}">
       <navigator class='list_view' url="{{url+'?id='+item.id}}">
-        <image class='list_item_img' src='../img/placeholder.jpg'></image>
+        <image class='list_item_img' src="{{item.pictureUrl===''?'../img/placeholder.jpg':item.pictureUrl}}"></image>
         <view class='list_itme_text_view'>
           <text class='list_item_text1'>{{item.courseName}}</text>
           <text class='list_item_text2'>{{item.teacherName}}    共{{item.courseCount}}节课</text>

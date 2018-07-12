@@ -1,23 +1,28 @@
 // request
 function Request(method, requestHandler) {
-  const { url, params, headers } = requestHandler
+  const {
+    url,
+    params,
+    headers
+  } = requestHandler
   console.table(requestHandler)
 
-  wx.showLoading && wx.showLoading({ title: 'Loading...' })
-  
+
+  wx.showNavigationBarLoading()
+
 
 
   return new Promise((resolve, reject) => {
-    var token =   wx.getStorageSync('token')
+    var token = wx.getStorageSync('token')
     wx.request({
       url: url,
       data: params,
       method: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'].indexOf(method) > -1 ? method : 'GET',
       header: Object.assign({
         'Content-Type': 'application/json',
-      //  'Authorization': 'EF1F6ED7F1C748CE816BA43065899F9A',
-      'Authorization': wx.getStorageSync('token'),
-        //'Authorization':'E9474A92E6194BB28E4B9BC4ADE147A1'
+        // 'Authorization': 'E5E258A5656F4038BAD3D1E79986D1B7',
+        'Authorization': wx.getStorageSync('token'),
+
         /*
         这里可以自定义全局的头信息，这是一个栗子 
         'Authorization': 'Bearer ' + wx.getStorageSync('token'),
@@ -26,16 +31,20 @@ function Request(method, requestHandler) {
         */
 
       }, headers),
-      success: function (res) {
-        const { data, statusCode } = res
+      success: function(res) {
+        const {
+          data,
+          statusCode
+        } = res
         // 处理数据
         statusCode === 200 ? resolve(data) : reject(data, statusCode)
       },
-      fail: function () {
+      fail: function() {
         reject('Network request failed')
       },
       complete: function () {
-        wx.hideLoading && wx.hideLoading()
+        wx.hideNavigationBarLoading()
+
       }
     })
   })
@@ -53,7 +62,7 @@ var Http = {
       requestHandler = {
         url: String(requestHandler),
         params: {}
-       
+
       }
     }
     return Request('GET', requestHandler)
@@ -92,7 +101,7 @@ var Http = {
     return Request('DELETE', requestHandler)
   },
 
- 
+
 }
 
 module.exports = Http;

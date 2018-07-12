@@ -1,8 +1,9 @@
   // pages/taber/taber.js
 const app = getApp()
-// const { userInfoQueryBodyStatus} = require('../../service/user.js')
+const moment = require('../../utils/moment.js');
+const { currentWeek} =require('../../utils/time.js');
+const { userInfoQueryBodyStatus} = require('../../service/user.js')
 // var Http = require('../../utils/http.js');
-var physiologicalCycle;
 Page({
 
   /**
@@ -10,10 +11,10 @@ Page({
    */
   data: {
     date: ['日', '一', '二', '三', '四', '五', '六'],
-    arr:[4,5,6,7,8,9,10],
-    physiologicalCycle:'',
+    days:[],
     userModel:'',
     list:[],
+    currentDay:{}
   },
   clickArr:function(e){
     console.log(e.currentTarget.dataset.index)
@@ -27,10 +28,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-       var data = {
-         startDay:'2018-06-11',
-         endDay:'2018-07-11'
-    }
+    const day=moment().format("YYYY-MM-DD");
+     //const endDay = moment().add(5,'days').format("YYYY-MM-DD");
+    //console.log(day,endDay)
+       this.setData({
+         today:moment().format('D'),
+         days:currentWeek()
+         })
+       var query = {
+         startDay: day,
+         endDay: day
+       }
+
+    userInfoQueryBodyStatus(query).then(res => {
+      const {list} = res
+        for (let i = 0; i < list.length;i++){
+           const dy=list[i];
+           if(dy.day===day){
+                this.setData({
+                  currentDay:dy.day
+                })
+           }
+         }
+
+       })
       // userInfoQueryBodyStatus(data).then(res => {
       // console.log('查询身体状态', res);
  
@@ -68,7 +89,11 @@ Page({
       //     userModel: '辣妈'
       //   })
       // }
+<<<<<<< HEAD:pages/taber/taber.js
       // app.globalData.obj2 = res.list
+=======
+     
+>>>>>>> 324d8b9431aa58b897483a55d8cbcd13ca5e91c7:pages/today/today.js
     // })
     console.log(app.globalData.obj.birthday)
     console.log(app.globalData.obj)
