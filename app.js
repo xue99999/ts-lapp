@@ -15,7 +15,7 @@ App({
           babyBirthday: "2018-06-15",
           //区分用户是否走完了引导页
           goTo: null,
-
+          bodyStatus:[],
           chiropractic: null,
           frictionalAbdomen: null,
           menstrualStatus: null,
@@ -28,9 +28,6 @@ App({
           fearCold: null,
           weak: null,
           abdominalPain: null,
-
-
-
         },
         //当页面没有数据的时候调用次方法
         getShouHint() {

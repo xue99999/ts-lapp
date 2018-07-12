@@ -79,7 +79,7 @@
 				},
 				{
 					"id": 7,
-					"name": "taber",
+					"name": "今日",
 					"pathName": "pages/today/today",
 					"query": ""
 				},
@@ -147,6 +147,12 @@
 					"id": -1,
 					"name": "更新身体状态",
 					"pathName": "pages/state/state",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "state",
+					"pathName": "pages/today/today",
 					"query": ""
 				}
 			]
