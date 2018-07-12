@@ -17,8 +17,9 @@ Page({
     index: 0,
     scrollTop: 1130,
     scrollShow: true,
-    menstrualCycle: null,  //持续多久
+    menstrualCycle: 28,  //持续多久
   },
+
   chooseImg: function (e) {
      this.setData({
       show: !this.data.show
@@ -40,12 +41,13 @@ Page({
     }
   },
   bindPickerChange: function (e) {
-    var menstrualCycle = e.target.dataset.index += 1
+    const index = (e.detail.value * 1) + 1;
     // console.log('月经有多长' + menstrualCycle + '天')
     this.setData({
-      menstrualCycle: menstrualCycle
+      menstrualCycle: index
     })
-    app.globalData.obj.menstrualCycle = menstrualCycle
+    console.log(index)
+    app.globalData.obj.menstrualCycle = index
 
   },
   navto: function () {
@@ -55,15 +57,7 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
-    // console.log(this.data.menstrualTimes)
-    // console.log(this.data.menstrualCycle)
-    // var obj = {
-
-    //   'menstrualTimes': this.data.menstrualTimes,
-    //   'menstrualCycle': this.data.menstrualCycle
-    // }
-    // wx.setStorageSync('xinxi', obj)
-
+   
   },
 
   /**

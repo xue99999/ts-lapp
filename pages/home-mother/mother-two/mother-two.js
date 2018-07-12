@@ -31,15 +31,15 @@ Page({
     curUrl: '../../img/choose@3x.png',
     scrollShow: true,
   },
-  bindPickerChange: function (e) {
-    // console.log(e.target.dataset.index)
-    var menstrualTimes = e.target.dataset.index += 1
-    // console.log('月经持续多久' + menstrualTimes + '天')
+  // 日期选择
+  bindChange: function (e) {
+    const index = (e.detail.value * 1) + 1;
+    console.log(index)
     this.setData({
-      menstrualTimes: menstrualTimes
+      menstrualTimes: index
     })
-    app.globalData.obj.menstrualTimes = menstrualTimes
-    console.log('月经持续时间----' + menstrualTimes)
+    app.globalData.obj.menstrualTimes = index
+
   },
   navto: function () {
     wx.navigateTo({

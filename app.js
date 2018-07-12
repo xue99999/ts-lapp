@@ -8,11 +8,11 @@ App({
     obj:{
       shaonv: null,
       menstrualStartTime: null,
-      menstrualTimes:null,
-      menstrualCycle:null,
-      birthday:null,
-      babySex:null,
-      babyBirthday:null,
+      menstrualTimes:5,
+      menstrualCycle:28,
+      birthday:1990,
+      babySex:"01",
+      babyBirthday:"2018-06-15",
       //区分用户是否走完了引导页
       goTo:null
     },

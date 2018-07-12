@@ -1,7 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
-
+const moment = require('../../../utils/moment.js');
+const { userInfoAdd } = require('../../../service/user.js')
 Page({
   data: {
     year: 0,
@@ -13,24 +14,52 @@ Page({
     todayIndex: 0,
     select: 0,
     // curIdx: null,
-    show: false,
+    show: true,
     imgUrl: '../../img/choose1@3x.png',
-    curUrl: '../../img/choose@3x.png'
-
+    curUrl: '../../img/choose@3x.png',
+    day:null,
   },
-  chooseImg: function(e) {
-
+  chooseImg: function (e) {
     this.setData({
       show: !this.data.show
     })
   },
   navto: function() {
-    wx.navigateTo({
-      url: '../mother-two/mother-two',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+
+   if(!this.data.show){
+      //跳过经期设定
+     var data = {
+       'userModel': app.globalData.obj.shaonv,
+       'babySex': app.globalData.obj.babySex,
+       'babyBirthday': app.globalData.obj.babyBirthday
+     }
+     console.log(data)
+
+     userInfoAdd(data).then(res => {
+       console.log('登录经期信息', res);
+      
+     })
+
+  
+   }else{
+     console.log(this.data.day)
+     if (!this.data.day) {
+       wx.showToast({
+         title: "请选择上次开始日期",
+         icon: 'none'
+       })
+       return;
+     }
+     wx.navigateTo({
+       url: '../mother-two/mother-two',
+       success: function (res) { },
+       fail: function (res) { },
+       complete: function (res) { },
+     })
+
+   }
+
+  
   },
   dianji: function(e) {
     console.log(e.currentTarget.dataset.day)
@@ -49,6 +78,14 @@ Page({
 
     var dates = this.data.year + "-" + month + "-" + day;
     console.log('日期', dates);
+
+    if (moment(dates).isAfter(moment())) {
+      wx.showToast({
+        title: "设置您的上次月经时间",
+        icon: 'none'
+      })
+      return;
+    }
 
     app.globalData.obj.menstrualStartTime = dates;
     this.setData({

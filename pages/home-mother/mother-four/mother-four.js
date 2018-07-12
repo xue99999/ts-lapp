@@ -1,5 +1,7 @@
 const app = getApp()
-const { userInfoAdd } = require('../../../service/user.js')
+const {
+  userInfoAdd
+} = require('../../../service/user.js')
 var Http = require('../../../utils/http.js');
 Page({
 
@@ -7,14 +9,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991',
-      '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'],
+    array: ['1971', '1972', '1973', '1974', '1975', '1976', '1977', '1979', '1979', '1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991',
+      '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'
+    ],
   },
   bindPickerChange: function (e) {
-    // console.log(e.currentTarget.dataset.nian+'年出生。')
-    var birthday = e.currentTarget.dataset.nian
-    app.globalData.obj.birthday = birthday
-    console.log(birthday)
+    const {
+      array
+    } = this.data;
+    const index = e.detail.value;
+
+    const brday = array[index[0]];
+    this.setData({
+      birthday: brday
+    })
+    app.globalData.obj.birthday = brday
   },
   navto: function () {
 
@@ -34,18 +43,18 @@ Page({
       // this.setData({
       //   list: res.list
       // })
-
+      wx.switchTab({
+        url: '../../taber/taber',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
     })
-    console.log(app.globalData.obj)
-  //当用户点击下一步的时候保存定位属性
-   app.globalData.goTo="ok";
 
-    wx.switchTab({
-      url: '../../taber/taber',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
-    })
+    //当用户点击下一步的时候保存定位属性
+    app.globalData.goTo = "ok";
+
+   
   },
 
   /**

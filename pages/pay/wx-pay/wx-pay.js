@@ -74,8 +74,8 @@ Page({
         if (result.returnCode === 201) {
           wx.redirectTo({
             //等刘小东改完在修改注释
-            //   url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
-            url: '/pages/pay/wx-status/wx-status?orderNo=' + result.orderNo + '&id=' + id
+             url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
+           
           })
           return;
         }
