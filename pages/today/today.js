@@ -14,14 +14,17 @@ Page({
     days:[],
     userModel:'',
     list:[],
-    currentDay:{}
+    today:moment().format('YYYY-MM-DD'),
+    currentDay:{},
+    formatDay:null,
   },
   clickArr:function(e){
     console.log(e.currentTarget.dataset.index)
   },
   navState:function(){
+    const day=this.data.formatDay;
     wx.navigateTo({
-      url: '../state/state',
+      url: `/pages/state/state?day=${day}`,
     })
   },
   /**
@@ -33,20 +36,24 @@ Page({
     //console.log(day,endDay)
        this.setData({
          today:moment().format('D'),
-         days:currentWeek()
-         })
+         days:currentWeek(),
+         formatDay: day
+        })
+
        var query = {
          startDay: day,
          endDay: day
        }
 
     userInfoQueryBodyStatus(query).then(res => {
-      const {list} = res
+      const {list} = res;
+      app.globalData.bodyStatus=list;
+
         for (let i = 0; i < list.length;i++){
            const dy=list[i];
            if(dy.day===day){
                 this.setData({
-                  currentDay:dy.day
+                  currentDay:dy
                 })
            }
          }
@@ -103,7 +110,7 @@ Page({
   },
   clickjinri:function(){
       wx.navigateTo({
-        url: '../today-recommend/today-recommend?physiologicalCycle=' + physiologicalCycle
+        url: '../today-recommend/today-recommend?day=' + this.data.formatDay
       })
   },
 
