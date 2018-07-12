@@ -59,52 +59,9 @@ Page({
          }
         console.log(this.data.currentDay)
         var inner = this.data.currentDay
-        // if (inner.physiologicalCycle=='02'){
-        //   this.setData({
-            
-        //   })
-        // }
+       
        })
-      // userInfoQueryBodyStatus(data).then(res => {
-      // console.log('查询身体状态', res);
- 
-      // const userModel=res.userModel;
-      // physiologicalCycle = res.list.physiologicalCycle;
-      // userModel = res.list.userModel
-      // list = res.list
-      // if (physiologicalCycle === '01'){
-      //   this.setData({
-      //     physiologicalCycle:'安全期'
-      //   })
-      // }
-      // else if (physiologicalCycle === '02') {
-      //   this.setData({
-      //     physiologicalCycle: '月经期'
-      //   })
-      // }
-      // else if (physiologicalCycle === '03') {
-      //   this.setData({
-      //     physiologicalCycle: '易孕期'
-      //   })
-      // }
-      // else if(physiologicalCycle === '04') {
-      //   this.setData({
-      //     physiologicalCycle: '排卵期'
-      //   })
-      // }
-      // if (userModel === '01'){
-      //   this.setData({
-      //     userModel: '少女'
-      //   })        
-      // }
-      // else if (userModel === '02') {
-      //   this.setData({
-      //     userModel: '辣妈'
-      //   })
-      // }
-    // })
-    console.log(app.globalData.obj.birthday)
-    console.log(app.globalData.obj)
+      
   },
 
   /**

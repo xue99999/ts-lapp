@@ -28,7 +28,7 @@ App({
           fearCold: null,
           weak: null,
           abdominalPain: null,
-          
+          bodyStatus:[],
           dates:null
 
 
