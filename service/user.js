@@ -120,7 +120,7 @@ function userInfoQueryMensAndOvulation(params) {
 function userInfoQueryBodyStatus(params) {
   return get({
     url: baseUrl + 'userInfo/queryBodyStatus/' + params.startDay + '/' + params.endDay,
- 
+
   })
 }
 
