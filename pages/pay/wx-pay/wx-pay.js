@@ -53,9 +53,9 @@ Page({
     payUnifiedorder(data).then(result => {
       console.log('微信统一下单', result);
       //企业兑换码code=503的时候不进行支付并且return 
-      if (result.code === 503) {
+      if (result.code === 666) {
         wx.showToast({
-          title: '企业兑换码错误',
+          title: result.msg,
           icon: 'none',
           duration: 2000
         })
@@ -64,7 +64,7 @@ Page({
       //当前课程已经购买
       if (result.code === 999) {
         wx.showToast({
-          title: '当前课程您已购买',
+          title: result.msg,
           icon: 'none',
           duration: 2000
         })
@@ -73,7 +73,7 @@ Page({
       if (result.code === 200) {
         if (result.returnCode === 201) {
           wx.redirectTo({
-            //等刘小东改完在修改注释
+          
              url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
            
           })

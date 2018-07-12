@@ -7,7 +7,7 @@
 
 .view_top {
   width: 100%;
-  height: 376rpx;
+  height: 320rpx;
   background: #fff;
 }
 
@@ -28,49 +28,48 @@
 .text_name {
   display: block;
   margin-top: 130rpx;
-  height: 25rpx;
+  height: 29rpx;
   text-align: center;
-  line-height: 25rpx;
-  font-size: 18px;
+  line-height: 24rpx;
+  font-size: 29rpx;
   color: #000;
 }
 
 .text_phone {
   display: block;
   margin-top: 18rpx;
-  height: 18rpx;
-  line-height: 18rpx;
+  height: 20rpx;
+  line-height: 20rpx;
   text-align: center;
-  font-size: 14px;
+  font-size: 20rpx;
   color: #666;
 }
 
 .text_phone1 {
   display: block;
   margin-top: 18rpx;
-  height: 18rpx;
-  line-height: 18rpx;
+  height: 20rpx;
+  line-height: 20rpx;
   text-align: center;
-  font-size: 14px;
+  font-size: 20rpx;
   color: #1a8ffd;
 }
 
 .view_solid {
-  width: 100%;
-  margin: 35rpx 29rpx 0 29rpx;
+  margin: 28rpx 28rpx 0 28rpx;
   height: 1rpx;
   background: #e1e1e1;
 }
 
 .layout_horizontal {
-  height: 116.36rpx;
+  height: 90rpx;
   display: flex;
   flex-direction: row;
 }
 
 .layout_horizontal_view {
   flex: 1;
-  height: 116.36rpx;
+  height: 90rpx;
   background-color: #fff;
   align-items: center;
   justify-content: cente;
@@ -88,14 +87,14 @@
   height: 24.24rpx;
   margin-left: 16rpx;
   color: #000;
-  font-size: 20px;
+  font-size: 24rpx;
   line-height: 116.36rpx;
   text-align: center;
 }
 
 .view_solid_vertical {
   width: 1px;
-  height: 73.3333rpx;
+  height: 70rpx;
   background: #e1e1e1;
   margin: auto;
 }
@@ -107,7 +106,7 @@
   margin-top: 14px;
   background: #fff;
   color: #000;
-  font-size: 20px;
+  font-size: 24rpx;
   line-height: 63rpx;
   text-align: left;
   padding-left: 30.30rpx;
@@ -227,14 +226,14 @@
 }
 
 .deg button {
-   margin-top: 15px;
+  margin-top: 15px;
   border: none;
   height: 40rpx;
   background: none;
   border-radius: 0;
   line-height: 40rpx;
   color: #333;
-  font-size: 20rpx;
+  font-size: 22rpx;
   text-align: center;
 }
 

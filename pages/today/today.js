@@ -101,7 +101,9 @@ Page({
   },
   clickjinri:function(){
       wx.navigateTo({
-        url: '../today-recommend/today-recommend?physiologicalCycle=' + physiologicalCycle
+        //拿不到信息先注释
+       // url: '../today-recommend/today-recommend?physiologicalCycle=' + physiologicalCycle
+        url: '../today-recommend/today-recommend?physiologicalCycle=01'
       })
   },
 

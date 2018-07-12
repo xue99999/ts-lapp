@@ -30,7 +30,7 @@ height: 212rpx;
 
   margin-top: 60rpx;
   color: #000;
-  font-size: 25rpx;
+ font-size: 24rpx;
 }
 
 .view_top_img {
@@ -102,18 +102,18 @@ height: 212rpx;
   margin-top: 38rpx;
   color: #000;
   height: 26.66rpx;
-  font-size: 18px;
+ font-size: 26rpx;
 }
 
 
 .list_item_text2, .list_item_text3, .list_item_text4 {
   height: 23rpx;
   color: #9c9c9c;
-  font-size: 16px;
+ font-size: 20rpx;
 }
 
 .list_item_text2 {
-  margin-top: 18rpx;
+  margin-top: 20rpx;
 }
 
 .list_item_view_all {
@@ -147,6 +147,6 @@ height: 212rpx;
 .list_item_text5 {
   height: 23rpx;
   color: #fe6f71;
-  font-size: 16px;
+  font-size: 20rpx;
   margin-left: 100rpx;
 }

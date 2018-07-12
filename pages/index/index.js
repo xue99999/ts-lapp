@@ -82,7 +82,7 @@ Page({
                           //如果走完了就直接去首页 -taber
                       if (app.globalData.goTo === 'ok') {
                         wx.switchTab({
-                          url: '../taber/taber',
+                          url: '../today/today',
                         })
                       } else {
                         //没有走完就重新走
@@ -90,11 +90,7 @@ Page({
                           url: '../home/home?userFlag=' + res.userFlag,
                         })
                       }
-
-    
                     }
-
-
                   }
                 })
               }

@@ -44,7 +44,7 @@ Page({
       //   list: res.list
       // })
       wx.switchTab({
-        url: '../../taber/taber',
+        url: '../../today/today',
         success: function (res) { },
         fail: function (res) { },
         complete: function (res) { },
