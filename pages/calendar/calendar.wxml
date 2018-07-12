@@ -18,7 +18,6 @@
   <view>
 
   </view>
-  <view class='view-month'> {{month}}月 </view>
 
   <view class='header'>
   </view>
@@ -73,7 +72,7 @@
               <text>月经量</text>
         </view>
     
-        <view  class='view-mo1' wx:for="{{leucorrheas}}"  wx:for-index="idx" wx:for-item="item">
+        <view  class='view-mo1' wx:for="{{menstrualVolume}}"  wx:for-index="idx" wx:for-item="item">
             <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg1"  data-index="{{idx}}"  />
         </view>
     </view>

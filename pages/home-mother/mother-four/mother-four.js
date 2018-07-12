@@ -1,4 +1,6 @@
 const app = getApp()
+const { userInfoAdd } = require('../../../service/user.js')
+var Http = require('../../../utils/http.js');
 Page({
 
   /**
@@ -15,8 +17,29 @@ Page({
     console.log(birthday)
   },
   navto: function () {
+
+    var data = {
+      'userModel': app.globalData.obj.shaonv,
+      'menstrualStartTime': app.globalData.obj.menstrualStartTime,
+      'menstrualTimes': app.globalData.obj.menstrualTimes,
+      'menstrualCycle': app.globalData.obj.menstrualCycle,
+      'birthday': app.globalData.obj.birthday,
+      'babySex': app.globalData.obj.babySex,
+      'babyBirthday': app.globalData.obj.babyBirthday
+    }
+    console.log(data.userModel)
+
+    userInfoAdd(data).then(res => {
+      console.log('登录经期信息', res);
+      // this.setData({
+      //   list: res.list
+      // })
+
+    })
+    console.log(app.globalData.obj)
   //当用户点击下一步的时候保存定位属性
    app.globalData.goTo="ok";
+
     wx.switchTab({
       url: '../../taber/taber',
       success: function (res) { },

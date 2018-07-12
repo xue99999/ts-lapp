@@ -16,20 +16,8 @@
   display: flex;
   justify-content: space-around;
   font-size: 26rpx;
-  display: flex;
-  white-space: nowrap;
 }
-/* ..headers view{
-  height:128rpx;
-  width:128rpx;
-  
-  } */
-  /* .headers view{
-      display: inline-block; 
-      width: 100rpx;
-      height: 100rpx;
-          
-  } */
+
 .weekMark{
   display: inline-block; 
   width: 50rpx;

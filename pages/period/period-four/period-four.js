@@ -1,7 +1,7 @@
 // pages/period/period-two/period-two.js
 const app = getApp()
-// const { userInfoAdd} = require('../../service/user.js')
-// var Http = require('../../utils/http.js');
+const { userInfoAdd} = require('../../../service/user.js')
+var Http = require('../../../utils/http.js');
 Page({
 
   /**
@@ -19,29 +19,28 @@ Page({
   },
   navto: function () {
 
+    var data = {
+      'userModel': app.globalData.obj.shaonv,
+      'menstrualStartTime': app.globalData.obj.menstrualStartTime,
+      'menstrualTimes': app.globalData.obj.menstrualTimes,
+      'menstrualCycle': app.globalData.obj.menstrualCycle,
+      'birthday': app.globalData.obj.birthday,
+      'babySex':'01',
+      'babyBirthday':'2017'
+    }
+    console.log(data.userModel)
 
     //当用户点击下一步的时候保存定位属性
     app.globalData.goTo = "ok";
 
-    // var data = {
-    //   'userModel': app.globalData.obj.shaonv,
-    //   'menstrualStartTime': "2017-06-07",
-    //   'menstrualTimes': 5,
-    //   'menstrualCycle': 28,
-    //   'birthday': '2000',
-    //   // 'babySex':'01',
-    //   // 'babyBirthday':'2017'
-    // }
-    // console.log(data.userModel)
+    userInfoAdd(data).then(res => {
+      console.log('登录经期信息', res);
+      // this.setData({
+      //   list: res.list
+      // })
 
-    // userInfoAdd(data).then(res => {
-    //   console.log('登录经期信息', res);
-    //   // this.setData({
-    //   //   list: res.list
-    //   // })
-
-    // })
-
+    })
+    console.log(app.globalData.obj)
     wx.switchTab({
       url: '../../taber/taber',
       success: function (res) { },

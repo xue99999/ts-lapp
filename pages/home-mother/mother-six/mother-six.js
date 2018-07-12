@@ -95,7 +95,7 @@ Page({
     var dates = year + "-" + month + "-" + day;
     console.log('日期', dates);
 
-    app.globalData.obj.menstrualStartTime = dates;
+    app.globalData.obj.babyBirthday = dates;
 
   }
 })
