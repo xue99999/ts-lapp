@@ -1,6 +1,7 @@
 // pages/taber/taber.js
 const app = getApp()
 const moment = require('../../utils/moment.js');
+const { currentWeek} =require('../../utils/time.js');
 const { userInfoQueryBodyStatus} = require('../../service/user.js')
 // var Http = require('../../utils/http.js');
 Page({
@@ -10,10 +11,10 @@ Page({
    */
   data: {
     date: ['日', '一', '二', '三', '四', '五', '六'],
-    arr:[4,5,6,7,8,9,10],
+    days:[],
     userModel:'',
     list:[],
-    today:null
+    currentDay:{}
   },
   clickArr:function(e){
     console.log(e.currentTarget.dataset.index)
@@ -30,20 +31,22 @@ Page({
     const day=moment().format("YYYY-MM-DD");
      //const endDay = moment().add(5,'days').format("YYYY-MM-DD");
     //console.log(day,endDay)
-    //console.log(moment().weekday(0))
-       var data = {
+       this.setData({
+         today:moment().format('D'),
+         days:currentWeek()
+         })
+       var query = {
          startDay: day,
          endDay: day
-    }
+       }
 
-       userInfoQueryBodyStatus(data).then(res => {
-         const {list} = res
-
-         for (let i = 0; i < list.length;i++){
+    userInfoQueryBodyStatus(query).then(res => {
+      const {list} = res
+        for (let i = 0; i < list.length;i++){
            const dy=list[i];
            if(dy.day===day){
                 this.setData({
-                  today:dy.day
+                  currentDay:dy.day
                 })
            }
          }
