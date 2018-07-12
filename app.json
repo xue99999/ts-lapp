@@ -28,6 +28,7 @@
     "pages/label-course/label-course"
   ],
   "window": {
+    
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FE6F71",
     "navigationBarTitleText": "她师",

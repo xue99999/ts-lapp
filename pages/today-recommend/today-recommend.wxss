@@ -10,11 +10,12 @@
 .view_top {
   height: 345rpx;
   background: red;
+  padding-top: 35rpx ;
 }
 
 .view_top_s {
-  margin: 35rpx 20rpx 0 20rpx;
-  position: fixed;
+  margin: 0 20rpx 0 20rpx;
+  display: fixed;
   height: 447rpx;
   background: #fff;
   border-radius: 20rpx;
@@ -54,6 +55,7 @@ height: 212rpx;
 
 .scroll_view {
   margin-top: 154rpx;
+  height: 40%;
 }
 
 .headline {

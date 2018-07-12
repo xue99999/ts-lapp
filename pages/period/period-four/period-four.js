@@ -19,6 +19,7 @@ Page({
   },
   navto: function () {
 
+<<<<<<< .mine
     var data = {
       'userModel': app.globalData.obj.shaonv,
       'menstrualStartTime': app.globalData.obj.menstrualStartTime,
@@ -29,6 +30,26 @@ Page({
       'babyBirthday':'2017'
     }
     console.log(data.userModel)
+
+
+
+
+=======
+
+    //当用户点击下一步的时候保存定位属性
+    app.globalData.goTo = "ok";
+
+    // var data = {
+    //   'userModel': app.globalData.obj.shaonv,
+    //   'menstrualStartTime': "2017-06-07",
+    //   'menstrualTimes': 5,
+    //   'menstrualCycle': 28,
+    //   'birthday': '2000',
+    //   // 'babySex':'01',
+    //   // 'babyBirthday':'2017'
+    // }
+    // console.log(data.userModel)
+>>>>>>> .theirs
 
     userInfoAdd(data).then(res => {
       console.log('登录经期信息', res);

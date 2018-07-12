@@ -31,9 +31,9 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.id);
-  //  id = options.id;
-    id = "b05bb1a5ae2742c7a799cf620911edf4";
-    options.id = "b05bb1a5ae2742c7a799cf620911edf4";
+   id = options.id;
+    // id = "b05bb1a5ae2742c7a799cf620911edf4";
+    // options.id = "b05bb1a5ae2742c7a799cf620911edf4";
     apiCourseId(options.id).then(result=>{
       console.log('课程详情',result);
       this.setData({

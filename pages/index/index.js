@@ -2,21 +2,29 @@
 //获取应用实例
 const app = getApp()
 const {
-  authUserInfo,
-  authWechatLogin
+  login,
+  loginWithCode
 } = require('../../service/user.js')
-var Http = require('../../utils/http.js');
 
 var data, LoginData, iv, encryptedData;
-var userInfo="";
+var userInfo = "";
+
+// 路由信息
+var routeQuery=null;
 Page({
   data: {
+    route:{},
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
-  onLoad: function() {
-
+  onLoad: function (option) {
+    console.log(option)
+    if(option){
+      routeQuery=option;
+    }
+    console.log('router', routeQuery)
+  
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -59,7 +67,7 @@ Page({
                   code: res.code,
                 }
                 //登录微信授权
-                authWechatLogin(LoginData).then(result => {
+                loginWithCode(LoginData).then(result => {
                   console.log('微信授权成功,进入首页幷传入参数code', result);
                   if (result.code === 200) {
                     console.log('将要保存token', result.token);
@@ -68,38 +76,40 @@ Page({
                       data: result.token,
                     })
                     console.log('保存token成功,进入首页', result.token);
-                    if (result.userFlag==='02'){
-                
+                    if (result.userFlag === '02') {
+                          //当不是新用户的时候
+                          //判断是不是走完了引导页
+                          //如果走完了就直接去首页 -taber
+                      if (app.globalData.goTo === 'ok') {
+                        wx.switchTab({
+                          url: '../taber/taber',
+                        })
+                      } else {
+                        //没有走完就重新走
+                        wx.redirectTo({
+                          url: '../home/home?userFlag=' + res.userFlag,
+                        })
+                      }
 
-                      wx.redirectTo({
-                        url: '../home/home?userFlag=' + res.userFlag,
-                      })
-
-                      // wx.switchTab({
-                      //   url: '../taber/taber',
-                      // })
+    
                     }
-                      
-                   
+
+
                   }
                 })
               }
-
-
             }
           })
 
         } else {
           console.log('尚未授权', res);
-
-
         }
       }
     })
 
 
   },
-  getUserInfo: function (e) {
+  getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
@@ -109,6 +119,7 @@ Page({
   },
   bindGetUserInfo: function() {
     // 查看是否授权
+    const that=this;
     wx.getSetting({
       success: function(res) {
         if (res.authSetting['scope.userInfo']) {
@@ -131,7 +142,7 @@ Page({
                   }
 
                   //微信登录
-                  authUserInfo(data).then(res => {
+                  login(data).then(res => {
                     console.log('微信登录', res);
                     if (res.code === 200) {
                       console.log('将要保存token', res.token);
@@ -140,10 +151,38 @@ Page({
                         data: res.token,
                       })
                       console.log('保存token成功,进入首页', res.token);
+                      console.log(routeQuery);
 
-                      wx.redirectTo({
-                        url: '../home/home?userFlag=' + res.userFlag,
-                      })
+                      if(routeQuery){
+                        console.log(routeQuery)
+                        // tag:navigate redirect switch reLaunch
+                        const {callback,tag='1'}=routeQuery;
+                    
+                      switch (tag){
+                        case "redirect":
+                            wx.redirectTo({
+                              url: callback
+                            })
+                         break;
+                        case "reLaunch":
+                          wx.reLaunch({
+                            url: callback
+                          })
+                          break;
+                        case "switch":
+                          wx.switchTo({
+                            url: callback
+                          })
+                          break;
+                         default:
+                          wx.redirectTo({
+                            url: callback,
+                          })
+                          break;
+                      }
+
+                      }
+
                     }
                   })
                 }

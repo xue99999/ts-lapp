@@ -17,6 +17,7 @@ Page({
     console.log(birthday)
   },
   navto: function () {
+<<<<<<< .mine
 
     var data = {
       'userModel': app.globalData.obj.shaonv,
@@ -41,6 +42,32 @@ Page({
 
 
 
+=======
+  //当用户点击下一步的时候保存定位属性
+   app.globalData.goTo="ok";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
     wx.switchTab({
       url: '../../taber/taber',
       success: function (res) { },

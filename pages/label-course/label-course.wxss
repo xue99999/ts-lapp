@@ -1,6 +1,5 @@
 /* 课程标签 */
 .inclusion {
-  position: fixed;
   height: 100%;
   width: 100%;
   background: #e1e1e1;

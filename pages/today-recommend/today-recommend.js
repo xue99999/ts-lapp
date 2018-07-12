@@ -1,7 +1,9 @@
 // pages/todayRecommend/todayRecommend.js
-const { apiCourseRecommendList } = require('../../service/user.js')
-var page=1;
-var rows=20;
+const {
+  apiCourseRecommendList
+} = require('../../service/user.js')
+var page = 1;
+var rows = 20;
 Page({
 
   /**
@@ -23,44 +25,49 @@ Page({
 
     console.log('状态信息', options.physiologicalCycle);
     this.setData({
-         physiologicalCycle: options.physiologicalCycle,
+      physiologicalCycle: options.physiologicalCycle,
     })
-    page = 1;
 
-    this.getData(page, rows);
-  },
-  //滚动到顶部/左边，会触发 scrolltoupper 事件
-  upper: function (e) {
-    console.log('顶部',e)
-    page = 1;
-   
-    this.getData(page, rows);
-  },
-  //滚动到底部/右边，会触发 scrolltolower 事件
-  lower: function (e) {
-    console.log('底部',e)
-     page+=1;
-  
-    this.getData(page, rows);
+    this.getData(page);
   },
 
-  getData:function(page, rows){
+  getData: function(page) {
     var data = {
       page: page,
       rows: 20
     }
     apiCourseRecommendList(data).then(result => {
       console.log('今日推荐', result);
-    var list =this.data.list;
-    if (result.code === 200) {
-      for (var i = 0; i < result.data.list.length; i++) {
-        list.push(result.data.list[i]);
+      var list = this.data.list;
+      if (result.code === 200) {
+        if(page>1){
+        for (var i = 0; i < result.list.length; i++) {
+          list.push(result.list[i]);
+        }}else{
+          list=[];
+          list = result.list;
+        }
+        this.setData({
+          list: list,
+        })
       }
-      this.setData({
-        list: list,
-      })
-    }
     })
 
+  },
+
+  /**
+ * 页面相关事件处理函数--监听用户下拉动作
+ */
+  onPullDownRefresh: function () {
+    this.getData(1);
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    page += 1;
+    this.getData(page)
   }
+
 })

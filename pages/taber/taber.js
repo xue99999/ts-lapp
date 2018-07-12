@@ -31,10 +31,17 @@ Page({
          startDay:'2018-06-11',
          endDay:'2018-07-11'
     }
+<<<<<<< .mine
       
       userInfoQueryBodyStatus(data).then(res => {
       console.log('查询身体状态', res);
+=======
+    //   userInfoQueryBodyStatus(data).then(res => {
+    //   console.log('查询身体状态', res);
 
+>>>>>>> .theirs
+
+<<<<<<< .mine
  
       // const userModel=res.userModel;
       // physiologicalCycle = res.list.physiologicalCycle;
@@ -74,6 +81,47 @@ Page({
     })
     console.log(app.globalData.obj.birthday)
     console.log(app.globalData.obj)
+=======
+    //   // 用户模式
+    //   const userModel=res.userModel
+    //   physiologicalCycle = res.list.physiologicalCycle
+    //   userModel = res.list.userModel
+    //   list = res.list
+    //   if (physiologicalCycle === '01'){
+    //     this.setData({
+    //       physiologicalCycle:'安全期'
+    //     })
+    //   }
+    //   else if (physiologicalCycle === '02') {
+    //     this.setData({
+    //       physiologicalCycle: '月经期'
+    //     })
+    //   }
+    //   else if (physiologicalCycle === '03') {
+    //     this.setData({
+    //       physiologicalCycle: '易孕期'
+    //     })
+    //   }
+    //   else if(physiologicalCycle === '04') {
+    //     this.setData({
+    //       physiologicalCycle: '排卵期'
+    //     })
+    //   }
+    //   if (userModel === '01'){
+    //     this.setData({
+    //       userModel: '少女'
+    //     })        
+    //   }
+    //   else if (userModel === '02') {
+    //     this.setData({
+    //       userModel: '辣妈'
+    //     })
+    //   }
+    //   app.globalData.obj2 = res.list
+    // })
+    // console.log(app.globalData.obj.birthday)
+    // console.log(app.globalData.obj)
+>>>>>>> .theirs
 
   },
 
