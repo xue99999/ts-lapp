@@ -11,7 +11,7 @@ Page({
    */
   data: {
     list: [],
-    url: '../courseDetails/courseDetails',
+    url: '../course-details/course-details',
     physiologicalCycle: '03',
     content01: "“宜补不宜泄”，补气养血的最佳时期，想要补养的美女抓住这个好时机，事半功倍哦。足三里、血海，按揉+艾灸，益气养血，不要太美哦。护肤达人们，这个时期最适合补水保湿，面膜贴起来吧。",
     content02: "“宜泄不宜藏”，冷饮快走开，不如来杯生姜红糖水，让经血来得更顺畅一些吧。痛经的MM，三阴交穴是标配，按揉+艾灸，通经止痛。酒精棉球塞耳朵，痛经小妙招。",

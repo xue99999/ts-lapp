@@ -3,6 +3,7 @@ const {
   apiCourseSeriesList,
 
 } = require('../../service/user.js');
+const { auth } = require('../../utils/auth.js')
 var page = 1,
   rows = 20,
   label;
@@ -23,6 +24,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+    auth();
+
     label = options.label;
     if (label !== "") {
       wx.setNavigationBarTitle({

@@ -3,6 +3,7 @@ const {
   apiCourseCollectList
 } = require('../../service/user.js')
 var page = 1;
+var app = getApp();
 Page({
 
   /**
@@ -41,7 +42,7 @@ Page({
           list: list,
         })
    }else{
-        getApp().getShouHint();
+        app.getShouHint();
    }
     })
 },

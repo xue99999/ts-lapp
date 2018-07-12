@@ -40,6 +40,18 @@
 					"name": "我的",
 					"pathName": "pages/my/my",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "biaoqian",
+					"pathName": "pages/label-course/label-course",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "pay",
+					"pathName": "pages/pay/wx-pay/wx-pay",
+					"query": ""
 				}
 			]
 		}
