@@ -1,5 +1,7 @@
 // pages/home/home.js
 var app = getApp();
+const { auth}=require('../../utils/auth.js')
+
 Page({
 
   /**
@@ -32,14 +34,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    auth()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -74,7 +76,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    
   },
 
   /**

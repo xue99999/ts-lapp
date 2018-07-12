@@ -42,14 +42,14 @@ function apiCourseId(params){
   })
 }
 // 用户信息同步
-function authUserInfo(params){
+function login(params){
   return post({
     url: baseUrl + 'auth/wechat/login',
     params
   })
 }
   // 登录微信授权
-function authWechatLogin(params) {
+function loginWithCode(params) {
   return post({
     url: baseUrl + 'auth/wechat/loginWithCode',
     params
@@ -154,8 +154,8 @@ module.exports = {
   apiSection,
   apiCourseCollectList,
   apiCourseId,
-  authUserInfo,
-  authWechatLogin,
+  loginWithCode,
+  login,
   icketQuery,
   payUnifiedorder,
   orderQuery,
