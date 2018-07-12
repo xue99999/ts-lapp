@@ -4,6 +4,7 @@ const {
 } = require('../../service/user.js')
 var page = 1;
 var rows = 20;
+const app = getApp();
 Page({
 
   /**
@@ -22,11 +23,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    const day = moment().format("YYYY-MM-DD");
+    var list = app.globalData.bodyStatus;
+    for (let i = 0; i < list.length; i++) {
+      const dy = list[i];
+      if (dy.day === day) {
+        this.setData({
+          physiologicalCycle: list[i].physiologicalCycle,
+        })
+      }
+    }
 
-    console.log('状态信息', options.physiologicalCycle);
-    this.setData({
-      physiologicalCycle: options.physiologicalCycle,
-    })
+
 
     this.getData(page);
   },
