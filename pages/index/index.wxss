@@ -1,28 +1,61 @@
-/**index.wxss**/
+/* pages/home/home.wxss */
+.heads{
+  width: 100%;
+  height:1333rpx;
+  background: #FE6F71;
+  padding-top: 63px;
+}
+.imgs{
+    /* text-align: center;   */
 
-.userinfo {
+}
+.imgs image{
+  margin-left: 306rpx;
+  width: 138rpx;
+  height: 94rpx;
+  /* border: 1px solid black; */
+}
+.texts{
+  margin-top: 108rpx;
+  text-align: center;
+  color: white;
+}
+.texts text{
+  font-size: 124%;
+}
+.images{
+  margin-top: 127rpx;
+  width: 100%;
+  display: flex;
+}
+.images>view{
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding-top: 300rpx;
 }
-
-.userinfo-avatar-view {
- 
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 64rpx;
+.images_menst,.images_mom{
+  width:152rpx;
+  height: 152rpx;
+  border-radius: 50%;
+  background: #FD918D;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+.images_menst image{
+  width: 53.7rpx;
+  height: 71.8rpx;
 }
-.userinfo-avatar-bu{
-  width: 128rpx;
-
-
+.images_mom image{
+  width: 41.6rpx;
+  height: 71.8rpx;
 }
-
-
+.images view text{
+  margin-top: 15rpx;
+  color: white;
+  font-size: 60%;
+  letter-spacing: 3.3rpx;
+}
