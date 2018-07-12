@@ -1,5 +1,5 @@
 const app = getApp()
-const { userInfoQueryMensAndOvulation, userinfoUpdateMensAndOvulation} = require('../../service/user.js')
+const { userInfoQueryMensAndOvulation, userInfoUpdateMensAndOvulation} = require('../../service/user.js')
 var Http = require('../../utils/http.js');
 Page({
 
@@ -25,66 +25,34 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    userInfoQueryMensAndOvulation().then(res => {
-      console.log('查询设置经期与排卵', res);
-      // this.setData({
-      //   list: res.list
-      // })
-    })
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    //   var data = {
-    //       mayConception: 01 , 
-    //       // lutealPhase:'' ,  //黄体期
-    //       improve: 02 ,
-    //       menstrualCycle: 28,
-    //       menstrualTimes: 5 
+    userInfoQueryMensAndOvulation().then(res => {
+      console.log('查询设置经期与排卵', res);
+      // this.setData({
+      //   list: res.list
+      // })
+    })
 
-    // }
-    //   userinfoUpdateMensAndOvulation(data).then(res => {
-    //   console.log('设置经期与排卵', res);
-    //   // this.setData({
-    //   //   list: res.list
-    //   // })
-    // })
-  },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+      var data = {
+          mayConception: '01' , 
+          // lutealPhase:'' ,  //黄体期
+          improve: '02' ,
+          menstrualCycle: 28,
+          menstrualTimes: 5 
+    }
+      userInfoUpdateMensAndOvulation(data).then(res => {
+      console.log('设置经期与排卵', res);
+      // this.setData({
+      //   list: res.list
+      // })
+    })
   }
 })

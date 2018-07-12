@@ -1,4 +1,4 @@
-// pages/taber/taber.js
+  // pages/taber/taber.js
 const app = getApp()
 // const { userInfoQueryBodyStatus} = require('../../service/user.js')
 // var Http = require('../../utils/http.js');
@@ -68,7 +68,7 @@ Page({
       //     userModel: '辣妈'
       //   })
       // }
-      app.globalData.obj2 = res.list
+      // app.globalData.obj2 = res.list
     // })
     console.log(app.globalData.obj.birthday)
     console.log(app.globalData.obj)
@@ -85,20 +85,6 @@ Page({
       wx.navigateTo({
         url: '../today-recommend/today-recommend?physiologicalCycle=' + physiologicalCycle
       })
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
   },
 
 })

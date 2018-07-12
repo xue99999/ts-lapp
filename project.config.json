@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -50,7 +50,7 @@
 				{
 					"id": 2,
 					"name": "home",
-					"pathName": "pages/home/home",
+					"pathName": "pages/period/period-three/period-three",
 					"query": ""
 				},
 				{
@@ -86,7 +86,7 @@
 				{
 					"id": 8,
 					"name": "设置经期",
-					"pathName": "pages/setPeriod/setPeriod",
+					"pathName": "pages/set-period/set-period",
 					"query": ""
 				},
 				{
@@ -142,8 +142,13 @@
 					"name": "index",
 					"pathName": "pages/index/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "更新身体状态",
+					"pathName": "pages/state/state",
+					"query": ""
 				}
-				
 			]
 		}
 	}

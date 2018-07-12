@@ -218,3 +218,6 @@
   border-radius: 25px;
   margin-right: 110rpx;
 }
+.bottm{
+margin-bottom: 30rpx;
+}

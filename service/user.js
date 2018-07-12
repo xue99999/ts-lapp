@@ -7,7 +7,7 @@ import Http from '../utils/http.js';
 //const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 
 //李康 本地测试路径
-// const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
+const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
 
 const {get}=Http;
 
@@ -119,8 +119,8 @@ function userInfoQueryMensAndOvulation(params) {
 //查询身体状态接口
 function userInfoQueryBodyStatus(params) {
   return get({
-    url: baseUrl + 'userInfo/queryBodyStatus',
-    params
+    url: baseUrl + 'userInfo/queryBodyStatus/' + "2018-07-01" + '/' +"2018-07-31",
+ 
   })
 }
 
@@ -133,20 +133,13 @@ function userInfoUpdateBodyStatus(params) {
 }
 
 //设置经期排卵接口
-function userinfoUpdateMensAndOvulation(params) {
+function userInfoUpdateMensAndOvulation(params) {
   return post({
-    url: baseUrl + 'userinfo/updateMensAndOvulation',
+    url: baseUrl + 'userInfo/updateMensAndOvulation',
     params
   })
 }
 
-//日历查询
-function userInfoQueryCalendar(params) {
-  return post({
-    url: baseUrl + 'userInfo/queryCalendar',
-    params
-  })
-}
 module.exports = {
   ownerQuery,
   apiSection,
@@ -164,6 +157,5 @@ module.exports = {
   apiCourseSeriesList,
   userInfoQueryBodyStatus,
   userInfoUpdateBodyStatus,
-  userinfoUpdateMensAndOvulation,
-  userInfoQueryCalendar
+  userInfoUpdateMensAndOvulation
 };

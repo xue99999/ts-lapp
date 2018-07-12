@@ -1,8 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
-// const { userInfoUpdateBodyStatus } = require('../../service/user.js')
-// var Http = require('../../utils/http.js');
+ const { userInfoQueryBodyStatus } = require('../../service/user.js')
+ var Http = require('../../utils/http.js');
 Page({
   data: {
     year: 0,
@@ -31,175 +31,238 @@ Page({
     menstrualVolume: [
       {
         name: '月经量偏少',
-        imgUrl: '../img/menstruation2-weak@3x.png',
-        curUrl: '../img/menstruation2-more@3x.png',
+        imgUrl: '../img/menstruation/1menstruation@3x.png',
+        curUrl: '../img/menstruation/1menstruation-1@3x.png',
         select: false
       },
       {
         name: '月经量正常',
-        imgUrl: '../img/menstruation2-centre@3x.png',
-        curUrl: '../img/menstruation2-more@3x.png',
+        imgUrl: '../img/menstruation/2menstruation@3x.png',
+        curUrl: '../img/menstruation/2menstruation-2@3x.png',
         select: false,
       },
       {
         name: '月经量很多',
-        imgUrl: '../img/menstruation2-centre@3x.png',
-        curUrl: '../img/menstruation2-more@3x.png',
+        imgUrl: '../img/menstruation/3menstruation@3x.png',
+        curUrl: '../img/menstruation/3menstruation-3@3x.png',
         select: false,
       }
     ],
     // 白带
     leucorrheas: [ 
       {
-
-
-        imgUrl: '../img/leucorrhea-centre.png',
-        curUrl: '../img/leucorrhea-weak.png',
-
+        imgUrl: '../img/leucorrhea/1leucorrhea@3x.png',
+        curUrl: '../img/leucorrhea/1leucorrhea-1@3x.png',
       },
       {
-
-        imgUrl: '../img/leucorrhea-centre.png',
-        curUrl: '../img/leucorrhea-weak.png',
+        imgUrl: '../img/leucorrhea/2leucorrhea@3x.png',
+        curUrl: '../img/leucorrhea/2leucorrhea-2@3x.png',
       },
       {
-
-        imgUrl: '../img/leucorrhea-more@3x.png',
-        curUrl: '../img/leucorrhea-weak.png',
-
+        imgUrl: '../img/leucorrhea/3leucorrhea@3x.png',
+        curUrl: '../img/leucorrhea/3leucorrhea-3@3x.png',
       }
     ],
     // 乳房胀痛
     breastTenderness: [
       {
-        imgUrl: '../img/centre@3x.png',
-        curUrl: '../img/weak.png',
+        select: false,
+        name: '基本不痛',
+        imgUrl: '../img/pain/1pain@3x.png',
+        curUrl: '../img/pain/1pain-1@3x.png',
 
       },
       {
-        imgUrl: '../img/centre@3x.png',
-        curUrl: '../img/weak.png',
+        select: false,
+        name: '轻微痛',
+        imgUrl: '../img/pain/2pain@3x.png',
+        curUrl: '../img/pain/2pain-1@3x.png',
       },
       {
-        imgUrl: '../img/more@3x.png',
-        curUrl: '../img/weak.png',
+        select: false,
+        name: '非常痛',
+        imgUrl: '../img/pain/3pain@3x.png',
+        curUrl: '../img/pain/3pain-@3x.png',
       }
     ],
     // 小腹痛
-    abdominalPains: [
+    abdominalPain: [
       {
-        imgUrl: '../img/centre@3x.png',
-        curUrl: '../img/weak.png',
+        select: false,
+        name: '基本不痛',
+        imgUrl: '../img/pain/1pain@3x.png',
+        curUrl: '../img/pain/1pain-1@3x.png',
 
       },
       {
-        imgUrl: '../img/centre@3x.png',
-        curUrl: '../img/weak.png',
+        select: false,
+        name: '轻微痛',
+        imgUrl: '../img/pain/2pain@3x.png',
+        curUrl: '../img/pain/2pain-1@3x.png',
       },
       {
-        imgUrl: '../img/more@3x.png',
-        curUrl: '../img/weak.png',
+        select: false,
+        name: '非常痛',
+        imgUrl: '../img/pain/3pain@3x.png',
+        curUrl: '../img/pain/3pain-@3x.png',
       }
     ],
     // 心情
-    moods: [
+    mood: [
       {
-        imgUrl: '../img/general@3x.png',
-        curUrl: '../img/happy@3x.png',
-
+        name:'超开心',
+        imgUrl: '../img/mood/1mood@3x.png',
+        curUrl: '../img/mood/1mood-1@3x.png',
+        select: false,
       },
       {
-        imgUrl: '../img/general@3x.png',
-        curUrl: '../img/happy@3x.png',
+        name:'一般',
+        imgUrl: '../img/mood/2mood@3x.png',
+        curUrl: '../img/mood/2mood-2@3x.png',
+        select: false,
       },
       {
-        imgUrl: '../img/unhappy@3x.png',
-        curUrl: '../img/happy@3x.png',
+        name:'好伤心',
+        imgUrl: '../img/mood/3mood@3x.png',
+        curUrl: '../img/mood/3mood-3@3x.png',
+        select: false,
       }
     ],
     // 经常头痛
-    menstrualHeadaches: [
+    menstrualHeadache: [
       {
-        imgUrl: '../img/centre@3x.png',
-        curUrl: '../img/weak.png',
+        select: false,
+        name: '基本不痛',
+        imgUrl: '../img/pain/1pain@3x.png',
+        curUrl: '../img/pain/1pain-1@3x.png',
 
       },
       {
-        imgUrl: '../img/centre@3x.png',
-        curUrl: '../img/weak.png',
+        select: false,
+        name: '轻微痛',
+        imgUrl: '../img/pain/2pain@3x.png',
+        curUrl: '../img/pain/2pain-1@3x.png',
       },
       {
-        imgUrl: '../img/more@3x.png',
-        curUrl: '../img/weak.png',
+        select: false,
+        name: '非常痛',
+        imgUrl: '../img/pain/3pain@3x.png',
+        curUrl: '../img/pain/3pain-@3x.png',
       }
     ],
     //怕冷
-    fearColds: [  
+    fearCold: [  
       {
-        imgUrl: '../img/cold-centres@3x.png',
-        curUrl: '../img/cold-weak@3x.png',
+        select: false,
+        name: '不怕',
+        imgUrl: '../img/cold/1cold@3x.png',
+        curUrl: '../img/cold/1cold-1@3x.png',
 
       },
       {
-        imgUrl: '../img/cold-centres@3x.png',
-        curUrl: '../img/cold-weak@3x.png',
+        select: false,
+        name: '微微',
+        imgUrl: '../img/cold/2cold@3x.png',
+        curUrl: '../img/cold/2cold-2@3x.png',
       },
       {
-        imgUrl: '../img/cold-more@3x.png',
-        curUrl: '../img/cold-weak@3x.png',
+        select: false,
+        name: '好冷',
+        imgUrl: '../img/cold/3cold@3x.png',
+        curUrl: '../img/cold/3cold-3@3x.png',
       }
     ],
     //乏力
-    weaks: [  
+    weak: [  
       {
-        imgUrl: '../img/tired-weak@3x.png',
-        curUrl: '../img/tired-more@3x.png',
+        select: false,
+        name: '不乏力',
+        imgUrl: '../img/weak/1weak@3x.png',
+        curUrl: '../img/weak/1weak-1@3x.png',
 
       },
       {
-        imgUrl: '../img/tired-centre@3x.png',
-        curUrl: '../img/tired-more@3x.png',
+        select: false,
+        name: '轻微',
+        imgUrl: '../img/weak/2weak@3x.png',
+        curUrl: '../img/weak/2weak-2@3x.png',
       },
       {
-        imgUrl: '../img/tired-centre@3x.png',
-        curUrl: '../img/tired-more@3x.png',
+        select: false,
+        name: '非常乏力',
+        imgUrl: '../img/weak/3weak@3x.png',
+        curUrl: '../img/weak/3weak-3@3x.png',
       }
     ],
   },
+  chooseImg: function (e) {
+    const index = e.currentTarget.dataset.index;
+
+    const list1 = this.data.anmo;
+
+    for (let i = 0; i < list1.length; i++) {
+      if (i == index) {
+        list1[i].select = true;
+      } else {
+        list1[i].select = false;
+      }
+    }
+    console.log(list1);
+
+    this.setData({
+      anmo: list1
+    })
+
+    if (index == 0) {
+      wx.showToast({
+        title: '按摩',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (index == 1) {
+      wx.showToast({
+        title: '正常',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+
+  },
+  // 点击月经量
   chooseImg1: function (e) {
     const index=e.currentTarget.dataset.index;
 
-    const list = this.data.leucorrheas;
+    const list1 = this.data.menstrualVolume;
 
-    for(let i=0;i<list.length;i++){
+    for(let i=0;i<list1.length;i++){
       if (i == index){
-        list[i].select=true;
+        list1[i].select=true;
       }else{
-        list[i].select=false;
+        list1[i].select=false;
       }
     }
-
-    console.log(list);
+    console.log(list1);
 
     this.setData({
-      leucorrheas: list
+      menstrualVolume: list1
     })
 
-     if (this.data.curIdx==0){
+     if (index==0){
        wx.showToast({
          title: '月经量偏少',
          icon: 'none',
          duration: 1000
        }) 
      }
-     else if (this.data.curIdx ==1){
+     else if (index ==1){
        wx.showToast({
          title: '月经量正常',
          icon: 'none',
          duration: 1000
        }) 
      }
-     else if (this.data.curIdx == 2){
+     else if (index == 2){
        wx.showToast({
          title: '月经量很多',
          icon: 'none',
@@ -208,11 +271,12 @@ Page({
      }
 
   },
+  // 点击白带
   chooseImg2: function (e) {
     console.log(e)
     const index = e.currentTarget.dataset.index;
 
-    const list = this.data.breastTenderness;
+    const list = this.data.leucorrheas;
 
     for (let i = 0; i < list.length; i++) {
       if (i == index) {
@@ -222,181 +286,232 @@ Page({
       }
     }
     this.setData({
-      breastTenderness: list
+      leucorrheas: list
     })
 
 
   },
+  // 点击乳房胀痛
   chooseImg3: function (e) {
-    this.setData({
-      curIdx: e.currentTarget.dataset.current
-    })
-    console.log(this.data.curIdx)
-    if (this.data.curIdx == 0) {
+    const index = e.currentTarget.dataset.index;
+    const list = this.data.breastTenderness;
+    for (let i = 0; i < list.length; i++) {
+      if (i == index) {
+        list[i].select = true;
+      } else {
+        list[i].select = false;
+      }
+    }
+    if (index == 0) {
       wx.showToast({
         title: '基本不痛',
         icon: 'none',
         duration: 1000
       })
     }
-    else if (this.data.curIdx == 1) {
+    else if (index == 1) {
       wx.showToast({
         title: '轻微痛',
         icon: 'none',
         duration: 1000
       })
     }
-    else if (this.data.curIdx == 2) {
+    else if (index == 2) {
       wx.showToast({
         title: '非常痛',
         icon: 'none',
         duration: 1000
       })
     }
-
+    this.setData({
+      breastTenderness: list
+    })
   },
+  // 点击小腹痛
   chooseImg4: function (e) {
+    const index = e.currentTarget.dataset.index;
+    const list = this.data.abdominalPain;
+    for (let i = 0; i < list.length; i++) {
+      if (i == index) {
+        list[i].select = true;
+      } else {
+        list[i].select = false;
+      }
+    }
+    if (index == 0) {
+      wx.showToast({
+        title: '基本不痛',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (index == 1) {
+      wx.showToast({
+        title: '轻微痛',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+    else if (index == 2) {
+      wx.showToast({
+        title: '非常痛',
+        icon: 'none',
+        duration: 1000
+      })
+    }
     this.setData({
-      curIdx: e.currentTarget.dataset.current
+      abdominalPain: list
     })
-    console.log(this.data.curIdx)
-    if (this.data.curIdx == 0) {
-      wx.showToast({
-        title: '月经量偏少',
-        duration: 1000
-      })
-    }
-    else if (this.data.curIdx == 1) {
-      wx.showToast({
-        title: '月经量正常',
-        duration: 1000
-      })
-    }
-    else if (this.data.curIdx == 2) {
-      wx.showToast({
-        title: '月经量很多',
-        duration: 1000
-      })
-    }
-
   },
+  // 心情
   chooseImg5: function (e) {
-    this.setData({
-      curIdx: e.currentTarget.dataset.current
-    })
-    console.log(this.data.curIdx)
-    if (this.data.curIdx == 0) {
+    const index = e.currentTarget.dataset.index;
+    const list = this.data.mood;
+    for (let i = 0; i < list.length; i++) {
+      if (i == index) {
+        list[i].select = true;
+      } else {
+        list[i].select = false;
+      }
+    }
+    if (index == 0) {
       wx.showToast({
-        title: '超开心的',
+        title: '超开心',
         icon: 'none',
         duration: 1000
       })
     }
-    else if (this.data.curIdx == 1) {
+    else if (index == 1) {
       wx.showToast({
-        title: '心情一般',
+        title: '一般',
         icon: 'none',
         duration: 1000
       })
     }
-    else if (this.data.curIdx == 2) {
+    else if (index == 2) {
       wx.showToast({
         title: '好伤心',
         icon: 'none',
         duration: 1000
       })
     }
-
+    this.setData({
+      mood: list
+    })
   },
+  // 经期头痛
   chooseImg6: function (e) {
+    const index = e.currentTarget.dataset.index;
+
+    const list = this.data.menstrualHeadache;
+
+    for (let i = 0; i < list.length; i++) {
+      if (i == index) {
+        list[i].select = true;
+      } else {
+        list[i].select = false;
+      }
+    }
     this.setData({
-      curIdx: e.currentTarget.dataset.current
+      menstrualHeadache: list
     })
-    console.log(this.data.curIdx)
-    if (this.data.curIdx == 0) {
-      wx.showToast({
-        title: '月经量偏少',
-        icon: 'none',
-        duration: 1000
-      })
-    }
-    else if (this.data.curIdx == 1) {
-      wx.showToast({
-        title: '月经量正常',
-        icon: 'none',
-        duration: 1000
-      })
-    }
-    else if (this.data.curIdx == 2) {
-      wx.showToast({
-        title: '月经量很多',
-        icon: 'none',
-        duration: 1000
-      })
-    }
 
   },
+  // 怕冷
   chooseImg7: function (e) {
-    this.setData({
-      curIdx: e.currentTarget.dataset.current
-    })
-    console.log(this.data.curIdx)
-    if (this.data.curIdx == 0) {
+    const index = e.currentTarget.dataset.index;
+    const list = this.data.fearCold;
+    for (let i = 0; i < list.length; i++) {
+      if (i == index) {
+        list[i].select = true;
+      } else {
+        list[i].select = false;
+      }
+    }
+    if (index == 0) {
       wx.showToast({
         title: '不怕冷',
         icon: 'none',
         duration: 1000
       })
     }
-    else if (this.data.curIdx == 1) {
+    else if (index == 1) {
       wx.showToast({
         title: '微微冷',
         icon: 'none',
         duration: 1000
       })
     }
-    else if (this.data.curIdx == 2) {
+    else if (index == 2) {
       wx.showToast({
         title: '很冷',
         icon: 'none',
         duration: 1000
       })
     }
-
-  },
-  chooseImg8: function (e) {
     this.setData({
-      curIdx: e.currentTarget.dataset.current
+      fearCold: list
     })
-    console.log(this.data.curIdx)
-    if (this.data.curIdx == 0) {
+  },
+  // 乏力
+  chooseImg8: function (e) {
+    const index = e.currentTarget.dataset.index;
+    const list = this.data.weak;
+    for (let i = 0; i < list.length; i++) {
+      if (i == index) {
+        list[i].select = true;
+      } else {
+        list[i].select = false;
+      }
+    }
+    if (index == 0) {
       wx.showToast({
         title: '不乏力',
         icon: 'none',
         duration: 1000
       })
     }
-    else if (this.data.curIdx == 1) {
+    else if (index == 1) {
       wx.showToast({
-        title: '轻微乏力',
+        title: '轻微',
         icon: 'none',
         duration: 1000
       })
     }
-    else if (this.data.curIdx == 2) {
+    else if (index == 2) {
       wx.showToast({
         title: '非常乏力',
         icon: 'none',
         duration: 1000
       })
     }
-
+    this.setData({
+      weak: list
+    })
   },
 
 
   dianji: function (e) {
-    // console.log(this.data.dateArr)
-    console.log(e.currentTarget.dataset)
+    // console.log(e.currentTarget.dataset.day)
+    // console.log(this.data.month)
+    // console.log(this.data.year)
+    var month;
+    if (this.data.month < 10) {
+      month = '0' + this.data.month
+    }
+    var day;
+    if (e.currentTarget.dataset.day < 10) {
+      day = '0' + e.currentTarget.dataset.day
+    }
+    else {
+      day = e.currentTarget.dataset.day
+    }
+
+    var dates = this.data.year + "-" + month + "-" + day;
+    console.log('日期', dates);
+
+    wx.setStorageSync('startDay', dates)
+
   },
   onLoad: function () {
     let now = new Date();
@@ -418,29 +533,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    //   var data = {
-    //  startDay： '2018-06-01'，
-        // endDay: '2018-07-02
 
-    // }
-    //   userInfoQueryBodyStatus(data).then(res => {
-    //   console.log('查询身体状态接口', res);
-    //   // this.setData({
-    //   //   list: res.list
-    //   // })
-    // })
+      var data = {
+        startDay:'2018-07-01',
+        endDay:'2018-07-31'
+
+    }
+      userInfoQueryBodyStatus(data).then(res => {
+      console.log('查询身体状态接口', res);
+      this.setData({
+        list: res.list
+      })
+      console.log(this.data.list)
+
+      for (let i = 0;i<this.data.list.length;i++){
+        if (i.physiologicalCycle == '01'){
+          // this.setData({
+
+          // })
+        }
+      }
+    })
 
 
-    //   var data = {
-    //  queryMonth: -1
-
-    // }
-    //   userInfoQueryCalendar(data).then(res => {
-    //   console.log('日历查询', res);
-    //   // this.setData({
-    //   //   list: res.list
-    //   // })
-    // })
 
 
   },
