@@ -52,12 +52,9 @@ function currentWeek(){
   // console.log(moment('2018-7-31').startOf('week').format('D'))
   var returnArr = [];
   var weekOfday = moment().format('E');
-  console.log(weekOfday)
   for (let i = weekOfday; i>=1 ; i--) {
     const day = moment().subtract(i, 'days').format('DD');
-    
     returnArr.push(day);
-    console.log(day)
   }
 
   var today = moment().format('DD');
@@ -65,12 +62,8 @@ function currentWeek(){
 
   for (let i = 1; i <(7 - weekOfday);i++){
     const day = moment().add(i, 'days').format('DD');
-
-    console.log(day)
     returnArr.push(day);
   }
-
-  console.log(returnArr)
 
   return returnArr;
  
