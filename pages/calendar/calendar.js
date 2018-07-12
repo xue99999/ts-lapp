@@ -1,8 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const { userInfoUpdateBodyStatus } = require('../../service/user.js')
-var Http = require('../../utils/http.js');
+// const { userInfoUpdateBodyStatus } = require('../../service/user.js')
+// var Http = require('../../utils/http.js');
 Page({
   data: {
     year: 0,

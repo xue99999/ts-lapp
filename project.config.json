@@ -40,7 +40,6 @@
 					"name": "我的",
 					"pathName": "pages/my/my",
 					"query": ""
-<<<<<<< .mine
 				},
 				{
 					"id": 1,
@@ -131,98 +130,6 @@
 					"name": "weixin",
 					"pathName": "pages/course-details/course-details",
 					"query": ""
-=======
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
 				},
 				{
 					"id": -1,
