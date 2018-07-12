@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -79,8 +79,8 @@
 				},
 				{
 					"id": 7,
-					"name": "taber",
-					"pathName": "pages/taber/taber",
+					"name": "今日",
+					"pathName": "pages/today/today",
 					"query": ""
 				},
 				{
