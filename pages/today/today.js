@@ -57,7 +57,13 @@ Page({
                 })
            }
          }
-
+        console.log(this.data.currentDay)
+        var inner = this.data.currentDay
+        // if (inner.physiologicalCycle=='02'){
+        //   this.setData({
+            
+        //   })
+        // }
        })
       // userInfoQueryBodyStatus(data).then(res => {
       // console.log('查询身体状态', res);

@@ -1,27 +1,30 @@
 .box{
   width: 100%;
-  height: 1111rpx;
+  height: 1100rpx;
   background: #EEE1EB;
-}
+} 
 .header{
   width: 100%;
-  line-height: 50rpx;
   display: flex;
   justify-content: space-around;
-  font-size: 26rpx;
+  font-size: 30rpx;
+}
+.header view{
+  margin-top: 27.8rpx;
 }
 .headers{
   width: 100%;
-  line-height: 50rpx;
+  line-height: 60rpx;
   display: flex;
   justify-content: space-around;
   font-size: 26rpx;
+  margin-top: 50rpx;
 }
 
 .weekMark{
   display: inline-block; 
-  width: 50rpx;
-  height: 50rpx;
+  width: 60rpx;
+  height: 60rpx;
   background: red;
   border-radius: 50%;
   text-align: center;
@@ -32,28 +35,43 @@
   display: flex;
   flex-direction: row-reverse;
   font-size: 30rpx;
+  padding-top: 30rpx;
+  height: 70rpx;
 }
 .view-tishi view{
   width: 180rpx;
+  line-height: 50rpx;
   text-align: center;
   border-radius: 140px;
   background: #FEA2A3;
   color: white;
-  margin-top: 20rpx;
   font-size: 28rpx;
+   position: fixed;
+    top: 231rpx; 
 }
 
 .view-img image{
   width: 100%;
   height: 700rpx;
-  border-radius: 50%;
+   border-radius: 50%; 
+}
+.view-img .view-inner{
+  font-size: 40rpx;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 40%;
+  color: #FE6F71;
+}
+.view-img .view-inner view{
+  margin: 60rpx 0;
 }
 .view-bu{
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 130rpx;
+  
 }
 .view-bu view{
   width: 33.3%;
@@ -63,12 +81,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   font-size: 30rpx;
 }
 .bushu image{
   width: 40rpx;
   height: 40rpx;
+  margin: 0 10rpx;
+}
+.view-inner>button{
+    width: 200rpx;
+    height:56rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    font-size: 24rpx;
+    background: #FE6F71;
+    color: white;
 }
 .tupian{
   display: flex;
