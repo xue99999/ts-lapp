@@ -548,9 +548,6 @@ Page({
 
       for (let i = 0;i<this.data.list.length;i++){
         if (i.physiologicalCycle == '01'){
-          // this.setData({
-
-          // })
         }
       }
     })
