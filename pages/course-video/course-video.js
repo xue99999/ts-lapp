@@ -52,7 +52,7 @@ Page({
       if (result.code === 200) {
         if (!result.code === 200) {
           wx.showToast({
-            title: 当前课节无权播放请订阅,
+            title: "当前课节无权播放请订阅",
             icon: 'none',
             duration: 2000
           })
@@ -113,7 +113,7 @@ Page({
       console.log('课节播放', result)
       if (!result.code === 200) {
         wx.showToast({
-          title: 当前课节无权播放请订阅,
+          title: "当前课节无权播放请订阅",
           icon: 'none',
           duration: 2000
         })
@@ -178,20 +178,20 @@ Page({
 
     for (var i = 0; i < SectionList.length; i++) {
       if (pos === i) {
-
-        console.log('<<<>>>', i);
-        console.log('加一', SectionList[i + 1].id);
-        if ((i + 1) > SectionList.length) {
-
-          wx.showToast({
-            title: '当前已是最后一个视频',
-            icon: 'none',
-            duration: 2000
-          })
-          return;
-        }
+      if ((i + 1) > SectionList.length) {
+        wx.showToast({
+          title: '当前已是最后一个视频',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
+  
         pos = i + 1;
-        this.doPlay(SectionList[i + 1].id);
+        if (SectionList[i + 1].id){
+          this.doPlay(SectionList[i + 1].id);
+        }
+      
       }
     }
   },
@@ -200,17 +200,15 @@ Page({
     console.log('选择的下标', pos);
 
     for (var i = 0; i < SectionList.length; i++) {
+      if (pos=== 0) {
+        wx.showToast({
+          title: '当前已是第一个视频了',
+          icon: 'none',
+          duration: 2000
+        })
+        return;
+      }
       if (pos === i) {
-        console.log('<<<>>>', i);
-        if (i === 0) {
-          wx.showToast({
-            title: '当前已是第一个视频了',
-            icon: 'none',
-            duration: 2000
-          })
-          return;
-        }
-        console.log('加一', SectionList[i - 1].id);
         this.doPlay(SectionList[i - 1].id);
       }
     }
@@ -219,14 +217,14 @@ Page({
   onSuspend: function() {
 
     if (isplay) {
+      this.videoContext.play();
+      isplay = false;
+      console.log('播放');
+    } else {
       //暂停
       this.videoContext.pause();
       console.log('暂停');
-      isplay = false;
-    } else {
-      this.videoContext.play();
       isplay = true;
-      console.log('播放');
     }
 
 

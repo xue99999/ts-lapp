@@ -40,27 +40,25 @@ App({
             icon: 'loading',
             duration: 2500
           })
-        },
-        setStorageSync(key, value){
-          try {
-            wx.setStorageSync(key, value)
-          } catch (e) {
-          }
-        },
-        getStorageSync: function (key){
-          var value;
-          try {
-            value = wx.getStorageSync(key);
-    
-          } catch (e) {
-            // Do something when catch error
-          }
-          return value;
         }
-   
-         
+      },
+      setStorageSync: function (key, value) {
+        try {
+          console.log('同步缓存数据', value);
+          wx.setStorageSync(key, value)
+        } catch (e) {
+        }
+      },
+      getStorageSync: function (key) {
+        var value;
+        try {
+          value = wx.getStorageSync(key);
 
-
-        
+        } catch (e) {
+          // Do something when catch error
+        }
+        console.log('同步取出数据', value);
+        return value;
       }
+
       })
