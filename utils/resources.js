@@ -2,6 +2,8 @@ module.exports = {
   records:{
     // 捏脊
     chiropractic:'../img/mood@3x.png',
+    // 揉腹
+    frictionalAbdomen:'../img/',
     // 月经量
     menstrualVolume:'../img/menstruation2@3x.png',
     // 白带

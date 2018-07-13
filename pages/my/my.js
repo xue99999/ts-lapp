@@ -1,14 +1,13 @@
 var app=getApp();
 const { ownerQuery}= require('../../service/user.js')
 var time = require('../../utils/time.js');
+const { auth } = require('../../utils/auth.js')
 Page({
-
   /**
    * 
    * 页面的初始数据
    */
   data: {
-
     nickName: "",
   //  phone: "",
     avatarUrl: "",
@@ -59,11 +58,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var parmas={
+      tag:"switch"
+    }
+    auth(parmas);
     ownerQuery().then(res=>{
       console.log('个人信息查询',res);
         this.setData({
           nickName: res.nickName,
-          phone: res.phone,
           avatarUrl: res.avatarUrl,
           integral: res.integral,
         })
@@ -76,6 +78,6 @@ Page({
    */
   onClickPhone() {
     console.log('这里是绑定手机号')
-  }
+  },
 
 })

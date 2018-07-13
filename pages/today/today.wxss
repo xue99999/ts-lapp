@@ -88,6 +88,16 @@
   height: 40rpx;
   margin: 0 10rpx;
 }
+.view-inner image{
+   width: 80rpx;
+  height: 80rpx;
+  margin: 60rpx 0rpx 0rpx 0rpx;
+}
+
+.view-inner .view-last{
+  font-size: 30rpx;
+}
+
 .view-inner>button{
     width: 200rpx;
     height:56rpx;

@@ -1,4 +1,5 @@
 <!--课程详情-->
+<import src="../../wxParse/wxParse.wxml" />
 <view class='inclusion'>
   <view class='view_top'>
     <image class='view_top_img' src="{{pictureUrl===''?'../img/placeholder.jpg':pictureUrl}}"></image>
@@ -19,7 +20,7 @@
   </scroll-view>
 
   <!-- <template is="{{currentTab % 2 == 0?'course_remark':'course_list'}}" data="{{sectionList}}" /> -->
-  <template wx:if="{{currentTab % 2 == 0}}" is="course_remark" data="{{...courseData}}" />
+  <template wx:if="{{currentTab % 2 == 0}}" is="course_remark" data="{{remark}}" />
   <template wx:else is="course_list" data="{{sectionList,url,teacherName}}" />
   <template name="course_list">
     <view class='course_list' bindtap='onClickAllPlay'>
@@ -51,7 +52,7 @@
   <template name="course_remark">
     <view class='course_remark_view'>
       <view style='padding-top:16rpx;font-size: 36rpx;'>内容简介</view>
-      <text style='padding-top:16rpx; color: #686868;font-size: 24.24rpx;'> 简介:  {{remark}}</text>
+     <template is="wxParse" data="{{wxParseData:remark.nodes}}" />
     </view>
 
   </template>
@@ -59,7 +60,7 @@
 
     <view class="view_bottom_button1">
       <view  class='collect-view' bindtap='isCollect'>
-        <image class="collect-view-img"    src="{{isCollect===0?'../img/collection1@3x.png':'../img/placeholder.jpg'}}"></image>
+        <image class="collect-view-img"    src="{{isCollect===0?'../img/collection1@3x.png':'../img/collect.png'}}"></image>
         
       </view>
 

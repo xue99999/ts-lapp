@@ -3,6 +3,7 @@ const {
   apiCourseCollectList
 } = require('../../service/user.js')
 var page = 1;
+const { auth } = require('../../utils/auth.js');
 var app = getApp();
 Page({
 
@@ -17,6 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    auth();
     this.getapiCourseCollectList(1);
   },
   getapiCourseCollectList(page) {
@@ -29,6 +31,7 @@ Page({
 
         console.log('我的收藏', result);
       if (result.code === 200) {
+        
           var list = this.data.list;
           if (page > 1) {
           for (var i = 0; i < result.list.length; i++) {

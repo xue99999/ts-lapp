@@ -5,8 +5,12 @@ const {
   apiSection,
   apiCourseCollectCourse
 } = require('../../service/user.js');
+const {
+  auth
+} = require('../../utils/auth.js');
+const WxParse = require('../../wxParse/wxParse.js');
 var id, status;
-
+var app = getApp();
 Page({
 
   /**
@@ -34,18 +38,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options.id);
-    id = options.id;
+    auth();
+    console.log();
+    if (options.id) {
+      id = options.id;
+      app.setStorageSync('courseId', id);
+    } else {
+      var courseId = app.getStorageSync('courseId');
+      id = options.id;
+    }
+
+
 
     apiCourseId(options.id).then(result => {
       console.log('课程详情', result);
+      WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
       this.setData({
         id: result.data.id,
         courseName: result.data.courseName,
         isSubscibe: result.data.isSubscibe,
         price: result.data.price,
         teacherName: result.data.teacherName,
-        courseData: result.data,
+        //   remark: result.data,
+
         pictureUrl: result.data.pictureUrl,
         isCollect: result.data.isCollect,
       })
@@ -85,12 +100,16 @@ Page({
   },
   onClickAllPlay() {
     console.log("全部播放");
+    wx.navigateTo({
+      url: '../course-video/course-video?courseId=' + id,
+    })
   },
   onClickSubscriber() {
     console.log("订阅");
-    if (isSubscibe>0){
+    if (isSubscibe > 0) {
       wx.showToast({
-        title: 当前课程已订阅,无需重复订阅,
+        title: 当前课程已订阅,
+        无需重复订阅,
         icon: 'none',
         duration: 2000
       })
@@ -125,10 +144,10 @@ Page({
     if (this.data.isCollect === 0) {
       this.setData({
         isCollect: 1
-      
+
       })
-      status ="01";
-    }else{
+      status = "01";
+    } else {
       this.setData({
         isCollect: 0
       })

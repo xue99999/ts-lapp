@@ -2,7 +2,6 @@
 
 App({
       onLaunch: function() {
-
       },
       globalData: {
         userInfo: null,
@@ -42,6 +41,26 @@ App({
             duration: 2500
           })
         },
+        setStorageSync(key, value){
+          try {
+            wx.setStorageSync(key, value)
+          } catch (e) {
+          }
+        },
+        getStorageSync: function (key){
+          var value;
+          try {
+            value = wx.getStorageSync(key);
+    
+          } catch (e) {
+            // Do something when catch error
+          }
+          return value;
+        }
+   
+         
+
+
         
       }
       })
