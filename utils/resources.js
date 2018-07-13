@@ -17,6 +17,7 @@ module.exports = {
     // 怕冷
     fearCold: '../img/cold@3x.png',
     // 乏力
-    weak:'../img/No tired@3x.png'
+    weak:'../img/No tired@3x.png',
+    baby: '../img/baby@3x.png',
   }
 };
