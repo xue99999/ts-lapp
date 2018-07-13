@@ -1,9 +1,7 @@
 /* 视频播放 */
 
 .section_tc {
-  position: fixed;
-  height: 100%;
-  width: 100%;
+
   background: #f3f4f5;
 }
 
@@ -13,7 +11,7 @@
 }
 
 .list {
-  height: 362rpx;
+  height: 300rpx;
   width: 100%;
   background: #fff;
   display: flex;
@@ -91,22 +89,22 @@ margin-top: 20rpx;
 }
 
 .view_remark {
-  height: 370rpx;
+   padding-right: 31rpx;
+  padding-left: 31rpx;
+
   width: 100%;
   background: #fff;
-  margin-top: 20rpx;
+ padding-bottom: 40rpx;
 }
 
 .view_remark_view {
   padding-top: 14rpx;
-  margin-left: 31rpx;
   font-size: 30rpx;
   clear: #000;
 }
 
 .view_remark_text {
-  padding-right: 31rpx;
-  padding-left: 31rpx;
+ 
   width: 100%;
   color: #999;
   font-size: 26rpx;

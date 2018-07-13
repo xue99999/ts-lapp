@@ -3,6 +3,7 @@ const {
   apiCourseCollectList
 } = require('../../service/user.js')
 var page = 1;
+const { auth } = require('../../utils/auth.js');
 var app = getApp();
 Page({
 
@@ -17,6 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    auth();
     this.getapiCourseCollectList(1);
   },
   getapiCourseCollectList(page) {

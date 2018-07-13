@@ -5,7 +5,7 @@ const {
   login,
   loginWithCode
 } = require('../../service/user.js')
-
+const moment = require('../../utils/moment.js');
 var data, LoginData, iv, encryptedData;
 var userInfo = "";
 
@@ -19,6 +19,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   onLoad: function (option) {
+   
     console.log(option)
     if(option){
       routeQuery=option;
@@ -51,57 +52,7 @@ Page({
         }
       })
     }
-
-    // 查看是否授权
-    wx.getSetting({
-      success: function(res) {
-        if (res.authSetting['scope.userInfo']) {
-          console.log('已授权', res);
-
-          // //微信code
-          wx.login({
-            success(res) {
-              console.log('微信code', res.code)
-              if (res != '') {
-                LoginData = {
-                  code: res.code,
-                }
-                //登录微信授权
-                loginWithCode(LoginData).then(result => {
-                  console.log('微信授权成功,进入首页幷传入参数code', result);
-                  if (result.code === 200) {
-                    console.log('将要保存token', result.token);
-                    wx.setStorage({
-                      key: "token",
-                      data: result.token,
-                    })
-                    console.log('保存token成功,进入首页', result.token);
-                    if (result.userFlag === '02') {
-                          //当不是新用户的时候
-                          //判断是不是走完了引导页
-                          //如果走完了就直接去首页 -taber
-                      if (app.globalData.goTo === 'ok') {
-                        wx.switchTab({
-                          url: '../today/today',
-                        })
-                      } else {
-                        //没有走完就重新走
-                        wx.redirectTo({
-                          url: '../home/home?userFlag=' + res.userFlag,
-                        })
-                      }
-                    }
-                  }
-                })
-              }
-            }
-          })
-
-        } else {
-          console.log('尚未授权', res);
-        }
-      }
-    })
+    
 
 
   },
@@ -166,7 +117,7 @@ Page({
                           })
                           break;
                         case "switch":
-                          wx.switchTo({
+                          wx.switchTab({
                             url: callback
                           })
                           break;

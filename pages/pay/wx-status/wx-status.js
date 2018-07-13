@@ -2,7 +2,7 @@
 const {
   orderQuery
 } = require('../../../service/user.js');
-
+const { auth } = require('../../../utils/auth.js');
 var id = "";
 var orderNo = "";
 Page({
@@ -23,6 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    auth();
     console.log('orderNo>>>', options.orderNo);
     id = options.id,
       orderQuery(options.orderNo).then(result => {

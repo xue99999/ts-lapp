@@ -4,6 +4,7 @@ const {
 } = require('../../../service/user.js');
 var input = '';
 var id;
+const { auth } = require('../../../utils/auth.js');
 Page({
 
   /**
@@ -27,6 +28,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    auth();
     console.log('微信支付>>>>', options.courseId);
 
     id = options.courseId;

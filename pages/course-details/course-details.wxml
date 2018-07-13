@@ -1,4 +1,5 @@
 <!--课程详情-->
+<import src="../../wxParse/wxParse.wxml" />
 <view class='inclusion'>
   <view class='view_top'>
     <image class='view_top_img' src="{{pictureUrl===''?'../img/placeholder.jpg':pictureUrl}}"></image>
@@ -51,7 +52,7 @@
   <template name="course_remark">
     <view class='course_remark_view'>
       <view style='padding-top:16rpx;font-size: 36rpx;'>内容简介</view>
-      <text style='padding-top:16rpx; color: #686868;font-size: 24.24rpx;'> 简介:  {{remark}}</text>
+     <template is="wxParse" data="{{wxParseData:remark.nodes}}" />
     </view>
 
   </template>

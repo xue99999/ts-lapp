@@ -1,7 +1,9 @@
 // pages/todayRecommend/todayRecommend.js
 const {
   apiCourseRecommendList
-} = require('../../service/user.js')
+} = require('../../service/user.js');
+const moment = require('../../utils/moment.js');
+const { auth } = require('../../utils/auth.js');
 var page = 1;
 var rows = 20;
 const app = getApp();
@@ -23,6 +25,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    auth();
     const day = moment().format("YYYY-MM-DD");
     var list = app.globalData.bodyStatus;
     for (let i = 0; i < list.length; i++) {

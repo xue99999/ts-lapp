@@ -5,6 +5,8 @@ const {
   apiSection,
   apiCourseCollectCourse
 } = require('../../service/user.js');
+const { auth } = require('../../utils/auth.js');
+const WxParse = require('../../wxParse/wxParse.js');
 var id, status;
 
 Page({
@@ -34,18 +36,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    auth();
     console.log(options.id);
     id = options.id;
 
     apiCourseId(options.id).then(result => {
       console.log('课程详情', result);
+
+      
+
+      WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
       this.setData({
         id: result.data.id,
         courseName: result.data.courseName,
         isSubscibe: result.data.isSubscibe,
         price: result.data.price,
         teacherName: result.data.teacherName,
-        courseData: result.data,
+        
         pictureUrl: result.data.pictureUrl,
         isCollect: result.data.isCollect,
       })
