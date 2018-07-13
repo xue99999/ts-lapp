@@ -60,7 +60,7 @@ Page({
         price: result.data.price,
         teacherName: result.data.teacherName,
         //   remark: result.data,
-
+        courseData: result.data,
         pictureUrl: result.data.pictureUrl,
         isCollect: result.data.isCollect,
       })
@@ -108,8 +108,7 @@ Page({
     console.log("订阅");
     if (isSubscibe > 0) {
       wx.showToast({
-        title: 当前课程已订阅,
-        无需重复订阅,
+        title: "当前课程已订阅,无需重复订阅",
         icon: 'none',
         duration: 2000
       })

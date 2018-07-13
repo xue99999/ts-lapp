@@ -142,8 +142,14 @@ function userInfoUpdateBodyStatus(params) {
     url: baseUrl + 'userInfo/updateBodyStatus',
     params
   })
+} 
+//取消收藏 
+function apiCourseCollectCourse(params){
+  return post({
+    url: baseUrl + 'api/course/collectCourse',
+    params
+  })
 }
-
 
 module.exports = {
   ownerQuery,
@@ -162,4 +168,5 @@ module.exports = {
   apiCourseSeriesList,
   userInfoQueryBodyStatus,
   userInfoUpdateBodyStatus,
+  apiCourseCollectCourse
 };
