@@ -1,5 +1,6 @@
 const app = getApp()
 const { userInfoQueryMensAndOvulation, userInfoUpdateMensAndOvulation} = require('../../service/user.js')
+const { auth } = require('../../utils/auth.js');
 var Http = require('../../utils/http.js');
 Page({
 
@@ -18,7 +19,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      const parmas = {
+        tag: 'switch'
+      }
+      auth(parmas)
+    
   },
 
   /**

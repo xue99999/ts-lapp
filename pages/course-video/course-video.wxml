@@ -1,25 +1,27 @@
 <!--视频播放-->
+<import src="../../wxParse/wxParse.wxml" />
 <view class="section_tc">
-  <video id="myVideo" src="{{filePath}}" duration="{{durations}}"  ></video>
+  <video id="myVideo" src="{{filePath}}" duration="{{durations}}"></video>
   <view class='list'>
     <text class='view_fileName'>{{sectionName}}</text>
     <text class='view_teacherName'>{{teacherName}}</text>
- <view class='hahahaha'></view>
+    <view class='hahahaha'></view>
     <view class='view_1'>
-
-   
       <view class='view_2' bindtap='onClickList'>
-         <i-icon type="other" size="28"  />
+        <i-icon type="other" size="28" />
         <view class='view_play_list_text'> 课程列表</view>
       </view>
-      <image class='view_play_img1'  bindtap='toLast' src='../img/backward@3x.png '></image>
+      <image class='view_play_img1' bindtap='toLast' src='../img/backward@3x.png '></image>
       <image class='view_play_img2' bindtap='onSuspend' src='../img/suspended@3x.png'></image>
       <image class='view_play_img3' bindtap='toNext' src='../img/speed@3x.png '></image>
     </view>
   </view>
   <view class='view_remark'>
     <view class='view_remark_view'>本节课程内容</view>
-    <text class='view_remark_text'>简介:  {{remark}}</text>
+
+    <!-- <text class='view_remark_text'>简介:  {{remark}}</text> -->
+
+    <template is="wxParse" data="{{wxParseData:remark.nodes}}" />
   </view>
   <i-action-sheet visible="{{ visible1 }}" actions="{{ sections}}" show-cancel bind:cancel="handleCancel1" bind:click="handleClickItem1" />
   <i-message id="message" />

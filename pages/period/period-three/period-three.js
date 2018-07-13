@@ -1,5 +1,6 @@
 // pages/period/period-two/period-two.js
 const app = getApp()
+const { auth } = require('../../../utils/auth.js');
 Page({
 
   /**
@@ -18,6 +19,12 @@ Page({
     scrollTop: 1130,
     scrollShow: true,
     menstrualCycle: null,  //持续多久
+  },
+  onLoad: function () {
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
   },
   chooseImg: function (e) {
      this.setData({

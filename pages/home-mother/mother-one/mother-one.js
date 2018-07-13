@@ -3,6 +3,7 @@
 const app = getApp()
 const moment = require('../../../utils/moment.js');
 const { userInfoAdd } = require('../../../service/user.js')
+const { auth } = require('../../../utils/auth.js');
 Page({
   data: {
     year: 0,
@@ -93,6 +94,10 @@ Page({
     })
   },
   onLoad: function() {
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;

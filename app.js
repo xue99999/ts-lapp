@@ -1,7 +1,7 @@
 //app.js
+
 App({
       onLaunch: function() {
-
       },
       globalData: {
         userInfo: null,
@@ -29,8 +29,8 @@ App({
           weak: null,
           abdominalPain: null,
           bodyStatus:[],
-          dates:null
-
+          dates:null,
+          day:null
 
         },
         //当页面没有数据的时候调用次方法
@@ -40,6 +40,7 @@ App({
             icon: 'loading',
             duration: 2500
           })
-        }
+        },
+        
       }
       })

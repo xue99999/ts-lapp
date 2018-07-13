@@ -8,6 +8,7 @@ import mock from './mock.js';
 //王丽娟 本地测试路径
 const baseUrl = 'http://192.168.5.82:8080/ts-app-web/';
 
+// const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 //李康 本地测试路径
 //const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
 
@@ -143,13 +144,6 @@ function userInfoUpdateBodyStatus(params) {
   })
 }
 
-//设置经期排卵接口
-function userInfoUpdateMensAndOvulation(params) {
-  return post({
-    url: baseUrl + 'userInfo/updateMensAndOvulation',
-    params
-  })
-}
 
 module.exports = {
   ownerQuery,
@@ -168,5 +162,4 @@ module.exports = {
   apiCourseSeriesList,
   userInfoQueryBodyStatus,
   userInfoUpdateBodyStatus,
-  userInfoUpdateMensAndOvulation
 };
