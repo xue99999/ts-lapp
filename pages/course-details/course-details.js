@@ -42,9 +42,6 @@ Page({
 
     apiCourseId(options.id).then(result => {
       console.log('课程详情', result);
-
-      
-
       WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
       this.setData({
         id: result.data.id,
@@ -52,6 +49,7 @@ Page({
         isSubscibe: result.data.isSubscibe,
         price: result.data.price,
         teacherName: result.data.teacherName,
+     //   remark: result.data,
         
         pictureUrl: result.data.pictureUrl,
         isCollect: result.data.isCollect,
@@ -92,6 +90,9 @@ Page({
   },
   onClickAllPlay() {
     console.log("全部播放");
+    wx.navigateTo({
+      url: '../course-video/course-video?courseId=' + id,
+    })
   },
   onClickSubscriber() {
     console.log("订阅");
