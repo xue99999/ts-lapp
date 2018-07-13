@@ -3,7 +3,7 @@ const {
   userInfoUpdateBodyStatus
 } = require('../../service/user.js')
 var Http = require('../../utils/http.js');
-
+const { auth } = require('../../utils/auth.js');
 Page({
 
   /**
@@ -17,14 +17,14 @@ Page({
         code: 'frictionalAbdomen',
         select: false,
         imgUrl: '../img/belly@3x.png',
-        curUrl: '../img/Knead back@3x.png',
+        curUrl: '../img/矢量智能对象@3x.png',
       },
       {
         code: 'chiropractic',
         name: '摩腹',
         select: false,
         imgUrl: '../img/belly@3x.png',
-        curUrl: '../img/Knead back@3x.png',
+        curUrl: '../img/矢量智能对象拷贝2@3x.png',
       }
     ],
     // 月经量
@@ -669,24 +669,31 @@ Page({
   },
   // 更新身体信息
   updateStatus(data) {
-    const {
-      day
-    } = this.data.currentDay;
-    userInfoUpdateBodyStatus({
-      day,
-      ...data
-    }).then(res => {
-      console.log('更新身体状态接口', res);
-      // this.setData({
-      //   list: res.list
-      // })
-    })
+    // const {
+    //   day
+    // } = this.data.currentDay;
+    // userInfoUpdateBodyStatus({
+    //   day,
+    //   ...data
+    // }).then(res => {
+    //   console.log('更新身体状态接口', res);
+    //   // this.setData({
+    //   //   list: res.list
+    //   // })
+    // })
   },
+
+  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
+    console.log(options)
     const {
       day
     } = options;

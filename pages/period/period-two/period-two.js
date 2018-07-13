@@ -1,6 +1,6 @@
 // pages/period/period-two/period-two.js
 const app = getApp()
-
+const { auth } = require('../../../utils/auth.js');
 Page({
 
   /**
@@ -39,7 +39,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
   },
   chooseImg: function (e) {
 

@@ -1,4 +1,4 @@
-// pages/period/period-two/period-two.js
+const { auth } = require('../../../utils/auth.js');
 var app = getApp();
 Page({
 
@@ -7,6 +7,12 @@ Page({
    */
   data: {
     array: ['小公主', '小王子'],
+  },
+  onLoad: function () {
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
   },
   navto: function () {
     wx.navigateTo({

@@ -10,17 +10,27 @@
   </view>
 
   <view class='view-tishi'>
-        <view bindtap='clickjinri'>今日提示</view>
+        <view bindtap='clickjinri' class='view-jinr'>今日提示</view>
   </view> 
-  <view class='view-img'  wx:key>
-        <image src='../img/can.png'></image>
-         <view>{{item.physiologicalCycle}}</view>
-        <view>{{item.userModel}}</view> 
+  <view class='view-img'>
+        <image src='../img/椭圆37@3x.png'></image>
+         <!-- <view>{{item.inner}}</view>
+        <view>{{item.userModel}}</view>  -->
+        <view class='view-inner'>
+              <view>月经期</view>
+              <view>少女</view> 
+              <button>记录经期</button>      
+        </view>
+        <view class='view-btn'>
+
+        </view> 
   </view>
 
   <view class='view-bu'>
         <view></view>
         <view class='bushu'>
+              <image src='../img/step number@3x.png'></image>
+              <image src='../img/step number@3x.png'></image>
               <image src='../img/step number@3x.png'></image>
               <!-- <text>16 步数</text> -->
         </view> 

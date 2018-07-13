@@ -3,6 +3,7 @@ const app = getApp()
 const moment = require('../../utils/moment.js');
 const { currentWeek} =require('../../utils/time.js');
 const { userInfoQueryBodyStatus} = require('../../service/user.js')
+const { auth } = require('../../utils/auth.js');
 // var Http = require('../../utils/http.js');
 Page({
 
@@ -17,12 +18,24 @@ Page({
     today:moment().format('YYYY-MM-DD'),
     currentDay:{},
     formatDay:null,
+    // 圆圈显示数据
+    showObj:{
+      // 模式辣妈
+        "02":{
+          babyText:'宝宝信息显示'
+        },
+        // 模式少女
+        "01":{
+
+        }
+    }
   },
   clickArr:function(e){
     console.log(e.currentTarget.dataset.index)
   },
   navState:function(){
     const day=this.data.formatDay;
+    app.globalData.obj.day = day
     wx.navigateTo({
       url: `/pages/state/state?day=${day}`,
     })
@@ -31,74 +44,57 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const day=moment().format("YYYY-MM-DD");
-     //const endDay = moment().add(5,'days').format("YYYY-MM-DD");
-    //console.log(day,endDay)
-       this.setData({
-         today:moment().format('D'),
-         days:currentWeek(),
-         formatDay: day
-        })
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
+    const day = moment().format("YYYY-MM-DD");
+    const today=moment().format('D');
+    this.setData({
+      today,
+      days: currentWeek(),
+      formatDay: day
+    })
 
-       var query = {
-         startDay: day,
-         endDay: day
-       }
+    this.query(day, day, today);
+  },
+ /**
+  * startDay 开始时间
+  * endDay
+  * currentDay 当前天数据
+  */
+  query:function (startDay,endDay,currentDay){
+   
+    var query = {
+      startDay,
+      endDay
+    }
 
     userInfoQueryBodyStatus(query).then(res => {
-      const {list} = res;
-      app.globalData.bodyStatus=list;
+      const { list, userModel } = res;
+      app.globalData.bodyStatus = list;
 
-        for (let i = 0; i < list.length;i++){
-           const dy=list[i];
-           if(dy.day===day){
-                this.setData({
-                  currentDay:dy
-                })
-           }
-         }
+      for (let i = 0; i < list.length; i++) {
+        const dy = list[i];
+        if (dy.day === currentDay) {
+          let showObj={}
+          // 处理当前需要显示的数据
+          if (userModel==='01'){
+            showObj['01']={
+              babyText: `宝宝${dy.babyMonth}月`
+            }
+          }else{
 
-       })
-      // userInfoQueryBodyStatus(data).then(res => {
-      // console.log('查询身体状态', res);
- 
-      // const userModel=res.userModel;
-      // physiologicalCycle = res.list.physiologicalCycle;
-      // userModel = res.list.userModel
-      // list = res.list
-      // if (physiologicalCycle === '01'){
-      //   this.setData({
-      //     physiologicalCycle:'安全期'
-      //   })
-      // }
-      // else if (physiologicalCycle === '02') {
-      //   this.setData({
-      //     physiologicalCycle: '月经期'
-      //   })
-      // }
-      // else if (physiologicalCycle === '03') {
-      //   this.setData({
-      //     physiologicalCycle: '易孕期'
-      //   })
-      // }
-      // else if(physiologicalCycle === '04') {
-      //   this.setData({
-      //     physiologicalCycle: '排卵期'
-      //   })
-      // }
-      // if (userModel === '01'){
-      //   this.setData({
-      //     userModel: '少女'
-      //   })        
-      // }
-      // else if (userModel === '02') {
-      //   this.setData({
-      //     userModel: '辣妈'
-      //   })
-      // }
-    // })
-    console.log(app.globalData.obj.birthday)
-    console.log(app.globalData.obj)
+          }
+          this.setData({
+            userModel,
+            currentDay: dy
+          })
+          
+        }
+      }
+     
+    })
   },
 
   /**

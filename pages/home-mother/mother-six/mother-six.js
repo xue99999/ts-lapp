@@ -1,4 +1,5 @@
 var time = require('../../../utils/time.js');
+const { auth } = require('../../../utils/auth.js');
 const app = getApp()
 const date = new Date()
 const years = []
@@ -43,6 +44,12 @@ Page({
     day: 1,
     year: date.getFullYear(),
     value: [118, 5, 14],
+  },
+  onLoad: function () {
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
   },
   navto: function () {
     wx.navigateTo({
