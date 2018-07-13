@@ -2,6 +2,7 @@
 const app = getApp()
 const { userInfoAdd} = require('../../../service/user.js')
 var Http = require('../../../utils/http.js');
+const { auth } = require('../../../utils/auth.js');
 Page({
 
   /**
@@ -11,6 +12,12 @@ Page({
     array: ['1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991',
       '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'],
     index: 0,
+  },
+  onLoad: function () {
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
   },
   bindPickerChange: function (e) {
     // console.log(e.currentTarget.dataset.nian+'年出生。')

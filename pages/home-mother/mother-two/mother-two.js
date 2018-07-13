@@ -1,4 +1,4 @@
-// pages/period/period-two/period-two.js
+const { auth } = require('../../../utils/auth.js');
 const app = getApp()
 Page({
 
@@ -30,6 +30,12 @@ Page({
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
     scrollShow: true,
+  },
+  onLoad:function(){
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
   },
   // 日期选择
   bindChange: function (e) {

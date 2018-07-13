@@ -3,7 +3,7 @@ const {
   userInfoUpdateBodyStatus
 } = require('../../service/user.js')
 var Http = require('../../utils/http.js');
-
+const { auth } = require('../../utils/auth.js');
 Page({
 
   /**
@@ -683,10 +683,16 @@ Page({
     // })
   },
 
+  
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
     console.log(options)
     const {
       day

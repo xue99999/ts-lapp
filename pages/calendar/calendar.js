@@ -4,6 +4,7 @@ const app = getApp()
 const moment = require('../../utils/moment.js');
 const { userInfoQueryBodyStatus } = require('../../service/user.js')
  var Http = require('../../utils/http.js');
+ const { auth } = require('../../utils/auth.js');
 Page({
   data: {
     year: 0,
@@ -702,6 +703,10 @@ Page({
 
   },
   onLoad: function () {
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
@@ -713,9 +718,215 @@ Page({
     })
     console.log(this.data.isToday)
     
-  
-
+    this.query();
+    this.initRecord()
   },
+  query: function (startDay, endDay, currentDay) {
+
+    var query = {
+      startDay,
+      endDay
+    }
+
+    userInfoQueryBodyStatus(query).then(res => {
+      const { list, userModel } = res;
+      app.globalData.bodyStatus = list;
+
+      for (let i = 0; i < list.length; i++) {
+        const dy = list[i];
+        if (dy.day === currentDay) {
+
+          this.setData({
+            userModel,
+            currentDay: dy
+          })
+
+        }
+      }
+
+    })
+  },
+  initRecord(){
+    const {
+      day
+    } = app.globalData.obj.day;
+    const list = app.globalData.bodyStatus;
+    for (let i = 0; i < list.length; i++) {
+      const dy = list[i];
+      if (dy.day === day) {
+        const {
+          physiologicalCycle,
+          weak,
+          fearCold,
+          menstrualHeadache,
+          mood,
+          abdominalPain,
+          breastTenderness,
+          leucorrhea,
+          menstrualVolume,
+          chiropractic = "02",
+          frictionalAbdomen = "02"
+        } = dy;
+        const {
+          anmo
+        } = this.data;
+        if (chiropractic === '01') {
+          anmo[0].select = true;
+        }
+        if (frictionalAbdomen === '01') {
+          anmo[1].select = true;
+        }
+
+        //初始化月经量
+        const menstrualVolumes = this.data.menstrualVolume;
+        if (menstrualVolume) {
+          let index = 0;
+          if (menstrualVolume === '01') {
+            index = 0
+          } else if (menstrualVolume === '02') {
+            index = 1
+          } else {
+            index = 2
+          }
+
+          menstrualVolumes[index].select = true;
+        }
+
+        //初始化白带
+        const leucorrheas = this.data.leucorrheas;
+        if (leucorrhea) {
+          let index = 0;
+          if (leucorrhea === '01') {
+            index = 0
+          } else if (leucorrhea === '02') {
+            index = 1
+          } else {
+            index = 2
+          }
+
+          leucorrheas[index].select = true;
+        }
+
+        //初始化乳房胀痛
+        const breastTendernesss = this.data.breastTenderness;
+        if (breastTenderness) {
+          let index = 0;
+          if (breastTenderness === '01') {
+            index = 0
+          } else if (breastTenderness === '02') {
+            index = 1
+          } else if (breastTenderness === '03') {
+            index = 2
+          } else if (breastTenderness === '04') {
+            index = 3
+          }
+
+          breastTendernesss[index].select = true;
+        }
+
+
+        //初始化小腹痛
+        const abdominalPains = this.data.abdominalPain;
+        if (abdominalPain) {
+          let index = 0;
+          if (abdominalPain === '01') {
+            index = 0
+          } else if (abdominalPain === '02') {
+            index = 1
+          } else if (abdominalPain === '03') {
+            index = 2
+          } else if (abdominalPain === '04') {
+            index = 3
+          }
+
+          abdominalPains[index].select = true;
+        }
+
+        //初始化心情
+        const moods = this.data.mood;
+        if (mood) {
+          let index = 0;
+          if (mood === '01') {
+            index = 0
+          } else if (mood === '02') {
+            index = 1
+          } else if (mood === '03') {
+            index = 2
+          } else if (mood === '04') {
+            index = 3
+          }
+
+          moods[index].select = true;
+        }
+
+        //初始化经期疼痛
+        const menstrualHeadaches = this.data.menstrualHeadache;
+        if (menstrualHeadache) {
+          let index = 0;
+          if (menstrualHeadache === '01') {
+            index = 0
+          } else if (menstrualHeadache === '02') {
+            index = 1
+          } else if (menstrualHeadache === '03') {
+            index = 2
+          } else if (menstrualHeadache === '04') {
+            index = 3
+          }
+
+          menstrualHeadaches[index].select = true;
+        }
+
+        //初始化怕冷
+        const fearColds = this.data.fearCold;
+        if (fearCold) {
+          let index = 0;
+          if (fearCold === '01') {
+            index = 0
+          } else if (fearCold === '02') {
+            index = 1
+          } else if (fearCold === '03') {
+            index = 2
+          } else if (fearCold === '04') {
+            index = 3
+          }
+
+          fearColds[index].select = true;
+        }
+
+        //初始化乏力
+        const weaks = this.data.weak;
+        if (weak) {
+          let index = 0;
+          if (weak === '01') {
+            index = 0
+          } else if (weak === '02') {
+            index = 1
+          } else if (weak === '03') {
+            index = 2
+          } else if (weak === '04') {
+            index = 3
+          }
+
+          weaks[index].select = true;
+        }
+
+
+        this.setData({
+          weak: weaks,
+          fearCold: fearColds,
+          mood: moods,
+          menstrualHeadache: menstrualHeadaches,
+          abdominalPain: abdominalPains,
+          breastTenderness: breastTendernesss,
+          leucorrheas,
+          menstrualVolume: menstrualVolumes,
+          anmo,
+          currentDay: dy
+        })
+      }
+    }
+  },
+
   onReady: function () {
 
   },

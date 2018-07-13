@@ -1,3 +1,4 @@
+const { auth } = require('../../../utils/auth.js');
 const app = getApp()
 Page({
 
@@ -35,6 +36,12 @@ Page({
     scrollTop: 1130,
     scrollShow: true,
     menstrualCycle:null
+  }, 
+  onLoad: function () {
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
   },
   chooseImg: function (e) {
     this.setData({

@@ -3,6 +3,7 @@ const app = getApp()
 const moment = require('../../utils/moment.js');
 const { currentWeek} =require('../../utils/time.js');
 const { userInfoQueryBodyStatus} = require('../../service/user.js')
+const { auth } = require('../../utils/auth.js');
 // var Http = require('../../utils/http.js');
 Page({
 
@@ -34,6 +35,7 @@ Page({
   },
   navState:function(){
     const day=this.data.formatDay;
+    app.globalData.obj.day = day
     wx.navigateTo({
       url: `/pages/state/state?day=${day}`,
     })
@@ -42,7 +44,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    const parmas = {
+      tag: 'switch'
+    }
+    auth(parmas)
     const day = moment().format("YYYY-MM-DD");
     const today=moment().format('D');
     this.setData({

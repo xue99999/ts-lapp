@@ -1,4 +1,5 @@
 //app.js
+
 App({
       onLaunch: function() {
 
@@ -29,8 +30,8 @@ App({
           weak: null,
           abdominalPain: null,
           bodyStatus:[],
-          dates:null
-
+          dates:null,
+          day:null
 
         },
         //当页面没有数据的时候调用次方法
