@@ -5,10 +5,12 @@ const {
   apiSection,
   apiCourseCollectCourse
 } = require('../../service/user.js');
-const { auth } = require('../../utils/auth.js');
+const {
+  auth
+} = require('../../utils/auth.js');
 const WxParse = require('../../wxParse/wxParse.js');
 var id, status;
-
+var app = getApp();
 Page({
 
   /**
@@ -37,8 +39,16 @@ Page({
    */
   onLoad: function(options) {
     auth();
-    console.log(options.id);
-    id = options.id;
+    console.log();
+    if (options.id) {
+      id = options.id;
+      app.setStorageSync('courseId', id);
+    } else {
+      var courseId = app.getStorageSync('courseId');
+      id = options.id;
+    }
+
+
 
     apiCourseId(options.id).then(result => {
       console.log('课程详情', result);
@@ -49,8 +59,8 @@ Page({
         isSubscibe: result.data.isSubscibe,
         price: result.data.price,
         teacherName: result.data.teacherName,
-     //   remark: result.data,
-        
+        //   remark: result.data,
+
         pictureUrl: result.data.pictureUrl,
         isCollect: result.data.isCollect,
       })
@@ -96,9 +106,10 @@ Page({
   },
   onClickSubscriber() {
     console.log("订阅");
-    if (isSubscibe>0){
+    if (isSubscibe > 0) {
       wx.showToast({
-        title: 当前课程已订阅,无需重复订阅,
+        title: 当前课程已订阅,
+        无需重复订阅,
         icon: 'none',
         duration: 2000
       })
@@ -133,10 +144,10 @@ Page({
     if (this.data.isCollect === 0) {
       this.setData({
         isCollect: 1
-      
+
       })
-      status ="01";
-    }else{
+      status = "01";
+    } else {
       this.setData({
         isCollect: 0
       })

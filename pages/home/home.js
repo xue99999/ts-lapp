@@ -1,6 +1,8 @@
 // pages/home/home.js
 var app = getApp();
-const { auth} = require('../../utils/auth.js');
+const {
+  auth
+} = require('../../utils/auth.js');
 const {
   loginWithCode,
   userInfoQueryBodyStatus
@@ -18,9 +20,12 @@ Page({
   onLoad: function(option) {
     day = moment().format("YYYY-MM-DD");
     auth();
+    if (!option.characteristic){
+
+  
     var than = this;
     // 查看是否授权
-    wx.getSetting({
+  wx.getSetting({
       success: function(res) {
         if (res.authSetting['scope.userInfo']) {
           console.log('已授权', res);
@@ -57,6 +62,7 @@ Page({
         }
       }
     })
+    }
   },
   // 少女入口
   clickGirl(e) {
@@ -84,18 +90,21 @@ Page({
       endDay: day
     }
     userInfoQueryBodyStatus(data).then(result => {
-      console.log('查询身体状态接口',result);
+      console.log('查询身体状态接口', result);
       if (result.code === 200) {
-        if (app.globalData.goTo === 'ok') {
+
+        if (result.userModel) {
           wx.switchTab({
             url: '../today/today',
           })
-        } else {
-
+        }else{
           wx.redirectTo({
-            url: '../home/home?userFlag=' + res.userFlag,
+            url: '../home/home?characteristic=1',
           })
         }
+       
+         
+     
       }
     })
 
