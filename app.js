@@ -40,6 +40,7 @@ App({
             icon: 'loading',
             duration: 2500
           })
-        }
+        },
+        
       }
       })
