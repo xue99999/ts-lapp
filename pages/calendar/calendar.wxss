@@ -65,7 +65,7 @@
 }
 .date-head{
 	height: 60rpx;
-	line-height: 60rpx;
+	line-height: 55rpx;
 	font-size: 26rpx;
 }
 .nowDay .date-head{
@@ -75,9 +75,11 @@
 	background-color: #FFE2E3;
 	margin: 0 auto;
 }
-.date-weight{
-	font-size: 22rpx;
-	padding: 15rpx 0;
+.date-weight image{
+	/* font-size: 22rpx; */
+	  /* padding: 10rpx 0;   */
+    width: 25rpx;
+    height: 25rpx;
 }
 .nowDay .date-weight{
 	color: #22A7F6;
@@ -141,6 +143,12 @@
   font-size: 30rpx;
   letter-spacing: 1.656rpx;
   /* font-weight: bold; */
+}
+.yjclass{
+  background: #FE6F71;
+}
+.plclass{
+  background: #D193EE;
 }
 
 .active:hover{

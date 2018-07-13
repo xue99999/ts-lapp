@@ -24,9 +24,11 @@
   <view class='date-box'>
     <view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
       <view class='date-head'>
-        <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili' class="">
+        <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili' 
+          class="{{item.dateNum == index ? 'anquanclass' : '' || item.dateNum == index ? 'yuejingclass' : '' || item.dateNum == index ? 'pailuanclass' : '' || item.dateNum == index ? 'pailuanclass' : ''}}" >
           {{item.dateNum}}
-        </view>
+        </view> 
+			<view class='date-weight'><image src='{{item.weight}}'></image></view>
       </view>
     </view>
   </view>
