@@ -16,10 +16,16 @@
         <image src='../img/椭圆37@3x.png'></image>
          <!-- <view>{{item.inner}}</view>
         <view>{{item.userModel}}</view>  -->
-        <view class='view-inner'>
-              <view>月经期</view>
-              <view>少女</view> 
-              <button>记录经期</button>      
+        <view class='view-inner' wx:if="{{userModel==='02'}}">
+              <view>{{showObj['02'].top}}</view>
+              <view>{{showObj['02'].middle}}</view> 
+              <view class='view-last'>{{showObj['02'].shouyun}}</view>      
+        </view>
+
+         <view class='view-inner' wx:if="{{userModel==='01'}}">
+              <image src='{{bobyImg}}'></image>
+              <view>{{showObj['01'].babyText}}</view>
+               <view class='view-last'>{{showObj['01'].lastText}}</view>
         </view>
         <view class='view-btn'>
 
@@ -28,10 +34,8 @@
 
   <view class='view-bu'>
         <view></view>
-        <view class='bushu'>
-              <image src='../img/step number@3x.png'></image>
-              <image src='../img/step number@3x.png'></image>
-              <image src='../img/step number@3x.png'></image>
+        <view class='bushu' wx:for='{{recordsImg}}'wx:key >
+              <image src='{{item}}'></image>
               <!-- <text>16 步数</text> -->
         </view> 
         <view class='tupian'>
