@@ -152,7 +152,13 @@ function apiCourseCollectCourse(params){
     params
   })
 }
-
+//查询设置经期与排卵接口
+function userInfoUpdateMensAndOvulation(params){
+  return get({
+    url: baseUrl + '/userInfo/queryMensAndOvulation',
+    params
+  })
+}
 module.exports = {
   ownerQuery,
   apiSection,
@@ -170,5 +176,6 @@ module.exports = {
   apiCourseSeriesList,
   userInfoQueryBodyStatus,
   userInfoUpdateBodyStatus,
-  apiCourseCollectCourse
+  apiCourseCollectCourse,
+  userInfoUpdateMensAndOvulation
 };
