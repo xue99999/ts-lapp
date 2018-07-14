@@ -11,7 +11,7 @@
     <view class='header'>
       <view wx:for='{{date}}' wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>
         {{item}}
-        <view></view>
+        
       </view>
     </view>
 
@@ -46,10 +46,12 @@
 
   <view class='view-fot'>
     <view class='fot-one'>
+    <view class='box'>
       <view class='box_list' data-current="{{index}}" bindtap="chooseImg">
         <image class="box-image" src="{{show ? imgUrl : curUrl}}"></image>
         <text>跳过</text>
       </view>
+    </view>
     </view>
     <button class='btn' bindtap='navto'>下一步</button>
   </view>

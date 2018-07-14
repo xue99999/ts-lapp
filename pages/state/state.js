@@ -16,15 +16,15 @@ Page({
         name: '捏脊',
         code: 'frictionalAbdomen',
         select: false,
-        imgUrl: '../img/belly@3x.png',
-        curUrl: '../img/矢量智能对象@3x.png',
+        imgUrl: '../img/nieji@3x.png',
+        curUrl: '../img/nieji-@3x.png',
       },
       {
         code: 'chiropractic',
         name: '摩腹',
         select: false,
-        imgUrl: '../img/belly@3x.png',
-        curUrl: '../img/矢量智能对象拷贝2@3x.png',
+        imgUrl: '../img/mofu@3x.png',
+        curUrl: '../img/mofu-@3x.png',
       }
     ],
     // 月经量
@@ -669,18 +669,18 @@ Page({
   },
   // 更新身体信息
   updateStatus(data) {
-    // const {
-    //   day
-    // } = this.data.currentDay;
-    // userInfoUpdateBodyStatus({
-    //   day,
-    //   ...data
-    // }).then(res => {
-    //   console.log('更新身体状态接口', res);
-    //   // this.setData({
-    //   //   list: res.list
-    //   // })
-    // })
+    const {
+      day
+    } = this.data.currentDay;
+    userInfoUpdateBodyStatus({
+      day,
+      ...data
+    }).then(res => {
+      console.log('更新身体状态接口', res);
+      // this.setData({
+      //   list: res.list
+      // })
+    })
   },
 
   

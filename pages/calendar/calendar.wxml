@@ -24,24 +24,31 @@
   <view class='date-box'>
     <view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
       <view class='date-head'>
-        <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili' class="">
+        <!-- <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili' 
+          class="{{item.dateNum == index && physiologicalCycle == '02'? 'anquanclass' : '' || item.dateNum == index ? 'yuejingclass' : '' || item.dateNum == index ? 'pailuanclass' : '' || item.dateNum == index ? 'pailuanclass' : ''}}" >
           {{item.dateNum}}
-        </view>
+        </view>  -->
+        <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili'
+          class="{{item.dateNum == '2018-07-14' && item.physiologicalCycle == '02'? 'anquanclass' : '' }}
+           >
+          {{item.dateNum}}
+        </view> 
+			<view class='date-weight'><image src='{{item.weight}}'></image></view>
       </view>
     </view>
   </view>
 
   <view class='view-list'>
     <view class='view-jing'>
-      <image src='../img/椭圆2拷贝9@3x.png'></image>
+      <image src='../img/pink@3x.png'></image>
       <text>月经期</text>
     </view>
     <view class='view-luan'>
-      <image src='../img/椭圆2拷贝10@3x.png'></image>
+      <image src='../img/zise@3x.png'></image>
       <text>排卵期</text>
     </view>
     <view class='view-ri'>
-      <image src='../img/Oviposit day@3x.png'></image>
+      <image src='../img/xing@3x.png'></image>
       <text>排卵日</text>
     </view>
   </view>
@@ -59,7 +66,7 @@
 <view class='view-an'>
   <view class='view-mo'>
     <image src='../img/menstruation1@3x.png'></image>
-    <text>大姨妈{{currentDay.menstrualStatus==='01'?'走了':'来了'}}喽</text>
+    <text>大姨妈{{currentDay.menstrualStatus==='02'?'走了':'来了'}}喽</text>
   </view>
   <view class="view-mo1">
     <switch checked="{{currentDay.menstrualStatus==='01'}}" bindchange="switchChange" color='#FE6F71' />

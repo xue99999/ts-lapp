@@ -20,20 +20,21 @@ Page({
     curUrl: '../../img/choose@3x.png',
     curIdx: null,
     physiologicalCycle:null,
+    tian:null,
     // 按摩
     anmo: [{
       name: '捏脊',
       code: 'frictionalAbdomen',
       select: false,
-      imgUrl: '../img/belly@3x.png',
-      curUrl: '../img/矢量智能对象@3x.png',
+      imgUrl: '../img/nieji@3x.png',
+      curUrl: '../img/nieji-@3x.png',
     },
     {
       code: 'chiropractic',
       name: '摩腹',
       select: false,
-      imgUrl: '../img/belly@3x.png',
-      curUrl: '../img/矢量智能对象拷贝2@3x.png',
+      imgUrl: '../img/mofu@3x.png',
+      curUrl: '../img/mofu-@3x.png',
     }
     ],
     // 月经量
@@ -683,14 +684,11 @@ Page({
     if (month < 10) {
       cmonth = '0' + month
     }
-    var day;
-   
+    let day;
     day = e.currentTarget.dataset.day
-   
-    var dates = year + "-" + cmonth + "-" + day;
+    let dates = year + "-" + cmonth + "-" + day;
     console.log('日期', dates);
-
-
+    
     for (let i = 0; i < list.length;i++){
       const dd=list[i]
       if(dd.day===dates){
@@ -716,9 +714,10 @@ Page({
       month: month,
       isToday: '' + year + month + now.getDate()
     })
-    console.log(this.data.isToday)
+
+    console.log()
     
-    this.query();
+    this.query(this.data.startDay, this.data.endDay, this.data.currentDay);
     this.initRecord()
   },
   query: function (startDay, endDay, currentDay) {
@@ -935,36 +934,62 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let cmonth;
+    const { year, month, list } = this.data;
+    if (month < 10) {
+      cmonth = '0' + month
+    }
+    // 当月第一天
+    let tian1;
+    tian1 = '01';
+    this.setData({
+      tian1: tian1
+    })
+    let startDay = year + '-' + cmonth + '-' + tian1
+    this.setData({
+      startDay: startDay
+    })
+    console.log(this.data.startDay)
+    // 当月最后一天
+    let tian;
+    tian = this.data.tian;
+    let endDay = year + '-' + cmonth + '-' + tian
+    this.setData({
+      endDay: endDay
+    })
 
+    console.log(this.data.endDay)
       var data = {
-        startDay:'2018-07-01',
-        endDay:'2018-07-31'
+        startDay: this.data.startDay,
+        endDay:this.data.endDay
 
       }
-    //   userInfoQueryBodyStatus(data).then(res => {
-    //   console.log('查询身体状态接口', res);
-    //  const {list}= res;
-    //  const rlist=[];
-    //  let currentDay={}
-    //   for (let i = 0; i < list.length;i++){
-    //      const data=list[i]
-    //       if (i.physiologicalCycle == '01'){
-    //         console.log(physiologicalCycle)
-    //       }
+      userInfoQueryBodyStatus(data).then(res => {
+      console.log('查询身体状态接口', res);
+     const {list}= res;
+     const rlist=[];
+     let currentDay={}
+      for (let i = 0; i < list.length;i++){
+         const data=list[i]
+          if (i.physiologicalCycle == '01'){
+            console.log(physiologicalCycle)
+          }
 
-    //       if(data.day===moment().format('YYYY-MM-D')){
-    //         console.log(data.day)
-    //         currentDay = data;
-    //       }
-    //       rlist.push(data);
-    //   }
+          if(data.day===moment().format('YYYY-MM-D')){
+            console.log(data.day)
+            currentDay = data;
+          }
+          rlist.push(data);
+      }
 
-    //   this.setData({
-    //     currentDay,
-    //     list: rlist
-    //   })
-    //   console.log(rlist)
-    // })
+      this.setData({
+        currentDay,
+        list: rlist
+      })
+
+      
+      console.log(list)
+    })
 
 
 
@@ -983,8 +1008,11 @@ Page({
     let dayNums = new Date(year, nextMonth, 0).getDate();				//获取目标月有多少天
     let obj = {};
     let num = 0;
-
-
+    var tian = dayNums;
+    this.setData({
+      tian:tian
+    })
+     
     if (month + 1 > 11) {
       nextYear = year + 1;
       dayNums = new Date(nextYear, nextMonth, 0).getDate();
@@ -996,7 +1024,7 @@ Page({
         obj = {
           isToday: '' + year + (month + 1) + num,
           dateNum: num,
-          weight: 5
+          // weight: '../img/Oviposit day@3x.png'
         }
       } else {
         obj = {};

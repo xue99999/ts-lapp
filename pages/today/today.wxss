@@ -39,15 +39,20 @@
   height: 70rpx;
 }
 .view-tishi view{
-  width: 180rpx;
-  line-height: 50rpx;
-  text-align: center;
-  border-radius: 140px;
-  background: #FEA2A3;
   color: white;
   font-size: 28rpx;
-   position: fixed;
-    top: 231rpx; 
+  position: fixed;
+  top: 231rpx; 
+  right: 0;
+}
+.view-tishi view text{
+  position: fixed;
+  top: 238rpx; 
+  right: 10rpx;
+}
+.view-tishi view image{
+  width: 150rpx;
+  height: 50rpx;
 }
 
 .view-img image{
