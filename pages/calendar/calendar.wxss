@@ -229,3 +229,10 @@
 .bottm{
 margin-bottom: 30rpx;
 }
+.anquanclass{
+  background: #FE6F71;
+}
+
+.yuejingclass{
+background: #D193EE;
+}
