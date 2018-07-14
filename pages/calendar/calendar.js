@@ -717,7 +717,7 @@ Page({
       isToday: '' + year + month + now.getDate()
     })
 
-    console.log()
+    console.log(this.data.startDay, this.data.endDay)
     
     this.query(this.data.startDay, this.data.endDay, day);
    
