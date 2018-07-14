@@ -38,9 +38,14 @@ Page({
 
      userInfoAdd(data).then(res => {
        console.log('登录经期信息', res);
-       wx.redirectTo({
-         url: '/pages/today/today'
-       })
+
+       const {code}=res;
+       if(code===200){
+         wx.redirectTo({
+           url: '/pages/today/today'
+         })
+       }
+      
      })
 
   

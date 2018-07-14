@@ -26,6 +26,7 @@ Page({
     today: moment().format('YYYY-MM-DD'),
     currentDay: {},
     formatDay: null,
+    bobyImg: resources.records['baby'],
     // 圆圈显示数据
     showObj: {
       // 模式辣妈
@@ -63,6 +64,7 @@ Page({
     this.query(day, day, day);
   },
   onShow:function(){
+    console.log('show');
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('D');
     this.setData({
@@ -108,8 +110,8 @@ Page({
           let showObj = {}
           // 处理当前需要显示的数据
           if (userModel === '02') {
-            showObj['01'] = {
-              babyText: `宝宝${babyMonth}个月`,
+            showObj['02'] = {
+              babyText: `${babyMonth}`,
               physiologicalCycle: physiologicalCycle,
               //下半部显示信息
               lastText: this.installText(dy),
