@@ -7,26 +7,56 @@ module.exports = {
         userModel: '02',
         "list": [{
           "babyBirthday": "11个月27天",
-          "userModel": "02"
+          "userModel": "02",
+         "day": "2018-07-11",
         }, {
-          "day": "2018-06-14",
-          "physiologicalCycle": "03"
-        }, {
-            menstrualVolume:'01',
-            chiropractic:'01',
-            frictionalAbdomen:"01",
+            menstrualVolume: '01',
+            chiropractic: '01',
+            frictionalAbdomen: "01",
             userModel: '02',
+            predictDay: 4,
+            "physiologicalCycle": "02",
+            babyMonth: '5',
+            "day": "2018-07-12",
+            menstrualStatus: '01',
+            isPredict: '1',
+            "physiologicalCycle": "02"
+        }, {
+           menstrualVolume:'01',
+           chiropractic:'01',
+           frictionalAbdomen:"01",
+           userModel: '02',
           predictDay: 4,
+          "physiologicalCycle": "02",
           babyMonth: '5',
-          "day": "2018-07-13",
-          isPredict: '1',
-          "physiologicalCycle": "03"
+          "day": "2018-07-14",
+          menstrualStatus:'01',
+          isPredict: '0',
+          "physiologicalCycle": "02"
         }, {
-          "day": "2018-06-16",
-          "physiologicalCycle": "03"
+            menstrualVolume: '01',
+            chiropractic: '01',
+            frictionalAbdomen: "01",
+            userModel: '02',
+            predictDay: 4,
+            "physiologicalCycle": "02",
+            babyMonth: '5',
+            "day": "2018-07-15",
+            menstrualStatus: '01',
+            isPredict: '0',
+            "physiologicalCycle": "02"
         }, {
-          "day": "2018-06-17",
-          "physiologicalCycle": "03"
+            menstrualVolume: '01',
+            chiropractic: '01',
+            frictionalAbdomen: "01",
+            userModel: '02',
+            predictDay: 4,
+            "physiologicalCycle": "04",
+            babyMonth: '5',
+            "day": "2018-07-16",
+            menstrualStatus: '01',
+            isPredict: '0',
+          
         }, {
           "day": "2018-06-18",
           "physiologicalCycle": "03"
@@ -35,7 +65,7 @@ module.exports = {
           "physiologicalCycle": "04"
         }, {
           "day": "2018-06-20",
-          "physiologicalCycle": "03"
+          "physiologicalCycle": "03",
         }, {
           "day": "2018-06-21",
           "physiologicalCycle": "03"

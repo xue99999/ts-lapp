@@ -22,18 +22,12 @@
   <view class='header'>
   </view>
   <view class='date-box'>
-    <view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
+    <view wx:for='{{dateArr}}' wx:key class="{{item.css}}  {{item.isSelect?'nowDay':''}}" data-date='{{item.isToday}}'>
       <view class='date-head'>
-        <!-- <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili' 
-          class="{{item.dateNum == index && physiologicalCycle == '02'? 'anquanclass' : '' || item.dateNum == index ? 'yuejingclass' : '' || item.dateNum == index ? 'pailuanclass' : '' || item.dateNum == index ? 'pailuanclass' : ''}}" >
-          {{item.dateNum}}
-        </view>  -->
-        <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili'
-          class="{{item.dateNum == '2018-07-14' && item.physiologicalCycle == '02'? 'anquanclass' : '' }}
-           >
-          {{item.dateNum}}
+        <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili' >
+           {{item.dateNum}} 
         </view> 
-			<view class='date-weight'><image src='{{item.weight}}'></image></view>
+			<!-- <view class='date-weight'><image src='{{item.weight}}'></image></view> -->
       </view>
     </view>
   </view>

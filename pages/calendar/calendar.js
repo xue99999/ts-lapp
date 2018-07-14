@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp()
 const moment = require('../../utils/moment.js');
-const { userInfoQueryBodyStatus } = require('../../service/user.js')
+const { userInfoQueryBodyStatus, userInfoUpdateBodyStatus } = require('../../service/user.js')
  var Http = require('../../utils/http.js');
  const { auth } = require('../../utils/auth.js');
 Page({
@@ -680,31 +680,33 @@ Page({
     // console.log(this.data.month)
     // console.log(this.data.year)
     let cmonth;
-    const { year, month, list } = this.data;
+    const { year, month, list, dateArr } = this.data;
     if (month < 10) {
       cmonth = '0' + month
     }
     let day;
     day = e.currentTarget.dataset.day
     let dates = year + "-" + cmonth + "-" + day;
-    console.log('日期', dates);
-    
-    for (let i = 0; i < list.length;i++){
-      const dd=list[i]
-      if(dd.day===dates){
-        this.setData({
-          currentDay:dd
-        })
-        break;
+    for (let i = 0; i < dateArr.length;i++){
+      const obj = dateArr[i];
+      if (day === obj.dateNum){
+        obj.isSelect=true;
+      }else{
+        obj.isSelect = false;
       }
     }
-
+    console.log(dateArr)
+    this.setData({ dateArr: dateArr})
+    
+    this.initRecord(dates);
   },
   onLoad: function () {
     const parmas = {
       tag: 'switch'
     }
-    auth(parmas)
+
+    const day = moment().format("YYYY-MM-D");
+   
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
@@ -717,8 +719,8 @@ Page({
 
     console.log()
     
-    this.query(this.data.startDay, this.data.endDay, this.data.currentDay);
-    this.initRecord()
+    this.query(this.data.startDay, this.data.endDay, day);
+   
   },
   query: function (startDay, endDay, currentDay) {
 
@@ -730,7 +732,7 @@ Page({
     userInfoQueryBodyStatus(query).then(res => {
       const { list, userModel } = res;
       app.globalData.bodyStatus = list;
-
+      this.dateInit()
       for (let i = 0; i < list.length; i++) {
         const dy = list[i];
         if (dy.day === currentDay) {
@@ -739,17 +741,16 @@ Page({
             userModel,
             currentDay: dy
           })
-
+          this.initRecord(currentDay)
         }
       }
 
     })
   },
-  initRecord(){
-    const {
-      day
-    } = app.globalData.obj.day;
+  initRecord(day){
+
     const list = app.globalData.bodyStatus;
+    console.log(list);
     for (let i = 0; i < list.length; i++) {
       const dy = list[i];
       if (dy.day === day) {
@@ -1009,22 +1010,48 @@ Page({
     let obj = {};
     let num = 0;
     var tian = dayNums;
-    this.setData({
-      tian:tian
-    })
      
     if (month + 1 > 11) {
       nextYear = year + 1;
       dayNums = new Date(nextYear, nextMonth, 0).getDate();
     }
     arrLen = startWeek + dayNums;
+    const list=app.globalData.bodyStatus||[];
+    console.log('arrLen', list)
     for (let i = 0; i < arrLen; i++) {
+      
       if (i >= startWeek) {
         num = i - startWeek + 1;
+        let css
+       for(let i=0;i<list.length;i++){
+          const dy = list[i];
+          const { day, isPredict, physiologicalCycle}=dy;
+          if(day){
+            const remoteDay= moment(day).format("D");
+         
+            if (num == remoteDay){
+              if (isPredict === '0' && physiologicalCycle==='02'){
+                css ='nowDay'
+              }
+              if (isPredict === '1' && physiologicalCycle === '02') {
+                css = 'yuejingclass'
+              }
+              if (isPredict === '0' && physiologicalCycle === '04') {
+                css = 'pailuanclass'
+              }
+            }
+          }
+         
+       }
         obj = {
           isToday: '' + year + (month + 1) + num,
           dateNum: num,
-          // weight: '../img/Oviposit day@3x.png'
+          // 选中状态 false 未选中 true 选中
+          isSelect:false,
+          // 是否有记录
+          record:false,
+          // 姨妈状态 1预测大姨妈 css1 2 预测排卵期 css2 3实际大姨妈 css3  
+          css,
         }
       } else {
         obj = {};
@@ -1032,6 +1059,7 @@ Page({
       dateArr[i] = obj;
     }
     this.setData({
+      tian,
       dateArr: dateArr
     })
 
@@ -1062,6 +1090,21 @@ Page({
       month: (month + 1)
     })
     this.dateInit(year, month);
+  },
+  // 更新身体信息
+  updateStatus(data) {
+    const {
+      day
+    } = this.data.currentDay;
+    userInfoUpdateBodyStatus({
+      day,
+      ...data
+    }).then(res => {
+      console.log('更新身体状态接口', res);
+      // this.setData({
+      //   list: res.list
+      // })
+    })
   },
   nextMonth: function () {
     //全部时间的月份都是按0~11基准，显示月份才+1
