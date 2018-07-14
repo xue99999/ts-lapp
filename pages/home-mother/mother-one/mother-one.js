@@ -26,7 +26,7 @@ Page({
     })
   },
   navto: function() {
-
+    console.log(this.data.show)
    if(!this.data.show){
       //跳过经期设定
      var data = {
@@ -38,6 +38,13 @@ Page({
 
      userInfoAdd(data).then(res => {
        console.log('登录经期信息', res);
+
+       const {code}=res;
+       if(code===200){
+         wx.redirectTo({
+           url: '/pages/today/today'
+         })
+       }
       
      })
 
@@ -53,9 +60,6 @@ Page({
      }
      wx.navigateTo({
        url: '../mother-two/mother-two',
-       success: function (res) { },
-       fail: function (res) { },
-       complete: function (res) { },
      })
 
    }

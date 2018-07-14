@@ -13,14 +13,14 @@ Page({
     avatarUrl: "",
     integral:"",
     routers: [{
-        name: '辣妈经期',
-        url: '',
+        name: '辣妈模式',
+        url: '../home/home',
         icon: '../img/mom1@3x.png',
         code: '10'
       },
       {
         name: '经期与排卵',
-        url: '',
+        url: '../set-period/set-period',
         icon: '../img/collection@3x.png',
         code: '11'
       },

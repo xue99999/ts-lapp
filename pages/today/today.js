@@ -26,6 +26,7 @@ Page({
     today: moment().format('YYYY-MM-DD'),
     currentDay: {},
     formatDay: null,
+    bobyImg: resources.records['baby'],
     // 圆圈显示数据
     showObj: {
       // 模式辣妈
@@ -62,6 +63,18 @@ Page({
 
     this.query(day, day, day);
   },
+  onShow:function(){
+    console.log('show');
+    const day = moment().format("YYYY-MM-D");
+    const today = moment().format('D');
+    this.setData({
+      today,
+      days: currentWeek(),
+      formatDay: day
+    })
+
+    this.query(day, day, day);
+  },
   /**
    * startDay 开始时间
    * endDay
@@ -75,7 +88,7 @@ Page({
     }
 
     userInfoQueryBodyStatus(query).then(res => {
-      console.log('---返回数据', res);
+      console.log('---返回数据', currentDay);
 
       const {
         list,
@@ -96,22 +109,25 @@ Page({
           this.getRecordsImg(dy)
           let showObj = {}
           // 处理当前需要显示的数据
-          if (userModel === '01') {
-            showObj['01'] = {
-              babyText: `宝宝${babyMonth}个月`,
+          if (userModel === '02') {
+            showObj['02'] = {
+              babyText: `${babyMonth}`,
               physiologicalCycle: physiologicalCycle,
               //下半部显示信息
               lastText: this.installText(dy),
             }
-          } else {
-            showObj['02'] = {
+          } 
+          
+          if(userModel === '01') {
+            showObj['01'] = {
               //当前周期信息 预计:月经期第六天
-              top: `${isPredict === '01' ? '预测' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
+              top: `${isPredict === '0' ? '预测' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
               middle: `第${predictDay}天`,
               shouyun: this.getShouyunText(physiologicalCycle)
               // 
             }
           }
+          this.setData({ showObj, userModel})
         }
       }
     })

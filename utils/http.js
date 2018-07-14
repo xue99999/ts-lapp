@@ -36,6 +36,12 @@ function Request(method, requestHandler) {
           data,
           statusCode
         } = res
+
+        if (statusCode === 411 || statusCode===413){
+            wx.redirectTo({
+              url: '',
+            })
+        }
         // 处理数据
         statusCode === 200 ? resolve(data) : reject(data, statusCode)
       },

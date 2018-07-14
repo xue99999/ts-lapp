@@ -6,14 +6,15 @@ import mock from './mock.js';
 //程东林 本地测试路径
 //const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
 //王丽娟 本地测试路径
-// const baseUrl = 'http://192.168.5.82:8080/ts-app-web/';
+//const baseUrl = 'http://192.168.5.82:8080/ts-app-web/';
 
 // const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 //李康 本地测试路径
-const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
-
+ const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
 //刘小东 本地测试路径
-// const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
+
+//const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
+
 const {
   get
 } = Http;
@@ -150,7 +151,13 @@ function apiCourseCollectCourse(params){
     params
   })
 }
-
+//查询设置经期与排卵接口
+function userInfoUpdateMensAndOvulation(params){
+  return get({
+    url: baseUrl + '/userInfo/queryMensAndOvulation',
+    params
+  })
+}
 module.exports = {
   ownerQuery,
   apiSection,
@@ -168,5 +175,6 @@ module.exports = {
   apiCourseSeriesList,
   userInfoQueryBodyStatus,
   userInfoUpdateBodyStatus,
-  apiCourseCollectCourse
+  apiCourseCollectCourse,
+  userInfoUpdateMensAndOvulation
 };

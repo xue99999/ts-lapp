@@ -16,8 +16,8 @@ Page({
         name: '捏脊',
         code: 'frictionalAbdomen',
         select: false,
-        imgUrl: '../img/nieji@3x.png',
-        curUrl: '../img/nieji-@3x.png',
+        imgUrl: '../img/nieji-@3x.png',
+        curUrl: '../img/nieji@3x.png',
       },
       {
         code: 'chiropractic',
@@ -711,8 +711,8 @@ Page({
           breastTenderness,
           leucorrhea,
           menstrualVolume,
-          chiropractic = "02",
-          frictionalAbdomen = "02"
+          chiropractic,
+          frictionalAbdomen
         } = dy;
         const {
           anmo

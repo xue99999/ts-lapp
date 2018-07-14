@@ -1,15 +1,12 @@
 /*微信支付 */
 
 .inclusion {
-  position: fixed;
-  height: 100%;
-  width: 100%;
+
   background: #e1e1e1;
 }
 
 .view_pay1 {
   display: flex;
-  width: 100%;
   height: 62rpx;
   background: #fff;
   flex-direction: row;
@@ -20,19 +17,21 @@
 }
 
 .view_pay_text_left, .view_pay_text_right, .view_pay_input_right {
-  width: 50%;
+
   height: 27rpx;
   line-height: 27rpx;
-  font-size: 27rpx;
+  font-size: 26rpx;
   margin: auto;
 }
 
 .view_pay_text_left {
+  flex: 0.3;
   padding-left: 27rpx;
   color: #999;
 }
 
 .view_pay_text_right {
+    flex: 0.7;
   text-align: right;
   padding-right: 27rpx;
   color: #000;
@@ -40,7 +39,6 @@
 
 .view_pay2 {
   display: flex;
-  width: 100%;
   height: 62rpx;
   background: #fff;
   flex-direction: row;
@@ -50,7 +48,7 @@
 }
 
 .view_pay_text_right1 {
-  width: 50%;
+ flex: 0.7;
   height: 27rpx;
   line-height: 27rpx;
   font-size: 27rpx;
@@ -60,6 +58,7 @@
 }
 
 .view_pay_text_right2 {
+  
   line-height: 27rpx;
   font-size: 27rpx;
   margin: auto;
@@ -67,7 +66,7 @@
 }
 
 .view_pay_input_right {
-  width: 100%;
+ flex: 0.7;
   font-size: 27rpx;
   padding-right: 27rpx;
   height: 27rpx;

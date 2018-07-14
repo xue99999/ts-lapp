@@ -106,7 +106,7 @@ Page({
   },
   onClickSubscriber() {
     console.log("订阅");
-    if (isSubscibe > 0) {
+    if (this.data.isSubscibe > 0) {
       wx.showToast({
         title: "当前课程已订阅,无需重复订阅",
         icon: 'none',

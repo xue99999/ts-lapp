@@ -10,7 +10,8 @@ const WxParse = require('../../wxParse/wxParse.js');
 var pos = -1;
 var SectionList = [];
 //区分播放暂停
-var isplay = true;
+var isplay = true, record;
+
 Page({
 
   /**
@@ -50,15 +51,6 @@ Page({
     apiSection(options.courseId).then(result => {
       console.log('课节播放列表', result);
       if (result.code === 200) {
-        if (!result.code === 200) {
-          wx.showToast({
-            title: "当前课节无权播放请订阅",
-            icon: 'none',
-            duration: 2000
-          })
-          return;
-        }
-
         const {
           list = []
         } = result;
@@ -69,17 +61,11 @@ Page({
         SectionList = list;
         // 数据转换
         for (let i = 0; i < list.length; i++) {
-
-          
           const section = list[i];
           section['name'] = section.sectionName;
           sections.push(section);
           if (list[i].id === sectionID) {
-
-
-            // sectionName = list[i].sectionName;
-            // //请求播放列表
-            // this.onPlay(section[i].id);
+            console.log('当id匹配的时候', i);
             pos = i;
             console.log('id>>>>>>>>>', list[i].id)
             sectionName = list[i].sectionName;
@@ -90,7 +76,6 @@ Page({
             WxParse.wxParse('remark', 'html', list[i].remark, this, 0);
             //remark = list[i].remark;
           }
-
         }
         console.log('sectionName>>>>>>>>>', sectionName)
         this.setData({
@@ -99,33 +84,52 @@ Page({
           sectionName,
           teacherName: options.teacherName,
           durations,
-         // remark,
+          // remark,
         })
-
       }
 
     });
 
   },
+  //绑定视频播放事件  
+  onReady: function (res) {
+    this.videoContext = wx.createVideoContext('myVideo')
+  },
   doPlay: function(id) {
 
     apiSectionPlay(id).then(result => {
       console.log('课节播放', result)
-      if (!result.code === 200) {
+      if (result.code === 200) {
+        this.setData({
+          filePath: result.filePath
+        })
+        this.videoContext.play();
+        if (record===1){
+         pos= pos + 1
+        } else if (record === 2){
+          pos = pos - 1
+        }
+
+        this.setData({
+          sectionName: SectionList[pos].sectionName,
+          teacherName: SectionList[pos].teacherName,
+          durations: SectionList[pos].durations,
+          // remark,
+        })
+        WxParse.wxParse('remark', 'html', SectionList[pos].remark, this, 0);
+      } else {
         wx.showToast({
-          title: "当前课节无权播放请订阅",
+          title: "无权限播放课节",
           icon: 'none',
           duration: 2000
         })
         return;
       }
-      if (result.code === 200) {
-        this.setData({
-          filePath: result.filePath
-        })
-      }
+
     })
   },
+
+  
   onPlay: function(id) {
     console.log('---id')
     const {
@@ -136,27 +140,23 @@ Page({
     } = this;
     for (let i = 0; i < sections.length; i++) {
       const section = id;
-      if (sections[i].id === id) {
+      if (sections[i].id === section) {
+         // 播放当前匹配的id
         this.doPlay(sections[i].id);
-        // 播放
-        // videoContext.play()
       }
     }
 
   },
-  //绑定视频播放事件  
-  onReady: function(res) {
-    this.videoContext = wx.createVideoContext('myVideo')
-  },
+
   //点击那个列表
   handleClickItem1({
     detail
   }) {
     const index = detail.index;
     console.log('点击列表播放视频id', SectionList[index].id);
-    this.doPlay(SectionList[index].id);
+    this.onPlay(SectionList[index-1].id);
     this.setData({
-      visible1: false
+      visible1: false,
     });
   },
   //隐藏
@@ -174,46 +174,37 @@ Page({
   },
   //下一首
   toNext: function() {
-    console.log('选择的下标', pos);
-
-    for (var i = 0; i < SectionList.length; i++) {
-      if (pos === i) {
-      if ((i + 1) > SectionList.length) {
-        wx.showToast({
-          title: '当前已是最后一个视频',
-          icon: 'none',
-          duration: 2000
-        })
-        return;
-      }
-  
-        pos = i + 1;
-        if (SectionList[i + 1].id){
-          this.doPlay(SectionList[i + 1].id);
-        }
-      
-      }
+    //拿到数组的长度
+    var listLength=SectionList.length-1;
+    //记录一下当前的位置
+  var s= pos+1;
+   if (s > listLength){
+      wx.showToast({
+            title: '当前已是最后一个视频',
+            icon: 'none',
+            duration: 2000
+          })
+          return;
     }
+   record=1;
+   this.onPlay(SectionList[pos + 1].id);
   },
   //上一首
   toLast: function() {
-    console.log('选择的下标', pos);
-
-    for (var i = 0; i < SectionList.length; i++) {
-      if (pos=== 0) {
-        wx.showToast({
-          title: '当前已是第一个视频了',
-          icon: 'none',
-          duration: 2000
-        })
-        return;
-      }
-      if (pos === i) {
-        this.doPlay(SectionList[i - 1].id);
-      }
+    //记录一下当前的位置
+    if (pos ===0) {
+      wx.showToast({
+        title: '当前已是第一个视频了',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
     }
+    //pos=pos-1;
+    record = 2;
+    this.onPlay(SectionList[pos-1].id);
   },
-  //暂停
+  //暂停播放
   onSuspend: function() {
 
     if (isplay) {

@@ -35,7 +35,7 @@
             <view class='course_list_itme_text_title'>{{item.sectionName}}</view>
             <view class='list_item_view_all'>
               <image class='list_item_view_all_img' src='../img/play1@3x.png'></image>
-              <text class='list_item_text3'>{{item.playNum}}万</text>
+              <text class='list_item_text3'>{{item.playNum}}次播放</text>
               <image class='list_item_view_all_img1' src='../img/time@3x.png'></image>
               <text class='list_item_text4'>{{item.duration}}</text>
             </view>
