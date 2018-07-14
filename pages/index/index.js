@@ -3,7 +3,8 @@
 const app = getApp()
 const {
   login,
-  loginWithCode
+  loginWithCode,
+  userInfoQueryBodyStatus
 } = require('../../service/user.js')
 const moment = require('../../utils/moment.js');
 var data, LoginData, iv, encryptedData;
@@ -104,7 +105,12 @@ Page({
                         console.log(routeQuery)
                         // tag:navigate redirect switch reLaunch
                         const {callback,tag='1'}=routeQuery;
-                    
+                        console.log(callback);
+
+                        if('/pages/home/home'===callback){
+                          const day = moment().format("YYYY-MM-DD");
+                            that.getDataDay(day)
+                        }
                       switch (tag){
                         case "redirect":
                             wx.redirectTo({
@@ -137,6 +143,28 @@ Page({
             }
           })
 
+        }
+      }
+    })
+  },
+  getDataDay(day) {
+
+    var data = {
+      startDay: day,
+      endDay: day
+    }
+    userInfoQueryBodyStatus(data).then(result => {
+      console.log('查询身体状态接口', result);
+      if (result.code === 200) {
+
+        if (result.userModel) {
+          wx.switchTab({
+            url: '../today/today',
+          })
+        } else {
+          wx.redirectTo({
+            url: '../home/home?characteristic=1',
+          })
         }
       }
     })

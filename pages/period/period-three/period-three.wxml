@@ -5,9 +5,13 @@
   <view wx:if="{{scrollShow==true}}">
     <view class='view-tes'>一般上, 您的经期有多长?</view>
     <!-- 选择器 -->
-    <scroll-view style="height: 550rpx;" scroll-y class='scroll-array' scroll-top='{{scrollTop}}'>
-      <view wx:for='{{array}}' wx:key class='view-array' bindtap='bindPickerChange' data-index='{{index}}'>{{item}}</view>
-    </scroll-view>
+     <picker-view class='view-picker' indicator-style="height: 50px;" style="width: 100%; height: 300px;  background: #FFF4F4;" value="{{[27]}}" data-index="{{array}}" bindchange="bindPickerChange">
+        <picker-view-column>
+          <view wx:for="{{array}}" wx:key style="line-height: 50px;text-align:center;">
+            {{item}}
+          </view>
+        </picker-view-column>
+      </picker-view>
   </view>
   <view wx:else class='view-else'>
     <view class='view-tet'>她师会将周期来潮天数设定为28天 。</view>

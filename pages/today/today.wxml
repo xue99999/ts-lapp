@@ -21,16 +21,16 @@
         <image src='../img/yuan@3x.png'></image>
          <!-- <view>{{item.inner}}</view>
         <view>{{item.userModel}}</view>  -->
-        <view class='view-inner' wx:if="{{userModel==='02'}}">
-              <view>{{showObj['02'].top}}</view>
-              <view>{{showObj['02'].middle}}</view> 
-              <view class='view-last'>{{showObj['02'].shouyun}}</view>      
+        <view class='view-inner' wx:if="{{userModel==='01'}}">
+              <view>{{showObj['01'].top}}</view>
+              <view>{{showObj['01'].middle}}</view> 
+              <view class='view-last'>{{showObj['01'].shouyun}}</view>      
         </view>
 
-         <view class='view-inner' wx:if="{{userModel==='01'}}">
+         <view class='view-inner' wx:if="{{userModel==='02'}}">
               <image src='{{bobyImg}}'></image>
-              <view>{{showObj['01'].babyText}}</view>
-               <view class='view-last'>{{showObj['01'].lastText}}</view>
+              <view>{{showObj['02'].babyText}}</view>
+               <view class='view-last'>{{showObj['02'].lastText}}</view>
         </view>
         <view class='view-btn'>
 

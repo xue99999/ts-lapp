@@ -1,12 +1,12 @@
 <view>
-      <view class='view-buzou'>
-        <text>步骤 5   共有6步骤</text>
-        <image src='../../img/buzhou5.png'></image>
-      </view>
-      <view wx:if="{{scrollShow==true}}">
-            <view class='view-tes'>一般上, 您的经期有多长?</view>
-            <!-- 选择器 -->
-            <view class='view-data'>
+  <view class='view-buzou'>
+    <text>步骤 5   共有6步骤</text>
+    <image src='../../img/buzhou5.png'></image>
+  </view>
+  <view wx:if="{{scrollShow==true}}">
+    <view class='view-tes'>一般上, 您的经期有多长?</view>
+    <!-- 选择器 -->
+    <view class='view-data'>
       <picker-view class='view-picker' indicator-style="height: 50px;" style="width: 100%; height: 300px;  background: #FFF4F4;" value="{{[27]}}" data-index="{{array}}" bindchange="bindPickerChange">
         <picker-view-column>
           <view wx:for="{{array}}" wx:key style="line-height: 50px;text-align:center;">
@@ -15,21 +15,21 @@
         </picker-view-column>
       </picker-view>
     </view>
-      </view>
-      <view wx:else class='view-else'>
-            <view class='view-tet'>她师会将月经来潮天数设定为28天 。</view>
-            <view class='view-tet'>您使用她师的次数越多 , 预测就越准确 。</view>
-      </view>
+  </view>
+  <view wx:else class='view-else'>
+    <view class='view-tet'>她师会将月经来潮天数设定为28天 。</view>
+    <view class='view-tet'>您使用她师的次数越多 , 预测就越准确 。</view>
+  </view>
 
-     <view class='view-fot'>
-      <view class='fot-one'>
-            <view class='box'>
-              <view  class='box_list' data-current="{{index}}" bindtap="chooseImg">
-                  <image class="box-image" src="{{show==false ? imgUrl : curUrl}}"></image>
-              </view>
-            </view>
-            <text>我不记得了</text>      
+  <view class='view-fot'>
+    <view class='fot-one'>
+      <view class='box'>
+        <view class='box_list' data-current="{{index}}" bindtap="chooseImg">
+          <image class="box-image" src="{{show==false ? imgUrl : curUrl}}"></image>
+        </view>
       </view>
-      <button class='btn' bindtap='navto'>下一步</button>
+      <text>我不记得了</text>
+    </view>
+    <button class='btn' bindtap='navto'>下一步</button>
   </view>
 </view>
