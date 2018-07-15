@@ -130,11 +130,11 @@ function userInfoQueryMensAndOvulation(params) {
 //查询身体状态接口
 function userInfoQueryBodyStatus(params) {
 
-  //return mock.bodys()
-  return get({
+  return mock.bodys()
+  /**return get({
     url: baseUrl + 'userInfo/queryBodyStatus/' + params.startDay + '/' + params.endDay,
 
-  })
+  })*/
 }
 
 //更新身体状态

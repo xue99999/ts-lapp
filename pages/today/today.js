@@ -189,8 +189,8 @@ Page({
       records
     } = resources;
     const {
-      chiropractic ='02',
-      frictionalAbdomen ='02',
+      chiropractic,
+      frictionalAbdomen,
       menstrualStatus,
       menstrualVolume,
       leucorrhea,
@@ -202,8 +202,11 @@ Page({
       weak
     } = dy;
 
-    if (chiropractic === '01' || frictionalAbdomen === '01') {
+    if (chiropractic) {
       list.push(records['chiropractic'])
+    }
+    if (frictionalAbdomen) {
+      list.push(records['frictionalAbdomen'])
     }
     if (menstrualStatus) {
       list.push(records['menstrualStatus'])

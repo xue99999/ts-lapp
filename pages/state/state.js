@@ -207,7 +207,6 @@ Page({
       }
     }
     let updateData = {};
-    console.log(selectTag);
     if (index === 0) {
       updateData = {
         frictionalAbdomen: selectTag ? "01" : "02"
