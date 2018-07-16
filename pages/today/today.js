@@ -103,7 +103,7 @@ Page({
           isPredict,
           babyMonth,
           physiologicalCycle,
-          predictDay
+          predictDay=0
         } = dy;
         if (day === currentDay) {
           this.getRecordsImg(dy)
@@ -121,8 +121,8 @@ Page({
           if(userModel === '01') {
             showObj['01'] = {
               //当前周期信息 预计:月经期第六天
-              top: `${isPredict === '0' ? '预测' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
-              middle: `第${predictDay}天`,
+              top: `${isPredict === '0' ? '预测:': ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
+              middle: physiologicalCycle!=='03'?`第${predictDay}天`:'',
               shouyun: this.getShouyunText(physiologicalCycle)
               // 
             }

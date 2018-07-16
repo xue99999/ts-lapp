@@ -16,9 +16,10 @@ Page({
     scrollShow: true,
   },
   bindPickerChange: function (e) {
-    // console.log(e.target.dataset.index)
-    var menstrualTimes = e.target.dataset.index+=1
-    console.log('月经持续多久' + menstrualTimes+'天')
+   
+    const val = e.detail.value;
+    const menstrualTimes = this.data.array[val[0]]
+    console.log(menstrualTimes)
     this.setData({
       menstrualTimes: menstrualTimes
     })

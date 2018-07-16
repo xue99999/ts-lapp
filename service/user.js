@@ -14,7 +14,7 @@ import Http from '../utils/http.js';
 //刘小东 本地测试路径
 
 // const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
-
+//const baseUrl = 'http://192.168.9.171:8090/'
 const {
   get
 } = Http;
