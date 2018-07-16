@@ -2,10 +2,17 @@
 //获取应用实例
 const app = getApp()
 const moment = require('../../utils/moment.js');
-const { userInfoQueryBodyStatus, userInfoUpdateBodyStatus } = require('../../service/user.js')
-const resources=require('../../utils/resources.js');
- const { auth } = require('../../utils/auth.js');
- const { records } = resources;
+const {
+  userInfoQueryBodyStatus,
+  userInfoUpdateBodyStatus
+} = require('../../service/user.js')
+const resources = require('../../utils/resources.js');
+const {
+  auth
+} = require('../../utils/auth.js');
+const {
+  records
+} = resources;
 Page({
   data: {
     year: 0,
@@ -15,194 +22,194 @@ Page({
     isToday: 0,
     isTodayWeek: false,
     todayIndex: 0,
-    currentDay:{}, //当前选中数据
+    currentDay: {}, //当前选中数据
     show: false,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
     curIdx: null,
-    physiologicalCycle:null,
-    tian:null,
-    selectDay:moment().format("YYYY-MM-D"),
+    physiologicalCycle: null,
+    tian: null,
+    selectDay: moment().format("YYYY-MM-D"),
     weight: '../img/xing@3x.png',
     // 按摩
     anmo: [{
-      name: '捏脊',
-      code: 'frictionalAbdomen',
-      select: false,
-      imgUrl: '../img/nieji@3x.png',
-      curUrl: '../img/nieji-@3x.png',
-    },
-    {
-      code: 'chiropractic',
-      name: '摩腹',
-      select: false,
-      imgUrl: '../img/mofu@3x.png',
-      curUrl: '../img/mofu-@3x.png',
-    }
+        name: '捏脊',
+        code: 'frictionalAbdomen',
+        select: false,
+        imgUrl: '../img/nieji@3x.png',
+        curUrl: '../img/nieji-@3x.png',
+      },
+      {
+        code: 'chiropractic',
+        name: '摩腹',
+        select: false,
+        imgUrl: '../img/mofu@3x.png',
+        curUrl: '../img/mofu-@3x.png',
+      }
     ],
     // 月经量
     menstrualVolume: [{
-      name: '月经量偏少',
-      imgUrl: '../img/menstruation/1menstruation@3x.png',
-      curUrl: '../img/menstruation/1menstruation-1@3x.png',
-      select: false
-    },
-    {
-      name: '月经量正常',
-      imgUrl: '../img/menstruation/2menstruation@3x.png',
-      curUrl: '../img/menstruation/2menstruation-2@3x.png',
-      select: false,
-    },
-    {
-      name: '月经量很多',
-      imgUrl: '../img/menstruation/3menstruation@3x.png',
-      curUrl: '../img/menstruation/3menstruation-3@3x.png',
-      select: false,
-    }
+        name: '月经量偏少',
+        imgUrl: '../img/menstruation/1menstruation@3x.png',
+        curUrl: '../img/menstruation/1menstruation-1@3x.png',
+        select: false
+      },
+      {
+        name: '月经量正常',
+        imgUrl: '../img/menstruation/2menstruation@3x.png',
+        curUrl: '../img/menstruation/2menstruation-2@3x.png',
+        select: false,
+      },
+      {
+        name: '月经量很多',
+        imgUrl: '../img/menstruation/3menstruation@3x.png',
+        curUrl: '../img/menstruation/3menstruation-3@3x.png',
+        select: false,
+      }
     ],
     // 白带
     leucorrheas: [{
-      imgUrl: '../img/leucorrhea/1leucorrhea@3x.png',
-      curUrl: '../img/leucorrhea/1leucorrhea-1@3x.png',
-    },
-    {
-      imgUrl: '../img/leucorrhea/2leucorrhea@3x.png',
-      curUrl: '../img/leucorrhea/2leucorrhea-2@3x.png',
-    },
-    {
-      imgUrl: '../img/leucorrhea/3leucorrhea@3x.png',
-      curUrl: '../img/leucorrhea/3leucorrhea-3@3x.png',
-    }
+        imgUrl: '../img/leucorrhea/1leucorrhea@3x.png',
+        curUrl: '../img/leucorrhea/1leucorrhea-1@3x.png',
+      },
+      {
+        imgUrl: '../img/leucorrhea/2leucorrhea@3x.png',
+        curUrl: '../img/leucorrhea/2leucorrhea-2@3x.png',
+      },
+      {
+        imgUrl: '../img/leucorrhea/3leucorrhea@3x.png',
+        curUrl: '../img/leucorrhea/3leucorrhea-3@3x.png',
+      }
     ],
     // 乳房胀痛
     breastTenderness: [{
-      select: false,
-      name: '基本不痛',
-      imgUrl: '../img/pain/1pain@3x.png',
-      curUrl: '../img/pain/1pain-1@3x.png',
+        select: false,
+        name: '基本不痛',
+        imgUrl: '../img/pain/1pain@3x.png',
+        curUrl: '../img/pain/1pain-1@3x.png',
 
-    },
-    {
-      select: false,
-      name: '轻微痛',
-      imgUrl: '../img/pain/2pain@3x.png',
-      curUrl: '../img/pain/2pain-1@3x.png',
-    },
-    {
-      select: false,
-      name: '非常痛',
-      imgUrl: '../img/pain/3pain@3x.png',
-      curUrl: '../img/pain/3pain-@3x.png',
-    }
+      },
+      {
+        select: false,
+        name: '轻微痛',
+        imgUrl: '../img/pain/2pain@3x.png',
+        curUrl: '../img/pain/2pain-1@3x.png',
+      },
+      {
+        select: false,
+        name: '非常痛',
+        imgUrl: '../img/pain/3pain@3x.png',
+        curUrl: '../img/pain/3pain-@3x.png',
+      }
     ],
     // 小腹痛
     abdominalPain: [{
-      select: false,
-      name: '基本不痛',
-      imgUrl: '../img/pain/1pain@3x.png',
-      curUrl: '../img/pain/1pain-1@3x.png',
+        select: false,
+        name: '基本不痛',
+        imgUrl: '../img/pain/1pain@3x.png',
+        curUrl: '../img/pain/1pain-1@3x.png',
 
-    },
-    {
-      select: false,
-      name: '轻微痛',
-      imgUrl: '../img/pain/2pain@3x.png',
-      curUrl: '../img/pain/2pain-1@3x.png',
-    },
-    {
-      select: false,
-      name: '非常痛',
-      imgUrl: '../img/pain/3pain@3x.png',
-      curUrl: '../img/pain/3pain-@3x.png',
-    }
+      },
+      {
+        select: false,
+        name: '轻微痛',
+        imgUrl: '../img/pain/2pain@3x.png',
+        curUrl: '../img/pain/2pain-1@3x.png',
+      },
+      {
+        select: false,
+        name: '非常痛',
+        imgUrl: '../img/pain/3pain@3x.png',
+        curUrl: '../img/pain/3pain-@3x.png',
+      }
     ],
     // 心情
     mood: [{
-      name: '情绪稳定',
-      imgUrl: '../img/mood/2mood@3x.png',
-      curUrl: '../img/mood/2mood-2@3x.png',
-      select: false,
-    },
-    {
-      name: '烦躁易怒',
-      imgUrl: '../img/mood/3mood@3x.png',
-      curUrl: '../img/mood/3mood-3@3x.png',
-      select: false,
-    }
+        name: '情绪稳定',
+        imgUrl: '../img/mood/2mood@3x.png',
+        curUrl: '../img/mood/2mood-2@3x.png',
+        select: false,
+      },
+      {
+        name: '烦躁易怒',
+        imgUrl: '../img/mood/3mood@3x.png',
+        curUrl: '../img/mood/3mood-3@3x.png',
+        select: false,
+      }
     ],
     // 经常头痛
     menstrualHeadache: [{
-      select: false,
-      name: '基本不痛',
-      imgUrl: '../img/pain/1pain@3x.png',
-      curUrl: '../img/pain/1pain-1@3x.png',
+        select: false,
+        name: '基本不痛',
+        imgUrl: '../img/pain/1pain@3x.png',
+        curUrl: '../img/pain/1pain-1@3x.png',
 
-    },
-    {
-      select: false,
-      name: '轻微痛',
-      imgUrl: '../img/pain/2pain@3x.png',
-      curUrl: '../img/pain/2pain-1@3x.png',
-    },
-    {
-      select: false,
-      name: '非常痛',
-      imgUrl: '../img/pain/3pain@3x.png',
-      curUrl: '../img/pain/3pain-@3x.png',
-    }
+      },
+      {
+        select: false,
+        name: '轻微痛',
+        imgUrl: '../img/pain/2pain@3x.png',
+        curUrl: '../img/pain/2pain-1@3x.png',
+      },
+      {
+        select: false,
+        name: '非常痛',
+        imgUrl: '../img/pain/3pain@3x.png',
+        curUrl: '../img/pain/3pain-@3x.png',
+      }
     ],
     //怕冷
     fearCold: [{
-      select: false,
-      name: '不怕',
-      imgUrl: '../img/cold/1cold@3x.png',
-      curUrl: '../img/cold/1cold-1@3x.png',
+        select: false,
+        name: '不怕',
+        imgUrl: '../img/cold/1cold@3x.png',
+        curUrl: '../img/cold/1cold-1@3x.png',
 
-    },
-    {
-      select: false,
-      name: '微微',
-      imgUrl: '../img/cold/2cold@3x.png',
-      curUrl: '../img/cold/2cold-2@3x.png',
-    },
-    {
-      select: false,
-      name: '好冷',
-      imgUrl: '../img/cold/3cold@3x.png',
-      curUrl: '../img/cold/3cold-3@3x.png',
-    }
+      },
+      {
+        select: false,
+        name: '微微',
+        imgUrl: '../img/cold/2cold@3x.png',
+        curUrl: '../img/cold/2cold-2@3x.png',
+      },
+      {
+        select: false,
+        name: '好冷',
+        imgUrl: '../img/cold/3cold@3x.png',
+        curUrl: '../img/cold/3cold-3@3x.png',
+      }
     ],
     //乏力
     weak: [{
-      select: false,
-      name: '不乏力',
-      imgUrl: '../img/weak/1weak@3x.png',
-      curUrl: '../img/weak/1weak-1@3x.png',
-      id: '01'
-    },
-    {
-      select: false,
-      name: '轻微',
-      imgUrl: '../img/weak/2weak@3x.png',
-      curUrl: '../img/weak/2weak-2@3x.png',
-      id: "02"
-    },
-    {
-      select: false,
-      name: '非常乏力',
-      imgUrl: '../img/weak/3weak@3x.png',
-      curUrl: '../img/weak/3weak-3@3x.png',
-      id: "03"
-    }
+        select: false,
+        name: '不乏力',
+        imgUrl: '../img/weak/1weak@3x.png',
+        curUrl: '../img/weak/1weak-1@3x.png',
+        id: '01'
+      },
+      {
+        select: false,
+        name: '轻微',
+        imgUrl: '../img/weak/2weak@3x.png',
+        curUrl: '../img/weak/2weak-2@3x.png',
+        id: "02"
+      },
+      {
+        select: false,
+        name: '非常乏力',
+        imgUrl: '../img/weak/3weak@3x.png',
+        curUrl: '../img/weak/3weak-3@3x.png',
+        id: "03"
+      }
     ],
   },
-  clickxing:function(e){
+  clickxing: function(e) {
     this.setData({
-      weight:true
+      weight: true
     })
 
   },
-  chooseImg: function (e) {
+  chooseImg: function(e) {
     const index = e.currentTarget.dataset.index;
     const list1 = this.data.anmo;
     let selectTag = false;
@@ -243,7 +250,7 @@ Page({
 
   },
   // 来了
-  switchChange: function (e) {
+  switchChange: function(e) {
     const tag = e.detail.value;
     if (tag) {
       const {
@@ -269,7 +276,7 @@ Page({
     })
   },
   // 点击月经量
-  chooseImg1: function (e) {
+  chooseImg1: function(e) {
     const index = e.currentTarget.dataset.index;
 
     const list1 = this.data.menstrualVolume;
@@ -281,7 +288,6 @@ Page({
         list1[i].select = false;
       }
     }
-    console.log(list1);
 
     this.setData({
       menstrualVolume: list1
@@ -325,7 +331,7 @@ Page({
 
   },
   // 点击白带
-  chooseImg2: function (e) {
+  chooseImg2: function(e) {
     const index = e.currentTarget.dataset.index;
 
     const list = this.data.leucorrheas;
@@ -377,7 +383,7 @@ Page({
 
   },
   // 点击乳房胀痛
-  chooseImg3: function (e) {
+  chooseImg3: function(e) {
     const index = e.currentTarget.dataset.index;
     const list = this.data.breastTenderness;
     for (let i = 0; i < list.length; i++) {
@@ -433,7 +439,7 @@ Page({
     this.updateStatus(updateData)
   },
   // 点击小腹痛
-  chooseImg4: function (e) {
+  chooseImg4: function(e) {
     const index = e.currentTarget.dataset.index;
     const list = this.data.abdominalPain;
     for (let i = 0; i < list.length; i++) {
@@ -487,7 +493,7 @@ Page({
     this.updateStatus(updateData)
   },
   // 心情
-  chooseImg5: function (e) {
+  chooseImg5: function(e) {
     const index = e.currentTarget.dataset.index;
     const list = this.data.mood;
     for (let i = 0; i < list.length; i++) {
@@ -524,7 +530,7 @@ Page({
     this.updateStatus(updateData)
   },
   // 经期头痛
-  chooseImg6: function (e) {
+  chooseImg6: function(e) {
     const index = e.currentTarget.dataset.index;
 
     const list = this.data.menstrualHeadache;
@@ -572,7 +578,7 @@ Page({
     this.updateStatus(updateData)
   },
   // 怕冷
-  chooseImg7: function (e) {
+  chooseImg7: function(e) {
     const index = e.currentTarget.dataset.index;
     const list = this.data.fearCold;
     for (let i = 0; i < list.length; i++) {
@@ -628,7 +634,7 @@ Page({
     this.updateStatus(updateData)
   },
   // 乏力
-  chooseImg8: function (e) {
+  chooseImg8: function(e) {
     const index = e.currentTarget.dataset.index;
 
     const list8 = this.data.weak;
@@ -680,36 +686,40 @@ Page({
     this.setData({
       weak: list8
     })
-      this.updateStatus(updateData)
+    this.updateStatus(updateData)
   },
 
 
-  rili: function (e) {
-    // console.log(e.currentTarget.dataset.day)
-    // console.log(this.data.month)
-    // console.log(this.data.year)
+  rili: function(e) {
     let cmonth;
-    const { year, month, list, dateArr } = this.data;
+    const {
+      year,
+      month,
+      list,
+      dateArr
+    } = this.data;
     if (month < 10) {
       cmonth = '0' + month
     }
     let day;
     day = e.currentTarget.dataset.day
     let dates = year + "-" + cmonth + "-" + day;
-    for (let i = 0; i < dateArr.length;i++){
+    for (let i = 0; i < dateArr.length; i++) {
       const obj = dateArr[i];
-      if (day === obj.dateNum){
-        obj.isSelect=true;
-      }else{
+      if (day === obj.dateNum) {
+        obj.isSelect = true;
+      } else {
         obj.isSelect = false;
       }
     }
-    console.log(dates)
-    this.setData({ selectDay: dates, dateArr: dateArr})
-    
+    this.setData({
+      selectDay: dates,
+      dateArr: dateArr
+    })
+
     this.initRecord(dates);
   },
-  onLoad: function () {
+  onLoad: function() {
     const parmas = {
       tag: 'switch'
     }
@@ -720,9 +730,11 @@ Page({
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
     this.dateInit();
-   
 
-    const { list } = this.data;
+
+    const {
+      list
+    } = this.data;
     let cmonth;
     if (month < 10) {
       cmonth = '0' + month
@@ -730,7 +742,7 @@ Page({
     // 当月第一天
     let tian1;
     tian1 = '01';
-   
+
     let startDay = year + '-' + cmonth + '-' + tian1
 
     // 当月最后一天
@@ -747,11 +759,11 @@ Page({
     })
     console.log(startDay)
     console.log(endDay)
-  
+
     this.query(startDay, endDay, day);
- 
+
   },
-  query: function (startDay, endDay, currentDay) {
+  query: function(startDay, endDay, currentDay) {
 
     var query = {
       startDay,
@@ -759,7 +771,10 @@ Page({
     }
 
     userInfoQueryBodyStatus(query).then(res => {
-      const { list, userModel } = res;
+      const {
+        list,
+        userModel
+      } = res;
       app.globalData.bodyStatus = list;
       this.dateInit()
       for (let i = 0; i < list.length; i++) {
@@ -776,12 +791,13 @@ Page({
 
     })
   },
-  initRecord(day){
-
+  initRecord(day) {
+    let isdy = false;
     const list = app.globalData.bodyStatus;
     for (let i = 0; i < list.length; i++) {
       const dy = list[i];
       if (dy.day === day) {
+        isdy = true;
         const {
           physiologicalCycle,
           weak,
@@ -953,125 +969,131 @@ Page({
         })
       }
     }
+
+    // 如果没有数据
+    if (!isdy) {
+      this.setData({
+        currentDay: {
+          menstrualStatus: '02'
+        }
+      })
+    }
+
   },
 
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-   
-      var data = {
-        startDay: this.data.startDay,
-        endDay:this.data.endDay
+  onShow: function() {
 
-      }
-      userInfoQueryBodyStatus(data).then(res => {
+    var data = {
+      startDay: this.data.startDay,
+      endDay: this.data.endDay
+
+    }
+    userInfoQueryBodyStatus(data).then(res => {
       console.log('查询身体状态接口', res);
-     const {list}= res;
-     const rlist=[];
-     let currentDay={}
-      for (let i = 0; i < list.length;i++){
-         const data=list[i]
-          if (i.physiologicalCycle == '01'){
-            console.log(physiologicalCycle)
-          }
+      const {
+        list
+      } = res;
+      const rlist = [];
+      let currentDay = {}
+      for (let i = 0; i < list.length; i++) {
+        const data = list[i]
+        if (i.physiologicalCycle == '01') {}
 
-          if(data.day===moment().format('YYYY-MM-D')){
-            console.log(data.day)
-            currentDay = data;
-          }
-          rlist.push(data);
+        if (data.day === moment().format('YYYY-MM-D')) {
+          currentDay = data;
+        }
+        rlist.push(data);
       }
-
       this.setData({
         currentDay,
         list: rlist
       })
-
-      
-      console.log(list)
     })
 
 
-
-
   },
-  dateInit: function (setYear, setMonth) {
+  dateInit: function(setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
-    let dateArr = [];						//需要遍历的日历数组数据
-    let arrLen = 0;							//dateArr的数组长度
+    let dateArr = []; //需要遍历的日历数组数据
+    let arrLen = 0; //dateArr的数组长度
     let now = setYear ? new Date(setYear, setMonth) : new Date();
     let year = setYear || now.getFullYear();
     let nextYear = 0;
-    let month = setMonth || now.getMonth();					//没有+1方便后面计算当月总天数
+    let month = setMonth || now.getMonth(); //没有+1方便后面计算当月总天数
     let nextMonth = (month + 1) > 11 ? 1 : (month + 1);
-    let startWeek = new Date(year + '/' + (month + 1) + '/' + 1).getDay();							//目标月1号对应的星期
-    let dayNums = new Date(year, nextMonth, 0).getDate();				//获取目标月有多少天
+    let startWeek = new Date(year + '/' + (month + 1) + '/' + 1).getDay(); //目标月1号对应的星期
+    let dayNums = new Date(year, nextMonth, 0).getDate(); //获取目标月有多少天
     let obj = {};
     let num = 0;
     var tian = dayNums;
-     
+
     if (month + 1 > 11) {
       nextYear = year + 1;
       dayNums = new Date(nextYear, nextMonth, 0).getDate();
     }
     arrLen = startWeek + dayNums;
-    const list=app.globalData.bodyStatus||[];
-    console.log('arrLen', list)
+    const list = app.globalData.bodyStatus || [];
     for (let i = 0; i < arrLen; i++) {
-      
+
       if (i >= startWeek) {
         num = i - startWeek + 1;
         let css
         let tag
-       for(let i=0;i<list.length;i++){
+        for (let i = 0; i < list.length; i++) {
           const dy = list[i];
-          const { day, isPredict, physiologicalCycle}=dy;
-          if(day){
-            const remoteDay= moment(day).format("D");
+          const {
+            day,
+            isPredict,
+            physiologicalCycle
+          } = dy;
+          if (day) {
+            const remoteDay = moment(day).format("D");
 
-          
-          
-            if (num == remoteDay){
+
+
+            if (num == remoteDay) {
               // 判断是否有记录
               const isRecord = this.isRecord(dy);
               if (isRecord) {
                 tag = records['record'];
               }
-              if (isPredict === '0' && physiologicalCycle==='02'){
-                css ='yuejing-yuji'
+              if (isPredict === '0' && physiologicalCycle === '02') {
+                css = 'yuejing-yuji'
               }
               if (isPredict === '1' && physiologicalCycle === '02') {
                 css = 'yuejingclass'
               }
-            
-              if (physiologicalCycle === '03'||physiologicalCycle === '04') {
+
+              if (physiologicalCycle === '03' || physiologicalCycle === '04') {
                 css = 'pailuanclass'
               }
 
-              if (physiologicalCycle === '04'){
+              if (physiologicalCycle === '04') {
                 tag = records['pailuanri']
               }
             }
           }
-         
-       }
+
+        }
         obj = {
           isToday: '' + year + (month + 1) + num,
           dateNum: num,
           // 选中状态 false 未选中 true 选中
-          isSelect:false,
+          isSelect: false,
           // 是否有记录
-          record:false,
+          record: false,
           // 姨妈状态 1预测大姨妈 css1 2 预测排卵期 css2 3实际大姨妈 css3  
           css,
           // :'icon-record' 记录 icon-pailuan
           tag,
-         
+
         }
       } else {
         obj = {};
@@ -1101,7 +1123,7 @@ Page({
       })
     }
   },
-  lastMonth: function () {
+  lastMonth: function() {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
     let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
@@ -1113,18 +1135,16 @@ Page({
   },
   // 更新身体信息
   updateStatus(data) {
-  const day = this.data.selectDay;
+    const day = this.data.selectDay;
     userInfoUpdateBodyStatus({
       day,
       ...data
     }).then(res => {
-      console.log('更新身体状态接口', res);
-      // this.setData({
-      //   list: res.list
-      // })
+       //更新成功
+      this.query(this.data.startDay, this.data.endDay, day);
     })
   },
-  nextMonth: function () {
+  nextMonth: function() {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
     let month = this.data.month > 11 ? 0 : this.data.month;
@@ -1135,7 +1155,7 @@ Page({
     this.dateInit(year, month);
   },
   //手指刚放到屏幕触发
-  touchS: function (e) {
+  touchS: function(e) {
     //判断是否只有一个触摸点
     if (e.touches.length == 1) {
       this.setData({
@@ -1144,7 +1164,7 @@ Page({
       });
     }
   },
-  touchE: function (e) {
+  touchE: function(e) {
     var that = this
     if (e.changedTouches.length == 1) {
       //手指移动结束后触摸点位置的X坐标
@@ -1160,27 +1180,24 @@ Page({
     }
   },
   // 是否有记录
-  isRecord: function (dy){
+  isRecord: function(dy) {
     const {
       chiropractic = '02',
-      frictionalAbdomen = '02',
-      menstrualStatus,
-      menstrualVolume,
-      leucorrhea,
-      breastTenderness,
-      abdominalPain,
-      mood,
-      menstrualHeadache,
-      fearCold,
-      weak
+        frictionalAbdomen = '02',
+        menstrualVolume,
+        leucorrhea,
+        breastTenderness,
+        abdominalPain,
+        mood,
+        menstrualHeadache,
+        fearCold,
+        weak
     } = dy;
 
     if (chiropractic === '01' || frictionalAbdomen === '01') {
       return true;
     }
-    if (menstrualStatus) {
-      return true;
-    }
+
     if (leucorrhea) {
       return true;
     }

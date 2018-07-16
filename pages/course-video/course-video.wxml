@@ -1,7 +1,7 @@
 <!--视频播放-->
 <import src="../../wxParse/wxParse.wxml" />
 <view class="section_tc">
-  <video id="myVideo" src="{{filePath}}" duration="{{durations}}"></video>
+  <video id="myVideo" src="{{filePath}}" duration="{{durations}}">  initial-time=0R</video>
   <view class='list'>
     <text class='view_fileName'>{{sectionName}}</text>
     <text class='view_teacherName'>{{teacherName}}</text>

@@ -18,9 +18,9 @@ Page({
     shaonv: null
   },
   onLoad: function(option) {
-   
-    auth();
-    this.getDataDay()
+      auth();
+      this.getDataDay()
+ 
   },
   // 少女入口
   clickGirl(e) {

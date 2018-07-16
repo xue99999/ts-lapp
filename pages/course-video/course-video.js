@@ -24,6 +24,7 @@ Page({
     id: "",
     filePath: "",
     teacherName: "",
+    initial_times:0.0,
     durations: 0,
     remark: "",
 
@@ -100,6 +101,7 @@ Page({
     apiSectionPlay(id).then(result => {
       console.log('课节播放', result)
       if (result.code === 200) {
+    
         this.setData({
           filePath: result.filePath
         })
@@ -154,7 +156,10 @@ Page({
   }) {
     const index = detail.index;
     console.log('点击列表播放视频id', SectionList[index].id);
-    this.onPlay(SectionList[index-1].id);
+    console.log('点击列表播放视频id', index);
+    this.videoContext.pause();
+    pos = index;
+    this.onPlay(SectionList[index].id);
     this.setData({
       visible1: false,
     });
@@ -174,6 +179,7 @@ Page({
   },
   //下一首
   toNext: function() {
+    this.videoContext.pause();
     //拿到数组的长度
     var listLength=SectionList.length-1;
     //记录一下当前的位置
@@ -191,6 +197,7 @@ Page({
   },
   //上一首
   toLast: function() {
+    this.videoContext.pause();
     //记录一下当前的位置
     if (pos ===0) {
       wx.showToast({
