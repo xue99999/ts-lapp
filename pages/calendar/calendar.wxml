@@ -1,13 +1,9 @@
 <view class='wrap'>
   <view class='date-show'>
     <view class='lt-arrow' bindtap='lastMonth'>
-      〈
-      <!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
     </view>
     {{year}}年{{month}}月
     <view class='rt-arrow' bindtap='nextMonth'>
-      〉
-      <!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
     </view>
   </view>
   <view class='header'>
@@ -20,17 +16,18 @@
 
   <view class='header'>
   </view>
-  <view class='date-box'>
-    <view wx:for='{{dateArr}}' wx:key  data-date='{{item.isToday}}'>
-      <view class='date-head'>
-        <view data-index='{{index}}' data-day='{{item.dateNum}}' class="day {{item.css}} {{item.isSelect?'day-select':''}}" bindtap='rili' >
+  <view class='date-box' bindtouchstart="touchS" bindtouchend="touchE">
+    <view wx:for='{{dateArr}}' wx:key  data-date='{{item.isToday}}' class='date-view'>
+      <view class="date-head {{item.isSelect?'day-select':''}}">
+        <view data-index='{{index}}' data-day='{{item.dateNum}}' class="day {{item.css}}" bindtap='rili' >
            {{item.dateNum}} 
         </view> 
-        <view class='date-weight'>
-  			   <image src='{{item.tag}}' class='icon-record'></image>
-        </view>
+
 
       </view>
+              <view class='date-weight'>
+  			   <image src='{{item.tag}}' class='icon-record'></image>
+        </view>
     </view>
   </view>
 

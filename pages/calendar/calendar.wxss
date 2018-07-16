@@ -29,13 +29,13 @@
 
 .header {
   font-size: 0;
-  padding: 0 24rpx;
-  margin-top: 28px;
+  /* padding: 0 24rpx; */
+
 }
 
 .header>view {
   display: inline-block;
-  width: 14.285%;
+  width: 14%;
   color: #333;
   font-size: 26rpx;
   text-align: center;
@@ -61,27 +61,31 @@
   /* border: 1px solid red; */
 }
 
-.date-box>view {
+.date-box .date-view {
   position: relative;
   display: inline-block;
+
   width: 14.285%;
   color: #020202;
   font-size: 40rpx;
   text-align: center;
   vertical-align: middle;
   margin: 10rpx 0;
-  /* border: 1px solid red; */
+    /* border: 0.1px solid red;   */
 }
 
 .date-head {
-  height: 90rpx;
+  margin-left: 24rpx;
+  width: 60%;
+  height: 60rpx;
   border-radius: 50%;
   font-size: 28rpx;
-  /* border: 1px solid red; */
+    /* border: 1px solid red;   */
   display: flex;
   flex-direction:column;
   justify-content: center;
   align-items: center;
+  
 }
 
 .date-head .day{
@@ -93,16 +97,12 @@
   border-radius: 50%;
   text-align: center;
   margin: 0 auto;
+  /* border: 1px solid blue; */
 }
 
 .day-select{
-  width: 45rpx;
-  height: 45rpx;
-  text-align: center;
-  background-color: #d7ecfc;
-  margin: 0 auto;
-  color: white;
   /* border: 1px solid red; */
+  background-color: #d7ecfc;
 }
 
 .yuejing-yuji{
@@ -110,7 +110,6 @@
   height: 45rpx;
   text-align: center;
   background-color: #FCAFA5;
-  margin: 0 auto;
   color: white;
   /* border: 1px solid red; */
 }
@@ -119,7 +118,6 @@
   width: 45rpx;
   height: 45rpx;
   text-align: center;
-  margin: 0 auto;
   background: #fe6f71;
   border-radius: 50%;
   color: white;
@@ -129,7 +127,6 @@
   width: 45rpx;
   height: 45rpx;
   text-align: center;
-  margin: 0 auto;
   background: #d193ee;
   border-radius: 50%;
   color: white;

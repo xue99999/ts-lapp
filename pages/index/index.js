@@ -162,8 +162,9 @@ Page({
             url: '../today/today',
           })
         } else {
-          wx.redirectTo({
-            url: '../home/home?characteristic=1',
+          wx.switchTab({
+        
+            url: '../home/home',
           })
         }
       }

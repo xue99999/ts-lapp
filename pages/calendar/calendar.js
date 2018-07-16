@@ -713,7 +713,7 @@ Page({
     const parmas = {
       tag: 'switch'
     }
-
+    auth(parmas)
     const day = moment().format("YYYY-MM-D");
 
     let now = new Date();
@@ -1133,6 +1133,31 @@ Page({
       month: (month + 1)
     })
     this.dateInit(year, month);
+  },
+  //手指刚放到屏幕触发
+  touchS: function (e) {
+    //判断是否只有一个触摸点
+    if (e.touches.length == 1) {
+      this.setData({
+        //记录触摸起始位置的X坐标
+        startX: e.touches[0].clientX
+      });
+    }
+  },
+  touchE: function (e) {
+    var that = this
+    if (e.changedTouches.length == 1) {
+      //手指移动结束后触摸点位置的X坐标
+      var endX = e.changedTouches[0].clientX;
+      //触摸开始与结束，手指移动的距离
+      var disX = that.data.startX - endX;
+      if (disX > 0) {
+        this.nextMonth()
+      } else if (disX < -15) {
+        this.lastMonth()
+
+      }
+    }
   },
   // 是否有记录
   isRecord: function (dy){
