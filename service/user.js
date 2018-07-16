@@ -8,12 +8,6 @@ import Http from '../utils/http.js';
 //const baseUrl = 'http://192.168.5.82:8080/ts-app-web/';
 // const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 //李康 本地测试路径
-<<<<<<< .mine
-// const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
-=======
- //const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
->>>>>>> .theirs
-//刘小东 本地测试路径
 
  const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 //const baseUrl = 'http://192.168.9.171:8090/'
@@ -24,7 +18,7 @@ import Http from '../utils/http.js';
 //刘小东 本地测试路径
 //const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 //171测试服务器
-const baseUrl ='http://192.168.9.171:8090/'
+// const baseUrl ='http://192.168.9.171:8090/'
 
 // const baseUrl = 'http://192.168.9.171:8090/ts-app-web/'
 const {

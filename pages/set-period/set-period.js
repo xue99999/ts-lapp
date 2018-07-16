@@ -2,6 +2,8 @@ const app = getApp()
 const { userInfoQueryMensAndOvulation, userInfoUpdateMensAndOvulation} = require('../../service/user.js')
 const { auth } = require('../../utils/auth.js');
 var Http = require('../../utils/http.js');
+var menstrualCycle;
+var menstrualTimes;
 Page({
 
   /**
@@ -22,32 +24,47 @@ Page({
   //经期天数
   changejingqi(e) {
     const val = e.detail.value;
-    const menstrualCycle = this.data.multiArray[val[0]]
-    console.log(menstrualCycle)
-    this.setData({ multiIndex: menstrualCycle})
+    this.setData({
+      multiIndex: e.detail.value,
+      menstrualCycle: this.data.multiArray[this.data.multiIndex]
+    })
+   
+    console.log(this.data.multiArray[this.data.multiIndex])
+    menstrualCycle = this.data.multiArray[this.data.multiIndex];
+
     var data = {
       mayConception: '01',
       // lutealPhase:'' ,  //黄体期
       improve: '02',
-      menstrualCycle: this.data.multiIndex,   //周期
+      menstrualCycle: menstrualCycle,   //周期
       menstrualTimes: null   //月经
     }
     userInfoUpdateMensAndOvulation(data).then(res => {
       console.log('设置经期与排卵', res);
     })
   },
+
+
+
+
+
+
   // 月经天数
   changeyuejing(e) {
     const val = e.detail.value;
-    const menstrualTimes = this.data.multiArray1[val[0]]
-    this.setData({ multiIndex: menstrualTimes })
-    console.log(menstrualCycle)
+    this.setData({
+      multiIndex1: e.detail.value,
+      menstrualTimes: this.data.multiArray1[this.data.multiIndex1]
+    })
+
+    console.log(this.data.multiArray1[this.data.multiIndex1])
+    menstrualTimes = this.data.multiArray1[this.data.multiIndex1];
     var data = {
       mayConception: '01',
       // lutealPhase:'' ,  //黄体期
       improve: '02',
       menstrualCycle:null,
-      menstrualTimes: this.data.multiIndex1
+      menstrualTimes: menstrualTimes
     }
     userInfoUpdateMensAndOvulation(data).then(res => {
       console.log('设置经期与排卵', res);
@@ -75,11 +92,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.setNavigationBarTitle({
-      title: '经期与排卵'
-    })
-    userInfoQueryMensAndOvulation().then(res => {
-      console.log('查询经期与排卵', res);
-    })
+    // wx.setNavigationBarTitle({
+    //   title: '经期与排卵'
+    // })
+    // userInfoQueryMensAndOvulation().then(res => {
+    //   console.log('查询经期与排卵', res);
+    // })
   }
 })
