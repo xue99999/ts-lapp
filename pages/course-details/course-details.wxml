@@ -23,10 +23,7 @@
   <template wx:if="{{currentTab % 2 == 0}}" is="course_remark" data="{{remark}}" />
   <template wx:else is="course_list" data="{{sectionList,url,teacherName}}" />
   <template name="course_list">
-    <view class='course_list' bindtap='onClickAllPlay'>
-      <image class='course_list_img' src='../img/play@3x.png'></image>
-      <text class='course_list_text'>全部播放</text>
-    </view>
+ 
     <scroll-view class='scroll_view' scroll-y="true">
       <view wx:for="{{sectionList}}" wx:for-item="item" wx:key="{{item.playNum+item.duration}}">
         <navigator class='course_list_itme' url="{{url+'&id='+item.id+'&teacherName='+teacherName}}">
@@ -51,7 +48,6 @@
 
   <template name="course_remark">
     <view class='course_remark_view'>
-      <view style='padding-top:16rpx;font-size: 36rpx;'>内容简介</view>
      <template is="wxParse" data="{{wxParseData:remark.nodes}}" />
     </view>
 

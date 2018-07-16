@@ -48,8 +48,6 @@ Page({
       id = options.id;
     }
 
-
-
     apiCourseId(options.id).then(result => {
       console.log('课程详情', result);
       WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
@@ -170,6 +168,34 @@ Page({
       console.log('课程收藏操作', result);
 
     })
+  },
+  onHide:function(){
+    apiCourseId(id).then(result => {
+      console.log('课程详情', result);
+      WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
+      this.setData({
+        id: result.data.id,
+        courseName: result.data.courseName,
+        isSubscibe: result.data.isSubscibe,
+        price: result.data.price,
+        teacherName: result.data.teacherName,
+        //   remark: result.data,
+        courseData: result.data,
+        pictureUrl: result.data.pictureUrl,
+        isCollect: result.data.isCollect,
+      })
+    });
+
+    apiSection(id).then(result => {
+      console.log('课程列表', result);
+      this.setData({
+
+        total: result.total,
+        sectionList: result.list,
+        //   remark: result.list[0].remark,
+        url: '../course-video/course-video?courseId=' + id,
+      })
+    });
   }
 
 })
