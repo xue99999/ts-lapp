@@ -92,6 +92,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+<<<<<<< .mine
     wx.setNavigationBarTitle({
       title: '经期与排卵'
     })
@@ -119,5 +120,34 @@ Page({
         }
       }
     })
+=======
+    wx.setNavigationBarTitle({
+      title: '经期与排卵'
+    })
+    userInfoQueryMensAndOvulation().then(res => {
+      console.log('查询经期与排卵', res);
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
   }
 })
