@@ -138,7 +138,7 @@
     <image src='../img/No tired@3x.png'></image>
     <text>乏力</text>
   </view>
-  <view class='view-mo1' wx:for="{{weak}}" wx:for-index="idx" wx:for-item="item" wx:key>
+  <view class='view-mo1 view-fali' wx:for="{{weak}}" wx:for-index="idx" wx:for-item="item" wx:key>
     <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg8" data-index="{{idx}}" data-zhi='{{item.id}}' />
   </view>
 </view>

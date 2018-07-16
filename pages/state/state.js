@@ -488,7 +488,7 @@ Page({
         duration: 500
       })
       updateData = {
-        mood: '02'
+        mood: '01'
       }
     } else if (index == 1) {
       wx.showToast({
@@ -497,7 +497,7 @@ Page({
         duration: 500
       })
       updateData = {
-        mood: '01'
+        mood: '02'
       }
     }
     this.setData({
@@ -678,6 +678,16 @@ Page({
       ...data
     }).then(res => {
       console.log('更新身体状态接口', res);
+      const { code, integral}=res;
+      if (code===200){
+        if (integral && integral>0){
+          wx.showToast({
+            title: `积分+${integral}`,
+            icon: 'none',
+            duration: 1000,
+          })
+        }
+      }
       // this.setData({
       //   list: res.list
       // })

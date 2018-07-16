@@ -13,9 +13,7 @@
          <view bindtap='clickjinri' class='view-jinr'>
                  <image src='../img/jinri@3x.png'></image>         
                   <text>今日提示</text>
-         </view> 
-
-        
+         </view>
   </view> 
   <view class='view-img'>
         <image src='../img/yuan@3x.png'></image>
@@ -23,7 +21,7 @@
         <view>{{item.userModel}}</view>  -->
         <view class='view-inner' wx:if="{{userModel==='01'}}">
               <view>{{showObj['01'].top}}</view>
-              <view>{{showObj['01'].middle}}</view> 
+              <view>{{currentDay.physiologicalCycle!=='01'?showObj['01'].middle:''}}</view> 
               <view class='view-last'>{{showObj['01'].shouyun}}</view>      
         </view>
 

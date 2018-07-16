@@ -1,11 +1,23 @@
 <view class='navlist'>
   <view>
     <view>经期天数</view>
-    <view class='color'>30天</view>
+    <view class="section" class='color'>
+      <picker bindchange="changejingqi" mode="selector" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker-text">
+          {{multiArray[multiIndex]}} 天
+        </view>
+      </picker>
+    </view>
   </view>
   <view>
     <view>月期天数</view>
-    <view class='color'>7天</view>
+     <view class="section" class='color'>
+      <picker bindchange="changeyuejing" mode="selector" value="{{multiIndex1}}" range="{{multiArray1}}">
+        <view class="picker">
+          {{multiArray1[multiIndex1]}} 天
+        </view>
+      </picker>
+    </view> 
   </view>
 
 </view>
