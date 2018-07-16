@@ -29,7 +29,6 @@ Page({
    */
   onLoad: function(options) {
     auth();
-    console.log('微信支付>>>>', options.courseId);
 
     id = options.courseId;
 
@@ -41,10 +40,6 @@ Page({
     })
   },
   onClickPay() {
-    console.log('微信支付');
-    console.log(input);
-    console.log('id>>>>>', id);
-
     var data = {
 
       // courseId: "a3999360b36a4cfe835e78c9189ccde0",
@@ -53,7 +48,6 @@ Page({
     };
 
     payUnifiedorder(data).then(result => {
-      console.log('微信统一下单', result);
       //企业兑换码code=503的时候不进行支付并且return 
       if (result.code === 666) {
         wx.showToast({
@@ -75,9 +69,7 @@ Page({
       if (result.code === 200) {
         if (result.returnCode === 201) {
           wx.redirectTo({
-          
              url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
-           
           })
           return;
         }
@@ -86,14 +78,12 @@ Page({
           ...wechat,
           //接口调用成功的回调函数
           'success': function(res) {
-            console.log('成功', res);
             wx.redirectTo({
               url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
             })
           },
           //接口调用失败的回调函数
           'fail': function(res) {
-            console.log('失败', res);
             wx.showToast({
               title: '您取消了支付',
               icon: 'none',
@@ -107,6 +97,5 @@ Page({
   },
   bindObtain: function(e) {
     input = e.detail.value;
-    console.log(input);
   }
 })

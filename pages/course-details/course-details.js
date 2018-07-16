@@ -112,7 +112,7 @@ Page({
       })
       return;
     }
-    wx.redirectTo({
+    wx.navigateTo({
       url: '../pay/wx-pay/wx-pay?courseId=' + id + '&total=' + this.data.total + '&courseName=' + this.data.courseName + '&price=' + this.data.price
     })
   },
