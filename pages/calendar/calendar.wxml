@@ -25,7 +25,7 @@
     <view wx:for='{{dateArr}}' wx:key class="{{item.css}}  {{item.isSelect?'nowDay':''}}" data-date='{{item.isToday}}'>
       <view class='date-head'>
         <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili' >
-           {{item.dateNum}} 
+           {{item.dateNum == today ? '今' : item.dateNum}} 
         </view> 
 			<!-- <view class='date-weight'><image src='{{item.weight}}'></image></view> -->
       </view>

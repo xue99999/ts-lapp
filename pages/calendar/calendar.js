@@ -21,6 +21,7 @@ Page({
     curIdx: null,
     physiologicalCycle:null,
     tian:null,
+    selectDay:moment().format("YYYY-MM-D"),
     // 按摩
     anmo: [{
       name: '捏脊',
@@ -695,8 +696,8 @@ Page({
         obj.isSelect = false;
       }
     }
-    console.log(dateArr)
-    this.setData({ dateArr: dateArr})
+    console.log(dates)
+    this.setData({ selectDay: dates, dateArr: dateArr})
     
     this.initRecord(dates);
   },
@@ -706,21 +707,41 @@ Page({
     }
 
     const day = moment().format("YYYY-MM-D");
-   
+
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
     this.dateInit();
+   
+
+    const { list } = this.data;
+    let cmonth;
+    if (month < 10) {
+      cmonth = '0' + month
+    }
+    // 当月第一天
+    let tian1;
+    tian1 = '01';
+   
+    let startDay = year + '-' + cmonth + '-' + tian1
+
+    // 当月最后一天
+    let tian;
+    tian = this.data.tian;
+    let endDay = year + '-' + cmonth + '-' + tian
     this.setData({
       year: year,
       month: month,
-      isToday: '' + year + month + now.getDate()
+      isToday: '' + year + month + now.getDate(),
+      tian1: tian1,
+      startDay: startDay,
+      endDay: endDay
     })
-
-    console.log()
-    
-    this.query(this.data.startDay, this.data.endDay, day);
-   
+    console.log(startDay)
+    console.log(endDay)
+  
+    this.query(startDay, endDay, day);
+ 
   },
   query: function (startDay, endDay, currentDay) {
 
@@ -935,31 +956,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let cmonth;
-    const { year, month, list } = this.data;
-    if (month < 10) {
-      cmonth = '0' + month
-    }
-    // 当月第一天
-    let tian1;
-    tian1 = '01';
-    this.setData({
-      tian1: tian1
-    })
-    let startDay = year + '-' + cmonth + '-' + tian1
-    this.setData({
-      startDay: startDay
-    })
-    console.log(this.data.startDay)
-    // 当月最后一天
-    let tian;
-    tian = this.data.tian;
-    let endDay = year + '-' + cmonth + '-' + tian
-    this.setData({
-      endDay: endDay
-    })
-
-    console.log(this.data.endDay)
+   
       var data = {
         startDay: this.data.startDay,
         endDay:this.data.endDay
@@ -968,6 +965,7 @@ Page({
       userInfoQueryBodyStatus(data).then(res => {
       console.log('查询身体状态接口', res);
      const {list}= res;
+     console.log(list.today)
      const rlist=[];
      let currentDay={}
       for (let i = 0; i < list.length;i++){
@@ -1093,9 +1091,7 @@ Page({
   },
   // 更新身体信息
   updateStatus(data) {
-    const {
-      day
-    } = this.data.currentDay;
+  const day = this.data.selectDay;
     userInfoUpdateBodyStatus({
       day,
       ...data

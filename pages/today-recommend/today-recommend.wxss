@@ -9,7 +9,7 @@
 
 .view_top {
   height: 345rpx;
-  background: red;
+  background: #FE6F71;
   padding-top: 35rpx ;
 }
 

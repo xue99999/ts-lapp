@@ -4,7 +4,7 @@ module.exports = {
     return new Promise((resolve, reject) => {
       const mock = {
         "code": 200,
-        userModel: '02',
+        userModel: '01',
         "list": [{
           "babyBirthday": "11个月27天",
           "userModel": "02",

@@ -18,11 +18,12 @@ Page({
     const parmas = {
       tag: 'switch'
     }
-    auth(parmas)
+    //auth(parmas)
   },
   bindPickerChange: function (e) {
-    // console.log(e.currentTarget.dataset.nian+'年出生。')
-    var birthday = e.currentTarget.dataset.nian
+    const val = e.detail.value;
+    const birthday=this.data.array[val[0]]
+    console.log(birthday)
     app.globalData.obj.birthday = birthday
   },
   navto: function () {
@@ -36,7 +37,7 @@ Page({
       'babySex':'01',
       'babyBirthday':'2017'
     }
-    console.log(data.userModel)
+    console.log(data)
 
     //当用户点击下一步的时候保存定位属性
     app.globalData.goTo = "ok";
