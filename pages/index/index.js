@@ -156,14 +156,12 @@ Page({
     userInfoQueryBodyStatus(data).then(result => {
       console.log('查询身体状态接口', result);
       if (result.code === 200) {
-
         if (result.userModel) {
           wx.switchTab({
             url: '../today/today',
           })
         } else {
           wx.switchTab({
-        
             url: '../home/home',
           })
         }

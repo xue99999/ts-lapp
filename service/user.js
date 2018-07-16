@@ -8,19 +8,12 @@ import Http from '../utils/http.js';
 //const baseUrl = 'http://192.168.5.82:8080/ts-app-web/';
 // const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 //李康 本地测试路径
-
- const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
-//const baseUrl = 'http://192.168.9.171:8090/'
-//const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
-//171测试服务器
-//const baseUrl ='http://192.168.9.171:8089/'
-//const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
+  const baseUrl = 'http://192.168.5.167:8080/ts-app-web/'
 //刘小东 本地测试路径
 //const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 //171测试服务器
-// const baseUrl ='http://192.168.9.171:8090/'
 
-// const baseUrl = 'http://192.168.9.171:8090/ts-app-web/'
+// const baseUrl = 'http://192.168.9.171:8090/'
 const {
   get
 } = Http;
@@ -157,10 +150,10 @@ function apiCourseCollectCourse(params) {
     params
   })
 }
-//查询设置经期与排卵接口
+//设置经期与排卵接口
 function userInfoUpdateMensAndOvulation(params) {
-  return get({
-    url: baseUrl + '/userInfo/queryMensAndOvulation',
+  return post({
+    url: baseUrl + 'userInfo/updateMensAndOvulation',
     params
   })
 }
