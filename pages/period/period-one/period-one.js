@@ -27,8 +27,6 @@ Page({
 
   },
   navto: function() {
-
-    console.log(this.data.day)
     if (!this.data.day) {
       wx.showToast({
         title: "设置您的上次月经时间",
@@ -47,10 +45,6 @@ Page({
   },
 
   dianji: function(e) {
-    // console.log(this.data.dateArr)
-    console.log(e.currentTarget.dataset.day)
-    console.log(this.data.month)
-    console.log(this.data.year)
     var month;
     if (this.data.month < 10) {
       month = '0' + this.data.month
@@ -63,7 +57,6 @@ Page({
     }
 
     var dates = this.data.year + "-" + month + "-" + day;
-    console.log('日期', dates);
     if(moment(dates).isAfter(moment())){
       wx.showToast({
         title: "是您的上次月经时间",
@@ -166,5 +159,30 @@ Page({
       month: (month + 1)
     })
     this.dateInit(year, month);
+  },
+  //手指刚放到屏幕触发
+  touchS: function (e) {
+    //判断是否只有一个触摸点
+    if (e.touches.length == 1) {
+      this.setData({
+        //记录触摸起始位置的X坐标
+        startX: e.touches[0].clientX
+      });
+    }
+  },
+  touchE: function (e) {
+    var that = this
+    if (e.changedTouches.length == 1) {
+      //手指移动结束后触摸点位置的X坐标
+      var endX = e.changedTouches[0].clientX;
+      //触摸开始与结束，手指移动的距离
+      var disX = that.data.startX - endX;
+      if (disX > 0) {
+        this.nextMonth()
+      } else if (disX < -15) {
+        this.lastMonth()
+       
+      }
+    }
   }
 })

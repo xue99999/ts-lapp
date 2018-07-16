@@ -21,5 +21,8 @@ module.exports = {
     // 乏力
     weak:'../img/No tired@3x.png',
     baby: '../img/baby@3x.png',
+    
+    record:'../img/editor@3x.png',
+    pailuanri:'../img/xing@3x.png'
   }
 };

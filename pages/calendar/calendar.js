@@ -3,8 +3,9 @@
 const app = getApp()
 const moment = require('../../utils/moment.js');
 const { userInfoQueryBodyStatus, userInfoUpdateBodyStatus } = require('../../service/user.js')
- var Http = require('../../utils/http.js');
+const resources=require('../../utils/resources.js');
  const { auth } = require('../../utils/auth.js');
+ const { records } = resources;
 Page({
   data: {
     year: 0,
@@ -21,6 +22,8 @@ Page({
     curIdx: null,
     physiologicalCycle:null,
     tian:null,
+    selectDay:moment().format("YYYY-MM-D"),
+    weight: '../img/xing@3x.png',
     // 按摩
     anmo: [{
       name: '捏脊',
@@ -192,6 +195,12 @@ Page({
       id: "03"
     }
     ],
+  },
+  clickxing:function(e){
+    this.setData({
+      weight:true
+    })
+
   },
   chooseImg: function (e) {
     const index = e.currentTarget.dataset.index;
@@ -695,8 +704,8 @@ Page({
         obj.isSelect = false;
       }
     }
-    console.log(dateArr)
-    this.setData({ dateArr: dateArr})
+    console.log(dates)
+    this.setData({ selectDay: dates, dateArr: dateArr})
     
     this.initRecord(dates);
   },
@@ -704,23 +713,43 @@ Page({
     const parmas = {
       tag: 'switch'
     }
-
+    auth(parmas)
     const day = moment().format("YYYY-MM-D");
-   
+
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
     this.dateInit();
+   
+
+    const { list } = this.data;
+    let cmonth;
+    if (month < 10) {
+      cmonth = '0' + month
+    }
+    // 当月第一天
+    let tian1;
+    tian1 = '01';
+   
+    let startDay = year + '-' + cmonth + '-' + tian1
+
+    // 当月最后一天
+    let tian;
+    tian = this.data.tian;
+    let endDay = year + '-' + cmonth + '-' + tian
     this.setData({
       year: year,
       month: month,
-      isToday: '' + year + month + now.getDate()
+      isToday: '' + year + month + now.getDate(),
+      tian1: tian1,
+      startDay: startDay,
+      endDay: endDay
     })
-
-    console.log()
-    
-    this.query(this.data.startDay, this.data.endDay, day);
-   
+    console.log(startDay)
+    console.log(endDay)
+  
+    this.query(startDay, endDay, day);
+ 
   },
   query: function (startDay, endDay, currentDay) {
 
@@ -750,7 +779,6 @@ Page({
   initRecord(day){
 
     const list = app.globalData.bodyStatus;
-    console.log(list);
     for (let i = 0; i < list.length; i++) {
       const dy = list[i];
       if (dy.day === day) {
@@ -935,31 +963,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    let cmonth;
-    const { year, month, list } = this.data;
-    if (month < 10) {
-      cmonth = '0' + month
-    }
-    // 当月第一天
-    let tian1;
-    tian1 = '01';
-    this.setData({
-      tian1: tian1
-    })
-    let startDay = year + '-' + cmonth + '-' + tian1
-    this.setData({
-      startDay: startDay
-    })
-    console.log(this.data.startDay)
-    // 当月最后一天
-    let tian;
-    tian = this.data.tian;
-    let endDay = year + '-' + cmonth + '-' + tian
-    this.setData({
-      endDay: endDay
-    })
-
-    console.log(this.data.endDay)
+   
       var data = {
         startDay: this.data.startDay,
         endDay:this.data.endDay
@@ -1023,21 +1027,34 @@ Page({
       if (i >= startWeek) {
         num = i - startWeek + 1;
         let css
+        let tag
        for(let i=0;i<list.length;i++){
           const dy = list[i];
           const { day, isPredict, physiologicalCycle}=dy;
           if(day){
             const remoteDay= moment(day).format("D");
-         
+
+          
+          
             if (num == remoteDay){
+              // 判断是否有记录
+              const isRecord = this.isRecord(dy);
+              if (isRecord) {
+                tag = records['record'];
+              }
               if (isPredict === '0' && physiologicalCycle==='02'){
-                css ='nowDay'
+                css ='yuejing-yuji'
               }
               if (isPredict === '1' && physiologicalCycle === '02') {
                 css = 'yuejingclass'
               }
-              if (isPredict === '0' && physiologicalCycle === '04') {
+            
+              if (physiologicalCycle === '03'||physiologicalCycle === '04') {
                 css = 'pailuanclass'
+              }
+
+              if (physiologicalCycle === '04'){
+                tag = records['pailuanri']
               }
             }
           }
@@ -1052,6 +1069,9 @@ Page({
           record:false,
           // 姨妈状态 1预测大姨妈 css1 2 预测排卵期 css2 3实际大姨妈 css3  
           css,
+          // :'icon-record' 记录 icon-pailuan
+          tag,
+         
         }
       } else {
         obj = {};
@@ -1093,9 +1113,7 @@ Page({
   },
   // 更新身体信息
   updateStatus(data) {
-    const {
-      day
-    } = this.data.currentDay;
+  const day = this.data.selectDay;
     userInfoUpdateBodyStatus({
       day,
       ...data
@@ -1115,5 +1133,79 @@ Page({
       month: (month + 1)
     })
     this.dateInit(year, month);
+  },
+  //手指刚放到屏幕触发
+  touchS: function (e) {
+    //判断是否只有一个触摸点
+    if (e.touches.length == 1) {
+      this.setData({
+        //记录触摸起始位置的X坐标
+        startX: e.touches[0].clientX
+      });
+    }
+  },
+  touchE: function (e) {
+    var that = this
+    if (e.changedTouches.length == 1) {
+      //手指移动结束后触摸点位置的X坐标
+      var endX = e.changedTouches[0].clientX;
+      //触摸开始与结束，手指移动的距离
+      var disX = that.data.startX - endX;
+      if (disX > 0) {
+        this.nextMonth()
+      } else if (disX < -15) {
+        this.lastMonth()
+
+      }
+    }
+  },
+  // 是否有记录
+  isRecord: function (dy){
+    const {
+      chiropractic = '02',
+      frictionalAbdomen = '02',
+      menstrualStatus,
+      menstrualVolume,
+      leucorrhea,
+      breastTenderness,
+      abdominalPain,
+      mood,
+      menstrualHeadache,
+      fearCold,
+      weak
+    } = dy;
+
+    if (chiropractic === '01' || frictionalAbdomen === '01') {
+      return true;
+    }
+    if (menstrualStatus) {
+      return true;
+    }
+    if (leucorrhea) {
+      return true;
+    }
+    if (breastTenderness) {
+      return true;
+    }
+    if (abdominalPain) {
+      return true;
+    }
+    if (mood) {
+      return true;
+    }
+    if (menstrualHeadache) {
+      return true;
+    }
+    if (fearCold) {
+      return true;
+    }
+    if (menstrualVolume) {
+      return true;
+    }
+    if (weak) {
+      return true;
+    }
+
+    return false;
   }
 })
