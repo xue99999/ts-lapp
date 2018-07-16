@@ -1,7 +1,8 @@
 /* pages/home/home.wxss */
 .heads{
-  width: 100%;
-  height:1333rpx;
+  position: absolute;
+width: 100%;
+height: 100%;
   background: #FE6F71;
   padding-top: 63px;
 }

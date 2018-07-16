@@ -126,7 +126,7 @@ font-size: 26rpx;
 }
 
 .list_item_view_all {
-  margin-top: 30rpx;
+  margin-top: 20rpx;
   height: 26.66rpx;
   display: flex;
   flex-direction: row;
