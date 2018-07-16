@@ -12,7 +12,6 @@
   </view>
   <view class='header'>
     <view wx:for='{{date}}' wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}
-      <view></view>
     </view>
   </view>
   <view>
@@ -22,12 +21,15 @@
   <view class='header'>
   </view>
   <view class='date-box'>
-    <view wx:for='{{dateArr}}' wx:key class="{{item.css}}  {{item.isSelect?'nowDay':''}}" data-date='{{item.isToday}}'>
+    <view wx:for='{{dateArr}}' wx:key  data-date='{{item.isToday}}'>
       <view class='date-head'>
-        <view data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili' >
+        <view data-index='{{index}}' data-day='{{item.dateNum}}' class="day {{item.css}} {{item.isSelect?'day-select':''}}" bindtap='rili' >
            {{item.dateNum}} 
         </view> 
-			<!-- <view class='date-weight'><image src='{{item.weight}}'></image></view> -->
+        <view class='date-weight'>
+  			   <image src='{{item.tag}}' class='icon-record'></image>
+        </view>
+
       </view>
     </view>
   </view>

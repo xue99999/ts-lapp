@@ -1,19 +1,19 @@
 import Http from '../utils/http.js';
-import mock from './mock.js';
+// import mock from './mock.js';
 //RAP2 开发阶段测试路径
-//const baseUrl = 'http://192.168.9.171:8080/app/mock/20/';
+// const baseUrl = 'http://192.168.9.171:8080/app/mock/20/';
 
 //程东林 本地测试路径
-//const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
+// const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
 //王丽娟 本地测试路径
-//const baseUrl = 'http://192.168.5.82:8080/ts-app-web/';
+// const baseUrl = 'http://192.168.5.82:8080/ts-app-web/';
 
 // const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 //李康 本地测试路径
  const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
 //刘小东 本地测试路径
 
-//const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
+// const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 
 const {
   get
@@ -130,11 +130,11 @@ function userInfoQueryMensAndOvulation(params) {
 //查询身体状态接口
 function userInfoQueryBodyStatus(params) {
 
-  return mock.bodys()
-  /**return get({
+  // return mock.bodys()
+  return get({
     url: baseUrl + 'userInfo/queryBodyStatus/' + params.startDay + '/' + params.endDay,
 
-  })*/
+  })
 }
 
 //更新身体状态

@@ -2,14 +2,17 @@ const app = getApp()
 const { userInfoAdd } = require('../../../service/user.js')
 var Http = require('../../../utils/http.js');
 const { auth } = require('../../../utils/auth.js');
+const birthday = []
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    array: ['1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991',
+    array: ['1971', '1972', '1973', '1974', '1975', '1976', '1977', '1979', '1979', '1980', '1981', '1982', '1983', '1984', '1985', '1986', '1987', '1988', '1989', '1990', '1991',
       '1992', '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000', '2001', '2002', '2003'],
+    birthday: birthday,
   },
   onLoad: function () {
     const parmas = {
@@ -18,10 +21,11 @@ Page({
     auth(parmas)
   },
   bindPickerChange: function (e) {
-    // console.log(e.currentTarget.dataset.nian+'年出生。')
-    var birthday = e.currentTarget.dataset.nian
-    app.globalData.obj.birthday = birthday
+    const val = e.detail.value;
+    const birthday = this.data.array[val[0]]
     console.log(birthday)
+    app.globalData.obj.birthday = birthday;
+  
   },
   navto: function () {
 

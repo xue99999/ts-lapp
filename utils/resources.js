@@ -1,9 +1,9 @@
 module.exports = {
   records:{
     // 捏脊
-    chiropractic:'../img/mood@3x.png',
+    chiropractic:'../img/massage@3x.png',
     // 揉腹
-    frictionalAbdomen:'../img/',
+    frictionalAbdomen:'../img/massage@3x.png',
     // 月经量
     menstrualVolume:'../img/menstruation2@3x.png',
     // 白带
@@ -21,5 +21,8 @@ module.exports = {
     // 乏力
     weak:'../img/No tired@3x.png',
     baby: '../img/baby@3x.png',
+    
+    record:'../img/editor@3x.png',
+    pailuanri:'../img/xing@3x.png'
   }
 };

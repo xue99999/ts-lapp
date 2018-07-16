@@ -54,19 +54,22 @@
   width: 150rpx;
   height: 50rpx;
 }
-
+.view-img{
+  position: relative;
+}
 .view-img image{
   width: 100%;
   height: 700rpx;
-   border-radius: 50%; 
+ /* border-radius: 50%;  */
 }
 .view-img .view-inner{
   font-size: 40rpx;
   width: 100%;
   text-align: center;
-  position: fixed;
-  top: 40%;
+   position: absolute;
+  top: 23%; 
   color: #FE6F71;
+  margin-bottom: 100rpx;
 }
 .view-img .view-inner view{
   margin: 60rpx 0;
