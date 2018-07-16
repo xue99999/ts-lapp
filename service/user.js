@@ -19,7 +19,7 @@ import Http from '../utils/http.js';
 //const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 //171测试服务器
  const baseUrl ='http://192.168.9.171:8090/'
-  
+ 
 const {
   get
 } = Http;
@@ -156,10 +156,10 @@ function apiCourseCollectCourse(params) {
     params
   })
 }
-//查询设置经期与排卵接口
+//设置经期与排卵接口
 function userInfoUpdateMensAndOvulation(params) {
-  return get({
-    url: baseUrl + '/userInfo/queryMensAndOvulation',
+  return post({
+    url: baseUrl + 'userInfo/updateMensAndOvulation',
     params
   })
 }

@@ -67,9 +67,9 @@ Page({
   
   },
   dianji: function(e) {
-    console.log(e.currentTarget.dataset.day)
-    console.log(this.data.month)
-    console.log(this.data.year)
+    // console.log(e.currentTarget.dataset.day)
+    // console.log(this.data.month)
+    // console.log(this.data.year)
     var month;
     if (this.data.month < 10) {
       month = '0' + this.data.month

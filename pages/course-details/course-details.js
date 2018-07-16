@@ -192,7 +192,7 @@ Page({
 
         total: result.total,
         sectionList: result.list,
-        //   remark: result.list[0].remark,
+        //   remark: result.list[0].rem11ark,
         url: '../course-video/course-video?courseId=' + id,
       })
     });
