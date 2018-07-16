@@ -505,7 +505,7 @@ Page({
         duration: 500
       })
       updateData = {
-        mood: '02'
+        mood: '01'
       }
     } else if (index == 1) {
       wx.showToast({
@@ -514,7 +514,7 @@ Page({
         duration: 500
       })
       updateData = {
-        mood: '01'
+        mood: '02'
       }
     }
     this.setData({
