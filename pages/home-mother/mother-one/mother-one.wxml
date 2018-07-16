@@ -17,18 +17,14 @@
 
     <view class="date-show"  wx:if="{{show==true}}">
       <view class="lt-arrow" bindtap="lastMonth">
-        〈
-        <!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
       </view>
       {{year}}年{{month}}月
       <view class='rt-arrow' bindtap='nextMonth'>
-        〉
-        <!-- <image src='../images/nextMonth.png' mode='aspectFit'></image> -->
       </view>
     </view>
     <view class='header'>
   </view>
-  <view class='date-box'>
+  <view class='date-box' bindtouchstart="touchS" bindtouchend="touchE">
     <view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
       <view class='date-head'>
         <view data-index='{{index}}' bindtap='dianji' class="active" data-day='{{item.dateNum}}'>{{item.dateNum}}</view>
