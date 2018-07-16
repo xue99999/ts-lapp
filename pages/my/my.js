@@ -63,7 +63,6 @@ Page({
     }
     auth(parmas);
     ownerQuery().then(res=>{
-      console.log('个人信息查询',res);
         this.setData({
           nickName: res.nickName,
           avatarUrl: res.avatarUrl,
@@ -79,5 +78,14 @@ Page({
   onClickPhone() {
     console.log('这里是绑定手机号')
   },
+onHide:function(){
+  ownerQuery().then(res => {
+    this.setData({
+      nickName: res.nickName,
+      avatarUrl: res.avatarUrl,
+      integral: res.integral,
+    })
 
+  })
+}
 })
