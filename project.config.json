@@ -33,7 +33,147 @@
 			"list": []
 		},
 		"miniprogram": {
-
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "我的课程",
+					"pathName": "pages/mycourse/course",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "今日",
+					"pathName": "pages/today/today",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "日历",
+					"pathName": "pages/calendar/calendar",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "success",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "视频",
+					"pathName": "pages/courseVideo/coursevideo",
+					"query": "id=1234444&courseId=44455454545454545"
+				},
+				{
+					"id": 6,
+					"name": "微信支付",
+					"pathName": "pages/pay/wxPay/wxpay",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "今日",
+					"pathName": "pages/today/today",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "设置经期",
+					"pathName": "pages/set-period/set-period",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "课程详情",
+					"pathName": "pages/courseDetails/courseDetails",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "今日推荐",
+					"pathName": "pages/todayRecommend/todayRecommend",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "全部课程",
+					"pathName": "pages/ labelCourse / labelCourse",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "111",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "年份",
+					"pathName": "pages/period/period-four/period-four",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "weixin",
+					"pathName": "pages/course-details/course-details",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "授权",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "更新身体状态",
+					"pathName": "pages/state/state",
+					"query": ""
+				},
+				{
+					"id": 19,
+					"name": "state",
+					"pathName": "pages/today/today",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "今日推荐",
+					"pathName": "pages/today-recommend/today-recommend",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "课程详情",
+					"pathName": "pages/course-details/course-details",
+					"query": ""
+				},
+				{
+					"id": 22,
+					"name": "home",
+					"pathName": "pages/period/period-one/period-one",
+					"query": ""
+				}
+			]
 		}
 	}
 }

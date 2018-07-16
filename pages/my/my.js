@@ -14,7 +14,7 @@ Page({
     integral:"",
     routers: [{
         name: '辣妈模式',
-        url: '../home/home',
+        url: '../home-mother/mother-five/mother-five',
         icon: '../img/mom1@3x.png',
         code: '10'
       },
