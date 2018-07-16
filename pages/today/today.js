@@ -64,7 +64,6 @@ Page({
     this.query(day, day, day);
   },
   onShow:function(){
-    console.log('show');
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('D');
     this.setData({
@@ -127,7 +126,7 @@ Page({
               // 
             }
           }
-          this.setData({ showObj, userModel})
+          this.setData({ currentDay:dy,showObj, userModel})
         }
       }
     })
