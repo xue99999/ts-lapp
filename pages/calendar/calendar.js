@@ -3,8 +3,9 @@
 const app = getApp()
 const moment = require('../../utils/moment.js');
 const { userInfoQueryBodyStatus, userInfoUpdateBodyStatus } = require('../../service/user.js')
- var Http = require('../../utils/http.js');
+const resources=require('../../utils/resources.js');
  const { auth } = require('../../utils/auth.js');
+ const { records } = resources;
 Page({
   data: {
     year: 0,
@@ -22,6 +23,7 @@ Page({
     physiologicalCycle:null,
     tian:null,
     selectDay:moment().format("YYYY-MM-D"),
+    weight: '../img/xing@3x.png',
     // 按摩
     anmo: [{
       name: '捏脊',
@@ -193,6 +195,12 @@ Page({
       id: "03"
     }
     ],
+  },
+  clickxing:function(e){
+    this.setData({
+      weight:true
+    })
+
   },
   chooseImg: function (e) {
     const index = e.currentTarget.dataset.index;
@@ -771,7 +779,6 @@ Page({
   initRecord(day){
 
     const list = app.globalData.bodyStatus;
-    console.log(list);
     for (let i = 0; i < list.length; i++) {
       const dy = list[i];
       if (dy.day === day) {
@@ -965,7 +972,6 @@ Page({
       userInfoQueryBodyStatus(data).then(res => {
       console.log('查询身体状态接口', res);
      const {list}= res;
-     console.log(list.today)
      const rlist=[];
      let currentDay={}
       for (let i = 0; i < list.length;i++){
@@ -1021,21 +1027,34 @@ Page({
       if (i >= startWeek) {
         num = i - startWeek + 1;
         let css
+        let tag
        for(let i=0;i<list.length;i++){
           const dy = list[i];
           const { day, isPredict, physiologicalCycle}=dy;
           if(day){
             const remoteDay= moment(day).format("D");
-         
+
+          
+          
             if (num == remoteDay){
+              // 判断是否有记录
+              const isRecord = this.isRecord(dy);
+              if (isRecord) {
+                tag = records['record'];
+              }
               if (isPredict === '0' && physiologicalCycle==='02'){
-                css ='nowDay'
+                css ='yuejing-yuji'
               }
               if (isPredict === '1' && physiologicalCycle === '02') {
                 css = 'yuejingclass'
               }
-              if (isPredict === '0' && physiologicalCycle === '04') {
+            
+              if (physiologicalCycle === '03'||physiologicalCycle === '04') {
                 css = 'pailuanclass'
+              }
+
+              if (physiologicalCycle === '04'){
+                tag = records['pailuanri']
               }
             }
           }
@@ -1050,6 +1069,9 @@ Page({
           record:false,
           // 姨妈状态 1预测大姨妈 css1 2 预测排卵期 css2 3实际大姨妈 css3  
           css,
+          // :'icon-record' 记录 icon-pailuan
+          tag,
+         
         }
       } else {
         obj = {};
@@ -1111,5 +1133,54 @@ Page({
       month: (month + 1)
     })
     this.dateInit(year, month);
+  },
+  // 是否有记录
+  isRecord: function (dy){
+    const {
+      chiropractic = '02',
+      frictionalAbdomen = '02',
+      menstrualStatus,
+      menstrualVolume,
+      leucorrhea,
+      breastTenderness,
+      abdominalPain,
+      mood,
+      menstrualHeadache,
+      fearCold,
+      weak
+    } = dy;
+
+    if (chiropractic === '01' || frictionalAbdomen === '01') {
+      return true;
+    }
+    if (menstrualStatus) {
+      return true;
+    }
+    if (leucorrhea) {
+      return true;
+    }
+    if (breastTenderness) {
+      return true;
+    }
+    if (abdominalPain) {
+      return true;
+    }
+    if (mood) {
+      return true;
+    }
+    if (menstrualHeadache) {
+      return true;
+    }
+    if (fearCold) {
+      return true;
+    }
+    if (menstrualVolume) {
+      return true;
+    }
+    if (weak) {
+      return true;
+    }
+
+    return false;
   }
 })
