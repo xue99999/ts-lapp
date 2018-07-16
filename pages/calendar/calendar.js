@@ -1163,6 +1163,33 @@ Page({
         startX: e.touches[0].clientX
       });
     }
+
+    var data = {
+      startDay: this.data.startDay,
+      endDay: this.data.endDay
+
+    }
+    userInfoQueryBodyStatus(data).then(res => {
+      console.log('查询身体状态接口', res);
+      const {
+        list
+      } = res;
+      const rlist = [];
+      let currentDay = {}
+      for (let i = 0; i < list.length; i++) {
+        const data = list[i]
+        if (i.physiologicalCycle == '01') { }
+
+        if (data.day === moment().format('YYYY-MM-D')) {
+          currentDay = data;
+        }
+        rlist.push(data);
+      }
+      this.setData({
+        currentDay,
+        list: rlist
+      })
+    })
   },
   touchE: function(e) {
     var that = this
@@ -1171,13 +1198,40 @@ Page({
       var endX = e.changedTouches[0].clientX;
       //触摸开始与结束，手指移动的距离
       var disX = that.data.startX - endX;
-      if (disX > 0) {
+      if (disX > 30) {
         this.nextMonth()
-      } else if (disX < -15) {
+      } else if (disX < -30) {
         this.lastMonth()
 
       }
     }
+
+    var data = {
+      startDay: this.data.startDay,
+      endDay: this.data.endDay
+
+    }
+    userInfoQueryBodyStatus(data).then(res => {
+      console.log('查询身体状态接口', res);
+      const {
+        list
+      } = res;
+      const rlist = [];
+      let currentDay = {}
+      for (let i = 0; i < list.length; i++) {
+        const data = list[i]
+        if (i.physiologicalCycle == '01') { }
+
+        if (data.day === moment().format('YYYY-MM-D')) {
+          currentDay = data;
+        }
+        rlist.push(data);
+      }
+      this.setData({
+        currentDay,
+        list: rlist
+      })
+    })
   },
   // 是否有记录
   isRecord: function(dy) {
