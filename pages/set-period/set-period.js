@@ -11,7 +11,7 @@ Page({
    */
   data: {
     multiArray: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,30],
-    multiIndex: 0,
+    multiIndex: 20,
     multiArray1: [1, 2, 3, 4, 5, 6, 7],
     multiIndex1: 6,
     title:'经期与排卵',
@@ -95,8 +95,33 @@ Page({
     wx.setNavigationBarTitle({
       title: '经期与排卵'
     })
+    const { multiArray, multiArray1}=this.data;
+    userInfoQueryMensAndOvulation().then(res => {
+
+      const { menstrualCycle, menstrualTimes}=res;
+      for (let i = 0; i < multiArray.length;i++){
+       const idx= multiArray[i];
+       if (idx === menstrualCycle){
+         this.setData({
+           multiIndex:i
+         })
+         break;
+       }
+      }
+
+      for (let i = 0; i < multiArray1.length; i++) {
+        const idx = multiArray1[i];
+        if (idx === menstrualTimes) {
+          this.setData({
+            multiIndex1: i
+          })
+          break;
+        }
+      }
+    })
     userInfoQueryMensAndOvulation().then(res => {
       console.log('查询经期与排卵', res);
     })
+
   }
 })
