@@ -36,9 +36,9 @@
   align-items: center;
 }
 .images_menst,.images_mom{
-  width:152rpx;
-  height: 152rpx;
-  border-radius: 50%;
+  margin-top: 20rpx;
+  width:352rpx;
+  height: 80rpx;
   background: #FD918D;
   display: flex;
   flex-direction: column;

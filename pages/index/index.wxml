@@ -2,17 +2,11 @@
   <view class='imgs'>
     <image src='../img/logo@3x.png'></image>
   </view>
-  <view class='images'>
-    <view bindtap='clickGirl' data-id='{{shaonv}}'>
-      <view class='images_menst'>
-        <button class='images_mom' wx:if="{{canIUse}}" open-type="getUserInfo"                  bindgetuserinfo="bindGetUserInfo">
-          授权</button>
-        <view wx:else>请升级微信版本</view>
   
-      </view>
-      <text>请点击上方授权按钮</text>
+    <view bindtap='clickGirl' data-id='{{shaonv}}'>
+        <button class='images_mom' wx:if="{{canIUse}}" open-type="getUserInfo"                  bindgetuserinfo="bindGetUserInfo">
+          微信授权</button>
+        <view wx:else>请升级微信版本</view>
     </view>
-
-  </view>
 
 </view>
