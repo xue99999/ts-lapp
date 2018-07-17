@@ -548,7 +548,7 @@ Page({
     let updateData = {}
     if (index == 0) {
       wx.showToast({
-        title: '痛',
+        title: '不痛',
         icon: 'none',
         duration: 500
       })
@@ -566,7 +566,7 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '不痛 ',
+        title: '痛 ',
         icon: 'none',
         duration: 500
       })
@@ -592,7 +592,7 @@ Page({
     let updateData = null;
     if (index == 0) {
       wx.showToast({
-        title: '明显',
+        title: '不怕冷',
         icon: 'none',
         duration: 500
       })
@@ -601,7 +601,7 @@ Page({
       }
     } else if (index == 1) {
       wx.showToast({
-        title: '一般',
+        title: '微微冷',
         icon: 'none',
         duration: 500
       })
@@ -610,7 +610,7 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '微微',
+        title: '很冷',
         icon: 'none',
         duration: 500
       })
@@ -648,7 +648,7 @@ Page({
     let updateData = null;
     if (index == 0) {
       wx.showToast({
-        title: '明显',
+        title: '不乏力',
         icon: 'none',
         duration: 500
       })
@@ -657,7 +657,7 @@ Page({
       }
     } else if (index == 1) {
       wx.showToast({
-        title: '一般',
+        title: '轻微乏力',
         icon: 'none',
         duration: 500
       })
@@ -666,7 +666,7 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '微微',
+        title: '非常乏力',
         icon: 'none',
         duration: 500
       })
@@ -763,7 +763,7 @@ Page({
     this.query(startDay, endDay, day);
 
   },
-  query: function(startDay, endDay, currentDay) {
+  query: function(startDay, endDay) {
 
     var query = {
       startDay,
@@ -777,17 +777,6 @@ Page({
       } = res;
       app.globalData.bodyStatus = list;
       this.dateInit()
-      for (let i = 0; i < list.length; i++) {
-        const dy = list[i];
-        if (dy.day === currentDay) {
-
-          this.setData({
-            userModel,
-            currentDay: dy
-          })
-          this.initRecord(currentDay)
-        }
-      }
 
     })
   },
@@ -1127,11 +1116,17 @@ Page({
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
     let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
+
+
     this.setData({
       year: year,
       month: (month + 1)
     })
     this.dateInit(year, month);
+    // let dayNums = new Date(year, month, 0).getDate();     //获取目标月有多少天
+    
+ 
+    // console.log(year, this.data.month,dayNums)
   },
   // 更新身体信息
   updateStatus(data) {
@@ -1143,6 +1138,7 @@ Page({
        //更新成功
       this.query(this.data.startDay, this.data.endDay, day);
     })
+
   },
   nextMonth: function() {
     //全部时间的月份都是按0~11基准，显示月份才+1
@@ -1153,6 +1149,8 @@ Page({
       month: (month + 1)
     })
     this.dateInit(year, month);
+    // console.log(year)
+    // console.log(month)
   },
   //手指刚放到屏幕触发
   touchS: function(e) {
@@ -1163,33 +1161,6 @@ Page({
         startX: e.touches[0].clientX
       });
     }
-
-    var data = {
-      startDay: this.data.startDay,
-      endDay: this.data.endDay
-
-    }
-    userInfoQueryBodyStatus(data).then(res => {
-      console.log('查询身体状态接口', res);
-      const {
-        list
-      } = res;
-      const rlist = [];
-      let currentDay = {}
-      for (let i = 0; i < list.length; i++) {
-        const data = list[i]
-        if (i.physiologicalCycle == '01') { }
-
-        if (data.day === moment().format('YYYY-MM-D')) {
-          currentDay = data;
-        }
-        rlist.push(data);
-      }
-      this.setData({
-        currentDay,
-        list: rlist
-      })
-    })
   },
   touchE: function(e) {
     var that = this
@@ -1198,40 +1169,16 @@ Page({
       var endX = e.changedTouches[0].clientX;
       //触摸开始与结束，手指移动的距离
       var disX = that.data.startX - endX;
-      if (disX > 30) {
-        this.nextMonth()
-      } else if (disX < -30) {
-        this.lastMonth()
-
+      if (disX > 50) {
+        that.dateInit()
+        that.nextMonth()
+        this.query(this.data.startDay,this.data.endDay);
+      } else if (disX < -50) {
+        that.dateInit()
+        that.lastMonth()
+        this.query(this.data.startDay,this.data.endDay);
       }
     }
-
-    var data = {
-      startDay: this.data.startDay,
-      endDay: this.data.endDay
-
-    }
-    userInfoQueryBodyStatus(data).then(res => {
-      console.log('查询身体状态接口', res);
-      const {
-        list
-      } = res;
-      const rlist = [];
-      let currentDay = {}
-      for (let i = 0; i < list.length; i++) {
-        const data = list[i]
-        if (i.physiologicalCycle == '01') { }
-
-        if (data.day === moment().format('YYYY-MM-D')) {
-          currentDay = data;
-        }
-        rlist.push(data);
-      }
-      this.setData({
-        currentDay,
-        list: rlist
-      })
-    })
   },
   // 是否有记录
   isRecord: function(dy) {
