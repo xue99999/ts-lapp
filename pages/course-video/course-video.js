@@ -118,8 +118,6 @@ Page({
 
     })
   },
-
-  
   onPlay: function(id) {
     for (let i = 0; i < SectionList.length; i++) {
       if (SectionList[i].id === id) {
