@@ -23,7 +23,7 @@
   <template wx:if="{{currentTab % 2 == 0}}" is="course_remark" data="{{remark}}" />
   <template wx:else is="course_list" data="{{sectionList,url,teacherName}}" />
   <template name="course_list">
- 
+
     <scroll-view class='scroll_view' scroll-y="true">
       <view wx:for="{{sectionList}}" wx:for-item="item" wx:key="{{item.playNum+item.duration}}">
         <navigator class='course_list_itme' url="{{url+'&id='+item.id+'&teacherName='+teacherName}}">
@@ -48,20 +48,21 @@
 
   <template name="course_remark">
     <view class='course_remark_view'>
-     <template is="wxParse" data="{{wxParseData:remark.nodes}}" />
+      <template is="wxParse" data="{{wxParseData:remark.nodes}}" />
     </view>
 
   </template>
   <view class="view_bottom">
 
     <view class="view_bottom_button1">
-      <view  class='collect-view' bindtap='isCollect'>
-        <image class="collect-view-img"    src="{{isCollect===0?'../img/collection1@3x.png':'../img/collect.png'}}"></image>
-        
+      <view class='collect-view' bindtap='isCollect'>
+        <image class="collect-view-img" src="{{isCollect===0?'../img/collection1@3x.png':'../img/collect.png'}}"></image>
+
       </view>
 
       <button class="view_bottom_button1_text" data-name="shareBtn" open-type="share">
-        <image class="view_bottom_img" src='../img/share@3x.png'></image></button>
+        <image class="view_bottom_img" src='../img/share@3x.png'></image>
+      </button>
     </view>
     <view class="view_bottom_button2" bindtap='onClickSubscriber'>{{isSubscibe===0?"订阅 | "+ price+ "元":"已订阅"}}</view>
   </view>

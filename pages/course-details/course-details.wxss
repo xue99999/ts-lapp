@@ -1,7 +1,6 @@
 /* 课程详情 */
 
 .inclusion {
- 
   background: #f3f4f5;
 }
 
@@ -32,7 +31,8 @@
   height: 44rpx;
   margin-top: 42.42rpx;
   line-height: 44rpx;
-  font-size: 28rpx;
+  font-size: 34rpx;
+
 }
 
 .view_top_img_head {
@@ -105,13 +105,15 @@
 }
 
 .course_list_itme_text1 {
-  flex: 1;
+  /* flex: 1; */
   margin-left: 48.48rpx;
   justify-content: cente;
   color: #999;
+  font-size: 30rpx;
 }
 
 .course_list_itme_text2 {
+  margin-left: 40rpx;
  flex: 3;
   flex-direction: unset;
 }
@@ -121,7 +123,7 @@
 }
 
 .course_list_itme_text_title {
-font-size: 26rpx;
+font-size: 30rpx;
   color: #000;
 }
 
@@ -163,7 +165,7 @@ font-size: 26rpx;
 }
 
 .scroll_view {
-  height: 650rpx;
+  height: 750rpx;
 }
 
 .view_solid {
@@ -246,14 +248,15 @@ font-size: 26rpx;
 }
 
 .view_bottom_button1 {
-  flex: 0.4;
+  flex: 1;
   background: #fff;
   display: flex;
 }
 
 .view_bottom_button2 {
-   flex: 0.6;
+   flex: 1;
   color: #fff;
+  font-size: 32rpx;
 }
 
 
@@ -270,25 +273,27 @@ font-size: 26rpx;
 }
 
 .collect-view {
-  width: 100rpx;
+  /* width: 100rpx; */
+  flex: 1;
   display: flex;
   flex-direction: unset;
   justify-content: center;
   align-items: center;
+  background: #F8F8F8;
 }
 
 .collect-view-img {
-  width: 32rpx;
-  height: 28rpx;
+  width: 38rpx;
+  height: 35rpx;
 }
 
 .view_bottom_button1_text:after {
   border: none;
-   border-radius: 0;
-     background: none;
+  border-radius: 0;
+  background: none;
 }
 
 .view_bottom_img {
-  width: 45rpx;
-  height: 45rpx;
+  width: 35rpx;
+  height: 35rpx;
 }
