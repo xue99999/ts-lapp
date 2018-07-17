@@ -105,7 +105,9 @@
 }
 
 .course_list_itme_text1 {
+
   flex: 0.1; 
+
   margin-left: 48.48rpx;
   justify-content: cente;
   color: #999;
@@ -123,7 +125,7 @@
 }
 
 .course_list_itme_text_title {
-font-size: 30rpx;
+font-size: 26rpx;
   color: #000;
 }
 
@@ -242,6 +244,7 @@ font-size: 30rpx;
 }
 
 .view_bottom_button1, .view_bottom_button2 {
+  
   background: #fe6f71;
   text-align: center;
   line-height: 90.90rpx;
@@ -261,12 +264,13 @@ font-size: 30rpx;
 
 
 .view_bottom_button1_text {
+
     flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background: #F8F8F8;
   align-items: center;
+  background: #fff;
 }
 
 .view_bottom_button1_text button:after {
@@ -274,19 +278,28 @@ font-size: 30rpx;
 }
 
 .collect-view {
-  /* width: 100rpx; */
+
+
   flex: 1;
+
   display: flex;
   flex-direction: unset;
   justify-content: center;
   align-items: center;
-  background: #F8F8F8;
+
+}
+
+.collect-view-img {
+  width: 32rpx;
+  height: 28rpx;
+
   
 }
 
 .collect-view-img {
   width: 38rpx;
   height: 35rpx;
+
 }
 
 .view_bottom_button1_text:after {
@@ -296,6 +309,8 @@ font-size: 30rpx;
 }
 
 .view_bottom_img {
+
   width: 35rpx;
   height: 35rpx;
+
 }
