@@ -41,7 +41,7 @@ Page({
         code: '11'
       },
       {
-        name: '建议反馈',
+        name: '联系客服',
         url: '',
         icon: '../img/feedback@3x.png',
         code: '10'

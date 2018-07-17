@@ -29,9 +29,15 @@
             <image src=" {{item.icon}}" mode="scaleToFill" />
           </view>
           <view class="deg">
-            <button open-type="contact" session-from="weapp">
-              {{item.name}}
-            </button>
+            <view wx:if="{{item.name==='联系客服'}}">
+              <button open-type="contact" session-from="weapp">
+                {{item.name}}
+              </button>
+             </view>
+             <view wx:else>
+               {{item.name}}
+             </view>
+            
           </view>
         </view>
       </navigator>
