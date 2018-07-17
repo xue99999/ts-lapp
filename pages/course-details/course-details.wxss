@@ -105,7 +105,7 @@
 }
 
 .course_list_itme_text1 {
-  /* flex: 1; */
+  flex: 0.1; 
   margin-left: 48.48rpx;
   justify-content: cente;
   color: #999;
@@ -115,6 +115,7 @@
 .course_list_itme_text2 {
  flex: 0.9;
   flex-direction: unset;
+
 }
 
 .course_list_itme_text_title, .course_list_itme_text1 {
@@ -247,13 +248,13 @@ font-size: 30rpx;
 }
 
 .view_bottom_button1 {
-  flex: 1;
+  flex: 0.4;
   background: #fff;
   display: flex;
 }
 
 .view_bottom_button2 {
-   flex: 1;
+   flex: 0.6;
   color: #fff;
   font-size: 32rpx;
 }
