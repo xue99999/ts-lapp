@@ -730,8 +730,6 @@ Page({
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
     this.dateInit();
-
-
     const {
       list
     } = this.data;
@@ -757,26 +755,23 @@ Page({
       startDay: startDay,
       endDay: endDay
     })
-    console.log(startDay)
-    console.log(endDay)
 
     this.query(startDay, endDay, day);
 
   },
   query: function(startDay, endDay) {
-
     var query = {
       startDay,
       endDay
     }
-
     userInfoQueryBodyStatus(query).then(res => {
       const {
         list,
         userModel
       } = res;
       app.globalData.bodyStatus = list;
-      this.dateInit()
+      const {lyear,lmonth}=this.data;
+      this.dateInit(lyear, lmonth);
 
     })
   },
@@ -1050,9 +1045,6 @@ Page({
           } = dy;
           if (day) {
             const remoteDay = moment(day).format("D");
-
-
-
             if (num == remoteDay) {
               // 判断是否有记录
               const isRecord = this.isRecord(dy);
@@ -1095,6 +1087,8 @@ Page({
       }
       dateArr[i] = obj;
     }
+
+    
     this.setData({
       tian,
       dateArr: dateArr
@@ -1127,6 +1121,8 @@ Page({
 
     const res=this.dateInit(year, month);
     this.setData({
+      lyear:year,
+      lmonth:month,
       year: year,
       month: (month + 1)
     })
@@ -1134,37 +1130,34 @@ Page({
     console.log(res)
 
     this.query(res.sdate,res.edate,null)
-   
-    // let dayNums = new Date(year, month, 0).getDate();     //获取目标月有多少天
-    
+  
+  },
  
-    // console.log(year, this.data.month,dayNums)
-  },
-  // 更新身体信息
-  updateStatus(data) {
-    const day = this.data.selectDay;
-    userInfoUpdateBodyStatus({
-      day,
-      ...data
-    }).then(res => {
-       //更新成功
-      this.query(this.data.startDay, this.data.endDay, day);
-    })
-
-  },
   nextMonth: function() {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
     let month = this.data.month > 11 ? 0 : this.data.month;
     const res= this.dateInit(year, month);
     this.setData({
+      lyear: year,
+      lmonth: month,
       year: year,
       month: (month + 1)
     })
     
     this.query(res.sdate, res.edate, null)
-    // console.log(year)
-    // console.log(month)
+  
+  }, // 更新身体信息
+  updateStatus(data) {
+    const day = this.data.selectDay;
+    userInfoUpdateBodyStatus({
+      day,
+      ...data
+    }).then(res => {
+      //更新成功
+      this.query(this.data.startDay, this.data.endDay, day);
+    })
+
   },
   //手指刚放到屏幕触发
   touchS: function(e) {
@@ -1187,7 +1180,6 @@ Page({
         that.nextMonth()
       } else if (disX < -50) {
         that.lastMonth()
-       // this.query(this.data.startDay,this.data.endDay);
       }
     }
   },
