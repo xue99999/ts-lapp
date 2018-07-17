@@ -105,7 +105,11 @@
 }
 
 .course_list_itme_text1 {
+<<<<<<< .mine
   /* flex: 1; */
+=======
+  flex: 0.1;
+>>>>>>> .theirs
   margin-left: 48.48rpx;
   justify-content: cente;
   color: #999;
@@ -113,8 +117,13 @@
 }
 
 .course_list_itme_text2 {
+<<<<<<< .mine
   margin-left: 40rpx;
  flex: 3;
+=======
+ flex: 0.9;
+
+>>>>>>> .theirs
   flex-direction: unset;
 }
 
@@ -165,7 +174,13 @@ font-size: 30rpx;
 }
 
 .scroll_view {
+<<<<<<< .mine
   height: 750rpx;
+
+=======
+height: 500rpx;
+ 
+>>>>>>> .theirs
 }
 
 .view_solid {
@@ -238,10 +253,10 @@ font-size: 30rpx;
   flex-direction: row;
   height: 90.90rpx;
   justify-content: center;
+  margin-bottom: 22rpx;
 }
 
 .view_bottom_button1, .view_bottom_button2 {
-  
   background: #fe6f71;
   text-align: center;
   line-height: 90.90rpx;
@@ -261,10 +276,10 @@ font-size: 30rpx;
 
 
 .view_bottom_button1_text {
-  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  background: #fff;
   align-items: center;
 }
 
@@ -273,18 +288,32 @@ font-size: 30rpx;
 }
 
 .collect-view {
+<<<<<<< .mine
   /* width: 100rpx; */
   flex: 1;
+=======
+  width: 50%;
+
+>>>>>>> .theirs
   display: flex;
   flex-direction: unset;
   justify-content: center;
   align-items: center;
+<<<<<<< .mine
   background: #F8F8F8;
+=======
+  
+>>>>>>> .theirs
 }
 
 .collect-view-img {
+<<<<<<< .mine
   width: 38rpx;
   height: 35rpx;
+=======
+  width: 38rpx;
+  height: 32rpx;
+>>>>>>> .theirs
 }
 
 .view_bottom_button1_text:after {
@@ -294,6 +323,11 @@ font-size: 30rpx;
 }
 
 .view_bottom_img {
+<<<<<<< .mine
   width: 35rpx;
   height: 35rpx;
+=======
+  width: 40rpx;
+  height: 40rpx;
+>>>>>>> .theirs
 }

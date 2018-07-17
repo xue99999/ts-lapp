@@ -38,8 +38,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // auth();
-    console.log();
+     auth();
+   
     if (options.id) {
       id = options.id;
       app.setStorageSync('courseId', id);
@@ -48,31 +48,30 @@ Page({
       id = options.id;
     }
 
-    apiCourseId(options.id).then(result => {
-      console.log('课程详情', result);
-      WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
-      this.setData({
-        id: result.data.id,
-        courseName: result.data.courseName,
-        isSubscibe: result.data.isSubscibe,
-        price: result.data.price,
-        teacherName: result.data.teacherName,
-        //   remark: result.data,
-        courseData: result.data,
-        pictureUrl: result.data.pictureUrl,
-        isCollect: result.data.isCollect,
-      })
+    apiCourseId(id).then(result => {
+      if (result.code === 200) {
+        WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
+        this.setData({
+          id: result.data.id,
+          courseName: result.data.courseName,
+          isSubscibe: result.data.isSubscibe,
+          price: result.data.price,
+          teacherName: result.data.teacherName,
+          courseData: result.data,
+          pictureUrl: result.data.pictureUrl,
+          isCollect: result.data.isCollect,
+        })
+      }
     });
 
-    apiSection(options.id).then(result => {
-      console.log('课程列表', result);
-      this.setData({
-
-        total: result.total,
-        sectionList: result.list,
-        //   remark: result.list[0].remark,
-        url: '../course-video/course-video?courseId=' + options.id,
-      })
+    apiSection(id).then(result => {
+      if (result.code === 200) {
+        this.setData({
+          total: result.total,
+          sectionList: result.list,
+          url: '../course-video/course-video?courseId=' + options.id,
+        })
+      }
     });
   },
 
@@ -153,11 +152,11 @@ Page({
       status: status
     }
 
-    apiCourseCollectCourse(data).then(result => {
-    })
+    apiCourseCollectCourse(data).then(result => {})
   },
-  onHide:function(){
+  onShow: function() {
     apiCourseId(id).then(result => {
+      if (result.code  === 200) {
       WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
       this.setData({
         id: result.data.id,
@@ -165,20 +164,21 @@ Page({
         isSubscibe: result.data.isSubscibe,
         price: result.data.price,
         teacherName: result.data.teacherName,
-        //   remark: result.data,
         courseData: result.data,
         pictureUrl: result.data.pictureUrl,
         isCollect: result.data.isCollect,
       })
+      }
     });
 
     apiSection(id).then(result => {
+      if (result.code === 200) {
       this.setData({
         total: result.total,
         sectionList: result.list,
-        //   remark: result.list[0].rem11ark,
         url: '../course-video/course-video?courseId=' + id,
       })
+      }
     });
   }
 
