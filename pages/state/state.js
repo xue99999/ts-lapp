@@ -327,7 +327,7 @@ Page({
     let updateData = {}
     if (index == 0) {
       wx.showToast({
-        title: '多',
+        title: '少',
         icon: 'none',
         duration: 500
       })
@@ -345,7 +345,7 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '少',
+        title: '多',
         icon: 'none',
         duration: 500
       })
@@ -525,7 +525,7 @@ Page({
     let updateData = {}
     if (index == 0) {
       wx.showToast({
-        title: '痛',
+        title: '轻微痛',
         icon: 'none',
         duration: 500
       })
@@ -543,7 +543,7 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '不痛 ',
+        title: '非常痛 ',
         icon: 'none',
         duration: 500
       })
@@ -569,7 +569,7 @@ Page({
     let updateData = null;
     if (index == 0) {
       wx.showToast({
-        title: '明显',
+        title: '不怕冷',
         icon: 'none',
         duration: 500
       })
@@ -578,7 +578,7 @@ Page({
       }
     } else if (index == 1) {
       wx.showToast({
-        title: '一般',
+        title: '微微冷',
         icon: 'none',
         duration: 500
       })
@@ -587,7 +587,7 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '微微',
+        title: '很冷',
         icon: 'none',
         duration: 500
       })
@@ -625,7 +625,7 @@ Page({
     let updateData = null;
     if (index == 0) {
       wx.showToast({
-        title: '明显',
+        title: '不乏力',
         icon: 'none',
         duration: 500
       })
@@ -634,7 +634,7 @@ Page({
       }
     } else if (index == 1) {
       wx.showToast({
-        title: '一般',
+        title: '轻微乏力',
         icon: 'none',
         duration: 500
       })
@@ -643,7 +643,7 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '微微',
+        title: '非常乏力',
         icon: 'none',
         duration: 500
       })
