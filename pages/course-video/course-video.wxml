@@ -4,7 +4,6 @@
   <video id="myVideo" src="{{filePath}}" duration="{{durations}}">  initial-time=0R</video>
   <view class='list'>
     <text class='view_fileName'>{{sectionName}}</text>
-    <text class='view_teacherName'>{{teacherName}}</text>
     <view class='hahahaha'></view>
     <view class='view_1'>
       <view class='view_2' bindtap='onClickList'>
@@ -17,8 +16,7 @@
     </view>
   </view>
   <view class='view_remark'>
-    <view class='view_remark_view'>本节课程内容</view>
-
+  
     <!-- <text class='view_remark_text'>简介:  {{remark}}</text> -->
 
     <template is="wxParse" data="{{wxParseData:remark.nodes}}" />

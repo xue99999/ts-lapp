@@ -20,7 +20,7 @@
 
 .view_fileName {
   width: 100%;
-  margin-top: 44rpx;
+  margin-top: 30rpx;
   color: #000;
   height: 30rpx;
   font-size: 30rpx;

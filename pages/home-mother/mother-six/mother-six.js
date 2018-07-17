@@ -87,8 +87,6 @@ Page({
 
 
     console.log(day)
-    // console.log(this.data.month)
-    // console.log(this.data.year)
     if (month < 10) {
       month = '0' + month
     }
@@ -98,9 +96,8 @@ Page({
     else {
       day = day
     }
-
+// 这里是日期
     var dates = year + "-" + month + "-" + day;
-    console.log('日期', dates);
 
     app.globalData.obj.babyBirthday = dates;
 

@@ -16,10 +16,7 @@ Page({
   },
   navto: function () {
     wx.navigateTo({
-      url: '../mother-six/mother-six',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      url: '../mother-six/mother-six'
     })
   },
   bindChange:function(e){
@@ -29,6 +26,5 @@ Page({
     else if (e.detail.value == 1){
       app.globalData.obj.babySex = '02'      
     }
-    console.log('宝宝信息-----'+app.globalData.obj.babySex)
   },
 })

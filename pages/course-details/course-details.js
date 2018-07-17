@@ -38,7 +38,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    auth();
+    // auth();
     console.log();
     if (options.id) {
       id = options.id;
@@ -86,9 +86,7 @@ Page({
   // 点击标题切换当前页时改变样式
   swichNav: function(e) {
     var cur = e.target.dataset.current;
-    console.log(cur);
     if (this.data.currentTaB == cur) {
-      console.log(cur);
       return false;
     } else {
       this.setData({
@@ -97,13 +95,11 @@ Page({
     }
   },
   onClickAllPlay() {
-    console.log("全部播放");
     wx.navigateTo({
       url: '../course-video/course-video?courseId=' + id,
     })
   },
   onClickSubscriber() {
-    console.log("订阅");
     if (this.data.isSubscibe > 0) {
       wx.showToast({
         title: "当前课程已订阅,无需重复订阅",
@@ -120,24 +116,19 @@ Page({
 
     if (ops.from === 'button') {
       // 来自页面内转发按钮
-      console.log(ops.target)
-
     }
     return {
       title: '她师小程序',
       path: '/pages/courseDetails/courseDetails',
       success: function(res) {
         // 转发成功
-        console.log("转发成功:" + JSON.stringify(res));
       },
       fail: function(res) {
         // 转发失败
-        console.log("转发失败:" + JSON.stringify(res));
       }
     }
   },
   isCollect() {
-    console.log('收藏');
     if (this.data.isCollect === 0) {
       this.setData({
         isCollect: 1
@@ -150,8 +141,6 @@ Page({
       })
       status = "02";
     }
-    console.log('收藏>>>>', this.data.isCollect);
-
     this.getApiCourseCollectCourse(status);
   },
   /**
@@ -165,13 +154,10 @@ Page({
     }
 
     apiCourseCollectCourse(data).then(result => {
-      console.log('课程收藏操作', result);
-
     })
   },
   onHide:function(){
     apiCourseId(id).then(result => {
-      console.log('课程详情', result);
       WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
       this.setData({
         id: result.data.id,
@@ -187,9 +173,7 @@ Page({
     });
 
     apiSection(id).then(result => {
-      console.log('课程列表', result);
       this.setData({
-
         total: result.total,
         sectionList: result.list,
         //   remark: result.list[0].rem11ark,

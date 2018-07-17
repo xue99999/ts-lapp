@@ -14,7 +14,6 @@ Page({
     isTodayWeek: false,
     todayIndex: 0,
     select: 0,
-    // curIdx: null,
     show: true,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
@@ -67,9 +66,6 @@ Page({
   
   },
   dianji: function(e) {
-    // console.log(e.currentTarget.dataset.day)
-    // console.log(this.data.month)
-    // console.log(this.data.year)
     var month;
     if (this.data.month < 10) {
       month = '0' + this.data.month

@@ -83,7 +83,6 @@ Page({
           list: list,
           sections,
           sectionName,
-          teacherName: options.teacherName,
           durations,
           // remark,
         })
@@ -114,7 +113,6 @@ Page({
 
         this.setData({
           sectionName: SectionList[pos].sectionName,
-          teacherName: SectionList[pos].teacherName,
           durations: SectionList[pos].durations,
           // remark,
         })

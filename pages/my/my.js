@@ -1,7 +1,11 @@
-var app=getApp();
-const { ownerQuery}= require('../../service/user.js')
+var app = getApp();
+const {
+  ownerQuery
+} = require('../../service/user.js')
 var time = require('../../utils/time.js');
-const { auth } = require('../../utils/auth.js')
+const {
+  auth
+} = require('../../utils/auth.js')
 Page({
   /**
    * 
@@ -9,9 +13,9 @@ Page({
    */
   data: {
     nickName: "",
-  //  phone: "",
+    //  phone: "",
     avatarUrl: "",
-    integral:"",
+    integral: "",
     routers: [{
         name: '辣妈模式',
         url: '../home-mother/mother-five/mother-five',
@@ -32,7 +36,7 @@ Page({
       },
       {
         name: '我的收藏',
-        url:'../my-collection/collection',
+        url: '../my-collection/collection',
         icon: '../img/collection@3x.png',
         code: '11'
       },
@@ -44,7 +48,7 @@ Page({
       },
       {
         name: '标签模式',
-        url:'../label-course/label-course',
+        url: '../label-course/label-course',
         icon: '../img/feedback@3x.png',
         code: '10'
 
@@ -58,19 +62,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var parmas={
-      tag:"switch"
+    var parmas = {
+      tag: "switch"
     }
     auth(parmas);
-    ownerQuery().then(res=>{
-      console.log('个人信息查询',res);
-        this.setData({
-          nickName: res.nickName,
-          avatarUrl: res.avatarUrl,
-          integral: res.integral,
-        })
-
-    })
+    this.initUser()
   },
 
   /**
@@ -79,5 +75,24 @@ Page({
   onClickPhone() {
     console.log('这里是绑定手机号')
   },
+  onShow: function() {
+    this.initUser()
+  },
+  initUser:function(){
+    const that=this;
+    ownerQuery().then(result => {
+      wx.getUserInfo({
+        success: function (res) {
+          const { nickName,avatarUrl}=res.userInfo;
+          that.setData({
+            nickName: nickName,
+            avatarUrl: avatarUrl,
+            integral: result.integral,
+          })
+        }
+      })
+     
 
+    })
+  }
 })
