@@ -18,13 +18,13 @@ Page({
     shaonv: null
   },
   onLoad: function(option) {
+    if (!option.iscondition) {
       auth();
-      this.getDataDay()
- 
+    }
+    this.getDataDay()
   },
   // 少女入口
   clickGirl(e) {
-
     this.setData({
       shaonv: this.data.shaonv
     })
@@ -32,7 +32,8 @@ Page({
     wx.navigateTo({
       url: '../period/period-one/period-one',
     })
-    console.log(app.globalData.obj.shaonv)
+
+    //getApp().setStorageSync('shaonv','01');
   },
   // 辣妈入口
   clickMother(e) {
@@ -40,28 +41,29 @@ Page({
     wx.navigateTo({
       url: '../home-mother/mother-five/mother-five',
     })
+   // getApp().setStorageSync('shaonv', '02');
   },
   getDataDay() {
-    const day= moment().format('YYYY-MM-DD');
+    const day = moment().format('YYYY-MM-DD');
     var data = {
       startDay: day,
       endDay: day
     }
     userInfoQueryBodyStatus(data).then(result => {
-      console.log('查询身体状态接口', result);
       if (result.code === 200) {
-
-      if (result.userModel) {
-        wx.switchTab({
-          url: '../today/today',
-        })
-      } else {
-        wx.redirectTo({
-          url: '../home/home?characteristic=1',
-        })
+     
+        if (result.userModel) {
+          getApp().setStorageSync('shaonv', result.userModel || '01');
+          wx.switchTab({
+            url: '../today/today',
+          })
+        } else {
+          wx.redirectTo({
+            url: '../home/home?characteristic=1',
+          })
+        }
       }
-    }
-  })
+    })
   }
 
 })

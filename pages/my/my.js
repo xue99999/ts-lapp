@@ -1,11 +1,12 @@
 var app = getApp();
 const {
   ownerQuery
-} = require('../../service/user.js')
+} = require('../../service/user.js');
 var time = require('../../utils/time.js');
 const {
   auth
-} = require('../../utils/auth.js')
+} = require('../../utils/auth.js');
+var shaonv;
 Page({
   /**
    * 
@@ -15,10 +16,10 @@ Page({
     nickName: "",
     //  phone: "",
     avatarUrl: "",
-    integral: "",
+
     routers: [{
-        name: '辣妈模式',
-        url: '../home-mother/mother-five/mother-five',
+        name: '切换模式',
+        url: '../home/home?iscondition=true',
         icon: '../img/mom1@3x.png',
         code: '10'
       },
@@ -47,9 +48,9 @@ Page({
         code: '10'
       },
       {
-        name: '标签模式',
+        name: '全部课程',
         url: '../label-course/label-course',
-        icon: '../img/feedback@3x.png',
+        icon: '../img/course@3x.png',
         code: '10'
 
       }
@@ -66,6 +67,14 @@ Page({
       tag: "switch"
     }
     auth(parmas);
+    if (getApp().getStorageSync('shaonv') === '01') {
+      shaonv = "记经期"
+    } else {
+      shaonv = "辣妈"
+    }
+    this.setData({
+      shaonv: shaonv
+    })
     this.initUser()
   },
 
@@ -78,21 +87,32 @@ Page({
   onShow: function() {
     this.initUser()
   },
-  initUser:function(){
-    const that=this;
+  initUser: function() {
+    const that = this;
     ownerQuery().then(result => {
       wx.getUserInfo({
-        success: function (res) {
-          const { nickName,avatarUrl}=res.userInfo;
+        success: function(res) {
+          const {
+            nickName,
+            avatarUrl
+          } = res.userInfo;
           that.setData({
             nickName: nickName,
             avatarUrl: avatarUrl,
-            integral: result.integral,
           })
         }
       })
-     
-
+    })
+  },
+  //在show函数里面做数据切换
+  onShow:function(){
+    if (getApp().getStorageSync('shaonv') === '01') {
+      shaonv = "记经期"
+    } else {
+      shaonv = "辣妈"
+    }
+    this.setData({
+      shaonv: shaonv
     })
   }
 })

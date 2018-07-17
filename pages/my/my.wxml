@@ -3,14 +3,14 @@
     <image class='img_style' src='../img/my_top.png'></image>
     <image class='view_img' mode="scaleToFill" src="{{avatarUrl===''?'../img/placeholder.jpg':avatarUrl}}"></image>
     <text class='text_name'>{{nickName===""?"哇哦":nickName}}</text>
-<!--目前手机号不会使用先行注释 在my.is文件里打开 phone注释  -->
+    <!--目前手机号不会使用先行注释 在my.is文件里打开 phone注释  -->
     <!-- <text class='text_phone1' wx:if="{{phone===''}}" bindtap='onClickPhone'>绑定手机号</text>
     <text class='text_phone' wx:else>{{phone}}</text> -->
     <view class='view_solid'></view>
     <view class="layout_horizontal">
       <view class='layout_horizontal_view'>
         <image class='horizontal_img' src='../img/Recordperiod@3x.png'></image>
-        <text class='horizontal_text'>记经期 </text>
+        <text class='horizontal_text'>{{shaonv}} </text>
       </view>
       <view class='view_solid_vertical'></view>
       <view class='layout_horizontal_view'>
@@ -33,11 +33,13 @@
               <button open-type="contact" session-from="weapp">
                 {{item.name}}
               </button>
-             </view>
-             <view wx:else>
-               {{item.name}}
-             </view>
-            
+            </view>
+            <view  wx:else>
+              <button>
+                {{item.name}}
+              </button>
+            </view>
+
           </view>
         </view>
       </navigator>
