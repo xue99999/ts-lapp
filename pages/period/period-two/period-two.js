@@ -12,11 +12,11 @@ Page({
     show: false,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
-    menstrualTimes:null,
+    menstrualTimes: null,
     scrollShow: true,
   },
   bindPickerChange: function (e) {
-   
+
     const val = e.detail.value;
     const menstrualTimes = this.data.array[val[0]]
     console.log(menstrualTimes)
@@ -24,16 +24,12 @@ Page({
       menstrualTimes: menstrualTimes
     })
     app.globalData.obj.menstrualTimes = menstrualTimes
- 
+
   },
   navto: function () {
     wx.navigateTo({
       url: '../period-three/period-three?menstrualTimes=' + this.data.menstrualTimes,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
     })
-    
   },
 
   /**
@@ -46,14 +42,13 @@ Page({
     auth(parmas)
   },
   chooseImg: function (e) {
-
     this.setData({
       show: !this.data.show
     })
     console.log(e)
     if (this.data.show) {
-      app.globalData.obj.menstrualTimes = 5 
-      
+      app.globalData.obj.menstrualTimes = 5
+
       this.setData({
         scrollShow: false
       })
@@ -63,9 +58,6 @@ Page({
         scrollShow: true
       })
       app.globalData.obj.menstrualTimes = this.data.menstrualTimes
-
     }
-
-    console.log(app.globalData.obj.menstrualTimes)
   }
 })
