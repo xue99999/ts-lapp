@@ -38,8 +38,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-     auth();
-   
+    auth();
+
     if (options.id) {
       id = options.id;
       app.setStorageSync('courseId', id);
@@ -100,16 +100,14 @@ Page({
   },
   onClickSubscriber() {
     if (this.data.isSubscibe > 0) {
-      wx.showToast({
-        title: "当前课程已订阅,无需重复订阅",
-        icon: 'none',
-        duration: 2000
+      wx.navigateTo({
+        url: '../course-video/course-video?courseId=' + id,
       })
-      return;
+    } else {
+      wx.navigateTo({
+        url: '../pay/wx-pay/wx-pay?courseId=' + id + '&total=' + this.data.total + '&courseName=' + this.data.courseName + '&price=' + this.data.price
+      })
     }
-    wx.navigateTo({
-      url: '../pay/wx-pay/wx-pay?courseId=' + id + '&total=' + this.data.total + '&courseName=' + this.data.courseName + '&price=' + this.data.price
-    })
   },
   onShareAppMessage: function(ops) {
 
@@ -156,28 +154,28 @@ Page({
   },
   onShow: function() {
     apiCourseId(id).then(result => {
-      if (result.code  === 200) {
-      WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
-      this.setData({
-        id: result.data.id,
-        courseName: result.data.courseName,
-        isSubscibe: result.data.isSubscibe,
-        price: result.data.price,
-        teacherName: result.data.teacherName,
-        courseData: result.data,
-        pictureUrl: result.data.pictureUrl,
-        isCollect: result.data.isCollect,
-      })
+      if (result.code === 200) {
+        WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
+        this.setData({
+          id: result.data.id,
+          courseName: result.data.courseName,
+          isSubscibe: result.data.isSubscibe,
+          price: result.data.price,
+          teacherName: result.data.teacherName,
+          courseData: result.data,
+          pictureUrl: result.data.pictureUrl,
+          isCollect: result.data.isCollect,
+        })
       }
     });
 
     apiSection(id).then(result => {
       if (result.code === 200) {
-      this.setData({
-        total: result.total,
-        sectionList: result.list,
-        url: '../course-video/course-video?courseId=' + id,
-      })
+        this.setData({
+          total: result.total,
+          sectionList: result.list,
+          url: '../course-video/course-video?courseId=' + id,
+        })
       }
     });
   }
