@@ -1,11 +1,13 @@
 var app = getApp();
 const {
-  ownerQuery
+  ownerQuery,
+  userInfoQueryBodyStatus
 } = require('../../service/user.js');
 var time = require('../../utils/time.js');
 const {
   auth
 } = require('../../utils/auth.js');
+const moment = require('../../utils/moment.js');
 var shaonv;
 Page({
   /**
@@ -67,14 +69,8 @@ Page({
       tag: "switch"
     }
     auth(parmas);
-    if (getApp().getStorageSync('shaonv') === '01') {
-      shaonv = "记经期"
-    } else {
-      shaonv = "辣妈"
-    }
-    this.setData({
-      shaonv: shaonv
-    })
+    this.getDataDay();
+
     this.initUser()
   },
 
@@ -106,13 +102,33 @@ Page({
   },
   //在show函数里面做数据切换
   onShow:function(){
-    if (getApp().getStorageSync('shaonv') === '01') {
-      shaonv = "记经期"
-    } else {
-      shaonv = "辣妈"
+    this.getDataDay();
+  },
+  getDataDay() {
+    const day = moment().format('YYYY-MM-DD');
+    var data = {
+      startDay: day,
+      endDay: day
     }
-    this.setData({
-      shaonv: shaonv
+    userInfoQueryBodyStatus(data).then(result => {
+      if (result.code === 200) {
+          if (result.userModel){
+
+            if (result.userModel==='01'){
+              shaonv= '记经期'
+              }else{
+              shaonv = '辣妈'
+              }
+            this.setData({
+              shaonv: shaonv
+            })
+          }else{
+            this.setData({
+            shaonv: '记经期',
+            })
+          }
+         
+      }
     })
   }
 })
