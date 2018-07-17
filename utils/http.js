@@ -5,12 +5,8 @@ function Request(method, requestHandler) {
     params,
     headers
   } = requestHandler
-  console.table(requestHandler)
-
 
   wx.showNavigationBarLoading()
-
-
 
   return new Promise((resolve, reject) => {
     var token = wx.getStorageSync('token')
