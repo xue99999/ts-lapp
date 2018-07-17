@@ -10,7 +10,7 @@ const WxParse = require('../../wxParse/wxParse.js');
 var pos = -1;
 var SectionList = [];
 //区分播放暂停
-var isplay, record, courseId, sectionID;
+var  record, courseId, sectionID;
 Page({
 
   /**
@@ -22,7 +22,6 @@ Page({
     videoID: "",
     filePath: "",
     teacherName: "",
-    isplay,
     initial_times:0.0,
     remark: "",
     // 小节列表
@@ -63,6 +62,14 @@ Page({
             sectionName = list[i].sectionName;
             this.onPlay(list[i].id);
             WxParse.wxParse('remark', 'html', list[i].remark, this, 0);
+          }else{
+            pos = 0;
+            sectionName = list[0].sectionName;
+            this.onPlay(list[0].id);
+            WxParse.wxParse('remark', 'html', list[i].remark, this, 0);
+            this.setData({
+              isplay: false,
+            })
           }
         }
         this.setData({
@@ -75,13 +82,17 @@ Page({
     });
 
   },
+  onReady:function(){
+    //加载这个函数
+    this.videoContext = wx.createVideoContext('myVideo')
+  },
   doPlay: function(id) {
-
     apiSectionPlay(id).then(result => {
       console.log('课节播放', result)
       if (result.code === 200) {
         this.setData({
-          filePath: result.filePath
+          filePath: result.filePath,
+          isplay:true,
         })
     
         if (record===1){
@@ -94,6 +105,9 @@ Page({
         })
         WxParse.wxParse('remark', 'html', SectionList[pos].remark, this, 0);
       } else {
+        this.setData({
+          isplay: false,
+        })
         wx.showToast({
           title: "无权限播放课节",
           icon: 'none',
@@ -112,11 +126,8 @@ Page({
          // 播放当前匹配的id
         this.doPlay(SectionList[i].id);
         this.videoContext.play();
-      }else{
-        this.doPlay(SectionList[0].id);
       }
     }
-
   },
 
   //点击那个列表
@@ -173,40 +184,23 @@ Page({
       })
       return;
     }
-    //pos=pos-1;
     record = 2;
     this.onPlay(SectionList[pos-1].id);
   },
-  video_observer: function (event) {
-    console.log('时间', event);
-    if (event.detail.currentTime > 1) {
-      isplay = true;
-  
-    } else {
-      isplay = false;
-    }
-    console.log('isplay>>>', isplay);
-    this.setData({
-      isplay: isplay,
-    })
-  },
   //暂停播放
   onSuspend: function() {
-    console.log('isplay>>>', isplay);
-    if (isplay){
+    if (this.data.isplay){
       this.videoContext.pause();
-      isplay=false;
-      // this.setData({
-      //   isplay: true,
-      // })
+      this.setData({
+        isplay: false,
+      })
     }else{
       this.videoContext.play();
-      isplay=true;
-      // this.setData({
-      //   isplay: false,
-      // })
+      this.setData({
+        isplay: true,
+      })
     }
- 
+  
 
   },
 
