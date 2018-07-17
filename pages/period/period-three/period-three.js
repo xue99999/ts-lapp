@@ -48,8 +48,7 @@ Page({
   },
   bindPickerChange: function (e) {
     const val = e.detail.value;
-    const menstrualCycle = this.data.array[val[0]]  
-    console.log(menstrualCycle)
+    const menstrualCycle = this.data.array[val[0]]  //这里赋值
     app.globalData.obj.menstrualCycle = menstrualCycle
 
   },
