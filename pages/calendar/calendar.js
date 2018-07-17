@@ -1027,6 +1027,12 @@ Page({
       nextYear = year + 1;
       dayNums = new Date(nextYear, nextMonth, 0).getDate();
     }
+
+   
+    const sdate = `${year}-${nextMonth > 10 ? nextMonth : '0' + nextMonth}-01`;
+    const edate = `${year}-${nextMonth > 10 ? nextMonth : '0' + nextMonth}-${dayNums}`;
+
+    console.log(sdate, edate);
     arrLen = startWeek + dayNums;
     const list = app.globalData.bodyStatus || [];
     for (let i = 0; i < arrLen; i++) {
@@ -1111,18 +1117,24 @@ Page({
         todayIndex: -1
       })
     }
+
+    return {sdate,edate};
   },
   lastMonth: function() {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
     let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
 
-
+    const res=this.dateInit(year, month);
     this.setData({
       year: year,
       month: (month + 1)
     })
-    this.dateInit(year, month);
+
+    console.log(res)
+
+    this.query(res.sdate,res.edate,null)
+   
     // let dayNums = new Date(year, month, 0).getDate();     //获取目标月有多少天
     
  
@@ -1144,11 +1156,13 @@ Page({
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
     let month = this.data.month > 11 ? 0 : this.data.month;
+    const res= this.dateInit(year, month);
     this.setData({
       year: year,
       month: (month + 1)
     })
-    this.dateInit(year, month);
+    
+    this.query(res.sdate, res.edate, null)
     // console.log(year)
     // console.log(month)
   },
@@ -1170,13 +1184,10 @@ Page({
       //触摸开始与结束，手指移动的距离
       var disX = that.data.startX - endX;
       if (disX > 50) {
-        that.dateInit()
         that.nextMonth()
-        this.query(this.data.startDay,this.data.endDay);
       } else if (disX < -50) {
-        that.dateInit()
         that.lastMonth()
-        this.query(this.data.startDay,this.data.endDay);
+       // this.query(this.data.startDay,this.data.endDay);
       }
     }
   },
