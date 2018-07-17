@@ -2,7 +2,6 @@
 var app = getApp();
 const {
   auth
-
 } = require('../../utils/auth.js');
 const {
   loginWithCode,
@@ -53,7 +52,6 @@ Page({
       if (result.code === 200) {
      
         if (result.userModel) {
-          getApp().setStorageSync('shaonv', result.userModel || '01');
           wx.switchTab({
             url: '../today/today',
           })
