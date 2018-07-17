@@ -105,14 +105,14 @@
 }
 
 .course_list_itme_text1 {
-  flex: 0.1;
+  flex: 1;
   margin-left: 48.48rpx;
   justify-content: cente;
   color: #999;
 }
 
 .course_list_itme_text2 {
- flex: 0.9;
+ flex: 3;
   flex-direction: unset;
 }
 
@@ -121,7 +121,7 @@
 }
 
 .course_list_itme_text_title {
-font-size: 30rpx;
+font-size: 26rpx;
   color: #000;
 }
 
@@ -163,8 +163,7 @@ font-size: 30rpx;
 }
 
 .scroll_view {
-height: 500rpx;
- 
+  height: 650rpx;
 }
 
 .view_solid {
@@ -237,10 +236,10 @@ height: 500rpx;
   flex-direction: row;
   height: 90.90rpx;
   justify-content: center;
-  margin-bottom: 22rpx;
 }
 
 .view_bottom_button1, .view_bottom_button2 {
+  
   background: #fe6f71;
   text-align: center;
   line-height: 90.90rpx;
@@ -259,10 +258,10 @@ height: 500rpx;
 
 
 .view_bottom_button1_text {
+  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background: #fff;
   align-items: center;
 }
 
@@ -271,17 +270,16 @@ height: 500rpx;
 }
 
 .collect-view {
-  width: 50%;
+  width: 100rpx;
   display: flex;
   flex-direction: unset;
   justify-content: center;
   align-items: center;
-  
 }
 
 .collect-view-img {
-  width: 38rpx;
-  height: 32rpx;
+  width: 32rpx;
+  height: 28rpx;
 }
 
 .view_bottom_button1_text:after {
@@ -291,6 +289,6 @@ height: 500rpx;
 }
 
 .view_bottom_img {
-  width: 40rpx;
-  height: 40rpx;
+  width: 45rpx;
+  height: 45rpx;
 }
