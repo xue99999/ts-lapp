@@ -10,7 +10,7 @@ const WxParse = require('../../wxParse/wxParse.js');
 var pos = -1;
 var SectionList = [];
 //区分播放暂停
-var  record, courseId, sectionID;
+var record, courseId, sectionID, index;
 Page({
 
   /**
@@ -99,6 +99,8 @@ Page({
          pos= pos + 1
         } else if (record === 2){
           pos = pos - 1
+        } else if (record===3){
+          pos = index
         }
         this.setData({
           sectionName: SectionList[pos].sectionName,
@@ -132,11 +134,10 @@ Page({
   handleClickItem1({
     detail
   }) {
-    const index = detail.index;
-    pos = index;
+    index= detail.index;
     this.onPlay(SectionList[index].id);
     //点击之后播放视频
-    this.videoContext.play();
+    record = 3;
     this.setData({
       visible1: false,
     });
