@@ -18,7 +18,7 @@ import Http from '../utils/http.js';
 //刘小东 本地测试路径
 //const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 //171测试服务器
-//  const baseUrl ='http://192.168.9.171:8090/'
+  //const baseUrl ='http://192.168.9.171:8090/'
 //生产地址
  const baseUrl = 'https://api.tashi2018.com/'
 const {

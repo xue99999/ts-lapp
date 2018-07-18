@@ -116,7 +116,7 @@ Page({
     }
     return {
       title: '她师小程序',
-      path: '/pages/courseDetails/courseDetails',
+      path: '/pages/course-details/course-details',
       success: function(res) {
         // 转发成功
       },
