@@ -15,7 +15,7 @@
       <view class='view_solid_vertical'></view>
       <view class='layout_horizontal_view'>
         <image class='horizontal_img' src='../img/integral@3x.png'></image>
-        <text class='horizontal_text'>{{integral===""?0:integral}}积分</text>
+        <text class='horizontal_text'>{{integral}}积分</text>
       </view>
     </view>
 

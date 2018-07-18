@@ -18,7 +18,7 @@ Page({
     nickName: "",
     //  phone: "",
     avatarUrl: "",
-
+    integral:0,
     routers: [{
         name: '切换模式',
         url: '../home/home?iscondition=true',
@@ -80,29 +80,34 @@ Page({
   onClickPhone() {
     console.log('这里是绑定手机号')
   },
-  onShow: function() {
-    this.initUser()
-  },
   initUser: function() {
     const that = this;
     ownerQuery().then(result => {
+
       wx.getUserInfo({
         success: function(res) {
           const {
             nickName,
-            avatarUrl
+            avatarUrl,
+            
           } = res.userInfo;
           that.setData({
             nickName: nickName,
             avatarUrl: avatarUrl,
+          
           })
         }
+      })
+      console.log(result);
+      that.setData({
+        integral: result.integral
       })
     })
   },
   //在show函数里面做数据切换
   onShow:function(){
     this.getDataDay();
+    this.initUser();
   },
   getDataDay() {
     const day = moment().format('YYYY-MM-DD');
