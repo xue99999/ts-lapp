@@ -94,14 +94,11 @@ Page({
           that.setData({
             nickName: nickName,
             avatarUrl: avatarUrl,
-          
+            integral: result.integral
           })
         }
       })
-      console.log(result);
-      that.setData({
-        integral: result.integral
-      })
+     
     })
   },
   //在show函数里面做数据切换

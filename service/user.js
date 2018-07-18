@@ -19,7 +19,7 @@ import Http from '../utils/http.js';
 //const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 //171测试服务器
 
-const baseUrl ='http://192.168.100.171:8090/'
+const baseUrl ='http://36.110.31.179:8090/'
 //生产地址
 // const baseUrl = 'https://api.tashi2018.com/'
 
