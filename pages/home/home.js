@@ -17,10 +17,12 @@ Page({
     shaonv: null
   },
   onLoad: function(option) {
+
     if (!option.iscondition) {
+      this.getDataDay()
       auth();
     }
-    this.getDataDay()
+   
   },
   // 少女入口
   clickGirl(e) {
@@ -32,7 +34,6 @@ Page({
       url: '../period/period-one/period-one',
     })
 
-    //getApp().setStorageSync('shaonv','01');
   },
   // 辣妈入口
   clickMother(e) {
@@ -40,7 +41,6 @@ Page({
     wx.navigateTo({
       url: '../home-mother/mother-five/mother-five',
     })
-   // getApp().setStorageSync('shaonv', '02');
   },
   getDataDay() {
     const day = moment().format('YYYY-MM-DD');
@@ -56,8 +56,9 @@ Page({
             url: '../today/today',
           })
         } else {
+          console.log('dddddd2');
           wx.redirectTo({
-            url: '../home/home?characteristic=1',
+            url: '../home/home',
           })
         }
       }
