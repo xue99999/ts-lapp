@@ -34,7 +34,7 @@
                 {{item.name}}
               </button>
             </view>
-            <view  wx:else>
+            <view wx:else>
               <button>
                 {{item.name}}
               </button>

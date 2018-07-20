@@ -15,9 +15,11 @@
     </view>
   </view>
   <view class='view-img'>
-    <image src='../img/yuan@3x.png'></image>
+    <image src='../img/yuan@3x.png' mode="widthFix"></image>
     <!-- <view>{{item.inner}}</view>
         <view>{{item.userModel}}</view>  -->
+    <!-- <canvas style="width:100%; height: 687rpx;border:1px solid red" canvas-id="firstCanvas"></canvas> -->
+
     <view class='view-inner' wx:if="{{userModel==='01'}}">
       <view>{{showObj['01'].top}}</view>
       <view>{{currentDay.physiologicalCycle!=='01'?showObj['01'].middle:''}}</view>

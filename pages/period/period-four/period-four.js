@@ -34,8 +34,6 @@ Page({
       'menstrualTimes': app.globalData.obj.menstrualTimes,
       'menstrualCycle': app.globalData.obj.menstrualCycle,
       'birthday': app.globalData.obj.birthday,
-      'babySex':'01',
-      'babyBirthday':'2017'
     }
     console.log(data)
 

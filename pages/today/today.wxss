@@ -1,18 +1,21 @@
-.box{
+.box {
   width: 100%;
   height: 1280rpx;
-  background: #EEE1EB;
-} 
-.header{
+  background: #eee1eb;
+}
+
+.header {
   width: 100%;
   display: flex;
   justify-content: space-around;
   font-size: 30rpx;
 }
-.header view{
+
+.header view {
   margin-top: 27.8rpx;
 }
-.headers{
+
+.headers {
   width: 100%;
   line-height: 60rpx;
   display: flex;
@@ -21,8 +24,8 @@
   margin-top: 50rpx;
 }
 
-.weekMark{
-  display: inline-block; 
+.weekMark {
+  display: inline-block;
   width: 60rpx;
   height: 60rpx;
   background: red;
@@ -30,7 +33,8 @@
   text-align: center;
   color: white;
 }
-.view-tishi{
+
+.view-tishi {
   width: 100%;
   display: flex;
   flex-direction: row-reverse;
@@ -38,94 +42,105 @@
   padding-top: 30rpx;
   height: 70rpx;
 }
-.view-tishi view{
+
+.view-tishi view {
   color: white;
   font-size: 28rpx;
   position: fixed;
-  top: 231rpx; 
+  top: 231rpx;
   right: 0;
 }
-.view-tishi view text{
+
+.view-tishi view text {
   position: fixed;
-  top: 238rpx; 
+  top: 238rpx;
   right: 10rpx;
 }
-.view-tishi view image{
+
+.view-tishi view image {
   width: 150rpx;
   height: 50rpx;
 }
-.view-img{
+
+.view-img {
   position: relative;
-  width:100%;
+  width: 100%;
   height: 700rpx;
 }
-.view-img image{
+
+.view-img image {
   width: 100%;
-  height: 100%;
-   border-radius: 50%;   
+  border-radius: 50%;
 }
-.view-img .view-inner{
+
+.view-img .view-inner {
   font-size: 40rpx;
   width: 100%;
   text-align: center;
-   position: absolute;
-  top: 23%; 
-  color: #FE6F71;
+  position: absolute;
+  top: 23%;
+  color: #fe6f71;
   margin-bottom: 100rpx;
 }
-.view-img .view-inner view{
+
+.view-img .view-inner view {
   margin: 60rpx 0;
 }
-.view-bu{
+
+.view-bu {
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
 }
-.view-bu view{
-  width: 33.3%;
 
+.view-bu view {
+  width: 33.3%;
 }
-.bushu{
+
+.bushu {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 30rpx;
 }
-.bushu image{
+
+.bushu image {
   width: 40rpx;
   height: 40rpx;
   margin: 0 10rpx;
 }
-.view-inner image{
-   width: 80rpx;
+
+.view-inner image {
+  width: 80rpx;
   height: 80rpx;
   margin: 60rpx 0rpx 0rpx 0rpx;
 }
 
-.view-inner .view-last{
+.view-inner .view-last {
   font-size: 24rpx;
-  color: #F5A6B7;
+  color: #f5a6b7;
 }
 
-.view-inner>button{
-    width: 200rpx;
-    height:56rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 25px;
-    font-size: 24rpx;
-    background: #FE6F71;
-    color: white;
+.view-inner>button {
+  width: 200rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  font-size: 24rpx;
+  background: #fe6f71;
+  color: white;
 }
-.tupian{
+
+.tupian {
   display: flex;
   flex-direction: row-reverse;
   margin-right: 30rpx;
 }
-.tupian image{
+
+.tupian image {
   width: 70rpx;
   height: 70rpx;
 }

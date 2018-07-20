@@ -192,12 +192,11 @@
 
 .weui-grid__bg {
   position: relative;
-display: flex;
-flex-direction:  column;
-align-content: center;
-justify-content: center;
-align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
 }
 
@@ -231,13 +230,11 @@ align-items: center;
   overflow: hidden;
 }
 
-
-
 .deg button {
   border: none;
   height: 30rpx;
   margin-top: 20rpx;
-  padding:0rpx;
+  padding: 0rpx;
   background: none;
   border-radius: 0;
   line-height: 30rpx;

@@ -15,7 +15,7 @@ Page({
     menstrualTimes: null,
     scrollShow: true,
   },
-  bindPickerChange: function (e) {
+  bindChange: function (e) {
 
     const val = e.detail.value;
     const menstrualTimes = this.data.array[val[0]]
@@ -24,7 +24,6 @@ Page({
       menstrualTimes: menstrualTimes
     })
     app.globalData.obj.menstrualTimes = menstrualTimes
-
   },
   navto: function () {
     wx.navigateTo({
@@ -48,7 +47,7 @@ Page({
     console.log(e)
     if (this.data.show) {
       app.globalData.obj.menstrualTimes = 5
-
+      console.log(app.globalData.obj.menstrualTimes)
       this.setData({
         scrollShow: false
       })
