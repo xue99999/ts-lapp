@@ -38,7 +38,7 @@ Page({
       'babySex': app.globalData.obj.babySex,
       'babyBirthday': app.globalData.obj.babyBirthday
     }
-    console.log(data.userModel)
+    console.log(data)
 
     userInfoAdd(data).then(res => {
       console.log('登录经期信息', res);

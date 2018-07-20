@@ -20,7 +20,7 @@ Page({
     date: ['日', '一', '二', '三', '四', '五', '六'],
     dateArr: [],
     isToday: 0,
-    isTodayWeek: false,
+    isTodayWeek: false, 
     todayIndex: 0,
     currentDay: {}, //当前选中数据
     show: false,

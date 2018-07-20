@@ -56,11 +56,13 @@
 }
 .view-img{
   position: relative;
+  width:100%;
+  height: 700rpx;
 }
 .view-img image{
   width: 100%;
-  height: 700rpx;
- /* border-radius: 50%;  */
+  height: 100%;
+   border-radius: 50%;   
 }
 .view-img .view-inner{
   font-size: 40rpx;
@@ -103,7 +105,8 @@
 }
 
 .view-inner .view-last{
-  font-size: 30rpx;
+  font-size: 24rpx;
+  color: #F5A6B7;
 }
 
 .view-inner>button{

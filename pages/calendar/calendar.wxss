@@ -70,7 +70,7 @@
   font-size: 40rpx;
   text-align: center;
   vertical-align: middle;
-  margin: 10rpx 0;
+  /* margin: 10rpx 0; */
     /* border: 0.1px solid red;   */
 }
 
@@ -196,7 +196,7 @@
   align-items: center;
   justify-content: space-around;
   font-size: 26rpx;
-  margin-top: 50rpx;
+  margin-top: 30rpx;
   background: #f9f9f9;
 }
 
@@ -222,9 +222,11 @@
   width: 50rpx;
   height: 50rpx;
 }
-
+.boss{
+  /* margin-bottom: 40rpx; */
+}
 .view-mo {
-  width: 50%;
+  width: 70%;
   display: flex;
   align-items: center;
   margin-left: 30rpx;
@@ -233,14 +235,23 @@
 .view-mo text {
   margin-left: 10rpx;
 }
-
+.view-luan{
+  display: flex;
+  align-items: center;
+}
+.view-yuci{
+  width: 20rpx;
+  height: 20rpx;
+  background: #FCAFA5;
+  border-radius: 50%;
+}
 .view-mo1 {
   display: flex;
-  margin-right: 30rpx;
+   margin-right: 30rpx; 
 }
 
 .view-mo1 image {
-  margin-right: 20rpx;
+   margin-right: 20rpx; 
 }
 
 .kong {
