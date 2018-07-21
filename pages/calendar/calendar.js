@@ -1177,9 +1177,9 @@ Page({
       var endX = e.changedTouches[0].clientX;
       //触摸开始与结束，手指移动的距离
       var disX = that.data.startX - endX;
-      if (disX > 50) {
+      if (disX > 90) {
         that.nextMonth()
-      } else if (disX < -50) {
+      } else if (disX < -90) {
         that.lastMonth()
       }
     }

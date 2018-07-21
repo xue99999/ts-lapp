@@ -84,7 +84,7 @@
 }
 
 .view-img .view-inner view {
-  margin: 60rpx 0;
+  margin: 75rpx 0;
 }
 
 .view-bu {
@@ -118,8 +118,10 @@
 }
 
 .view-inner .view-last {
+ 
   font-size: 24rpx;
   color: #f5a6b7;
+  
 }
 
 .view-inner>button {

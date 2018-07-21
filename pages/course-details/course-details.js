@@ -8,6 +8,9 @@ const {
 const {
   auth
 } = require('../../utils/auth.js');
+const {
+  formatSeconds
+} = require('../../utils/util.js');
 const WxParse = require('../../wxParse/wxParse.js');
 var id, status;
 var app = getApp();
@@ -171,9 +174,19 @@ Page({
 
     apiSection(id).then(result => {
       if (result.code === 200) {
+
+       const  {list}=result;
+
+       for(let i=0;i<list.length;i++){
+         if(list[i].duration){
+           list[i].duration = formatSeconds(list[i].duration)
+         }
+        
+       }
+
         this.setData({
           total: result.total,
-          sectionList: result.list,
+          sectionList: list,
           url: '../course-video/course-video?courseId=' + id,
         })
       }

@@ -36,14 +36,15 @@
       <image src='../img/pink@3x.png'></image>
       <text>月经期</text>
     </view>
+     <view class='view-luan'>
+      <view class='view-yuci'></view>
+      <text>预测经期</text>
+    </view>
     <view class='view-jing'>
       <image src='../img/zise@3x.png'></image>
       <text>易孕期</text>
     </view>
-    <view class='view-luan'>
-      <view class='view-yuci'></view>
-      <text>预测期</text>
-    </view>
+   
     <view class='view-ri'>
       <image src='../img/xing@3x.png'></image>
       <text>排卵日</text>
