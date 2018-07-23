@@ -1,15 +1,13 @@
 <view class='view_top'>
-  <view class='view_top_s'>
+  <view class='view_top_s' >
     <view class='text_view'>
-      <text class='view_top_text' wx:if="{{physiologicalCycle==='01'}}">{{content01}}</text>
-      <text class='view_top_text' wx:elif="{{physiologicalCycle==='02'}}">{{content02}}</text>
-      <text class='view_top_text' wx:elif="{{physiologicalCycle==='03'}}">{{content03}}</text>
-      <text class='view_top_text' wx:elif="{{physiologicalCycle==='04'}}">{{content04}}</text>
+      <text class='view_top_text'>{{lists[pos].text}}</text>
+     
     </view>
     <view class='view_top_img'>
-      <image class='view_top_img1' src='../img/placeholder.jpg'></image>
-      <image class='view_top_img2' src='../img/placeholder.jpg'></image>
-      <image class='view_top_img3' src='../img/placeholder.jpg'></image>
+      <image class='view_top_img1' src='{{lists[pos].img1}}'></image>
+      <image class='view_top_img2'  src='{{lists[pos].img2}}'></image>
+      <image class='view_top_img3' src='{{lists[pos].img3}}'></image>
     </view>
   </view>
 </view>
@@ -26,7 +24,7 @@
           <!--添加默认次数  -->
           <text class='list_item_text3'>{{item.subscribeTotal}}次订阅</text>
           <!--
-        我的课程没有 时长 价格  labelcourse  -->
+        我的课程没有 时长 价格  labelcourse     src='../img/placeholder.jpg' -->
           <!-- <image class='list_item_view_all_img1' src='../img/time@3x.png'></image>
           <text class='list_item_text4'>{{item.duration}}</text> -->
           <text class='list_item_text5'>¥{{item.price}}</text>

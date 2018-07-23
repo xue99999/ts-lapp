@@ -37,37 +37,23 @@ Page({
       "01": {
 
       }
-    },
-    // image: {
-    //   src: "../img/yuan@3x.png",
-    //   width: 400,
-    //   heigth: 400
-    // }
+    }
+  },
+  naState: function () {
+    const day = this.data.formatDay;
+    wx.navigateTo({
+      url: `/pages/state/state?day=${day}`
+    })
   },
   clickArr: function(e) {
     console.log(e.currentTarget.dataset.index)
   },
-  navState: function() {
-    const day = this.data.formatDay;
-    wx.navigateTo({
-      url: `/pages/state/state?day=${day}`,
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
 
-    // let that = this;
-    // var contex = wx.createCanvasContext('firstCanvas')
-    // contex.save(); // 先保存状态 已便于画完圆再用
-    // contex.beginPath(); //开始绘制
-    // //先画个圆
-    // contex.arc(400, 200, 400, 0, Math.PI * 2, false);
-    // contex.clip();//画了圆 再剪切  原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内
-    // contex.drawImage(that.data.image.src, 0, 0, that.data.image.width, that.data.image.heigth); // 推进去图片
-    // contex.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 可以继续绘制
-    // contex.draw();
 
 
     const day = moment().format("YYYY-MM-D");
