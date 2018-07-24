@@ -56,7 +56,7 @@
 }
 
 .date-box {
-  font-size: 0;
+  padding: 10rpx 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
