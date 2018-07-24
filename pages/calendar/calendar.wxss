@@ -7,6 +7,7 @@
   text-align: center;
   margin: 40rpx auto 10rpx;
 }
+
 .lt-arrow, .rt-arrow {
   position: absolute;
   top: 1rpx;
@@ -30,7 +31,6 @@
 .header {
   font-size: 0;
   /* padding: 0 24rpx; */
-
 }
 
 .header>view {
@@ -57,21 +57,20 @@
 
 .date-box {
   font-size: 0;
-  padding: 10rpx 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
   /* border: 1px solid red; */
 }
 
 .date-box .date-view {
-  position: relative;
-  display: inline-block;
-
   width: 14.285%;
   color: #020202;
   font-size: 40rpx;
   text-align: center;
-  vertical-align: middle;
-  /* margin: 10rpx 0; */
-    /* border: 0.1px solid red;   */
+  /* margin: 10rpx 0; *//* border: 0.1px solid red;   */
 }
 
 .date-head {
@@ -79,61 +78,45 @@
   width: 60%;
   height: 60rpx;
   border-radius: 50%;
-  font-size: 28rpx;
-      /* border: 1px solid red;   */
   display: flex;
-  /* flex-direction:column; */
   justify-content: center;
   align-items: center;
-  
+  align-content: center;
 }
 
-.date-head .day{
-  width:45rpx;
-  height:45rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
+.day {
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 25rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
   /* border: 1px solid blue;  */
 }
 
-.day-select{
+.day-select {
   /* border: 1px solid red; */
   background-color: #d7ecfc;
 }
 
-.yuejing-yuji{
-  width: 45rpx;
-  height: 45rpx;
-  text-align: center;
-  background-color: #FCAFA5;
+.yuejing-yuji {
+  background-color: #fcafa5;
   color: white;
   /* border: 1px solid red; */
 }
 
-.yuejingclass{
-  width: 45rpx;
-  height: 45rpx;
-  text-align: center;
+.yuejingclass {
   background: #fe6f71;
-  border-radius: 50%;
   color: white;
 }
 
-.pailuanclass{
-  width: 45rpx;
-  height: 45rpx;
-  text-align: center;
+.pailuanclass {
   background: #d193ee;
-  border-radius: 50%;
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
+
 .date-weight image {
-  /* font-size: 22rpx; */ padding: 10rpx 0;   
+  /* font-size: 22rpx; */
+  padding: 10rpx 0;
   width: 19rpx;
   height: 19rpx;
 }
@@ -190,6 +173,7 @@
   letter-spacing: 1.656rpx;
   /* font-weight: bold; */
 }
+
 .view-list {
   width: 100%;
   height: 60rpx;
@@ -223,9 +207,7 @@
   width: 50rpx;
   height: 50rpx;
 }
-.boss{
-  /* margin-bottom: 40rpx; */
-}
+
 .view-mo {
   width: 70%;
   display: flex;
@@ -236,23 +218,26 @@
 .view-mo text {
   margin-left: 10rpx;
 }
-.view-luan{
+
+.view-luan {
   display: flex;
   align-items: center;
 }
-.view-yuci{
+
+.view-yuci {
   width: 20rpx;
   height: 20rpx;
-  background: #FCAFA5;
+  background: #fcafa5;
   border-radius: 50%;
 }
+
 .view-mo1 {
   display: flex;
-   margin-right: 30rpx; 
+  margin-right: 30rpx;
 }
 
 .view-mo1 image {
-   margin-right: 20rpx; 
+  margin-right: 20rpx;
 }
 
 .kong {
