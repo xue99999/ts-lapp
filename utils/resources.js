@@ -20,7 +20,7 @@ module.exports = {
     fearCold: '../img/cold@3x.png',
     // 乏力
     weak:'../img/No tired@3x.png',
-    baby: '../img/baby@3x.png',
+    baby: '../img/wawa.png',
     
     record:'../img/editor@3x.png',
     pailuanri:'../img/xing@3x.png'

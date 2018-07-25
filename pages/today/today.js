@@ -124,8 +124,8 @@ Page({
           if(userModel === '01') {
             showObj['01'] = {
               //当前周期信息 预计:月经期第六天
-              top: `${physiologicalCycle!=='01'&&isPredict === '0' ? '预测:': ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
-              middle: physiologicalCycle!=='03'?`第${predictDay}天`:'',
+              top: `${physiologicalCycle !== '01' && physiologicalCycle !== '05' && isPredict === '0' ? '预测:': ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
+              middle: physiologicalCycle > 0? `离月经还有${predictDay}天` : `月经第${predictDay}天`,
               shouyun: this.getShouyunText(physiologicalCycle)
               // 
             }
@@ -156,11 +156,11 @@ Page({
   // 根据生理周期状态返回显示内容
   getphysiologicalCycleText: function(status) {
     let result = {
-      "01": "月经前期",
+      "01": "安全期",
       "02": "月经期",
       "03": "易孕期",
       "04": "排卵日",
-      "05":"月经后期"
+      "05":"安全期"
     };
     return result[status];
   },
