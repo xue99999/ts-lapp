@@ -1,14 +1,44 @@
 <view class='view_top'>
   <view class='view_top_s' >
     <view class='text_view'>
-      <text class='view_top_text'>{{lists[pos].text}}</text>
-     
+      <view wx:if="{{pos===0}}" class='view_pos'>
+            <view style='color:#C00000;margin-top:20rpx;'>月经前期（黄体期）</view>
+            <view> <image src='../img/dian.png'></image> 经前症状让人烦，不妨试试小妙方。</view>
+            <view> <image src='../img/dian.png'></image> 乳房胀痛揉<text style='color:#C00000'>太冲穴</text>，配合<text style='color:#C00000'>少泽穴</text>掐按更有效。</view>
+            <view> <image src='../img/dian.png'></image> 偏头痛用梳子刮<text style='color:#C00000'>率谷穴、合谷穴</text>按揉更轻松。</view>
+            <view> <image src='../img/dian.png'></image> 经前祛斑效果好，美白祛斑面膜用起来。</view>
+      </view>
+      <view wx:if="{{pos===1}}" class='view_pos'>
+            <view style='color:#C00000;margin-top:20rpx;'>月经期</view>
+            <view> <image src='../img/dian.png'></image> "宜泄不宜藏"——此时期不适宜大补，应 以温经行气活血为主。</view>
+            <view> <image src='../img/dian.png'></image> 冷饮快走开，不如来杯生姜红糖水，让经 血来得更顺畅一些吧。</view>
+            <view> <image src='../img/dian.png'></image> 痛经的MM，<text style='color:#C00000'>三阴交穴</text>是标配，按揉+艾 灸，通经止痛。</view>
+            <view> <image src='../img/dian.png'></image> 酒精棉球塞耳朵，痛经小妙招。</view>
+      </view>
+      <view wx:if="{{pos===2}}" class='view_pos'>
+            <view style='color:#C00000;margin-top:20rpx;'>排卵期</view>
+            <view> <image src='../img/dian.png'></image> 受孕最佳期，心情愉快最重要，身心合一，收获好“孕”。</view>
+            <view> <image src='../img/dian.png'></image> 甜蜜时刻，别忘记避孕哦。</view>
+            <view> <image src='../img/dian.png'></image> 你本来就很美，气血旺盛，皮肤最佳期。</view>
+      </view>
+      <view wx:if="{{pos===3}}" class='view_pos'>
+            <view style='color:#C00000;margin-top:20rpx;'>月经后期（卵泡期）</view>
+            <view> <image src='../img/dian.png'></image> “宜补不宜泄”——此时期不适宜活血行气太过，是补气养血的最佳时期，想要补养的美女抓住这个好时机，事半功倍哦。</view>
+            <view> <image src='../img/dian.png'></image> <text style='color:#C00000'>足三里、血海穴</text>，按揉+艾灸，益气养血，不要太美哦。</view>
+            <view> <image src='../img/dian.png'></image> 护肤达人们，这个时期最适合补水保湿，面膜贴起来吧。</view>
+      </view>
     </view>
-    <view class='view_top_img'>
-      <image class='view_top_img1' src='{{lists[pos].img1}}'></image>
-      <image class='view_top_img2'  src='{{lists[pos].img2}}'></image>
-      <image class='view_top_img3' src='{{lists[pos].img3}}'></image>
-    </view>
+
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper'>
+  <block wx:for="{{lists[pos]}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+
   </view>
 </view>
 <view class='scroll_view' scroll-y="true">

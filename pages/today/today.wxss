@@ -28,7 +28,7 @@
   display: inline-block;
   width: 60rpx;
   height: 60rpx;
-  background: red;
+  background: #F2746B;
   border-radius: 50%;
   text-align: center;
   color: white;
@@ -85,7 +85,7 @@
 }
 
 .view-img .view-inner view {
-  margin: 75rpx 0;
+  margin: 60rpx 0;
 }
 
 .view-bu {

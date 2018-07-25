@@ -31,6 +31,8 @@ Page({
     tian: null,
     selectDay: moment().format("YYYY-MM-D"),
     weight: '../img/xing@3x.png',
+    bossShow:false,
+    today: moment().format('YYYY-MM-DD'),
     // 按摩
     anmo: [{
         name: '捏脊',
@@ -706,18 +708,29 @@ Page({
     let dates = year + "-" + cmonth + "-" + day;
     for (let i = 0; i < dateArr.length; i++) {
       const obj = dateArr[i];
+      
       if (day === obj.dateNum) {
         obj.isSelect = true;
       } else {
         obj.isSelect = false;
       }
     }
+    const today = moment().format('D');
+    if (day < today || day == today){
+      this.data.bossShow = true;
+    }else{
+      this.data.bossShow = false;     
+    }
     this.setData({
       selectDay: dates,
-      dateArr: dateArr
+      dateArr: dateArr,
+      bossShow:this.data.bossShow
     })
 
     this.initRecord(dates);
+    console.log(day)
+    console.log('今日--',today)
+
   },
   onLoad: function() {
     const parmas = {
@@ -1151,6 +1164,7 @@ Page({
   }, // 更新身体信息
   updateStatus(data) {
     const day = this.data.selectDay;
+
     userInfoUpdateBodyStatus({
       day,
       ...data

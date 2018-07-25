@@ -15,39 +15,27 @@ Page({
    * 页面的初始数据
    */
   data: {
+    indicatorDots: false,
+    autoplay: false,
+    interval: 5000,
+    duration: 1000,
     list: [],
     url: '../course-details/course-details',
     pos:0,
-    lists: [{
-        text: "宜补不宜泄，补气养血的最佳时期，想要补养的美女抓住这个好时机，事半功倍哦。足三里、血海，按揉+艾灸，益气养血，不要太美                         哦。护肤达人们，这个时期最适合补水保湿，面膜贴起来吧。",
-        img1: "../img/zusan.jpg",
-        img2: '../img/xuehai.jpg',
-        img3: '../img/placeholder.jpg',
-        img4: '../img/xuehai.jpg',
-      },
-      {
-        text: "宜泄不宜藏，冷饮快走开，不如来杯生姜红糖水，让经血来得更顺畅一些吧。痛经的MM，三阴交穴是标配，按揉+艾灸，通经止痛。酒精                     棉球塞耳朵，痛经小妙招。",
-        img1: '../img/sanyin.jpg',
-        img2: '../img/xuehai.jpg',
-        img3: '../img/placeholder.jpg',
-        img4: '../img/xuehai.jpg',
-    
-      },
-      {
-        text: "经前症状让人烦，不妨试试小妙方。乳房胀痛揉太冲，配合少泽掐按更有效。偏头痛用梳子刮率谷穴，合谷按揉更轻松。经前祛斑效果好，美白祛斑面膜用起来。",
-        img1: '../img/taichong.jpg',
-        img2: '../img/shaoze.jpg',
-        img3: '../img/hegu.jpg',
-        img4: '../img/xuehai.jpg',
-      },
-      {
-        text: "受孕最佳期，心情愉快最重要，身心合一，收获好“孕”。甜蜜时刻，别忘记避孕哦 你本来就很美，气血旺盛，皮肤最佳期。",
-        img1: '../img/placeholder.png',
-        img2: '../img/placeholder.png',
-        img3: '../img/placeholder.jpg',
-        img4: '../img/xuehai.jpg',
-      }
-
+    lists: [[
+        "../img/taichong.jpg",
+         '../img/shaoze.jpg',
+         '../img/hegu.jpg'
+        ],
+      [
+        "../img/sanyin.jpg",
+      ],
+      [
+      ],
+      [
+        "../img/zusan.jpg",
+        '../img/xuehai.jpg'
+      ]
     ],
 
   },
@@ -67,16 +55,16 @@ onLoad: function(options) {
       console.log(  list[i].physiologicalCycle);
       var pos;
     
-      if (list[i].physiologicalCycle==="01"){
+      if (list[i].physiologicalCycle==="05"){
         pos=0;
       }
       if (list[i].physiologicalCycle === "02") {
         pos = 1;
       }
-      if (list[i].physiologicalCycle === "03") {
+      if (list[i].physiologicalCycle === "01") {
         pos = 2;
       }
-      if (list[i].physiologicalCycle === "04") {
+      if (list[i].physiologicalCycle === "03") {
         pos = 3;
       }
       this.setData({

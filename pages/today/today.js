@@ -44,6 +44,7 @@ Page({
     wx.navigateTo({
       url: `/pages/state/state?day=${day}`
     })
+
   },
   clickArr: function(e) {
     console.log(e.currentTarget.dataset.index)
@@ -155,10 +156,11 @@ Page({
   // 根据生理周期状态返回显示内容
   getphysiologicalCycleText: function(status) {
     let result = {
-      "01": "安全期",
+      "01": "月经前期",
       "02": "月经期",
       "03": "易孕期",
-      "04": "安全排卵日期",
+      "04": "排卵日",
+      "05":"月经后期"
     };
     return result[status];
   },

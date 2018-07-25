@@ -1,5 +1,6 @@
 <!--pages/pay/wxPay/wxpay.wxml-->
 <view class='inclusion'> 
+<view class='view_navs'></view>
 <view class='view_pay1'>
     <text class='view_pay_text_left'> 课程</text>
      <text class='view_pay_text_right'>{{courseName}}</text>
