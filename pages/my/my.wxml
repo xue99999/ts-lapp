@@ -26,7 +26,7 @@
       <navigator url="{{item.url}}">
         <view class='weui-grid__bg'>
           <view class="weui-grid__icon">
-            <image src=" {{item.icon}}" mode="scaleToFill" />
+            <image src=" {{item.icon}}" mode="aspectFit" />
           </view>
           <view class="deg">
             <view wx:if="{{item.name==='联系客服'}}">

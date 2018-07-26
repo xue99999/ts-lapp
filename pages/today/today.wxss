@@ -1,3 +1,7 @@
+element.style {
+  height: 400px;
+}
+
 .box {
   width: 100%;
   height: 1280rpx;
@@ -28,7 +32,7 @@
   display: inline-block;
   width: 60rpx;
   height: 60rpx;
-  background: #F2746B;
+  background: #f2746b;
   border-radius: 50%;
   text-align: center;
   color: white;
@@ -39,7 +43,7 @@
   display: flex;
   flex-direction: row-reverse;
   font-size: 30rpx;
-  padding-top: 30rpx;
+  /* padding-top: 30rpx; */
   height: 70rpx;
 }
 
@@ -47,13 +51,13 @@
   color: white;
   font-size: 28rpx;
   position: fixed;
-  top: 231rpx;
+  top: 201rpx;
   right: 0;
 }
 
 .view-tishi view text {
   position: fixed;
-  top: 238rpx;
+  top: 208rpx;
   right: 10rpx;
 }
 
@@ -68,8 +72,9 @@
   height: 700rpx;
 }
 
-.view-img image {
+.view-image {
   width: 100%;
+  /* height: 750rpx !important; */
   height: 100%;
   border-radius: 50%;
 }
@@ -81,7 +86,6 @@
   position: absolute;
   top: 23%;
   color: #fe6f71;
-  margin-bottom: 100rpx;
 }
 
 .view-img .view-inner view {
@@ -119,28 +123,15 @@
 }
 
 .view-inner .view-last {
- 
   font-size: 24rpx;
   color: #f5a6b7;
-  
-}
-
-.view-inner>button {
-  width: 200rpx;
-  height: 56rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 25px;
-  font-size: 24rpx;
-  background: #fe6f71;
-  color: white;
+  /* margin-top: 20rpx; */
 }
 
 .tupian {
   display: flex;
   flex-direction: row-reverse;
-  margin-right: 30rpx;
+  margin-right: 40rpx;
 }
 
 .tupian image {

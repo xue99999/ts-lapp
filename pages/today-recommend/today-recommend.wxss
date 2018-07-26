@@ -43,6 +43,7 @@ swiper-item{
 .slide-image{
   width: 100%;
   height: 100%;
+  margin-bottom: 20rpx;
 }
 .scroll_view {
   margin-top: 630rpx;
