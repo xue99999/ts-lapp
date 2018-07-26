@@ -20,7 +20,7 @@ Page({
     date: ['日', '一', '二', '三', '四', '五', '六'],
     dateArr: [],
     isToday: 0,
-    isTodayWeek: false, 
+    isTodayWeek: false,
     todayIndex: 0,
     currentDay: {}, //当前选中数据
     show: false,
@@ -31,18 +31,19 @@ Page({
     tian: null,
     selectDay: moment().format("YYYY-MM-D"),
     weight: '../img/xing@3x.png',
-    bossShow:false,
+    bossShow: false,
     today: moment().format('YYYY-MM-DD'),
     // 按摩
     anmo: [{
+
+        code: 'chiropractic',
         name: '捏脊',
-        code: 'frictionalAbdomen',
         select: false,
-        imgUrl: '../img/nieji@3x.png',
-        curUrl: '../img/nieji-@3x.png',
+        imgUrl: '../img/nieji-@3x.png',
+        curUrl: '../img/nieji@3x.png',
       },
       {
-        code: 'chiropractic',
+        code: 'frictionalAbdomen',
         name: '摩腹',
         select: false,
         imgUrl: '../img/mofu@3x.png',
@@ -236,11 +237,11 @@ Page({
     let updateData = {};
     if (index === 0) {
       updateData = {
-        frictionalAbdomen: selectTag ? "01" : "02"
+         chiropractic: selectTag ? "01" : "02"
       }
     } else {
       updateData = {
-        chiropractic: selectTag ? "01" : "02"
+        frictionalAbdomen: selectTag ? "01" : "02"
       }
     }
 
@@ -708,7 +709,7 @@ Page({
     let dates = year + "-" + cmonth + "-" + day;
     for (let i = 0; i < dateArr.length; i++) {
       const obj = dateArr[i];
-      
+
       if (day === obj.dateNum) {
         obj.isSelect = true;
       } else {
@@ -716,20 +717,20 @@ Page({
       }
     }
     const today = moment().format('D');
-    if (day < today || day == today){
+    if (day < today || day == today) {
       this.data.bossShow = true;
-    }else{
-      this.data.bossShow = false;     
+    } else {
+      this.data.bossShow = false;
     }
     this.setData({
       selectDay: dates,
       dateArr: dateArr,
-      bossShow:this.data.bossShow
+      bossShow: this.data.bossShow
     })
 
     this.initRecord(dates);
     console.log(day)
-    console.log('今日--',today)
+    console.log('今日--', today)
 
   },
   onLoad: function() {
@@ -783,10 +784,13 @@ Page({
         userModel
       } = res;
       app.globalData.bodyStatus = list;
-      const {lyear,lmonth}=this.data;
+      const {
+        lyear,
+        lmonth
+      } = this.data;
       // 同步2018年月
       this.dateInit(lyear, lmonth);
-
+      console.log(res)
     })
   },
   initRecord(day) {
@@ -1002,7 +1006,7 @@ Page({
       let currentDay = {}
       for (let i = 0; i < list.length; i++) {
         const data = list[i]
-        if (i.physiologicalCycle == '01') {}
+        if (i.physiologicalCycle == '01' && i.physiologicalCycle == '05') {}
 
         if (data.day === moment().format('YYYY-MM-D')) {
           currentDay = data;
@@ -1037,7 +1041,7 @@ Page({
       dayNums = new Date(nextYear, nextMonth, 0).getDate();
     }
 
-   
+
     const sdate = `${year}-${nextMonth > 10 || nextMonth == 10 ? nextMonth : '0' + nextMonth}-01`;
     const edate = `${year}-${nextMonth > 10 || nextMonth == 10 ? nextMonth : '0' + nextMonth}-${dayNums}`;
 
@@ -1102,7 +1106,7 @@ Page({
       dateArr[i] = obj;
     }
 
-    
+
     this.setData({
       tian,
       dateArr: dateArr
@@ -1126,41 +1130,44 @@ Page({
       })
     }
 
-    return {sdate,edate};
+    return {
+      sdate,
+      edate
+    };
   },
   lastMonth: function() {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
     let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
 
-    const res=this.dateInit(year, month);
-    this.setData({
-      lyear:year,
-      lmonth:month,
-      year: year,
-      month: (month + 1)
-    })
-
-    console.log(res)
-
-    this.query(res.sdate,res.edate,null)
-  
-  },
- 
-  nextMonth: function() {
-    //全部时间的月份都是按0~11基准，显示月份才+1
-    let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
-    let month = this.data.month > 11 ? 0 : this.data.month;
-    const res= this.dateInit(year, month);
+    const res = this.dateInit(year, month);
     this.setData({
       lyear: year,
       lmonth: month,
       year: year,
       month: (month + 1)
     })
-    
+
+    console.log(res)
+
     this.query(res.sdate, res.edate, null)
-  
+
+  },
+
+  nextMonth: function() {
+    //全部时间的月份都是按0~11基准，显示月份才+1
+    let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
+    let month = this.data.month > 11 ? 0 : this.data.month;
+    const res = this.dateInit(year, month);
+    this.setData({
+      lyear: year,
+      lmonth: month,
+      year: year,
+      month: (month + 1)
+    })
+
+    this.query(res.sdate, res.edate, null)
+
   }, // 更新身体信息
   updateStatus(data) {
     const day = this.data.selectDay;
@@ -1172,7 +1179,7 @@ Page({
       //更新成功
       this.query(this.data.startDay, this.data.endDay, day);
     })
-
+    console.log(day)
   },
   //手指刚放到屏幕触发
   touchS: function(e) {
@@ -1244,26 +1251,25 @@ Page({
 
     return false;
   },
-    onShareAppMessage: function (options) {
-    　　var that = this;
-    　　// 设置菜单中的转发按钮触发转发事件时的转发内容
-    　　var shareObj = {
-      　　　　title: "她师",        // 默认是小程序的名称(可以写slogan等)
-      　　　　path: '/pages/today/today',        // 默认是当前页面，必须是以‘/’开头的完整路径
-      　　　　imgUrl: '',     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
-      　　　　success: function (res) {
-        　　　　　　// 转发成功之后的回调
-        　　　　　　if (res.errMsg == 'shareAppMessage:ok') {
-        　　　　　　}
-      　　　　},
-      　　　　fail: function () {
-        　　　　　　// 转发失败之后的回调
-        　　　　　　if (res.errMsg == 'shareAppMessage:fail cancel') {
-          　　　　　　　　// 用户取消转发
-        　　　　　　} else if (res.errMsg == 'shareAppMessage:fail') {
-          　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
-        　　　　　　}
-      　　　　}
-    　　}
+  onShareAppMessage: function(options) {
+    var that = this;
+    // 设置菜单中的转发按钮触发转发事件时的转发内容
+    var shareObj = {
+      title: "她师", // 默认是小程序的名称(可以写slogan等)
+      path: '/pages/today/today', // 默认是当前页面，必须是以‘/’开头的完整路径
+      imgUrl: '', //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+      success: function(res) {
+        // 转发成功之后的回调
+        if (res.errMsg == 'shareAppMessage:ok') {}
+      },
+      fail: function() {
+        // 转发失败之后的回调
+        if (res.errMsg == 'shareAppMessage:fail cancel') {
+          // 用户取消转发
+        } else if (res.errMsg == 'shareAppMessage:fail') {
+          // 转发失败，其中 detail message 为详细失败信息
+        }
+      }
+    }
   }
 })

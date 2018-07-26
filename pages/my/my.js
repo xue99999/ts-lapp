@@ -28,7 +28,7 @@ Page({
       {
         name: '经期与排卵',
         url: '../set-period/set-period',
-        icon: '../img/collection@3x.png',
+        icon: '../img/shezhi.png',
         code: '11'
       },
       {
