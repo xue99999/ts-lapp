@@ -15,13 +15,30 @@ var routeQuery=null;
 Page({
   data: {
     route:{},
-    userInfo: {},
+    userInfo: {
+      avatarUrl: "",//用户头像
+      nickName: "",//用户昵称
+
+    },
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   onLoad: function (option) {
-   
     console.log(option)
+    // var that=this;
+    // wx.getUserInfo({
+    //   success: function (res) {
+    //     console.log(res);
+    //     var avatarUrl = 'userInfo.avatarUrl';
+    //     var nickName = 'userInfo.nickName';
+    //     that.setData({
+    //       [avatarUrl]: res.userInfo.avatarUrl,
+    //       [nickName]: res.userInfo.nickName,
+    //     })
+    //   }
+    // })
+
+
     if(option){
       routeQuery=option;
     }

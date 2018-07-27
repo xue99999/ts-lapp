@@ -35,7 +35,7 @@ function Request(method, requestHandler) {
 
         if (statusCode === 411 || statusCode===413){
             wx.redirectTo({
-              url: '',
+              url: '../pages/index/index',
             })
         }
         // 处理数据

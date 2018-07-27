@@ -1,59 +1,93 @@
 /* pages/home/home.wxss */
-.heads{
+
+.heads {
   width: 100%;
-  height:1333rpx;
-  background: #FE6F71;
+  height: 1333rpx;
+  /* background: #FE6F71; */
   padding-top: 63px;
 }
-.imgs{
-    /* text-align: center;   */
 
+.imgs {
+display: flex;
+align-items: center;
+flex-direction: column;
+  margin-top: 150rpx;
 }
-.imgs image{
+.avatar{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+}
+.nickname{
+  text-align: center;
+}
+
+.userinfo-avatar {
+  overflow:hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  margin-top: 50rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* .imgs image {
   margin-left: 306rpx;
   width: 138rpx;
   height: 94rpx;
-  /* border: 1px solid black; */
-}
-.texts{
+  border: 1px solid black;
+} */
+
+.texts {
   margin-top: 108rpx;
   text-align: center;
   color: white;
 }
-.texts text{
+
+.texts text {
   font-size: 124%;
 }
-.images{
+
+.images {
   margin-top: 127rpx;
   width: 100%;
   display: flex;
 }
-.images>view{
+
+.images>view {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.images_menst,.images_mom{
+
+.images_menst, .images_mom {
   margin-top: 20rpx;
-  width:352rpx;
+  width: 352rpx;
   height: 80rpx;
-  background: #FD918D;
+  background: #fd918d;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
 }
-.images_menst image{
+
+.images_menst image {
   width: 53.7rpx;
   height: 71.8rpx;
 }
-.images_mom image{
+
+.images_mom image {
   width: 41.6rpx;
   height: 71.8rpx;
 }
-.images view text{
+
+.images view text {
   margin-top: 15rpx;
   color: white;
   font-size: 60%;

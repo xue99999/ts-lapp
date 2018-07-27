@@ -65,7 +65,7 @@
       <view class='view-an'>
         <view class='view-mo'>
           <image src='../img/menstruation1@3x.png'></image>
-          <text>大姨妈{{currentDay.menstrualStatus==='02'?'走了':'来了'}}喽</text>
+          <text>大姨妈{{currentDay.menstrualStatus==='01'?'来了':'走了'}}喽</text>
         </view>
         <view class="view-mo1">
           <switch checked="{{currentDay.menstrualStatus==='01'}}" bindchange="switchChange" color='#FE6F71' />
