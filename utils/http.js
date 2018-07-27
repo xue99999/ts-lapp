@@ -27,26 +27,27 @@ function Request(method, requestHandler) {
         */
 
       }, headers),
-      success: function(res) {
+      success: function (res) {
         const {
           data,
           statusCode
         } = res
 
-        if (statusCode === 411 || statusCode===413){
-            wx.redirectTo({
-              url: '../pages/index/index',
-            })
+        if (statusCode === 411 || statusCode === 413) {
+          console.log(statusCode)
+          wx.redirectTo({
+            url: '../pages/index/index',
+          })
         }
         // 处理数据
         statusCode === 200 ? resolve(data) : reject(data, statusCode)
+
       },
-      fail: function() {
+      fail: function () {
         reject('Network request failed')
       },
       complete: function () {
         wx.hideNavigationBarLoading()
-
       }
     })
   })
@@ -59,7 +60,7 @@ var Http = {
    * 1. HTTP.get(url).then((data) => {}).catch((error) => {})
    * 2. HTTP.get({url: url, params: [JSON Object] }).then((data) => {}).catch((error) => {})
    */
-  get: function(requestHandler) {
+  get: function (requestHandler) {
     if (typeof requestHandler === 'string') {
       requestHandler = {
         url: String(requestHandler),
@@ -75,7 +76,7 @@ var Http = {
    * @param [可自定义 headers，如需 Authorization 等，默认：'Content-Type': 'application/json']
    * HTTP.post({url: url, params: [JSON Object], headers: [JSON Object] }).then((data) => {}).catch((error) => {})
    */
-  post: function(requestHandler) {
+  post: function (requestHandler) {
     return Request('POST', requestHandler)
   },
 
@@ -83,7 +84,7 @@ var Http = {
    * [HTTP PATCH 请求]
    * HTTP.patch({url: url, params: [JSON Object], headers: [JSON Object] }).then((data) => {}).catch((error) => {})
    */
-  patch: function(requestHandler) {
+  patch: function (requestHandler) {
     return Request('PATCH', requestHandler)
   },
 
@@ -91,7 +92,7 @@ var Http = {
    * [HTTP PUT 请求]
    * HTTP.put({url: url, params: [JSON Object], headers: [JSON Object] }).then((data) => {}).catch((error) => {})
    */
-  put: function(requestHandler) {
+  put: function (requestHandler) {
     return Request('PUT', requestHandler)
   },
 
@@ -99,7 +100,7 @@ var Http = {
    * [HTTP DELETE 请求]
    * HTTP.delete({url: url, params: [JSON Object], headers: [JSON Object] }).then((data) => {}).catch((error) => {})
    */
-  delete: function(requestHandler) {
+  delete: function (requestHandler) {
     return Request('DELETE', requestHandler)
   },
 

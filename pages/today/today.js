@@ -125,7 +125,7 @@ Page({
             showObj['01'] = {
               //当前周期信息 预计:月经期第六天
               top: `${physiologicalCycle !== '01' && physiologicalCycle !== '05' && isPredict === '0' ? '预测:': ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
-              middle: physiologicalCycle > 0? `离月经还有${predictDay}天` : `月经第${predictDay}天`,
+              middle: predictDay > 0? `离月经还有${predictDay}天` : `月经第${predictDay}天`,
               shouyun: this.getShouyunText(physiologicalCycle)
               // 
             }

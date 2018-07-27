@@ -13,6 +13,7 @@ const {
 const {
   records
 } = resources;
+var hw;
 Page({
   data: {
     year: 0,
@@ -712,9 +713,10 @@ Page({
     const parmas = {
       tag: 'switch'
     }
-    auth(parmas)
+    auth(parmas);
     const day = moment().format("YYYY-MM-D");
-
+    hw  = moment().format("MM");
+   
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
@@ -744,7 +746,7 @@ Page({
       startDay: startDay,
       endDay: endDay
     })
-
+    
     this.query(startDay, endDay, day);
 
   },
@@ -1114,7 +1116,6 @@ Page({
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
     let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
-
     const res = this.dateInit(year, month);
     this.setData({
       lyear: year,
@@ -1122,8 +1123,6 @@ Page({
       year: year,
       month: (month + 1)
     })
-
-    console.log(res)
 
     this.query(res.sdate, res.edate, null)
 
@@ -1133,15 +1132,20 @@ Page({
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
     let month = this.data.month > 11 ? 0 : this.data.month;
+    //超过2月不请求
+    let monthstop = this.data.month + 2
     const res = this.dateInit(year, month);
     this.setData({
       lyear: year,
       lmonth: month,
       year: year,
-      month: (month + 1)
+      month: (month + 1),
+      monthstop: monthstop
     })
-
-    this.query(res.sdate, res.edate, null)
+    console.log('monthstop----', monthstop)
+    // if (month < monthstop){
+      this.query(res.sdate, res.edate, null)
+    // }
 
   }, // 更新身体信息
   updateStatus(data) {
@@ -1174,7 +1178,13 @@ Page({
       //触摸开始与结束，手指移动的距离
       var disX = that.data.startX - endX;
       if (disX > 90) {
-        that.nextMonth()
+        var hww = Number(hw) + 2
+        var monthstop = this.data.month
+        if (hww > monthstop){
+          that.nextMonth()
+        }
+        console.log('hw>>>', hww);
+        console.log('hw>>>', monthstop);
       } else if (disX < -90) {
         that.lastMonth()
       }
