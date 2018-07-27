@@ -112,6 +112,13 @@ Page({
       },
       {
         name: '烦躁易怒',
+        imgUrl: '../img/mood/anger@3x.png',
+        curUrl: '../img/mood/anger-1@3x.png',
+
+        select: false,
+      },
+      {
+        name: '情绪低落',
         imgUrl: '../img/mood/3mood@3x.png',
         curUrl: '../img/mood/3mood-3@3x.png',
         select: false,
@@ -272,7 +279,7 @@ Page({
     let updateData = {}
     if (index == 0) {
       wx.showToast({
-        title: '月经量偏少',
+        title: '微',
         icon: 'none',
         duration: 500
       })
@@ -281,7 +288,7 @@ Page({
       }
     } else if (index == 1) {
       wx.showToast({
-        title: '月经量正常',
+        title: '中',
         icon: 'none',
         duration: 500
       })
@@ -290,7 +297,7 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '月经量很多',
+        title: '强',
         icon: 'none',
         duration: 500
       })
@@ -374,7 +381,7 @@ Page({
     let updateData=null;
     if (index == 0) {
       wx.showToast({
-        title: '基本不痛',
+        title: '微',
         icon: 'none',
         duration: 500
       })
@@ -383,7 +390,7 @@ Page({
       }
     } else if (index == 1) {
       wx.showToast({
-        title: '轻微痛',
+        title: '中',
         icon: 'none',
         duration: 500
       })
@@ -392,23 +399,14 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '非常痛',
+        title: '强',
         icon: 'none',
         duration: 500
       })
       updateData = {
         breastTenderness: "03"
       }
-    } else {
-      wx.showToast({
-        title: '无',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        breastTenderness: "04"
-      }
-    }
+    } 
     this.setData({
       breastTenderness: list
     })
@@ -429,7 +427,7 @@ Page({
     let updateData = {}
     if (index == 0) {
       wx.showToast({
-        title: '基本不痛',
+        title: '微',
         icon: 'none',
         duration: 500
       })
@@ -438,7 +436,7 @@ Page({
       }
     } else if (index == 1) {
       wx.showToast({
-        title: '轻微痛',
+        title: '中',
         icon: 'none',
         duration: 500
       })
@@ -447,23 +445,14 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '非常痛',
+        title: '强',
         icon: 'none',
         duration: 500
       })
       updateData = {
         abdominalPain: '03'
       }
-    } else {
-      wx.showToast({
-        title: '无疼痛',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        abdominalPain: '04'
-      }
-    }
+    } 
     this.setData({
       abdominalPain: list
     })
@@ -499,6 +488,15 @@ Page({
       updateData = {
         mood: '02'
       }
+    } else if (index == 2) {
+      wx.showToast({
+        title: '情绪低落',
+        icon: 'none',
+        duration: 500
+      })
+      updateData = {
+        mood: '03'
+      }
     }
     this.setData({
       mood: list
@@ -525,7 +523,7 @@ Page({
     let updateData = {}
     if (index == 0) {
       wx.showToast({
-        title: '轻微痛',
+        title: '微',
         icon: 'none',
         duration: 500
       })
@@ -534,7 +532,7 @@ Page({
       }
     } else if (index == 1) {
       wx.showToast({
-        title: '一般',
+        title: '中',
         icon: 'none',
         duration: 500
       })
@@ -543,7 +541,7 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '非常痛 ',
+        title: '强',
         icon: 'none',
         duration: 500
       })
@@ -569,7 +567,7 @@ Page({
     let updateData = null;
     if (index == 0) {
       wx.showToast({
-        title: '不怕冷',
+        title: '微',
         icon: 'none',
         duration: 500
       })
@@ -578,7 +576,7 @@ Page({
       }
     } else if (index == 1) {
       wx.showToast({
-        title: '微微冷',
+        title: '中',
         icon: 'none',
         duration: 500
       })
@@ -587,23 +585,14 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '很冷',
+        title: '强',
         icon: 'none',
         duration: 500
       })
       updateData = {
         fearCold: '03'
       }
-    } else if (index === 3) {
-      wx.showToast({
-        title: '不怕冷',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        fearCold: '04'
-      }
-    }
+    } 
     this.setData({
       fearCold: list
     })
@@ -625,7 +614,7 @@ Page({
     let updateData = null;
     if (index == 0) {
       wx.showToast({
-        title: '不乏力',
+        title: '微',
         icon: 'none',
         duration: 500
       })
@@ -634,7 +623,7 @@ Page({
       }
     } else if (index == 1) {
       wx.showToast({
-        title: '轻微乏力',
+        title: '中',
         icon: 'none',
         duration: 500
       })
@@ -643,23 +632,14 @@ Page({
       }
     } else if (index == 2) {
       wx.showToast({
-        title: '非常乏力',
+        title: '强',
         icon: 'none',
         duration: 500
       })
       updateData = {
         weak: '03'
       }
-    } else if (index === 3) {
-      wx.showToast({
-        title: '不乏力',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        weak: '04'
-      }
-    }
+    } 
 
     this.updateStatus(updateData)
     this.setData({
