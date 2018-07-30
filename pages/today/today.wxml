@@ -27,7 +27,7 @@
     <view class='view-inner' wx:if="{{userModel==='02'}}">
       <image src='{{bobyImg}}'></image>
       <view>{{showObj['02'].babyText}}</view>
-      <view class='view-last'>{{showObj['02'].lastText}}</view>
+      <view class='view-last'>{{showObj['02'].predictDay}}</view>
     </view>
     <view class='view-btn'>
 

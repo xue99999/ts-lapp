@@ -115,7 +115,7 @@ Page({
           if (userModel === '02') {
             showObj['02'] = {
               babyText: `${babyMonth}`,
-              physiologicalCycle: physiologicalCycle,
+              predictDay: predictDay > 0 ? `离月经还有${predictDay}天` : `月经第${predictDay}天`,
               //下半部显示信息
               lastText: this.installText(dy),
             }
