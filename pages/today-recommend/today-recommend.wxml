@@ -31,7 +31,7 @@
 
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper'>
-  <block wx:for="{{lists[pos]}}">
+  <block wx:for="{{lists[pos]}}" wx:key>
     <swiper-item>
       <image src="{{item}}" class="slide-image"/>
     </swiper-item>

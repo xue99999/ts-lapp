@@ -115,11 +115,11 @@ Page({
           if (userModel === '02') {
             showObj['02'] = {
               babyText: `${babyMonth}`,
-              predictDay: predictDay > 0 ? `离月经还有${predictDay}天` : `月经第${predictDay}天`,
+              predictDay: predictDay > 0 ? `离月经还有${predictDay}天` : `月经第${-predictDay}天`,
               //下半部显示信息
               lastText: this.installText(dy),
             }
-            console.log(res)
+
           }
 
           if (userModel === '01') {
@@ -129,10 +129,12 @@ Page({
               middle: predictDay > 0 ? `离月经还有${predictDay}天` : `月经第${-predictDay}天`,
               shouyun: this.getShouyunText(physiologicalCycle)
             }
+            
           }
           this.setData({ currentDay: dy, showObj, userModel })
         }
       }
+                  console.log(res)
     })
   },
   // 拼接数据显示
@@ -180,6 +182,9 @@ Page({
         break;
       case "04":
         text = "受孕几率高"
+        break;
+      case "05":
+        text = "受孕几率低";
         break;
     }
 

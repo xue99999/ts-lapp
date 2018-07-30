@@ -20,7 +20,7 @@
     <image src='../img/yuan@3x.png' mode="aspectFit" class='view-image'></image>
     <view class='view-inner' wx:if="{{userModel==='01'}}">
       <view>{{showObj['01'].top}}</view>
-      <view>{{currentDay.physiologicalCycle!=='03'?showObj['01'].middle:''}}</view>
+      <view>{{currentDay.physiologicalCycle!=='0'?showObj['01'].middle:''}}</view>
       <view class='view-last'>{{showObj['01'].shouyun}}</view>
     </view>
 

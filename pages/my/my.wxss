@@ -1,8 +1,9 @@
 .tsVersion{
   position: fixed;
   bottom: 20rpx;
-  left: 45%;
+  left: 46%;
   color: rgb(173, 170, 170);
+  font-size: 20rpx;
 }
 .inclusion {
   position: fixed;
