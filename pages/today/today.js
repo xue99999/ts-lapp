@@ -46,14 +46,14 @@ Page({
     })
 
   },
-  clickArr: function(e) {
+  clickArr: function (e) {
     console.log(e.currentTarget.dataset.index)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
 
 
 
@@ -67,7 +67,7 @@ Page({
 
     this.query(day, day, day);
   },
-  onShow:function(){
+  onShow: function () {
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('D');
     this.setData({
@@ -83,7 +83,7 @@ Page({
    * endDay
    * currentDay 当前天数据
    */
-  query: function(startDay, endDay, currentDay) {
+  query: function (startDay, endDay, currentDay) {
 
     var query = {
       startDay,
@@ -106,7 +106,7 @@ Page({
           isPredict,
           babyMonth,
           physiologicalCycle,
-          predictDay=0
+          predictDay = 0
         } = dy;
         if (day === currentDay) {
           this.getRecordsImg(dy)
@@ -119,18 +119,18 @@ Page({
               //下半部显示信息
               lastText: this.installText(dy),
             }
-          } 
-          
-          if(userModel === '01') {
+            console.log(res)
+          }
+
+          if (userModel === '01') {
             showObj['01'] = {
               //当前周期信息 预计:月经期第六天
-              top: `${physiologicalCycle !== '01' && physiologicalCycle !== '05' && isPredict === '0' ? '预测:': ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
-              middle: predictDay > 0? `离月经还有${predictDay}天` : `月经第${predictDay}天`,
+              top: `${physiologicalCycle !== '01' && physiologicalCycle !== '05' && isPredict === '0' ? '预测:' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
+              middle: predictDay > 0 ? `离月经还有${predictDay}天` : `月经第${predictDay}天`,
               shouyun: this.getShouyunText(physiologicalCycle)
-              // 
             }
           }
-          this.setData({ currentDay:dy,showObj, userModel})
+          this.setData({ currentDay: dy, showObj, userModel })
         }
       }
     })
@@ -154,19 +154,19 @@ Page({
     //如果是实际产生的,则显示第X天
   },
   // 根据生理周期状态返回显示内容
-  getphysiologicalCycleText: function(status) {
+  getphysiologicalCycleText: function (status) {
     let result = {
       "01": "安全期",
       "02": "月经期",
       "03": "易孕期",
       "04": "排卵日",
-      "05":"安全期"
+      "05": "安全期"
     };
     return result[status];
   },
 
   // 根据生理周期状态返回受孕几率
-  getShouyunText: function(status) {
+  getShouyunText: function (status) {
     let text;
     switch (status) {
       case "01":
@@ -186,15 +186,15 @@ Page({
     return text;
   },
   // 获取所有几率的标签
-  getRecordsImg: function(dy) {
+  getRecordsImg: function (dy) {
 
     const list = [];
     const {
       records
     } = resources;
     const {
-      chiropractic ='02',
-      frictionalAbdomen ='02',
+      chiropractic = '02',
+      frictionalAbdomen = '02',
       menstrualStatus,
       menstrualVolume,
       leucorrhea,
@@ -245,34 +245,34 @@ Page({
   },
 
 
-  clickjinri: function() {
+  clickjinri: function () {
     wx.navigateTo({
       url: '../today-recommend/today-recommend?day=' + this.data.formatDay
     })
   },
 
-  onShareAppMessage: function( options ){
-　　var that = this;
-　　// 设置菜单中的转发按钮触发转发事件时的转发内容
-　　var shareObj = {
-　　　　title: "她师",        // 默认是小程序的名称(可以写slogan等)
-　　　　path: '/pages/today/today',        // 默认是当前页面，必须是以‘/’开头的完整路径
-　　　　imgUrl: '',     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
-　　　　success: function(res){
-　　　　　　// 转发成功之后的回调
-　　　　　　if(res.errMsg == 'shareAppMessage:ok'){
-　　　　　　}
-　　　　},
-　　　　fail: function(){
-　　　　　　// 转发失败之后的回调
-　　　　　　if(res.errMsg == 'shareAppMessage:fail cancel'){
-　　　　　　　　// 用户取消转发
-　　　　　　}else if(res.errMsg == 'shareAppMessage:fail'){
-　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
-　　　　　　}
-　　　　}
-　　}
-}
+  onShareAppMessage: function (options) {
+    　　var that = this;
+    　　// 设置菜单中的转发按钮触发转发事件时的转发内容
+    　　var shareObj = {
+      　　　　title: "她师",        // 默认是小程序的名称(可以写slogan等)
+      　　　　path: '/pages/today/today',        // 默认是当前页面，必须是以‘/’开头的完整路径
+      　　　　imgUrl: '',     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+      　　　　success: function (res) {
+        　　　　　　// 转发成功之后的回调
+        　　　　　　if (res.errMsg == 'shareAppMessage:ok') {
+        　　　　　　}
+      　　　　},
+      　　　　fail: function () {
+        　　　　　　// 转发失败之后的回调
+        　　　　　　if (res.errMsg == 'shareAppMessage:fail cancel') {
+          　　　　　　　　// 用户取消转发
+        　　　　　　} else if (res.errMsg == 'shareAppMessage:fail') {
+          　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
+        　　　　　　}
+      　　　　}
+    　　}
+  }
 
 
 })

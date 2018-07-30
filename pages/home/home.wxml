@@ -4,7 +4,7 @@
             <image src='../img/logo@3x.png'></image>
       </view>
       <view class='texts'>
-            <text>选择人生阶段</text>
+            <text>选择美好时段</text>
       </view>
       <view class='images'>
             <view bindtap='clickGirl' data-id='{{shaonv}}'>
