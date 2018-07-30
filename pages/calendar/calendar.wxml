@@ -48,16 +48,17 @@
       <text>排卵日</text>
     </view>
   </view>
-  <view class='view-an' wx:if="{{currentDay.userModel==='02'}}">
-    <view class='view-mo'>
-      <image src='../img/massage@3x.png'></image>
-      <text>按摩</text>
-    </view>
-    <view class='view-mo1' wx:for="{{anmo}}" wx:for-index="idx" wx:for-item="item" wx:key>
-      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg" data-index="{{idx}}" />
+  <view wx:if="{{bossShow}}">
+    <view class='view-an' wx:if="{{currentDay.userModel==='02'}}">
+      <view class='view-mo'>
+        <image src='../img/massage@3x.png'></image>
+        <text>按摩</text>
+      </view>
+      <view class='view-mo1' wx:for="{{anmo}}" wx:for-index="idx" wx:for-item="item" wx:key>
+        <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg" data-index="{{idx}}" />
+      </view>
     </view>
   </view>
-
   <view class='kong'></view>
   <view wx:if="{{bossShow}}">
 

@@ -254,6 +254,7 @@ Page({
     wx.navigateTo({
       url: '../today-recommend/today-recommend?day=' + this.data.formatDay
     })
+    // console.log(this.data.formatDay)
   },
 
   onShareAppMessage: function (options) {

@@ -49,29 +49,32 @@ onLoad: function(options) {
 
   var list = app.globalData.bodyStatus;
   console.log(list)
-  // for (let i = 0; i < list.length; i++) {
-  //   const dy = list[i];
-  //   if (dy.day === day) {
-  //     console.log(  list[i].physiologicalCycle);
-  //     var pos;
+  for (let i = 0; i < list.length; i++) {
+    const dy = list[i];
+    if (dy.day === day) {
+      console.log(  list[i].physiologicalCycle);
+      var pos;
     
-  //     if (list[i].physiologicalCycle==="05"){
-  //       pos=0;
-  //     }
-  //     if (list[i].physiologicalCycle === "02") {
-  //       pos = 1;
-  //     }
-  //     if (list[i].physiologicalCycle === "01") {
-  //       pos = 2;
-  //     }
-  //     if (list[i].physiologicalCycle === "03") {
-  //       pos = 3;
-  //     }
-  //     this.setData({
-  //       pos: pos
-  //     })
-  //   }
-  // }
+      if (list[i].physiologicalCycle==="05"){
+        pos=0;
+      }
+      if (list[i].physiologicalCycle === "02") {
+        pos = 1;
+      }
+      if (list[i].physiologicalCycle === "03") {
+        pos = 2;
+      }
+      if (list[i].physiologicalCycle === "01") {
+        pos = 3;
+      }
+      if (list[i].physiologicalCycle === "04") {
+        pos = 2;
+      }
+      this.setData({
+        pos: pos
+      })
+    }
+  }
 
 
 

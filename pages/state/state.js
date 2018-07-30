@@ -727,8 +727,19 @@ Page({
             index = 2
           }
 
-          menstrualVolumes[index].select = true;
+          for (let o = 0; o < menstrualVolumes.length; o++) {
+            console.log('=====', o, index)
+            if (o == index) {
+              menstrualVolumes[o].select = true;
+            } else {
+              menstrualVolumes[o].select = false;
+            }
+
+          }
+          //menstrualVolumes[index].select = true;
         }
+
+        console.log(menstrualVolumes)
 
         //初始化白带
         const leucorrheas = this.data.leucorrheas;
@@ -742,7 +753,14 @@ Page({
             index = 2
           }
 
-          leucorrheas[index].select = true;
+          for (let o = 0; o < leucorrheas.length; o++) {
+            if (o == index) {
+              leucorrheas[o].select = true;
+            } else {
+              leucorrheas[o].select = false;
+            }
+          }
+
         }
 
         //初始化乳房胀痛
@@ -758,8 +776,13 @@ Page({
           } else if (breastTenderness === '04') {
             index = 3
           }
-
-          breastTendernesss[index].select = true;
+          for (let o = 0; o < breastTendernesss.length; o++) {
+            if (o == index) {
+              breastTendernesss[o].select = true;
+            } else {
+              breastTendernesss[o].select = false;
+            }
+          }
         }
 
 
@@ -776,8 +799,13 @@ Page({
           } else if (abdominalPain === '04') {
             index = 3
           }
-
-          abdominalPains[index].select = true;
+          for (let o = 0; o < abdominalPains.length; o++) {
+            if (o == index) {
+              abdominalPains[o].select = true;
+            } else {
+              abdominalPains[o].select = false;
+            }
+          }
         }
 
         //初始化心情
@@ -793,8 +821,13 @@ Page({
           } else if (mood === '04') {
             index = 3
           }
-
-          moods[index].select = true;
+          for (let o = 0; o < moods.length; o++) {
+            if (o == index) {
+              moods[o].select = true;
+            } else {
+              moods[o].select = false;
+            }
+          }
         }
 
         //初始化经期疼痛
@@ -810,8 +843,13 @@ Page({
           } else if (menstrualHeadache === '04') {
             index = 3
           }
-
-          menstrualHeadaches[index].select = true;
+          for (let o = 0; o < menstrualHeadaches.length; o++) {
+            if (o == index) {
+              menstrualHeadaches[o].select = true;
+            } else {
+              menstrualHeadaches[o].select = false;
+            }
+          }
         }
 
         //初始化怕冷
@@ -827,8 +865,13 @@ Page({
           } else if (fearCold === '04') {
             index = 3
           }
-
-          fearColds[index].select = true;
+          for (let o = 0; o < fearColds.length; o++) {
+            if (o == index) {
+              fearColds[o].select = true;
+            } else {
+              fearColds[o].select = false;
+            }
+          }
         }
 
         //初始化乏力
@@ -844,10 +887,14 @@ Page({
           } else if (weak === '04') {
             index = 3
           }
-
-          weaks[index].select = true;
+          for (let o = 0; o < weaks.length; o++) {
+            if (o == index) {
+              weaks[o].select = true;
+            } else {
+              weaks[o].select = false;
+            }
+          }
         }
-
 
         this.setData({
           weak: weaks,
