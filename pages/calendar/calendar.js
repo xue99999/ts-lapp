@@ -1132,8 +1132,6 @@ Page({
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
     let month = this.data.month > 11 ? 0 : this.data.month;
-    //超过2月不请求
-    let monthstop = this.data.month + 2
     const res = this.dateInit(year, month);
     this.setData({
       lyear: year,
@@ -1142,10 +1140,7 @@ Page({
       month: (month + 1),
       monthstop: monthstop
     })
-    console.log('monthstop----', monthstop)
-    // if (month < monthstop){
       this.query(res.sdate, res.edate, null)
-    // }
 
   }, // 更新身体信息
   updateStatus(data) {

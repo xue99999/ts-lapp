@@ -95,7 +95,8 @@ Page({
 
       const {
         list,
-        userModel
+        userModel,
+        babyMonth
       } = res;
       app.globalData.bodyStatus = list;
 
@@ -104,7 +105,6 @@ Page({
         const {
           day,
           isPredict,
-          babyMonth,
           physiologicalCycle,
           predictDay = 0
         } = dy;
