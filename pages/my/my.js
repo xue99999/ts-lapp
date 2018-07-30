@@ -15,8 +15,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tsVersion:'v1.0.3',
     nickName: "",
-    //  phone: "",
     avatarUrl: "",
     integral:0,
     routers: [{

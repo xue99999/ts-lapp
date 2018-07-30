@@ -45,5 +45,6 @@
       </navigator>
     </view>
   </view>
-
+  <!-- 版本号 -->
+  <text class='tsVersion'>{{tsVersion}}</text>
 </view>

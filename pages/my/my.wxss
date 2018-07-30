@@ -1,3 +1,9 @@
+.tsVersion{
+  position: fixed;
+  bottom: 20rpx;
+  left: 45%;
+  color: rgb(173, 170, 170);
+}
 .inclusion {
   position: fixed;
   height: 100%;
