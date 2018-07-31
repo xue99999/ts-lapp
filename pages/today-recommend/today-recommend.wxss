@@ -16,7 +16,7 @@
 .view_top_s {
   margin: 0 20rpx 0 20rpx;
   display: fixed;
-  height: 960rpx;
+  height: 1060rpx;
   background: #fff;
   border-radius: 20rpx;
   padding-left: 20rpx;
@@ -46,7 +46,7 @@ swiper-item{
   margin-bottom: 20rpx;
 }
 .scroll_view {
-  margin-top: 630rpx;
+  margin-top: 730rpx;
   height: 50%;
 }
 
