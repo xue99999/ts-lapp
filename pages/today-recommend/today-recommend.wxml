@@ -1,5 +1,5 @@
 <view class='view_top'>
-  <view class='view_top_s' >
+  <view class='{{pos===2 ? "viewShow" : "view_top_s"}}' >
     <view class='text_view'>
       <view wx:if="{{pos===0}}" class='view_pos'>
             <view style='color:#C00000;margin-top:20rpx;'>月经前期（黄体期）</view>
@@ -29,8 +29,8 @@
       </view>
     </view>
 
-<swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='swiper'>
+<swiper indicator-dots="{{indicatorDots}} "
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class='{{pos===2 ? "swiperShow" : "swiper"}}'>
   <block wx:for="{{lists[pos]}}" wx:key>
     <swiper-item>
       <image src="{{item}}" class="slide-image"/>
@@ -41,7 +41,7 @@
 
   </view>
 </view>
-<view class='scroll_view' scroll-y="true">
+<view class='{{pos===2 ? "scrollShow" : "scroll_view"}}' scroll-y="true">
   <view class='headline'>课程推荐</view>
   <view class='list_view1' wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark+item.sectionName}}">
     <navigator class='list_view' url="{{url+'?id='+item.id}}">
