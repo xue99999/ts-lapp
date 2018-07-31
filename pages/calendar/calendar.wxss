@@ -5,7 +5,7 @@
   font-size: 40rpx;
   color: #282828;
   text-align: center;
-  margin: 40rpx auto 10rpx;
+  margin: 30rpx auto 10rpx;
 }
 
 .lt-arrow, .rt-arrow {
@@ -14,7 +14,9 @@
   width: 60rpx;
   height: 60rpx;
 }
-
+.boss{
+  margin-bottom: 20rpx;
+}
 .lt-arrow image, .rt-arrow image {
   width: 14rpx;
   height: 26rpx;
