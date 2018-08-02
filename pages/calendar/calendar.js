@@ -262,6 +262,7 @@ Page({
   // 来了
   switchChange: function(e) {
     const tag = e.detail.value;
+    console.log(tag)
     if (tag) {
       const {
         currentDay
@@ -692,8 +693,13 @@ Page({
         obj.isSelect = false;
       }
     }
+ 
     const today = moment().format('D');
-    if (day < today || day == today) {
+    const yue = moment().format('MM');
+  
+    // console.log(cmonth)
+    // console.log(yue)    
+    if (day < today || day == today || cmonth<yue) {
       this.data.bossShow = true;
     } else {
       this.data.bossShow = false;
@@ -703,10 +709,11 @@ Page({
       dateArr: dateArr,
       bossShow: this.data.bossShow
     })
+    // console.log(day)
+    // console.log('today>>>今日',today)
 
     this.initRecord(dates);
-    console.log(day)
-    console.log('今日--', dates)
+    // console.log('今日--', dates)
 
   },
   onLoad: function() {
@@ -748,7 +755,7 @@ Page({
     })
     
     this.query(startDay, endDay, day);
-
+    console.log(this.data.currentDay)
   },
   query: function(startDay, endDay) {
     var query = {
@@ -827,7 +834,7 @@ Page({
           //menstrualVolumes[index].select = true;
         }
 
-        console.log(menstrualVolumes)
+        // console.log(menstrualVolumes)
 
         //初始化白带
         const leucorrheas = this.data.leucorrheas;

@@ -57,21 +57,31 @@ Page({
 
 
 
+
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('D');
+    let todays;
+    if (today < 10) {
+      todays = '0' + today
+    }
     this.setData({
       today,
       days: currentWeek(),
       formatDay: day
     })
-
+console.log(todays)
     this.query(day, day, day);
   },
   onShow: function () {
+    console.log(this.data.days)
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('D');
+    let todays;
+    if (today < 10) {
+      todays = '0' + today
+    }
     this.setData({
-      today,
+      todays,
       days: currentWeek(),
       formatDay: day
     })
@@ -99,7 +109,6 @@ Page({
         babyMonth
       } = res;
       app.globalData.bodyStatus = list;
-
       for (let i = 0; i < list.length; i++) {
         const dy = list[i];
         const {

@@ -5,7 +5,7 @@
 
   </view>
   <view class='headers'>
-    <view wx:for='{{days}}' wx:key data-index="{{item}}" class='{{ item == today? "weekMark" : ""}}' bindtap='clickArr'>{{item}} </view>
+    <view wx:for='{{days}}' wx:key data-index="{{item}}" class='{{ item == todays? "weekMark" : ""}}' bindtap='clickArr'>{{item}} </view>
 
     
   </view>
