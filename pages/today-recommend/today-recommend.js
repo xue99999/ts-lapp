@@ -45,12 +45,12 @@ Page({
    */
   onLoad: function (options) {
     auth();
-    const day = moment().format("YYYY-MM-DD");
-
+    const day = moment().format("YYYY-MM-D");
+    console.log(moment().format("YYYY-MM-D"))
     var list = app.globalData.bodyStatus;
-    console.log(list)
     for (let i = 0; i < list.length; i++) {
       const dy = list[i];
+      
       if (dy.day === day) {
         console.log(list[i].physiologicalCycle);
         var pos;
@@ -74,6 +74,8 @@ Page({
           pos: pos
         })
       }
+      console.log(app.globalData.bodyStatus)
+
     }
 
 
