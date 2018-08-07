@@ -5,9 +5,9 @@
 
   </view>
   <view class='headers'>
-    <view wx:for='{{days}}' wx:key data-index="{{item}}" class='{{ item == todays? "weekMark" : ""}}' bindtap='clickArr'>{{item}} </view>
+    <view wx:for='{{days}}' wx:key data-index="{{item}}" class='{{ item == today? "weekMark" : ""}}' bindtap='clickArr'>{{item}} </view>
 
-    
+
   </view>
 
   <view class='view-tishi'>
@@ -41,7 +41,7 @@
       <!-- <text>16 步数</text> -->
     </view>
     <view class='tupian' bindtap='naState'>
-      <image src='../img/add@3x.png' ></image>
+      <image src='../img/add@3x.png'></image>
     </view>
   </view>
 

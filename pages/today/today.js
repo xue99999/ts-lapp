@@ -19,6 +19,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show:false,
     date: ['日', '一', '二', '三', '四', '五', '六'],
     days: [],
     userModel: '',
@@ -54,34 +55,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-
-
-
     const day = moment().format("YYYY-MM-D");
-    const today = moment().format('D');
+    const today = moment().format('DD');
     let todays;
-    if (today < 10) {
-      todays = '0' + today
-    }
+    
     this.setData({
       today,
       days: currentWeek(),
       formatDay: day
     })
-console.log(todays)
+
     this.query(day, day, day);
   },
   onShow: function () {
-    console.log(this.data.days)
-    const day = moment().format("YYYY-MM-D");
-    const today = moment().format('D');
-    let todays;
-    if (today < 10) {
-      todays = '0' + today
+    if (!this.data.show){
+        return;
     }
+
+    const day = moment().format("YYYY-MM-D");
+    const today = moment().format('DD');
+  
     this.setData({
-      todays,
+      today,
       days: currentWeek(),
       formatDay: day
     })
@@ -93,16 +88,15 @@ console.log(todays)
    * endDay
    * currentDay 当前天数据
    */
-  query: function (startDay, endDay, currentDay) {
-
+  query: function (startDay, endDay, cday) {
+    const currentDay=moment(currentDay).format('YYYY-MM-D');
     var query = {
       startDay,
       endDay
     }
 
     userInfoQueryBodyStatus(query).then(res => {
-      console.log('---返回数据', currentDay);
-
+   
       const {
         list,
         userModel,
@@ -140,10 +134,10 @@ console.log(todays)
             }
             
           }
-          this.setData({ currentDay: dy, showObj, userModel })
+          this.setData({show:true, currentDay: dy, showObj, userModel })
         }
       }
-                  console.log(res)
+      
     })
   },
   // 拼接数据显示

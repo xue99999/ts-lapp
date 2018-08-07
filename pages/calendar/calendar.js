@@ -16,11 +16,12 @@ const {
 var hw;
 Page({
   data: {
+    isShow:false,
     year: 0,
     month: 0,
     date: ['日', '一', '二', '三', '四', '五', '六'],
     dateArr: [],
-    isToday: 0,
+    today: 0,
     isTodayWeek: false,
     todayIndex: 0,
     currentDay: {}, //当前选中数据
@@ -32,7 +33,7 @@ Page({
     tian: null,
     selectDay: moment().format("YYYY-MM-D"),
     weight: '../img/xing@3x.png',
-    bossShow: false,
+    bossShow: true,
     today: moment().format('YYYY-MM-DD'),
     // 按摩
     anmo: [{
@@ -262,7 +263,7 @@ Page({
   // 来了
   switchChange: function(e) {
     const tag = e.detail.value;
-    console.log(tag)
+
     if (tag) {
       const {
         currentDay
@@ -687,6 +688,8 @@ Page({
       day = '0' + day
     }
     let dates = year + "-" + cmonth + "-" + day;
+
+    console.log('datas',dates);
     for (let i = 0; i < dateArr.length; i++) {
       const obj = dateArr[i];
 
@@ -699,19 +702,17 @@ Page({
       // console.log(obj.dateNum)
     }
 
-    const today = moment().format('D');
+    const today = moment();
+    const sday=moment(dates);
     const yue = moment().format('MM');
 
-    // console.log('cmonth------', cmonth)
-    // console.log(day)
-    // console.log(today)
-    if (day < today || day == today || cmonth < yue) {
+    if (!sday.isAfter(today)) {
       this.data.bossShow = true;
     } else {
       this.data.bossShow = false;
     }
     this.setData({
-      selectDay: dates,
+      selectDay: sday.format('YYYY-MM-DD'),
       dateArr: dateArr,
       bossShow: this.data.bossShow
     })
@@ -719,7 +720,7 @@ Page({
     // console.log('today>>>今日',today)
 
     this.initRecord(dates);
-    console.log('今日--', dates)
+    console.log('选中--', dates)
 
   },
   onLoad: function() {
@@ -727,7 +728,7 @@ Page({
       tag: 'switch'
     }
     auth(parmas);
-    const day = moment().format("YYYY-MM-D");
+    const day = moment().format("YYYY-MM-DD");
     hw = moment().format("MM");
 
     let now = new Date();
@@ -751,19 +752,22 @@ Page({
     let tian;
     tian = this.data.tian;
     let endDay = year + '-' + cmonth + '-' + tian
+  
+
     this.setData({
       year: year,
       month: month,
-      isToday: '' + year + month + now.getDate(),
+      isToday: moment().format("YYYYMD"),
       tian1: tian1,
       startDay: startDay,
       endDay: endDay
     })
 
     this.query(startDay, endDay, day);
-    console.log(this.data.currentDay)
+    //console.log(this.data.currentDay)
   },
-  query: function(startDay, endDay) {
+  query: function(startDay, endDay,cday) {
+    
     var query = {
       startDay,
       endDay
@@ -779,11 +783,14 @@ Page({
         lmonth
       } = this.data;
       this.setData({
+        isShow:true,
         bodyStatus: list
       })
       // 同步2018年月
       this.dateInit(lyear, lmonth);
-      console.log(res)
+      //console.log(res)
+
+      this.initRecord(cday);
     })
   },
   initRecord(day) {
@@ -808,7 +815,7 @@ Page({
           chiropractic = "02",
           frictionalAbdomen = "02"
         } = dy;
-        console.log(dy.day)
+        console.log('init dy',dy.day)
         const {
           anmo
         } = this.data;
@@ -999,9 +1006,22 @@ Page({
             }
           }
         }
+        const { dateArr } = this.data;
+        //初始化选中
+        const cday = moment(day).format('YYYYMD');
+        console.log(cday)
+        for (let i = 0; i < dateArr.length; i++) {
+          const obj = dateArr[i];
 
+          if (cday == obj.today) {
+            obj.isSelect = true;
+          } else {
+            obj.isSelect = false;
+          }
+        }
 
         this.setData({
+          dateArr,
           weak: weaks,
           fearCold: fearColds,
           mood: moods,
@@ -1035,7 +1055,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    
+    if(!this.data.isShow){
+        return;
+    }
     var data = {
       startDay: this.data.startDay,
       endDay: this.data.endDay
@@ -1136,7 +1159,7 @@ Page({
 
         }
         obj = {
-          isToday: '' + year + (month + 1) + num,
+          today: '' + year + (month + 1) + num,
           dateNum: num,
           // 选中状态 false 未选中 true 选中
           isSelect: false,
@@ -1189,6 +1212,8 @@ Page({
     let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
     const res = this.dateInit(year, month);
     this.setData({
+      startDay: res.sdate,
+      endDay: res.edate,
       lyear: year,
       lmonth: month,
       year: year,
@@ -1207,19 +1232,21 @@ Page({
     let monthstop = this.data.month + 2
     const res = this.dateInit(year, month);
     this.setData({
+      startDay: res.sdate,
+      endDay: res.edate,
       lyear: year,
       lmonth: month,
       year: year,
       month: (month + 1),
       monthstop: monthstop
     })
-    console.log('monthstop----', monthstop)
+    
     this.query(res.sdate, res.edate, null)
 
   }, // 更新身体信息
   updateStatus(data) {
     const day = this.data.selectDay;
-
+    const cday = moment(day).format('YYYY-MM-D')
     userInfoUpdateBodyStatus({
       day,
       ...data

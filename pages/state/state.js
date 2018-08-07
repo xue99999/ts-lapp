@@ -689,6 +689,8 @@ Page({
     const {
       day
     } = options;
+  
+
     const list = app.globalData.bodyStatus;
     for (let i = 0; i < list.length; i++) {
       const dy = list[i];
