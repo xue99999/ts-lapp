@@ -129,23 +129,23 @@ Page({
     ],
     // 心情
     mood: [{
-      name: '情绪稳定',
-      imgUrl: '../img/mood/2mood@3x.png',
-      curUrl: '../img/mood/2mood-2@3x.png',
-      select: false,
-    },
-    {
-      name: '烦躁易怒',
-      imgUrl: '../img/mood/anger@3x.png',
-      curUrl: '../img/mood/anger-1@3x.png',
-      select: false,
-    },
-    {
-      name: '情绪低落',
-      imgUrl: '../img/mood/3mood@3x.png',
-      curUrl: '../img/mood/3mood-3@3x.png',
-      select: false,
-    }
+        name: '情绪稳定',
+        imgUrl: '../img/mood/2mood@3x.png',
+        curUrl: '../img/mood/2mood-2@3x.png',
+        select: false,
+      },
+      {
+        name: '烦躁易怒',
+        imgUrl: '../img/mood/anger@3x.png',
+        curUrl: '../img/mood/anger-1@3x.png',
+        select: false,
+      },
+      {
+        name: '情绪低落',
+        imgUrl: '../img/mood/3mood@3x.png',
+        curUrl: '../img/mood/3mood-3@3x.png',
+        select: false,
+      }
     ],
     // 经常头痛
     menstrualHeadache: [{
@@ -244,7 +244,7 @@ Page({
     let updateData = {};
     if (index === 0) {
       updateData = {
-         chiropractic: selectTag ? "01" : "02"
+        chiropractic: selectTag ? "01" : "02"
       }
     } else {
       updateData = {
@@ -332,7 +332,7 @@ Page({
       updateData = {
         menstrualVolume: "03"
       }
-    } 
+    }
 
     this.updateStatus(updateData)
 
@@ -429,7 +429,7 @@ Page({
       updateData = {
         breastTenderness: "03"
       }
-    } 
+    }
     this.setData({
       breastTenderness: list
     })
@@ -662,7 +662,7 @@ Page({
       updateData = {
         weak: '03'
       }
-    } 
+    }
     this.setData({
       weak: list8
     })
@@ -683,23 +683,29 @@ Page({
     }
     let day;
     day = e.currentTarget.dataset.day
+    if (day < 10) {
+      day = '0' + day
+    }
     let dates = year + "-" + cmonth + "-" + day;
     for (let i = 0; i < dateArr.length; i++) {
       const obj = dateArr[i];
 
-      if (day === obj.dateNum) {
+      if (day == obj.dateNum) {
         obj.isSelect = true;
       } else {
         obj.isSelect = false;
       }
+      // console.log('day------', day)
+      // console.log(obj.dateNum)
     }
- 
+
     const today = moment().format('D');
     const yue = moment().format('MM');
-  
-    // console.log(cmonth)
-    // console.log(yue)    
-    if (day < today || day == today || cmonth<yue) {
+
+    // console.log('cmonth------', cmonth)
+    // console.log(day)
+    // console.log(today)
+    if (day < today || day == today || cmonth < yue) {
       this.data.bossShow = true;
     } else {
       this.data.bossShow = false;
@@ -709,11 +715,11 @@ Page({
       dateArr: dateArr,
       bossShow: this.data.bossShow
     })
-    // console.log(day)
+    // console.log(this.data.bossShow)
     // console.log('today>>>今日',today)
 
     this.initRecord(dates);
-    // console.log('今日--', dates)
+    console.log('今日--', dates)
 
   },
   onLoad: function() {
@@ -722,8 +728,8 @@ Page({
     }
     auth(parmas);
     const day = moment().format("YYYY-MM-D");
-    hw  = moment().format("MM");
-   
+    hw = moment().format("MM");
+
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
@@ -753,7 +759,7 @@ Page({
       startDay: startDay,
       endDay: endDay
     })
-    
+
     this.query(startDay, endDay, day);
     console.log(this.data.currentDay)
   },
@@ -772,7 +778,9 @@ Page({
         lyear,
         lmonth
       } = this.data;
-      this.setData({ bodyStatus: list})
+      this.setData({
+        bodyStatus: list
+      })
       // 同步2018年月
       this.dateInit(lyear, lmonth);
       console.log(res)
@@ -800,6 +808,7 @@ Page({
           chiropractic = "02",
           frictionalAbdomen = "02"
         } = dy;
+        console.log(dy.day)
         const {
           anmo
         } = this.data;
@@ -822,14 +831,14 @@ Page({
             index = 2
           }
 
-          for (let o = 0; o < menstrualVolumes.length;o++){
-            console.log('=====', o ,index)
-            if(o==index){
-              menstrualVolumes[o].select=true;
-            }else{
+          for (let o = 0; o < menstrualVolumes.length; o++) {
+            console.log('=====', o, index)
+            if (o == index) {
+              menstrualVolumes[o].select = true;
+            } else {
               menstrualVolumes[o].select = false;
             }
-        
+
           }
           //menstrualVolumes[index].select = true;
         }
@@ -1041,11 +1050,15 @@ Page({
       let currentDay = {}
       for (let i = 0; i < list.length; i++) {
         const data = list[i]
-        if (i.physiologicalCycle == '01' && i.physiologicalCycle == '05') {}
+        if (i.physiologicalCycle == '01' && i.physiologicalCycle == '05') {
 
-        if (data.day === moment().format('YYYY-MM-D')) {
-          currentDay = data;
         }
+
+        if (data.day === moment().format('YYYY-MM-DD')) {
+          currentDay = data;
+
+        }
+
         rlist.push(data);
       }
       this.setData({
@@ -1201,7 +1214,7 @@ Page({
       monthstop: monthstop
     })
     console.log('monthstop----', monthstop)
-      this.query(res.sdate, res.edate, null)
+    this.query(res.sdate, res.edate, null)
 
   }, // 更新身体信息
   updateStatus(data) {
@@ -1236,7 +1249,7 @@ Page({
       if (disX > 90) {
         var hww = Number(hw) + 2
         var monthstop = this.data.month
-        if (hww > monthstop){
+        if (hww > monthstop) {
           that.nextMonth()
         }
         console.log('hw>>>', hww);

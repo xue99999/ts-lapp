@@ -240,7 +240,6 @@ Page({
         currentDay
       } = this.data;
       currentDay['menstrualStatus'] = '01';
-
       this.setData({
         currentDay
       })
@@ -653,6 +652,7 @@ Page({
     const {
       day
     } = this.data.currentDay;
+    console.log(this.data.currentDay)
     userInfoUpdateBodyStatus({
       day,
       ...data
@@ -680,6 +680,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
     const parmas = {
       tag: 'switch'
     }
@@ -691,6 +692,8 @@ Page({
     const list = app.globalData.bodyStatus;
     for (let i = 0; i < list.length; i++) {
       const dy = list[i];
+      console.log(dy.day)
+      console.log(day)
       if (dy.day === day) {
         const {
           physiologicalCycle,
@@ -738,8 +741,6 @@ Page({
           }
           //menstrualVolumes[index].select = true;
         }
-
-        console.log(menstrualVolumes)
 
         //初始化白带
         const leucorrheas = this.data.leucorrheas;

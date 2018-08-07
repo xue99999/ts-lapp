@@ -219,7 +219,6 @@ console.log(todays)
       fearCold,
       weak
     } = dy;
-
     if (chiropractic === '01' || frictionalAbdomen === '01') {
       list.push(records['chiropractic'])
     }
