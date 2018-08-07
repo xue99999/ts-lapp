@@ -767,7 +767,7 @@ Page({
     }
     userInfoQueryBodyStatus(query).then(res => {
       const {
-        list,
+        list=[],
         userModel
       } = res;
       app.globalData.bodyStatus = list;
@@ -807,14 +807,19 @@ Page({
           chiropractic = "02",
           frictionalAbdomen = "02"
         } = dy;
+
         const {
           anmo
         } = this.data;
         if (chiropractic === '01') {
           anmo[0].select = true;
+        }else{
+          anmo[0].select = false;
         }
         if (frictionalAbdomen === '01') {
           anmo[1].select = true;
+        }else{
+          anmo[1].select = false;
         }
 
         //初始化月经量
