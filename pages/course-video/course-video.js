@@ -35,15 +35,11 @@ Page({
     //加载这个函数
     this.videoContext = wx.createVideoContext('myVideo')
     auth();
-    console.log('courseId',options.courseId);
-    console.log('id',options.id);
-    console.log('teacherName',options.teacherName);
     //课节id
     sectionID = options.id;
     //课程id
     courseId = options.courseId;
     apiSection(courseId).then(result => {
-      console.log('课节播放列表', result);
       if (result.code === 200) {
         const {
           list = []
@@ -87,14 +83,14 @@ Page({
     this.videoContext = wx.createVideoContext('myVideo')
   },
   doPlay: function(id) {
+    const that=this;
     apiSectionPlay(id).then(result => {
-      console.log('课节播放', result)
       if (result.code === 200) {
         this.setData({
           filePath: result.filePath,
           isplay:true,
         })
-    
+        that.videoContext.play();
         if (record===1){
          pos= pos + 1
         } else if (record === 2){
@@ -111,7 +107,7 @@ Page({
           isplay: false,
         })
         wx.showToast({
-          title: "无权限播放课节",
+          title: "无权限播放",
           icon: 'none',
           duration: 2000
         })
@@ -125,7 +121,7 @@ Page({
       if (SectionList[i].id === id) {
          // 播放当前匹配的id
         this.doPlay(SectionList[i].id);
-        this.videoContext.play();
+        //this.videoContext.play();
       }
     }
   },
@@ -163,7 +159,7 @@ Page({
   var s= pos+1;
    if (s > listLength){
       wx.showToast({
-            title: '当前已是最后一个视频',
+            title: '当前已是最后一节课',
             icon: 'none',
             duration: 2000
           })
@@ -177,7 +173,7 @@ Page({
     //记录一下当前的位置
     if (pos ===0) {
       wx.showToast({
-        title: '当前已是第一个视频了',
+        title: '当前已为第一节课',
         icon: 'none',
         duration: 2000
       })

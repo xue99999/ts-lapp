@@ -16,7 +16,7 @@ const {
 var hw;
 Page({
   data: {
-    isShow:false,
+    isShow: false,
     year: 0,
     month: 0,
     date: ['日', '一', '二', '三', '四', '五', '六'],
@@ -700,7 +700,7 @@ Page({
     }
 
     const today = moment();
-    const sday=moment(dates);
+    const sday = moment(dates);
     const yue = moment().format('MM');
 
     if (!sday.isAfter(today)) {
@@ -746,7 +746,7 @@ Page({
     let tian;
     tian = this.data.tian;
     let endDay = year + '-' + cmonth + '-' + tian
-  
+
 
     this.setData({
       year: year,
@@ -759,8 +759,8 @@ Page({
 
     this.query(startDay, endDay, day);
   },
-  query: function(startDay, endDay,cday) {
-    
+  query: function(startDay, endDay, cday) {
+
     var query = {
       startDay,
       endDay
@@ -776,7 +776,7 @@ Page({
         lmonth
       } = this.data;
       this.setData({
-        isShow:true,
+        isShow: true,
         bodyStatus: list
       })
       // 同步2018年月
@@ -838,6 +838,10 @@ Page({
 
           }
           //menstrualVolumes[index].select = true;
+        } else {
+          for (let o = 0; o < menstrualVolumes.length; o++) {
+            menstrualVolumes[o].select = false;
+          }
         }
 
 
@@ -861,6 +865,12 @@ Page({
             }
           }
 
+        } else {
+          for (let o = 0; o < leucorrheas.length; o++) {
+
+            leucorrheas[o].select = false;
+
+          }
         }
 
         //初始化乳房胀痛
@@ -882,6 +892,12 @@ Page({
             } else {
               breastTendernesss[o].select = false;
             }
+          }
+        } else {
+          for (let o = 0; o < breastTendernesss.length; o++) {
+
+            breastTendernesss[o].select = false;
+
           }
         }
 
@@ -906,6 +922,12 @@ Page({
               abdominalPains[o].select = false;
             }
           }
+        } else {
+          for (let o = 0; o < abdominalPains.length; o++) {
+
+            abdominalPains[o].select = false;
+
+          }
         }
 
         //初始化心情
@@ -927,6 +949,12 @@ Page({
             } else {
               moods[o].select = false;
             }
+          }
+        } else {
+          for (let o = 0; o < moods.length; o++) {
+
+            moods[o].select = false;
+
           }
         }
 
@@ -950,6 +978,11 @@ Page({
               menstrualHeadaches[o].select = false;
             }
           }
+        } else {
+          for (let o = 0; o < menstrualHeadaches.length; o++) {
+
+            menstrualHeadaches[o].select = false;
+          }
         }
 
         //初始化怕冷
@@ -971,6 +1004,12 @@ Page({
             } else {
               fearColds[o].select = false;
             }
+          }
+        }else{
+          for (let o = 0; o < fearColds.length; o++) {
+           
+              fearColds[o].select = false;
+            
           }
         }
 
@@ -994,8 +1033,17 @@ Page({
               weaks[o].select = false;
             }
           }
+        }else{
+          for (let o = 0; o < weaks.length; o++) {
+           
+              weaks[o].select = false;
+          
+          }
         }
-        const { dateArr } = this.data;
+
+        const {
+          dateArr
+        } = this.data;
         //初始化选中
         const cday = moment(day).format('YYYYMD');
         for (let i = 0; i < dateArr.length; i++) {
@@ -1043,9 +1091,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    
-    if(!this.data.isShow){
-        return;
+
+    if (!this.data.isShow) {
+      return;
     }
     var data = {
       startDay: this.data.startDay,
@@ -1055,7 +1103,7 @@ Page({
 
 
     this.query(this.data.startDay, this.data.endDay, this.data.selectDay);
-    
+
   },
   dateInit: function(setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
@@ -1204,7 +1252,7 @@ Page({
       month: (month + 1),
       monthstop: monthstop
     })
-    
+
     this.query(res.sdate, res.edate, null)
 
   }, // 更新身体信息
