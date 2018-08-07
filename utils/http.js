@@ -33,10 +33,10 @@ function Request(method, requestHandler) {
           statusCode
         } = res
 
-        if (statusCode === 411 || statusCode === 413) {
-          console.log(statusCode)
+        const { code } = data;
+        if (code === 411 || code === 413) {
           wx.redirectTo({
-            url: '../pages/index/index',
+            url: '/pages/index/index',
           })
         }
         // 处理数据

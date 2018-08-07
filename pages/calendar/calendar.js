@@ -31,7 +31,7 @@ Page({
     curIdx: null,
     physiologicalCycle: null,
     tian: null,
-    selectDay: moment().format("YYYY-MM-D"),
+    selectDay: moment().format("YYYY-MM-DD"),
     weight: '../img/xing@3x.png',
     bossShow: true,
     today: moment().format('YYYY-MM-DD'),
@@ -689,7 +689,6 @@ Page({
     }
     let dates = year + "-" + cmonth + "-" + day;
 
-    console.log('datas',dates);
     for (let i = 0; i < dateArr.length; i++) {
       const obj = dateArr[i];
 
@@ -698,8 +697,6 @@ Page({
       } else {
         obj.isSelect = false;
       }
-      // console.log('day------', day)
-      // console.log(obj.dateNum)
     }
 
     const today = moment();
@@ -716,11 +713,8 @@ Page({
       dateArr: dateArr,
       bossShow: this.data.bossShow
     })
-    // console.log(this.data.bossShow)
-    // console.log('today>>>今日',today)
 
     this.initRecord(dates);
-    console.log('选中--', dates)
 
   },
   onLoad: function() {
@@ -764,7 +758,6 @@ Page({
     })
 
     this.query(startDay, endDay, day);
-    //console.log(this.data.currentDay)
   },
   query: function(startDay, endDay,cday) {
     
@@ -788,7 +781,6 @@ Page({
       })
       // 同步2018年月
       this.dateInit(lyear, lmonth);
-      //console.log(res)
 
       this.initRecord(cday);
     })
@@ -815,7 +807,6 @@ Page({
           chiropractic = "02",
           frictionalAbdomen = "02"
         } = dy;
-        console.log('init dy',dy.day)
         const {
           anmo
         } = this.data;
@@ -839,7 +830,6 @@ Page({
           }
 
           for (let o = 0; o < menstrualVolumes.length; o++) {
-            console.log('=====', o, index)
             if (o == index) {
               menstrualVolumes[o].select = true;
             } else {
@@ -850,7 +840,6 @@ Page({
           //menstrualVolumes[index].select = true;
         }
 
-        // console.log(menstrualVolumes)
 
         //初始化白带
         const leucorrheas = this.data.leucorrheas;
@@ -1009,7 +998,6 @@ Page({
         const { dateArr } = this.data;
         //初始化选中
         const cday = moment(day).format('YYYYMD');
-        console.log(cday)
         for (let i = 0; i < dateArr.length; i++) {
           const obj = dateArr[i];
 
@@ -1064,33 +1052,10 @@ Page({
       endDay: this.data.endDay
 
     }
-    userInfoQueryBodyStatus(data).then(res => {
-      console.log('查询身体状态接口', res);
-      const {
-        list
-      } = res;
-      const rlist = [];
-      let currentDay = {}
-      for (let i = 0; i < list.length; i++) {
-        const data = list[i]
-        if (i.physiologicalCycle == '01' && i.physiologicalCycle == '05') {
-
-        }
-
-        if (data.day === moment().format('YYYY-MM-DD')) {
-          currentDay = data;
-
-        }
-
-        rlist.push(data);
-      }
-      this.setData({
-        currentDay,
-        list: rlist
-      })
-    })
 
 
+    this.query(this.data.startDay, this.data.endDay, this.data.selectDay);
+    
   },
   dateInit: function(setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
@@ -1116,7 +1081,6 @@ Page({
     const sdate = `${year}-${nextMonth > 10 || nextMonth == 10 ? nextMonth : '0' + nextMonth}-01`;
     const edate = `${year}-${nextMonth > 10 || nextMonth == 10 ? nextMonth : '0' + nextMonth}-${dayNums}`;
 
-    console.log(sdate, edate);
     arrLen = startWeek + dayNums;
     const list = app.globalData.bodyStatus || [];
     for (let i = 0; i < arrLen; i++) {
@@ -1254,7 +1218,6 @@ Page({
       //更新成功
       this.query(this.data.startDay, this.data.endDay, day);
     })
-    console.log(day)
   },
   //手指刚放到屏幕触发
   touchS: function(e) {
@@ -1279,8 +1242,6 @@ Page({
         if (hww > monthstop) {
           that.nextMonth()
         }
-        console.log('hw>>>', hww);
-        console.log('hw>>>', monthstop);
       } else if (disX < -90) {
         that.lastMonth()
       }

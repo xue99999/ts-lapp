@@ -41,6 +41,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+    console.log(options)
     auth();
 
     if (options.id) {
@@ -117,14 +119,25 @@ Page({
     if (ops.from === 'button') {
       // 来自页面内转发按钮
     }
+    const path=`/pages/course-details/course-details?id=${id}`;
+
+    console.log(path)
     return {
       title: '她师小程序',
-      path: '/pages/course-details/course-details',
+      path,
       success: function(res) {
         // 转发成功
+        wx.showToast({
+          title: '分享成功',
+          icon: 'none'
+        })
       },
       fail: function(res) {
         // 转发失败
+        wx.showToast({
+          title: '取消分享',
+          icon:'none'
+        })
       }
     }
   },

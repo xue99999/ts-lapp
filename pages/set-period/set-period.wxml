@@ -24,35 +24,3 @@
 <view class='view-zi'>
   <text>{{text}}</text>
 </view>
-
-<view class='navlist'>
-  <view>
-    <view>受孕机会</view>
-    <switch checked bindchange="switch1Change" color='#FE6F71' />
-  </view>
-</view>
-
-<view class='view-zi'>
-  <text>{{text1}}</text>
-</view>
-<view class='navlist'>
-  <view>
-    <view>黄体期</view>
-    <view class='color'>选择</view>
-  </view>
-</view>
-
-<view class='view-zi'>
-  <text>{{text2}}</text>
-</view>
-
-<view class='navlist'>
-  <view>
-    <view>改进的预测</view>
-    <switch bindchange="switch1Change" color='#FE6F71' />
-  </view>
-</view>
-
-<view class='view-zi'>
-  <text>启动此选项可针对月经周期预测考虑已记录的<text class='colors'>症状</text>。强烈推荐给经期不规律的女性。</text>
-</view>

@@ -9,7 +9,7 @@
       <image class='view_top_img_head' src='../img/placeholder.jpg'></image>
       <text class='view_top_text2'>{{courseData.teacherName}}</text>
 
-      <image class='view_top_img_subscri' src='../img/hot@3x.png'></image>
+      <image wx:if="{{courseData.subscribeTotal>10}}" class='view_top_img_subscri' src='../img/hot@3x.png'></image>
       <text class='view_top_text3'>{{courseData.subscribeTotal}}次订阅</text>
     </view>
   </view>

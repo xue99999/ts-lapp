@@ -16,7 +16,7 @@ Page({
     courseName: "",
     price: 0,
     theTotalPrice: 0,
-    focus: true,
+    focus: false,
     timeStamp: "",
     nonceStr: "",
     package: "",

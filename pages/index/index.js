@@ -111,18 +111,11 @@ Page({
                     console.log('微信登录', res);
                     if (res.code === 200) {
                       console.log('将要保存token', res.token);
-                      wx.setStorage({
-                        key: "token",
-                        data: res.token,
-                      })
-                      console.log('保存token成功,进入首页', res.token);
-                      console.log(routeQuery);
+                      wx.setStorageSync('token', res.token)
 
                       if(routeQuery){
-                        console.log(routeQuery)
                         // tag:navigate redirect switch reLaunch
-                        const {callback,tag='1'}=routeQuery;
-                        console.log(callback);
+                        const { callback ='/pages/home/home',tag='1'}=routeQuery;
 
                         if('/pages/home/home'===callback){
                           const day = moment().format("YYYY-MM-DD");

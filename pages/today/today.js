@@ -48,7 +48,6 @@ Page({
 
   },
   clickArr: function (e) {
-    console.log(e.currentTarget.dataset.index)
   },
 
   /**
@@ -98,7 +97,7 @@ Page({
     userInfoQueryBodyStatus(query).then(res => {
    
       const {
-        list,
+        list=[],
         userModel,
         babyMonth
       } = res;
@@ -118,7 +117,7 @@ Page({
           if (userModel === '02') {
             showObj['02'] = {
               babyText: `${babyMonth}`,
-              predictDay: predictDay > 0 ? `离月经还有${predictDay}天` : `月经第${-predictDay}天`,
+              predictDay: predictDay?(predictDay > 0 ? `离月经还有${predictDay}天` : `月经第${-predictDay}天`):'',
               //下半部显示信息
               lastText: this.installText(dy),
             }
@@ -146,8 +145,11 @@ Page({
     const {
       isPredict,
       physiologicalCycle,
-      predictDay = 0
+      predictDay
     } = dy;
+    if (!predictDay){
+      return ''
+    }
     const pcText = this.getphysiologicalCycleText(physiologicalCycle);
     if (isPredict === '0') {
       return `预测:${pcText}第${predictDay}天`
@@ -256,7 +258,6 @@ Page({
     wx.navigateTo({
       url: '../today-recommend/today-recommend?day=' + this.data.formatDay
     })
-    // console.log(this.data.formatDay)
   },
 
   onShareAppMessage: function (options) {

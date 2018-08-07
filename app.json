@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/home",
     "pages/index/index",
+    "pages/mycourse/course",
     "pages/logs/logs",
     "pages/my/my",
     "pages/period/period-one/period-one",

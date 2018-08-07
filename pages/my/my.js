@@ -78,7 +78,7 @@ Page({
    * 绑定手机号
    */
   onClickPhone() {
-    console.log('这里是绑定手机号')
+    // console.log('这里是绑定手机号')
   },
   initUser: function() {
     const that = this;

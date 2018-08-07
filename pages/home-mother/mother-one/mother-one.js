@@ -25,7 +25,6 @@ Page({
     })
   },
   navto: function() {
-    console.log(this.data.show)
    if(!this.data.show){
       //跳过经期设定
      var data = {
@@ -33,14 +32,11 @@ Page({
        'babySex': app.globalData.obj.babySex,
        'babyBirthday': app.globalData.obj.babyBirthday
      }
-     console.log(data)
 
      userInfoAdd(data).then(res => {
-       console.log('登录经期信息', res);
-
        const {code}=res;
        if(code===200){
-         wx.redirectTo({
+         wx.switchTab({
            url: '/pages/today/today'
          })
        }
@@ -49,7 +45,6 @@ Page({
 
   
    }else{
-     console.log(this.data.day)
      if (!this.data.day) {
        wx.showToast({
          title: "请选择上次开始日期",
@@ -78,7 +73,6 @@ Page({
     }
 
     var dates = this.data.year + "-" + month + "-" + day;
-    console.log('日期', dates);
 
     if (moment(dates).isAfter(moment())) {
       wx.showToast({
