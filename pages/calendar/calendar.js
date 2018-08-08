@@ -21,7 +21,6 @@ Page({
     month: 0,
     date: ['日', '一', '二', '三', '四', '五', '六'],
     dateArr: [],
-    today: 0,
     isTodayWeek: false,
     todayIndex: 0,
     currentDay: {}, //当前选中数据
@@ -34,7 +33,7 @@ Page({
     selectDay: moment().format("YYYY-MM-DD"),
     weight: '../img/xing@3x.png',
     bossShow: true,
-    today: moment().format('YYYY-MM-DD'),
+    today: moment().format('YYYYMD'),
     // 按摩
     anmo: [{
 
@@ -767,8 +766,8 @@ Page({
     }
     userInfoQueryBodyStatus(query).then(res => {
       const {
-        list=[],
-        userModel
+        list = [],
+          userModel
       } = res;
       app.globalData.bodyStatus = list;
       const {
@@ -813,12 +812,12 @@ Page({
         } = this.data;
         if (chiropractic === '01') {
           anmo[0].select = true;
-        }else{
+        } else {
           anmo[0].select = false;
         }
         if (frictionalAbdomen === '01') {
           anmo[1].select = true;
-        }else{
+        } else {
           anmo[1].select = false;
         }
 
@@ -929,9 +928,7 @@ Page({
           }
         } else {
           for (let o = 0; o < abdominalPains.length; o++) {
-
             abdominalPains[o].select = false;
-
           }
         }
 
@@ -957,7 +954,6 @@ Page({
           }
         } else {
           for (let o = 0; o < moods.length; o++) {
-
             moods[o].select = false;
 
           }
@@ -985,7 +981,6 @@ Page({
           }
         } else {
           for (let o = 0; o < menstrualHeadaches.length; o++) {
-
             menstrualHeadaches[o].select = false;
           }
         }
@@ -1010,11 +1005,11 @@ Page({
               fearColds[o].select = false;
             }
           }
-        }else{
+        } else {
           for (let o = 0; o < fearColds.length; o++) {
-           
-              fearColds[o].select = false;
-            
+
+            fearColds[o].select = false;
+
           }
         }
 
@@ -1038,14 +1033,13 @@ Page({
               weaks[o].select = false;
             }
           }
-        }else{
+        } else {
           for (let o = 0; o < weaks.length; o++) {
-           
-              weaks[o].select = false;
-          
+
+            weaks[o].select = false;
+
           }
         }
-
         const {
           dateArr
         } = this.data;
@@ -1060,7 +1054,6 @@ Page({
             obj.isSelect = false;
           }
         }
-
         this.setData({
           dateArr,
           weak: weaks,
@@ -1076,7 +1069,6 @@ Page({
         })
       }
     }
-
     // 如果没有数据
     if (!isdy) {
       this.setData({
@@ -1085,28 +1077,22 @@ Page({
         }
       })
     }
-
   },
 
   onReady: function() {
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
     if (!this.data.isShow) {
       return;
     }
     var data = {
       startDay: this.data.startDay,
       endDay: this.data.endDay
-
     }
-
-
     this.query(this.data.startDay, this.data.endDay, this.data.selectDay);
 
   },
@@ -1141,7 +1127,7 @@ Page({
       if (i >= startWeek) {
         num = i - startWeek + 1;
         let css
-        let tag
+        let tag = records['kongbai']
         for (let i = 0; i < list.length; i++) {
           const dy = list[i];
           const {
@@ -1229,6 +1215,7 @@ Page({
     let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
     const res = this.dateInit(year, month);
     this.setData({
+      bossShow: false,
       startDay: res.sdate,
       endDay: res.edate,
       lyear: year,
@@ -1249,6 +1236,7 @@ Page({
     let monthstop = this.data.month + 2
     const res = this.dateInit(year, month);
     this.setData({
+      bossShow: false,
       startDay: res.sdate,
       endDay: res.edate,
       lyear: year,

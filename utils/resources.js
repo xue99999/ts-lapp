@@ -23,6 +23,7 @@ module.exports = {
     baby: '../img/wawa.png',
     
     record:'../img/editor@3x.png',
+    kongbai: '../img/bai.png',
     pailuanri:'../img/xing@3x.png'
   }
 };
