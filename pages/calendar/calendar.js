@@ -8,6 +8,9 @@ const {
 } = require('../../service/user.js')
 const resources = require('../../utils/resources.js');
 const {
+  $Toast
+} = require('../base/index');
+const {
   auth
 } = require('../../utils/auth.js');
 const {
@@ -34,6 +37,9 @@ Page({
     weight: '../img/xing@3x.png',
     bossShow: true,
     today: moment().format('YYYYMD'),
+
+    //缓存月份数据
+    cacheMonths: [],
     // 按摩
     anmo: [{
 
@@ -213,12 +219,6 @@ Page({
       }
     ],
   },
-  clickxing: function(e) {
-    this.setData({
-      weight: true
-    })
-
-  },
   chooseImg: function(e) {
     const index = e.currentTarget.dataset.index;
     const list1 = this.data.anmo;
@@ -233,11 +233,12 @@ Page({
         const updateData = {};
         if (list1[i].select) {
           selectTag = true;
-          wx.showToast({
-            title: list1[i].name,
-            icon: 'none',
-            duration: 500
-          })
+
+          $Toast({
+            content: list1[i].name,
+            mask: false,
+            duration: 0.5
+          });
         }
       }
     }
@@ -292,9 +293,17 @@ Page({
 
     const list1 = this.data.menstrualVolume;
 
+    //是否是取消
+    let cannel = false;
     for (let i = 0; i < list1.length; i++) {
       if (i == index) {
-        list1[i].select = true;
+        if (list1[i].select) {
+          cannel = true;
+          list1[i].select = false;
+        } else {
+          list1[i].select = true;
+        }
+
       } else {
         list1[i].select = false;
       }
@@ -304,35 +313,50 @@ Page({
       menstrualVolume: list1
     })
     let updateData = {}
-    if (index == 0) {
-      wx.showToast({
-        title: '微',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        menstrualVolume: "01"
-      }
-    } else if (index == 1) {
-      wx.showToast({
-        title: '中',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        menstrualVolume: "02"
-      }
-    } else if (index == 2) {
-      wx.showToast({
-        title: '强',
-        icon: 'none',
-        duration: 500
-      })
 
+    if (cannel) {
       updateData = {
-        menstrualVolume: "03"
+        menstrualVolume: ""
       }
+    } else {
+      if (index == 0) {
+
+        $Toast({
+          content: '月经量偏少',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          menstrualVolume: "01"
+        }
+      } else if (index == 1) {
+
+        $Toast({
+          content: '月经量正常',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          menstrualVolume: "02"
+        }
+      } else if (index == 2) {
+
+        $Toast({
+          content: '月经量很多',
+          mask: false,
+          duration: 0.5
+        });
+
+
+        updateData = {
+          menstrualVolume: "03"
+        }
+      }
+
     }
+
 
     this.updateStatus(updateData)
 
@@ -342,10 +366,16 @@ Page({
     const index = e.currentTarget.dataset.index;
 
     const list = this.data.leucorrheas;
-
+    let cannel = false;
     for (let i = 0; i < list.length; i++) {
       if (i == index) {
-        list[i].select = true;
+        if (list[i].select) {
+          cannel = true;
+          list[i].select = false;
+        } else {
+          list[i].select = true;
+        }
+
       } else {
         list[i].select = false;
       }
@@ -355,79 +385,111 @@ Page({
     })
 
     let updateData = {}
-    if (index == 0) {
-      wx.showToast({
-        title: '少',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        leucorrhea: "01"
-      }
-    } else if (index == 1) {
-      wx.showToast({
-        title: '中',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        leucorrhea: "02"
-      }
-    } else if (index == 2) {
-      wx.showToast({
-        title: '多',
-        icon: 'none',
-        duration: 500
-      })
 
+    if (cannel) {
       updateData = {
-        leucorrhea: "03"
+        leucorrhea: ""
+      }
+    } else {
+      if (index == 0) {
+
+        $Toast({
+          content: '少',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          leucorrhea: "01"
+        }
+      } else if (index == 1) {
+
+        $Toast({
+          content: '中',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          leucorrhea: "02"
+        }
+      } else if (index == 2) {
+
+        $Toast({
+          content: '多',
+          mask: false,
+          duration: 0.5
+        });
+
+
+        updateData = {
+          leucorrhea: "03"
+        }
       }
     }
     this.updateStatus(updateData)
-
-
-
   },
   // 点击乳房胀痛
   chooseImg3: function(e) {
     const index = e.currentTarget.dataset.index;
     const list = this.data.breastTenderness;
+
+    let cannel = false;
     for (let i = 0; i < list.length; i++) {
       if (i == index) {
-        list[i].select = true;
+
+        if (!list[i].select) {
+          list[i].select = true;
+        } else {
+          cannel = true;
+          list[i].select = false;
+        }
+
       } else {
         list[i].select = false;
       }
     }
 
     let updateData = null;
-    if (index == 0) {
-      wx.showToast({
-        title: '微',
-        icon: 'none',
-        duration: 500
-      })
+
+    if (cannel) {
       updateData = {
-        breastTenderness: "01"
+        breastTenderness: ""
       }
-    } else if (index == 1) {
-      wx.showToast({
-        title: '中',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        breastTenderness: "02"
-      }
-    } else if (index == 2) {
-      wx.showToast({
-        title: '强',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        breastTenderness: "03"
+    } else {
+      if (index == 0) {
+
+        $Toast({
+          content: '基本不痛',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          breastTenderness: "01"
+        }
+      } else if (index == 1) {
+
+        $Toast({
+          content: '轻微痛',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          breastTenderness: "02"
+        }
+      } else if (index == 2) {
+
+        $Toast({
+          content: '非常痛',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          breastTenderness: "03"
+        }
       }
     }
     this.setData({
@@ -440,41 +502,62 @@ Page({
   chooseImg4: function(e) {
     const index = e.currentTarget.dataset.index;
     const list = this.data.abdominalPain;
+
+    let cannel = false;
     for (let i = 0; i < list.length; i++) {
       if (i == index) {
-        list[i].select = true;
+        if (!list[i].select) {
+          list[i].select = true;
+        } else {
+          cannel = true;
+          list[i].select = false;
+        }
+
       } else {
         list[i].select = false;
       }
     }
     let updateData = {}
-    if (index == 0) {
-      wx.showToast({
-        title: '微',
-        icon: 'none',
-        duration: 500
-      })
+
+    if (cannel) {
       updateData = {
-        abdominalPain: '01'
+        abdominalPain: ''
       }
-    } else if (index == 1) {
-      wx.showToast({
-        title: '中',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        abdominalPain: '02'
+    } else {
+      if (index == 0) {
+        $Toast({
+          content: '基本不痛',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          abdominalPain: '01'
+        }
+      } else if (index == 1) {
+
+        $Toast({
+          content: '轻微痛',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          abdominalPain: '02'
+        }
+      } else if (index == 2) {
+
+        $Toast({
+          content: '非常痛',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          abdominalPain: '03'
+        }
       }
-    } else if (index == 2) {
-      wx.showToast({
-        title: '强',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        abdominalPain: '03'
-      }
+
     }
     this.setData({
       abdominalPain: list
@@ -485,40 +568,61 @@ Page({
   chooseImg5: function(e) {
     const index = e.currentTarget.dataset.index;
     const list = this.data.mood;
+    let cannel = false;
     for (let i = 0; i < list.length; i++) {
       if (i == index) {
-        list[i].select = true;
+        if (!list[i].select) {
+          list[i].select = true;
+        } else {
+          cannel = true;
+          list[i].select = false;
+        }
+
       } else {
         list[i].select = false;
       }
     }
     let updateData = {}
-    if (index == 0) {
-      wx.showToast({
-        title: '情绪平稳',
-        icon: 'none',
-        duration: 500
-      })
+
+    if (cannel) {
       updateData = {
-        mood: '01'
+        mood: ''
       }
-    } else if (index == 1) {
-      wx.showToast({
-        title: '烦躁易怒',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        mood: '02'
-      }
-    } else if (index == 2) {
-      wx.showToast({
-        title: '情绪低落',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        mood: '03'
+    } else {
+      if (index == 0) {
+
+        $Toast({
+          content: '情绪平稳',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          mood: '01'
+        }
+      } else if (index == 1) {
+
+        $Toast({
+          content: '烦躁易怒',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          mood: '02'
+        }
+      } else if (index == 2) {
+
+        $Toast({
+          content: '情绪低落',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          mood: '03'
+        }
+
       }
     }
     this.setData({
@@ -532,10 +636,16 @@ Page({
     const index = e.currentTarget.dataset.index;
 
     const list = this.data.menstrualHeadache;
-
+    let cannel = false;
     for (let i = 0; i < list.length; i++) {
       if (i == index) {
-        list[i].select = true;
+        if (list[i].select) {
+          cannel = true;
+          list[i].select = false;
+        } else {
+          list[i].select = true;
+        }
+
       } else {
         list[i].select = false;
       }
@@ -544,33 +654,45 @@ Page({
       menstrualHeadache: list
     })
     let updateData = {}
+
+    if (cannel) {
+      updateData = {
+        menstrualHeadache: ''
+      }
+    }else{
     if (index == 0) {
-      wx.showToast({
-        title: '微',
-        icon: 'none',
-        duration: 500
-      })
+
+
+      $Toast({
+        content: '基本不痛',
+        mask: false,
+        duration: 0.5
+      });
       updateData = {
         menstrualHeadache: '01'
       }
     } else if (index == 1) {
-      wx.showToast({
-        title: '中',
-        icon: 'none',
-        duration: 500
-      })
+
+      $Toast({
+        content: '轻微痛',
+        mask: false,
+        duration: 0.5
+      });
       updateData = {
         menstrualHeadache: '02'
       }
     } else if (index == 2) {
-      wx.showToast({
-        title: '强 ',
-        icon: 'none',
-        duration: 500
-      })
+
+      $Toast({
+        content: '非常痛',
+        mask: false,
+        duration: 0.5
+      });
+
       updateData = {
         menstrualHeadache: '03'
       }
+    }
     }
 
     this.updateStatus(updateData)
@@ -579,41 +701,57 @@ Page({
   chooseImg7: function(e) {
     const index = e.currentTarget.dataset.index;
     const list = this.data.fearCold;
+    let cannel = false;
     for (let i = 0; i < list.length; i++) {
       if (i == index) {
-        list[i].select = true;
+        if (list[i].select) {
+          cannel = true;
+          list[i].select = false;
+        } else {
+          list[i].select = true;
+        }
       } else {
         list[i].select = false;
       }
     }
 
     let updateData = null;
-    if (index == 0) {
-      wx.showToast({
-        title: '微',
-        icon: 'none',
-        duration: 500
-      })
+
+    if (cannel) {
       updateData = {
-        fearCold: '01'
+        fearCold: ''
       }
-    } else if (index == 1) {
-      wx.showToast({
-        title: '中',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        fearCold: '02'
-      }
-    } else if (index == 2) {
-      wx.showToast({
-        title: '强',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        fearCold: '03'
+    } else {
+      if (index == 0) {
+        $Toast({
+          content: '不怕冷',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          fearCold: '01'
+        }
+      } else if (index == 1) {
+
+        $Toast({
+          content: '微微冷',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          fearCold: '02'
+        }
+      } else if (index == 2) {
+        $Toast({
+          content: '很冷',
+          mask: false,
+          duration: 0.5
+        });
+        updateData = {
+          fearCold: '03'
+        }
       }
     }
     this.setData({
@@ -627,40 +765,56 @@ Page({
     const index = e.currentTarget.dataset.index;
 
     const list8 = this.data.weak;
+    let cannel = false;
     for (let i = 0; i < list8.length; i++) {
       if (i == index) {
-        list8[i].select = true;
+        if (!list8[i].select) {
+          list8[i].select = true;
+        } else {
+          list8[i].select = false;
+          cannel = true;
+        }
+
       } else {
         list8[i].select = false;
       }
     }
     let updateData = null;
-    if (index == 0) {
-      wx.showToast({
-        title: '微',
-        icon: 'none',
-        duration: 500
-      })
+
+    if (cannel) {
       updateData = {
-        weak: '01'
+        weak: ''
       }
-    } else if (index == 1) {
-      wx.showToast({
-        title: '中',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        weak: '02'
-      }
-    } else if (index == 2) {
-      wx.showToast({
-        title: '强',
-        icon: 'none',
-        duration: 500
-      })
-      updateData = {
-        weak: '03'
+    } else {
+      if (index == 0) {
+
+        $Toast({
+          content: '不乏力',
+          mask: false,
+          duration: 0.5
+        });
+
+        updateData = {
+          weak: '01'
+        }
+      } else if (index == 1) {
+        $Toast({
+          content: '轻微乏力',
+          mask: false,
+          duration: 0.5
+        });
+        updateData = {
+          weak: '02'
+        }
+      } else if (index == 2) {
+        $Toast({
+          content: '非常乏力',
+          mask: false,
+          duration: 0.5
+        });
+        updateData = {
+          weak: '03'
+        }
       }
     }
     this.setData({
@@ -721,8 +875,8 @@ Page({
       tag: 'switch'
     }
     auth(parmas);
-    const day = moment().format("YYYY-MM-DD");
     hw = moment().format("MM");
+
 
     let now = new Date();
     let year = now.getFullYear();
@@ -755,8 +909,11 @@ Page({
       startDay: startDay,
       endDay: endDay
     })
-
+    // 缓存数据
+    const day = moment().format("YYYY-MM-DD");
     this.query(startDay, endDay, day);
+
+    this.cacheDatas(moment().format("YYYY-MM"))
   },
   query: function(startDay, endDay, cday) {
 
@@ -767,8 +924,16 @@ Page({
     userInfoQueryBodyStatus(query).then(res => {
       const {
         list = [],
-          userModel
+          userModel,
+          code,
       } = res;
+
+      if (code === 500) {
+        wx.switchTab({
+          url: '/pages/home/home',
+        })
+        return;
+      }
       app.globalData.bodyStatus = list;
       const {
         lyear,
@@ -785,8 +950,11 @@ Page({
     })
   },
   initRecord(day) {
+    if (!day) {
+      return;
+    }
     let isdy = false;
-    const list = app.globalData.bodyStatus;
+    const list = this.data.bodyStatus;
 
     //this.setData({ currentDay:null})
     for (let i = 0; i < list.length; i++) {
@@ -1079,8 +1247,7 @@ Page({
     }
   },
 
-  onReady: function() {
-  },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -1120,8 +1287,14 @@ Page({
     const sdate = `${year}-${nextMonth > 10 || nextMonth == 10 ? nextMonth : '0' + nextMonth}-01`;
     const edate = `${year}-${nextMonth > 10 || nextMonth == 10 ? nextMonth : '0' + nextMonth}-${dayNums}`;
 
+
+
     arrLen = startWeek + dayNums;
-    const list = app.globalData.bodyStatus || [];
+
+    const fmdate = moment(`${this.data.year}-${this.data.month}`).format('YYYY-MM');
+    console.log('-----init----', fmdate, this.data.year, this.data.month)
+
+    const list = this.data.cacheMonths[fmdate] || this.data.bodyStatus || [];
     for (let i = 0; i < arrLen; i++) {
 
       if (i >= startWeek) {
@@ -1225,7 +1398,8 @@ Page({
     })
 
     this.query(res.sdate, res.edate, null)
-
+    const currentMonthString = `${this.data.year}-${this.data.month}`;
+    this.cacheDatas(currentMonthString);
   },
 
   nextMonth: function() {
@@ -1233,7 +1407,15 @@ Page({
     let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
     let month = this.data.month > 11 ? 0 : this.data.month;
     //超过2月不请求
-    let monthstop = this.data.month + 2
+
+    const maxMonth = moment().add(1, 'months');
+
+    const currentMonthString = `${this.data.year}-${this.data.month}`;
+    const currentMonth = moment(currentMonthString)
+    if (!currentMonth.isBefore(maxMonth)) {
+      return;
+    }
+
     const res = this.dateInit(year, month);
     this.setData({
       bossShow: false,
@@ -1242,11 +1424,12 @@ Page({
       lyear: year,
       lmonth: month,
       year: year,
-      month: (month + 1),
-      monthstop: monthstop
+      month: (month + 1)
     })
 
     this.query(res.sdate, res.edate, null)
+
+    this.cacheDatas(currentMonthString);
 
   }, // 更新身体信息
   updateStatus(data) {
@@ -1277,12 +1460,20 @@ Page({
       var endX = e.changedTouches[0].clientX;
       //触摸开始与结束，手指移动的距离
       var disX = that.data.startX - endX;
+
+      console.log(disX);
       if (disX > 90) {
-        var hww = Number(hw) + 2
-        var monthstop = this.data.month
-        if (hww > monthstop) {
+        const {
+          year,
+          month
+        } = this.data;
+        const maxMonth = moment().add(1, 'months');
+        console.log('00000----', maxMonth.format('YYYY-MM'))
+        const currentMonth = moment(`${year}-${month}`)
+        if (currentMonth.isBefore(maxMonth)) {
           that.nextMonth()
         }
+
       } else if (disX < -90) {
         that.lastMonth()
       }
@@ -1354,5 +1545,54 @@ Page({
         }
       }
     }
+  },
+
+  //统一缓存方法
+  cacheDatas: function(currentMonth) {
+    //获取前后两个月
+    const mms = this.totalPreMonthAndNextMonth(currentMonth)
+
+    // 缓存前后两个月数据
+    this.preloadingData(mms)
+  },
+  //预加载月份数据[2018-]
+  preloadingData: function(months) {
+    const cacheMonths = {};
+    for (let i = 0; i < months.length; i++) {
+      const m = months[i];
+      const days = moment(m).daysInMonth();
+      const firstDay = '01';
+
+      const startDay = moment(`${m}-01`).format('YYYY-MM-DD');
+      const endDay = moment(`${m}-${days}`).format('YYYY-MM-DD');
+
+      var query = {
+        startDay,
+        endDay
+      }
+      userInfoQueryBodyStatus(query).then(res => {
+        const {
+          list = [],
+            userModel
+        } = res;
+
+        const obj = {};
+        //obj[m] = list;
+        cacheMonths[m] = list;
+      })
+
+    }
+
+    this.setData({
+      cacheMonths
+    })
+  },
+  //根据当前月计算上个月和下个月
+  totalPreMonthAndNextMonth: function(currentMonth) {
+    const next = moment(currentMonth).add(1, 'M').format('YYYY-MM');
+    const pre = moment(currentMonth).subtract(1, 'M').format('YYYY-MM');
+
+    console.log(next, pre)
+    return [next, pre]
   }
 })

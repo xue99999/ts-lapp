@@ -1,9 +1,9 @@
 <view class='wrap'>
   <view class='date-show'>
-    <view class='lt-arrow' bindtap='lastMonth'>
+    <view class='lt-arrow cwj-icon cwj-calendar-icon-left' bindtap='lastMonth'>
     </view>
     {{year}}年{{month}}月
-    <view class='rt-arrow' bindtap='nextMonth'>
+    <view class='rt-arrow cwj-icon cwj-calendar-icon-right' bindtap='nextMonth'>
     </view>
   </view>
   <view class='header'>
@@ -17,9 +17,9 @@
   <view class='header'>
   </view>
   <view class='date-box' bindtouchstart="touchS" bindtouchend="touchE">
-    <view class='date-view' wx:for='{{dateArr}}' wx:key data-date='{{item.isToday}}'>
-      <view class="date-head {{item.isSelect?'day-select':''}}">
-        <view class="day {{item.css}}" data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili'>
+    <view class='date-view' wx:for='{{dateArr}}' wx:key data-date='{{item.isToday}}' data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili'>
+      <view class="date-head {{item.isSelect?'day-select':''}}"  >
+        <view class="day {{item.css}}">
           <text>{{item.today===today?'今':item.dateNum}}</text>
         </view>
       </view>
@@ -51,7 +51,7 @@
 
 
 
-  <view wx:if="{{bossShow}}">
+  <view wx:if="{{bossShow}}" class='recode-panel'>
     <view class='view-an' wx:if="{{currentDay.userModel==='02'}}">
       <view class='view-mo'>
         <image src='../img/massage@3x.png'></image>
@@ -61,9 +61,8 @@
         <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg" data-index="{{idx}}" />
       </view>
     </view>
-  </view>
+  
   <view class='kong'></view>
-  <view wx:if="{{bossShow}}">
 
     <view class='boss'>
       <view class='view-an'>
@@ -164,3 +163,4 @@
 
   </view>
 </view>
+<i-toast id="toast" />

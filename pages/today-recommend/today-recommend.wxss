@@ -5,7 +5,9 @@
   width: 100%;
   background: #e1e1e1;
 }
-
+.page{
+  background: #bbb0b0;
+}
 
 .view_top {
   height: 345rpx;
@@ -21,7 +23,7 @@
   border-radius: 20rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;
-  border: 1px solid red;
+  border: 0px solid red;
 }
 .viewShow{
    margin: 0 20rpx 0 20rpx;
@@ -61,21 +63,23 @@ swiper-item{
   margin-bottom: 20rpx;
 }
 .scroll_view {
-  margin-top: 730rpx; 
+
+  margin-top: 755rpx; 
    height: 50%;
+  background: #fff
 }
 .scrollShow{
-  margin-top: 130rpx; 
+  margin-top: 135rpx; 
    height: 50%;
 }
 .headline {
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 80rpx;
+  line-height: 80rpx;
   text-align: left;
   background: #fff;
   font-size: 30rpx;
   padding-left: 28rpx;
-  color: #000;
+  color: rgba(0, 0, 0, 0.753);
   border-bottom: 1rpx #e8e8e8 solid;
 }
 
@@ -158,5 +162,6 @@ swiper-item{
   height: 23rpx;
   color: #fe6f71;
   font-size: 20rpx;
-  margin-left: 100rpx;
+  margin-left: 200rpx;
+
 }

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "i-switch": "../../component/switch/index"
+    "i-switch": "../../component/switch/index",
+    "i-toast": "../../component/toast/index"
   }
 }

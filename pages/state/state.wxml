@@ -98,3 +98,4 @@
     <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg8" data-index="{{idx}}" data-zhi='{{item.id}}' />
   </view>
 </view>
+<i-toast id="toast" />
