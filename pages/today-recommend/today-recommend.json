@@ -3,5 +3,10 @@
   "navigationBarTitleText": "今日提示",
   "backgroundTextStyle": "dark",
   "enablePullDownRefresh": true,
-  "onReachBottomDistance": 50
+  "onReachBottomDistance": 50,
+  "usingComponents": {
+    "i-row": "../../component/row/index",
+    "i-col": "../../component/col/index",
+    "course-list": "../../component/course-list/index"
+  }
 }

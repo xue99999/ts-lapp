@@ -1,0 +1,42 @@
+<view class='scroll_view'>
+  <view wx:if="{{title}}" class='headline'>
+    {{title}}
+  </view>
+
+  <view wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark+item.sectionName}}">
+    <navigator class='list_view' url="{{url+'?id='+item.id}}">
+      <i-row style="width:100%">
+        <i-col span="6" i-class="col-class list-heigh">
+          <image class='list_item_img' src="{{item.pictureUrl===''?'../img/placeholder.jpg':item.pictureUrl}}"></image>
+        </i-col>
+        <i-col span="18" i-class="list_bottom_line">
+          <i-col span="18">
+            <i-col span="24" i-class="col-class">
+              <view class='list_item_text1'>{{item.courseName}}</view>
+            </i-col>
+            <i-col span="24" i-class="col-class">
+              <view class='list_item_text2'>
+              {{item.teacherName}}共{{item.courseCount}}节课
+              </view>
+            </i-col>
+
+            <i-col span="24" i-class="list_item_view_all">
+              <i-col span="2" i-class="col-class">
+                <image class='list_item_view_all_img' src='/pages/img/play1@3x.png'></image>
+              </i-col>
+              <i-col span="16" i-class="col-class">
+                <view class='dingyue'>{{item.subscribeTotal}}次订阅</view>
+              </i-col>
+            </i-col>
+          </i-col>
+          <i-col span="4">
+            <i-col span="24" i-class="margin-top-50">
+              <view class="list_item_text5">¥{{item.price}}</view>
+            </i-col>
+          </i-col>
+        </i-col>
+      </i-row>
+    </navigator>
+  </view>
+
+</view>

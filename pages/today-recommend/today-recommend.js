@@ -46,8 +46,7 @@ Page({
   onLoad: function (options) {
     auth();
     const day = moment().format("YYYY-MM-D");
-    console.log(moment().format("YYYY-MM-D"))
-    var list = app.globalData.bodyStatus;
+    var list = app.globalData.bodyStatus||[];
     for (let i = 0; i < list.length; i++) {
       const dy = list[i];
       
@@ -76,9 +75,6 @@ Page({
       }
 
     }
-
-
-
     this.getData(page);
   },
 
@@ -106,18 +102,4 @@ Page({
     })
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-   
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  }
-
 })

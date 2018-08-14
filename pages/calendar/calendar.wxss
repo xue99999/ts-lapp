@@ -7,8 +7,6 @@
   url('//at.alicdn.com/t/font_601455_q8aev4obbmon7b9.svg?t=1522928336476#cwj-icon') format('svg'); /* iOS 4.1- */
 }
 
-
-
 .cwj-icon {
   font-family:"cwj-icon" !important;
   font-size:16px;
