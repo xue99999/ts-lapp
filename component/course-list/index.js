@@ -12,6 +12,10 @@ Component({
     list:{
       type:Array,
       value:[]
+    },
+    showAmount:{
+      type: Boolean,  
+      value:true 
     }
   },
 

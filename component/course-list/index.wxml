@@ -31,7 +31,7 @@
           </i-col>
           <i-col span="4">
             <i-col span="24" i-class="margin-top-50">
-              <view class="list_item_text5">¥{{item.price}}</view>
+              <view wx:if="{{showAmount}}" class="list_item_text5">¥{{item.price}}</view>
             </i-col>
           </i-col>
         </i-col>
