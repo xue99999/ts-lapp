@@ -32,6 +32,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options)
     //加载这个函数
     this.videoContext = wx.createVideoContext('myVideo')
     auth();

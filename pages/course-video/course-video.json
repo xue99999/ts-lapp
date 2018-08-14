@@ -2,6 +2,7 @@
   "usingComponents": {
     "i-action-sheet": "../../component/action-sheet/index",
       "i-icon": "../../component/icon/index",
-      "i-toast": "../../component/toast/index"
+      "i-toast": "../../component/toast/index",
+      "i-popup":"../../component/popup/index"
   }
 }

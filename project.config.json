@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 10,
+			"current": 24,
 			"list": [
 				{
 					"id": -1,
@@ -102,9 +102,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 11,
 					"name": "全部课程",
-					"pathName": "pages/ labelCourse / labelCourse",
+					"pathName": "pages/label-course/label-course",
 					"query": ""
 				},
 				{
@@ -180,10 +180,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 24,
 					"name": "视频",
 					"pathName": "pages/course-video/course-video",
-					"query": ""
+					"query": "id=9acf1afa453f4e8a8b928168b3c8d924&courseId=9acf1afa453f4e8a8b928168b3c8d924"
 				},
 				{
 					"id": -1,
