@@ -21,7 +21,7 @@
   <!--
   <i-action-sheet visible="{{ visible1 }}" actions="{{ sections}}" show-cancel bind:cancel="handleCancel1" bind:click="handleClickItem1" />-->
   <i-message id="message"  visible="{{ visible1 }}"/>
-  <i-popup visible="{{ visible1 }}">
+  <i-popup visible="{{ visible1 }}" show-cancel bind:cancel="handleCancel1" bind:click="handleClickItem1">
       <view style='height:500rpx'>test</view>
   </i-popup>
 </view>
