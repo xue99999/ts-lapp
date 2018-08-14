@@ -1292,7 +1292,6 @@ Page({
     arrLen = startWeek + dayNums;
 
     const fmdate = moment(`${this.data.year}-${this.data.month}`).format('YYYY-MM');
-    console.log('-----init----', fmdate, this.data.year, this.data.month)
 
     const list = this.data.cacheMonths[fmdate] || this.data.bodyStatus || [];
     for (let i = 0; i < arrLen; i++) {
@@ -1300,7 +1299,7 @@ Page({
       if (i >= startWeek) {
         num = i - startWeek + 1;
         let css
-        let tag = records['kongbai']
+        let tag 
         for (let i = 0; i < list.length; i++) {
           const dy = list[i];
           const {

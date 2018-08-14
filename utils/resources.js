@@ -22,7 +22,7 @@ module.exports = {
     weak:'../img/No tired@3x.png',
     baby: '../img/wawa.png',
     
-    record:'../img/editor@3x.png',
+    record:'../img/edit.png',
     kongbai: '../img/bai.png',
     pailuanri:'../img/xing@3x.png'
   }

@@ -124,6 +124,7 @@
 
 .day-select {
   /* border: 1px solid red; */
+  z-index:10000;
   background-color: #d7ecfc;
   border-radius: 50%;
 }
@@ -145,13 +146,15 @@
 }
 
 .date-weight image {
+   z-index: -1000;
   /* font-size: 22rpx; */
   width: 19rpx;
   height: 19rpx;
 }
 
 .date-weight {
-  margin-top: -20rpx;
+  z-index: -1000;
+  margin-top: -30rpx;
   color: #22a7f6;
 }
 

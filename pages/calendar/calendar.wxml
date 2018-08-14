@@ -24,7 +24,7 @@
         </view>
       </view>
       <view class='date-weight'>
-        <image   src='{{item.tag?item.tag:"../img/bai.png"}}' class='icon-record'></image>
+        <image   src='{{item.tag?item.tag:""}}' class='icon-record'></image>
       </view>
     </view>
   </view>
