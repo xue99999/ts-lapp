@@ -1441,6 +1441,8 @@ Page({
     }).then(res => {
       //更新成功
       this.query(this.data.startDay, this.data.endDay, day);
+      const currentMonthString = `${this.data.year}-${this.data.month}`;
+      this.cacheDatas(currentMonthString);
     })
   },
   //手指刚放到屏幕触发
