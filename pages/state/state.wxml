@@ -54,7 +54,7 @@
 </view>
 <view class='view-an' wx:if="{{currentDay.menstrualStatus==='01'}}">
   <view class='view-mo'>
-    <image src='../img/lower abdomen@3x.png'></image>
+    <image src='../img/lowerabdomen@3x.png'></image>
     <text>小腹痛</text>
   </view>
   <view class='view-mo1' wx:for="{{abdominalPain}}" wx:for-index="idx" wx:for-item="item" wx:key>
@@ -91,7 +91,7 @@
 </view>
 <view class='view-an' wx:if="{{currentDay.menstrualStatus==='01'}}">
   <view class='view-mo'>
-    <image src='../img/No tired@3x.png'></image>
+    <image src='../img/Notired@3x.png'></image>
     <text>乏力</text>
   </view>
   <view class='view-mo1' wx:for="{{weak}}" wx:for-index="idx" wx:for-item="item" wx:key>
