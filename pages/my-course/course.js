@@ -30,7 +30,6 @@ Page({
     }
     apiCourseCollectList(data).then(result => {
       var list = this.data.list;
-      console.log('我的课程', result);
       if (result.code === 200) {
         if (page > 1) {
           for (var i = 0; i < result.list.length; i++) {

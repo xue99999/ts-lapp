@@ -53,7 +53,7 @@
 }
 
 .list_item_text1 {
-  color: #232323;
+  color: #000;
   height: 26.66rpx;
   font-size: 26rpx;
 }
@@ -61,20 +61,26 @@
 .list_item_text2 {
   height: 30rpx;
   color: #a0a0a0;
-  font-size: 20rpx;
+  font-size: 24rpx;
   margin-top: 20rpx;
 }
-
+.list_item_view_all{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
 .dingyue {
-  margin-top: 19rpx;
+  margin-top: 18rpx;
   color: #a0a0a0;
-  height: 23rpx;
-  font-size: 20rpx;
+  height: 24rpx;
+  font-size: 22rpx;
 }
 
+
 .list_item_view_all_img, .list_item_view_all_img1 {
-  width: 15rpx;
-  height: 15rpx;
+  width: 22rpx;
+  height: 20rpx;
 }
 
 .list_item_view_all_img1 {
@@ -82,9 +88,10 @@
 }
 
 .list_item_text5 {
-  height: 23rpx;
+  height: 24rpx;
   color: #fe6f71;
-  font-size: 20rpx;
+  font-size: 22rpx;
+  margin-bottom: 10rpx;
 }
 
 .margin-top-50 {

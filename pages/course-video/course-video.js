@@ -25,7 +25,10 @@ Page({
     initial_times:0.0,
     remark: "",
     // 小节列表
-    sections: []
+    sections: [],
+    // 课节所有列表
+    sectionAll:[],
+    sectionShowImgId:0,
   },
 
   /**
@@ -42,6 +45,7 @@ Page({
     courseId = options.courseId;
     apiSection(courseId).then(result => {
       if (result.code === 200) {
+        console.log("-----------------", result);
         const {
           list = []
         } = result;
@@ -49,6 +53,7 @@ Page({
         var sectionName = "";
         var remark = "";
         SectionList = list;
+      
         // 数据转换
         for (let i = 0; i < list.length; i++) {
           const section = list[i];
@@ -73,6 +78,8 @@ Page({
           list: list,
           sections,
           sectionName,
+          sectionAll:list,
+          sectionShowImgId: pos,
         })
       }
 
@@ -198,6 +205,10 @@ Page({
     }
   
 
+  },
+  // 课节列表
+  hahah: function (event){
+    console.log("------------", event);
   },
 
 

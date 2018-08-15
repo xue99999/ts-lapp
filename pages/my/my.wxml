@@ -14,11 +14,10 @@
       </view>
       <view class='view_solid_vertical'></view>
       <view class='layout_horizontal_view'>
-        <image class='horizontal_img' src='../img/integral@3x.png'></image>
+        <image class='horizontal_img1' src='../img/integral@3x.png'></image>
         <text class='horizontal_text'>{{integral}}积分</text>
       </view>
     </view>
-
   </view>
   <text class='text_suggest'>常用功能</text>
   <view class="weui-grids">
