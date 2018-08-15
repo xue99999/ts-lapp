@@ -193,7 +193,47 @@ Page({
       }
     ],
   },
+  chooseImg: function (e) {
+    const index = e.currentTarget.dataset.index;
+    const list1 = this.data.anmo;
+    let selectTag = false;
+    for (let i = 0; i < list1.length; i++) {
+      if (i == index) {
+        const {
+          select,
+          code
+        } = list1[i];
+        list1[i].select = !select;
+        const updateData = {};
+        if (list1[i].select) {
+          selectTag = true;
 
+          $Toast({
+            content: list1[i].name,
+            mask: false,
+            duration: 0.5
+          });
+        }
+      }
+    }
+    let updateData = {};
+    if (index === 0) {
+      updateData = {
+        chiropractic: selectTag ? "01" : "02"
+      }
+    } else {
+      updateData = {
+        frictionalAbdomen: selectTag ? "01" : "02"
+      }
+    }
+
+    this.updateStatus(updateData)
+
+    this.setData({
+      anmo: list1
+    })
+
+  },
 // 点击月经量
   chooseImg1: function(e) {
     const index = e.currentTarget.dataset.index;
