@@ -193,6 +193,7 @@ Page({
       }
     ],
   },
+  //按摩
   chooseImg: function (e) {
     const index = e.currentTarget.dataset.index;
     const list1 = this.data.anmo;
@@ -233,6 +234,33 @@ Page({
       anmo: list1
     })
 
+  },
+  // 来了
+  switchChange: function (e) {
+    const tag = e.detail.value;
+
+    if (tag) {
+      const {
+        currentDay
+      } = this.data;
+      currentDay['menstrualStatus'] = '01';
+
+      this.setData({
+        currentDay
+      })
+    } else {
+      const {
+        currentDay
+      } = this.data;
+      currentDay['menstrualStatus'] = '02';
+      this.setData({
+        currentDay
+      })
+    }
+
+    this.updateStatus({
+      menstrualStatus: tag ? '01' : '02'
+    })
   },
 // 点击月经量
   chooseImg1: function(e) {
