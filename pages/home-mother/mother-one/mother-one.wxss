@@ -115,21 +115,14 @@
 .view-tes{
   text-align: center;
   font-weight: bold;
-  margin-top: 54rpx;
+  /* margin-top: 54rpx; */
   font-size: 30rpx;
   letter-spacing: 1.656rpx;
 }
-.view-buzou text{
-  margin-left: 294rpx;
-  margin-top: 39rpx;
-  font-size: 20rpx;
-  color: #666666;
-}
+
 .view-buzou image{
-  margin-left: 211rpx;
-  margin-top: 17rpx;
-  width: 326rpx;
-  height: 18rpx;
+   width: 750rpx; 
+   height: 144.9rpx;
 }
 .fot-one image{
   width: 33.8rpx;
@@ -178,7 +171,7 @@
 
 .btn{
   width: 714rpx;
-  height: 72rpx;
+  height: 60rpx;
   margin:0 18rpx;
   background: #FE6F71;
   color: white;
@@ -186,6 +179,8 @@
   justify-content: center;
   align-items: center;
   font-size: 80%;
+  position: fixed;
+  bottom: 36rpx;
   letter-spacing: 1.656rpx;
 }
 .box_list{

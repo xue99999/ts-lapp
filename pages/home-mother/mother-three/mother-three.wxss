@@ -1,7 +1,7 @@
 .view-tes{
   text-align: center;
   font-weight: bold;
-  margin-top: 54rpx;
+  /* margin-top: 54rpx; */
   font-size: 30rpx;
   letter-spacing: 1.656rpx;
 }
@@ -12,10 +12,8 @@
   color: #666666;
 }
 .view-buzou image{
-  margin-left: 211rpx;
-  margin-top: 17rpx;
-  width: 326rpx;
-  height: 18rpx;
+   width: 750rpx; 
+   height: 144.9rpx;
 }
 .view-else{
   width: 100%;

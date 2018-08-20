@@ -1,7 +1,6 @@
 <view>
   <view class='view-buzou'>
-    <text>步骤 5   共有6步骤</text>
-    <image src='../../img/buzhou5.png'></image>
+    <image src='../../img/buzou3.png'></image>
   </view>
   <view wx:if="{{scrollShow==true}}">
     <view class='view-tes'>一般上, 您的月经周期有多长?</view>
@@ -17,7 +16,7 @@
     </view>
   </view>
   <view wx:else class='view-else'>
-    <view class='view-tet'>她师会将月经来潮天数设定为28天 。</view>
+    <view class='view-tet'>她师会将月经周期设定为28天 。</view>
     <view class='view-tet'>您使用她师的次数越多 , 预测就越准确 。</view>
   </view>
 

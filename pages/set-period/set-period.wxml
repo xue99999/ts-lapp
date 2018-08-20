@@ -1,14 +1,5 @@
 <view class='navlist'>
-  <view>
-    <view>经期天数</view>
-    <view class="section" class='color'>
-      <picker bindchange="changejingqi" mode="selector" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker-text">
-          {{multiArray[multiIndex]}} 天
-        </view>
-      </picker>
-    </view>
-  </view>
+
   <view>
     <view>月期天数</view>
      <view class="section" class='color'>
@@ -20,7 +11,18 @@
     </view> 
   </view>
 
+  <view>
+    <view>月经周期</view>
+    <view class="section" class='color'>
+      <picker bindchange="changejingqi" mode="selector" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker-text">
+          {{multiArray[multiIndex]}} 天
+        </view>
+      </picker>
+    </view>
+  </view>
+
 </view>
-<view class='view-zi'>
+<!-- <view class='view-zi'>
   <text>{{text}}</text>
-</view>
+</view> -->
