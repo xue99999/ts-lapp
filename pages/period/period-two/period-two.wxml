@@ -3,7 +3,7 @@
     <image src='../../img/buzou2.png'></image>
   </view>
   <view wx:if="{{scrollShow==true}}">
-    <view class='view-tes'>一般上, 您的月经持续多久?</view>
+    <view class='view-tes'>您的经期平均持续几天？</view>
     <!-- 选择器 -->
 
     <view class='view-data'>
@@ -17,7 +17,7 @@
     </view>
   </view>
   <view wx:else class='view-else'>
-    <view class='view-tet'>她师会将月经来潮天数设定为5天 。</view>
+    <view class='view-tet'>她师会将月经经期天数设定为5天。</view>
     <view class='view-tet'>您使用她师的次数越多 , 预测就越准确 。</view>
   </view>
   <view class='view-fot'>

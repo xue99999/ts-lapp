@@ -44,8 +44,6 @@
     </view>
 
     <view class='view-ri'>
-      <image src='../img/xing@3x.png'></image>
-      <text>排卵日</text>
     </view>
   </view>
 

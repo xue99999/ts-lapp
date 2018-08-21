@@ -1558,6 +1558,7 @@ Page({
   },
   //预加载月份数据[2018-]
   preloadingData: function(months) {
+    console.log(months)
     const cacheMonths = {};
     for (let i = 0; i < months.length; i++) {
       const m = months[i];
