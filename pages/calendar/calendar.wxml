@@ -44,18 +44,9 @@
     </view>
 
     <view class='view-ri'>
-<<<<<<< .mine
-
-
-=======
-      <image src='/pages/img/xing@3x.png'></image>
-      <text>排卵日</text>
->>>>>>> .theirs
     </view>
   </view>
-<record show="{{bossShow}}" 
-  currentDay="{{currentDay}}"
-   bindmyevent="updateStatusChange"></record>
+  <record show="{{bossShow}}" currentDay="{{currentDay}}" bindmyevent="updateStatusChange"></record>
 </view>
 
 
