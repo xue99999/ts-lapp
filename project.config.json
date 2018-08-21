@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 24,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -108,9 +108,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "111",
-					"pathName": "pages/index/index",
+					"id": 12,
+					"name": "mother-one",
+					"pathName": "pages/home-mother/mother-one/mother-one",
 					"query": ""
 				},
 				{
@@ -138,9 +138,9 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 17,
 					"name": "index",
-					"pathName": "pages/index/index",
+					"pathName": "pages/home/home",
 					"query": ""
 				},
 				{
@@ -170,7 +170,7 @@
 				{
 					"id": 22,
 					"name": "home",
-					"pathName": "pages/period/period-one/period-one",
+					"pathName": "pages/home/home",
 					"query": ""
 				},
 				{

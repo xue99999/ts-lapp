@@ -39,7 +39,7 @@ Page({
   clickMother(e) {
     app.globalData.obj.shaonv = '02'
     wx.navigateTo({
-      url: '../home-mother/mother-five/mother-five',
+      url: '../home-mother/mother-one/mother-one',
     })
   },
   getDataDay() {

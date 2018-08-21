@@ -8,7 +8,7 @@
     <text class='text_phone' wx:else>{{phone}}</text> -->
     <view class='view_solid'></view>
     <view class="layout_horizontal">
-      <view class='layout_horizontal_view'>
+      <view class='layout_horizontal_view' bindtap='clickTab'>
         <image class='horizontal_img' src='../img/Recordperiod@3x.png'></image>
         <text class='horizontal_text'>{{shaonv}} </text>
       </view>

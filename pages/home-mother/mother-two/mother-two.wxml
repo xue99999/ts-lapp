@@ -1,10 +1,9 @@
 <view>
   <view class='view-buzou'>
-    <text>步骤 4   共有6步骤</text>
-    <image src="../../img/buzhou4.png"></image>
+    <image src="../../img/buzou2.png"></image>
   </view>
   <view wx:if="{{scrollShow==true}}">
-    <view class='view-tes'>一般上, 您的月经持续多久?</view>
+    <view class='view-tes'>您的经期平均持续几天？</view>
     <!-- 选择器 -->
    <view class='view-data'>
       <picker-view class='view-picker' indicator-style="height: 50px;" style="width: 100%; height: 300px;  background: #FFF4F4;" value="{{[4]}}" data-index="{{array}}" bindchange="bindChange">
@@ -17,7 +16,7 @@
     </view>
   </view>
   <view wx:else class='view-else'>
-    <view class='view-tet'>她师会将周期来潮天数设定为5天 。</view>
+    <view class='view-tet'>她师会将月经经期天数设定为5天 。</view>
     <view class='view-tet'>您使用她师的次数越多 , 预测就越准确 。</view>
   </view>
   <view class='view-fot'>

@@ -1,7 +1,9 @@
 var app = getApp();
 const {
+  userInfoAdd,
   ownerQuery,
-  userInfoQueryBodyStatus
+  userInfoQueryBodyStatus,
+  userInfoQueryMensAndOvulation
 } = require('../../service/user.js');
 var time = require('../../utils/time.js');
 const {
@@ -15,21 +17,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tsVersion:'V1.0.8',
+    tsVersion: 'V1.0.8',
     nickName: "",
     avatarUrl: "",
-    integral:0,
-    routers: [{
-        name: '切换模式',
-        url: '../home/home?iscondition=true',
-        icon: '../img/mom1@3x.png',
-        code: '10'
-      },
+    integral: 0,
+    routers: [
+      // {
+      //   name: '切换模式',
+      //   url: '../home/home?iscondition=true',
+      //   icon: '../img/mom1@3x.png',
+      //   code: '10'
+      // },
       {
-        name: '经期与排卵',
-        url: '../set-period/set-period',
-        icon: '../img/shezhi.png',
-        code: '11'
+        name: '全部课程',
+        url: '../label-course/label-course',
+        icon: '../img/course@3x.png',
+        code: '10'
       },
       {
         name: '我的课程',
@@ -44,19 +47,17 @@ Page({
         code: '11'
       },
       {
-        name: '联系客服',
+        name: '经期与排卵',
+        url: '../set-period/set-period',
+        icon: '../img/shezhi.png',
+        code: '11'
+      },
+      {
+        name: '帮助中心',
         url: '',
         icon: '../img/feedback@3x.png',
         code: '10'
-      },
-      {
-        name: '全部课程',
-        url: '../label-course/label-course',
-        icon: '../img/course@3x.png',
-        code: '10'
-
       }
-
     ]
 
   },
@@ -64,7 +65,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var parmas = {
       tag: "switch"
     }
@@ -80,16 +81,58 @@ Page({
   onClickPhone() {
     // console.log('这里是绑定手机号')
   },
-  initUser: function() {
+  // 切换模式功能
+  clickTab() {
+
+    wx.showModal({
+      title: '提示',
+      content: '确定更换模式',
+      success: function (res) { 
+        if (res.confirm) {
+
+          userInfoQueryMensAndOvulation().then(res => {
+            console.log('查询经期与排卵', res);
+            var data = {
+              'userModel':'02',
+              'menstrualStartTime': res.menstrualStartTime,
+              'menstrualTimes': res.menstrualTimes,
+              'menstrualCycle': res.menstrualCycle,
+              'birthday': res.birthday
+            }
+            console.log(data)
+
+            userInfoAdd(data).then(res => {
+              console.log('登录经期信息', res);
+              wx.switchTab({
+                url: '../today/today',
+                success: function (res) { },
+                fail: function (res) { },
+                complete: function (res) { },
+              })
+            })
+
+
+
+          })
+
+          
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+    
+  },
+  initUser: function () {
     const that = this;
     ownerQuery().then(result => {
 
       wx.getUserInfo({
-        success: function(res) {
+        success: function (res) {
           const {
             nickName,
             avatarUrl,
-            
+
           } = res.userInfo;
           that.setData({
             nickName: nickName,
@@ -98,11 +141,11 @@ Page({
           })
         }
       })
-     
+
     })
   },
   //在show函数里面做数据切换
-  onShow:function(){
+  onShow: function () {
     this.getDataDay();
     this.initUser();
   },
@@ -114,22 +157,22 @@ Page({
     }
     userInfoQueryBodyStatus(data).then(result => {
       if (result.code === 200) {
-          if (result.userModel){
+        if (result.userModel) {
 
-            if (result.userModel==='01'){
-              shaonv= '记经期'
-              }else{
-              shaonv = '辣妈'
-              }
-            this.setData({
-              shaonv: shaonv
-            })
-          }else{
-            this.setData({
-            shaonv: '记经期',
-            })
+          if (result.userModel === '01') {
+            shaonv = '记经期'
+          } else {
+            shaonv = '辣妈'
           }
-         
+          this.setData({
+            shaonv: shaonv
+          })
+        } else {
+          this.setData({
+            shaonv: '记经期',
+          })
+        }
+
       }
     })
   }

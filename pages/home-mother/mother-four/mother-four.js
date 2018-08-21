@@ -34,9 +34,7 @@ Page({
       'menstrualStartTime': app.globalData.obj.menstrualStartTime,
       'menstrualTimes': app.globalData.obj.menstrualTimes,
       'menstrualCycle': app.globalData.obj.menstrualCycle,
-      'birthday': app.globalData.obj.birthday,
-      'babySex': app.globalData.obj.babySex,
-      'babyBirthday': app.globalData.obj.babyBirthday
+      'birthday': app.globalData.obj.birthday
     }
     console.log(data)
 

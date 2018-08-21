@@ -1,8 +1,7 @@
 <view class='wrap'>
 
   <view class='view-buzou'>
-    <text>步骤 3   共有6步骤</text>
-    <image src='../../img/buzhou3.png'></image>
+    <image src='../../img/buzou1.png'></image>
   </view>
 
   <view wx:if="{{show==true}}">
@@ -40,15 +39,15 @@
 
   <!-- <view class='view-month'> {{year}}年{{month}}月 </view> -->
 
-  <view class='view-fot'>
-    <view class='fot-one'>
+  <!-- <view class='view-fot'> -->
+    <!-- <view class='fot-one'>
     <view class='box'>
       <view class='box_list' data-current="{{index}}" bindtap="chooseImg">
         <image class="box-image" src="{{show ? imgUrl : curUrl}}"></image>
         <text>跳过</text>
       </view>
     </view>
-    </view>
+    </view> -->
     <button class='btn' bindtap='navto'>下一步</button>
-  </view>
+  <!-- </view> -->
 </view>
