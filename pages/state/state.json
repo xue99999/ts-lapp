@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "i-switch": "../../component/switch/index",
-    "i-toast": "../../component/toast/index"
+    "record": "../../component/record/index",
+      "i-toast": "../../component/toast/index"
   }
 }

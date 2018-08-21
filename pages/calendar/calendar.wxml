@@ -18,20 +18,20 @@
   </view>
   <view class='date-box' bindtouchstart="touchS" bindtouchend="touchE">
     <view class='date-view' wx:for='{{dateArr}}' wx:key data-date='{{item.isToday}}' data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili'>
-      <view class="date-head {{item.isSelect?'day-select':''}}"  >
+      <view class="date-head {{item.isSelect?'day-select':''}}">
         <view class="day {{item.css}}">
           <text>{{item.today===today?'今':item.dateNum}}</text>
         </view>
       </view>
       <view class='date-weight'>
-        <image   src='{{item.tag?item.tag:""}}' class='icon-record'></image>
+        <image src='{{item.tag?item.tag:""}}' class='icon-record'></image>
       </view>
     </view>
   </view>
 
   <view class='view-list'>
     <view class='view-jing'>
-      <image src='../img/pink@3x.png'></image>
+      <image src='/pages/img/pink@3x.png'></image>
       <text>月经期</text>
     </view>
     <view class='view-luan'>
@@ -39,126 +39,24 @@
       <text>预测经期</text>
     </view>
     <view class='view-jing'>
-      <image src='../img/zise@3x.png'></image>
+      <image src='/pages/img/zise@3x.png'></image>
       <text>易孕期</text>
     </view>
 
     <view class='view-ri'>
+<<<<<<< .mine
+
+
+=======
+      <image src='/pages/img/xing@3x.png'></image>
+      <text>排卵日</text>
+>>>>>>> .theirs
     </view>
   </view>
-
-
-
-  <view wx:if="{{bossShow}}" class='recode-panel'>
-    <view class='view-an' wx:if="{{currentDay.userModel==='02'}}">
-      <view class='view-mo'>
-        <image src='../img/massage@3x.png'></image>
-        <text>按摩</text>
-      </view>
-      <view class='view-mo1' wx:for="{{anmo}}" wx:for-index="idx" wx:for-item="item" wx:key>
-        <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg" data-index="{{idx}}" />
-      </view>
-    </view>
-  
-  <view class='kong'></view>
-
-    <view class='boss'>
-      <view class='view-an'>
-        <view class='view-mo'>
-          <image src='../img/menstruation1@3x.png'></image>
-          <text>大姨妈来了</text>
-        </view>
-        
-        <view class="view-mo1">
-
-        <i-switch value="{{currentDay.menstrualStatus==='01'}}" bind:change="switchChange" size="small" slot="footer">
-          <view slot="open">是</view>
-          <view slot="close">否</view>
-        </i-switch>
-         
-        </view>
-      </view> 
-    </view>
-
-
-    <view class='view-an' wx:if="{{currentDay.menstrualStatus==='01'}}">
-      <view class='view-mo'>
-        <image src='../img/menstruation2@3x.png'></image>
-        <text>月经量</text>
-      </view>
-
-      <view class='view-mo1' wx:for="{{menstrualVolume}}" wx:for-index="idx" wx:for-item="item" wx:key>
-        <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg1" data-index="{{idx}}" />
-      </view>
-    </view>
-    <view class='view-an' wx:if="{{currentDay.menstrualStatus==='01'}}">
-      <view class='view-mo'>
-        <image src='../img/leucorrhea@3x.png'></image>
-        <text>白带</text>
-      </view>
-      <view class='view-mo1' wx:for="{{leucorrheas}}" wx:for-index="idx" wx:for-item="item" wx:key>
-        <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg2" data-index="{{idx}}" />
-      </view>
-
-    </view>
-    <view class='view-an' wx:if="{{currentDay.menstrualStatus==='01'}}">
-      <view class='view-mo'>
-        <image src='../img/breast@3x.png'></image>
-        <text>乳房胀痛</text>
-      </view>
-      <view class='view-mo1' wx:for="{{breastTenderness}}" wx:for-index="idx" wx:for-item="item" wx:key>
-        <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg3" data-index="{{idx}}" />
-      </view>
-
-    </view>
-    <view class='view-an' wx:if="{{currentDay.menstrualStatus==='01'}}">
-      <view class='view-mo'>
-        <image src='../img/lowerabdomen@3x.png'></image>
-        <text>小腹痛</text>
-      </view>
-      <view class='view-mo1' wx:for="{{abdominalPain}}" wx:for-index="idx" wx:for-item="item" wx:key>
-        <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg4" data-index="{{idx}}" />
-      </view>
-    </view>
-    <view class='view-an' wx:if="{{currentDay.menstrualStatus==='01'}}">
-      <view class='view-mo'>
-        <image src='../img/mood@3x.png'></image>
-        <text>心情</text>
-      </view>
-      <view class='view-mo1' wx:for="{{mood}}" wx:for-index="idx" wx:for-item="item" wx:key>
-        <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg5" data-index="{{idx}}" />
-      </view>
-
-    </view>
-    <view class='view-an' wx:if="{{currentDay.menstrualStatus==='01'}}">
-      <view class='view-mo'>
-        <image src='../img/headache@3x.png'></image>
-        <text>经期头痛</text>
-      </view>
-      <view class='view-mo1' wx:for="{{menstrualHeadache}}" wx:for-index="idx" wx:for-item="item" wx:key>
-        <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg6" data-index="{{idx}}" />
-      </view>
-    </view>
-    <view class='view-an' wx:if="{{currentDay.menstrualStatus==='01'}}">
-      <view class='view-mo'>
-        <image src='../img/cold@3x.png'></image>
-        <text>怕冷</text>
-      </view>
-      <view class='view-mo1' wx:for="{{fearCold}}" wx:for-index="idx" wx:for-item="item" wx:key>
-        <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg7" data-index="{{idx}}" />
-      </view>
-    </view>
-    <view class='view-an view-fali' wx:if="{{currentDay.menstrualStatus==='01'}}">
-      <view class='view-mo'>
-        <image src='../img/Notired@3x.png'></image>
-        <text>乏力</text>
-      </view>
-      <view class='view-mo1' wx:for="{{weak}}" wx:for-index="idx" wx:for-item="item" wx:key>
-        <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg8" data-index="{{idx}}" data-zhi='{{item.id}}' />
-      </view>
-    </view>
-
-
-  </view>
+<record show="{{bossShow}}" 
+  currentDay="{{currentDay}}"
+   bindmyevent="updateStatusChange"></record>
 </view>
+
+
 <i-toast id="toast" />
