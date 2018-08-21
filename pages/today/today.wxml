@@ -1,37 +1,54 @@
 <view class='box'>
 
-  <view class='header'>
+  <!-- <view class='header'>
     <view wx:for='{{date}}' wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}</view>
 
   </view>
   <view class='headers'>
-    <view wx:for='{{days}}' wx:key data-index="{{item}}" class='{{ item == today? "weekMark" : ""}}' bindtap='clickArr'>{{item}} </view>
-
-
+    <view wx:for='{{days}}' wx:key data-index="{{item}}" class='{{ item == today? "weekMark" : ""}}' bindtap='clickArr'>{{item}}       </view>
+  </view> -->
+  <view class='headday'> {{month}}月{{day}}日 星期{{week=='0'? '日': ''|| week=='1'? '一': ''|| week=='2'? '二': ''|| week=='3'? '三': ''|| week=='4'? '四': ''|| week=='5'? '五': ''|| week=='6'? '六': '' }}
   </view>
 
-  <view class='view-tishi'>
+
+  <!-- <view class='view-tishi'>
     <view bindtap='clickjinri' class='view-jinr'>
       <image src='../img/jinri@3x.png'></image>
       <text>今日提示</text>
     </view>
-  </view>
+  </view> -->
   <view class='view-img'>
     <image src='../img/yuan@3x.png' mode="aspectFit" class='view-image'></image>
-    <view class='view-inner' wx:if="{{userModel==='01'}}">
-      <view>{{showObj['01'].top}}</view>
-      <view>{{currentDay.physiologicalCycle!=='0'?showObj['01'].middle:''}}</view>
-      <view class='view-last'>{{showObj['01'].shouyun}}</view>
+    <view class='view-inner' wx:if="{{isLaw === '01'}}">
+      <view class='view-last'>{{currentDay.physiologicalCycle ==='02'? ' ' :  showObj.shouyun}}</view>
+      <view class='view-predictDay {{currentDay.physiologicalCycle === "02" ? "view-predictDay-yuej" : ""}}'>{{currentDay.physiologicalCycle!=='0'?showObj.predictDay:''}}</view>
+      <view>{{showObj.top}}</view>
+      <view>{{showObj.upPredictDay}}</view>
+      <button bindtap='clickjinri' class='buttons'>今日提示</button>
     </view>
 
-    <view class='view-inner' wx:if="{{userModel==='02'}}">
-      <image src='{{bobyImg}}'></image>
-      <view>{{showObj['02'].babyText}}</view>
-      <view class='view-last'>{{showObj['02'].predictDay}}</view>
+    <view class='view-inner' wx:if="{{isLaw === '02'}}">
+      <view class='view-last'></view>
+      <view class='view-predictDay'>上次月经开始时间</view>
+      <view>{{showObj.upPredictDay}}</view>
     </view>
-    <view class='view-btn'>
 
+
+    <!-- <view class='view-inner' wx:if="{{userModel==='02' && isLaw === '01'}}">
+      <view class='view-last'>{{showObj['02'].shouyun}}</view>
+      <view class='view-predictDay'>{{showObj['02'].predictDay}}</view>
+      <view>{{showObj['02'].top}}</view>
+      <button bindtap='clickjinri' class='buttons'>今日提示</button>
     </view>
+
+    <view class='view-inner' wx:if="{{userModel==='02' && isLaw === '02'}}">
+      <view class='view-last'></view>
+      <view class='view-predictDay'>上次月经开始时间</view>
+      <view>{{showObj['02'].top}}</view>
+    </view> -->
+
+
+
   </view>
 
   <view class='view-bu'>

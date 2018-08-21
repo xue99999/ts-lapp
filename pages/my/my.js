@@ -92,8 +92,9 @@ Page({
 
           userInfoQueryMensAndOvulation().then(res => {
             console.log('查询经期与排卵', res);
+            if (res.userModel==='01'){
             var data = {
-              'userModel':'02',
+              'userModel': '02',
               'menstrualStartTime': res.menstrualStartTime,
               'menstrualTimes': res.menstrualTimes,
               'menstrualCycle': res.menstrualCycle,
@@ -110,7 +111,28 @@ Page({
                 complete: function (res) { },
               })
             })
+          }
+          else{
+              var data = {
+                'userModel': '01',
+                'menstrualStartTime': res.menstrualStartTime,
+                'menstrualTimes': res.menstrualTimes,
+                'menstrualCycle': res.menstrualCycle,
+                'birthday': res.birthday
+              }
+              console.log(data)
 
+              userInfoAdd(data).then(res => {
+                console.log('登录经期信息', res);
+                wx.switchTab({
+                  url: '../today/today',
+                  success: function (res) { },
+                  fail: function (res) { },
+                  complete: function (res) { },
+                })
+              })
+            
+          }
 
 
           })

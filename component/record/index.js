@@ -21,6 +21,10 @@ Component({
       value: false,
     },
   },
+  //组件移除时
+  detached:function(){
+      console.log('remove')
+  },
   ready: function() {
     console.log('ready', this.data.currentDay, this.data.onChange)
 
@@ -68,7 +72,7 @@ Component({
         }
 
       }
-      //menstrualVolumes[index].select = true;
+      menstrualVolumes[index].select = true;
     }
 
     //初始化白带

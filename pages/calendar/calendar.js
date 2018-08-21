@@ -26,7 +26,7 @@ Page({
     dateArr: [],
     isTodayWeek: false,
     todayIndex: 0,
-    currentDay: {}, //当前选中数据
+    currentDay: null, //当前选中数据
     show: false,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
@@ -37,7 +37,6 @@ Page({
     weight: '../img/xing@3x.png',
     bossShow: true,
     today: moment().format('YYYYMD'),
-
     //缓存月份数据
     cacheMonths: [],
   },
@@ -80,13 +79,13 @@ Page({
       this.data.bossShow = false;
     }
     this.setData({
+      currentDay:null,
       selectDay: sday.format('YYYY-MM-DD'),
       dateArr: dateArr,
       bossShow: this.data.bossShow
     })
 
     this.initRecord(dates);
-
   },
 
 
@@ -420,6 +419,7 @@ Page({
       this.query(this.data.startDay, this.data.endDay, day);
       const currentMonthString = `${this.data.year}-${this.data.month}`;
       this.cacheDatas(currentMonthString);
+      
   
   },
   //手指刚放到屏幕触发

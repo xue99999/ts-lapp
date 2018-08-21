@@ -46,7 +46,7 @@
     <view class='view-ri'>
     </view>
   </view>
-  <record show="{{bossShow}}" currentDay="{{currentDay}}" bindmyevent="updateStatusChange"></record>
+  <record wx:if="{{currentDay}}" show="{{bossShow}}" currentDay="{{currentDay}}" bindmyevent="updateStatusChange"></record>
 </view>
 
 

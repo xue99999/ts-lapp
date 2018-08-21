@@ -91,7 +91,7 @@ element.style {
 }
 
 .view-img .view-inner view {
-  margin: 60rpx 0;
+  margin: 45rpx 0;
 }
 
 .view-bu {
@@ -121,15 +121,21 @@ element.style {
 .view-inner image {
   width: 80rpx;
   height: 80rpx;
-  margin: 60rpx 0rpx 0rpx 0rpx;
+  margin: 40rpx 0rpx 0rpx 0rpx;
 }
 
-.view-inner .view-last {
+.view-inner{
   font-size: 24rpx;
   color: #f5a6b7;
-  /* margin-top: 20rpx; */
 }
-
+.view-last {
+  font-size: 30rpx;
+  color: #f5a6b7;
+}
+.view-predictDay{
+  font-size: 34rpx;
+  color: #A87678;
+}
 .tupian {
   display: flex;
   flex-direction: row-reverse;
@@ -139,4 +145,21 @@ element.style {
 .tupian image {
   width: 70rpx;
   height: 70rpx;
+}
+.buttons{
+  width:210rpx;
+  line-height: 65rpx;
+  border-radius: 25px;
+  text-align: center;
+  background: #FFC0C1;
+  color: white;
+}
+.headday{
+  text-align: center;
+  color: #f5a6b7;
+  margin-top: 50rpx;
+}
+.view-predictDay-yuej{
+    color: #f5a6b7;
+    font-size: 40rpx;
 }

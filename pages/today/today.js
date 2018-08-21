@@ -23,11 +23,15 @@ Page({
     date: ['日', '一', '二', '三', '四', '五', '六'],
     days: [],
     userModel: '',
+    isLaw:'',
     list: [],
     today: moment().format('YYYY-MM-DD'),
     currentDay: {},
     formatDay: null,
     bobyImg: resources.records['baby'],
+    month: moment().format('M'),
+    day: moment().format('D'),
+    week: moment().format('d'),
     // 圆圈显示数据
     showObj: {
       // 模式辣妈
@@ -57,7 +61,6 @@ Page({
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('DD');
     let todays;
-    
     this.setData({
       today,
       days: currentWeek(),
@@ -95,17 +98,18 @@ Page({
     }
 
     userInfoQueryBodyStatus(query).then(res => {
-   
+      console.log(res)
       const {
         list=[],
         userModel,
-        babyMonth
+        isLaw,
       } = res;
       app.globalData.bodyStatus = list;
       for (let i = 0; i < list.length; i++) {
         const dy = list[i];
         const {
           day,
+          upPredictDay,
           isPredict,
           physiologicalCycle,
           predictDay = 0
@@ -114,26 +118,24 @@ Page({
           this.getRecordsImg(dy)
           let showObj = {}
           // 处理当前需要显示的数据
-          if (userModel === '02') {
-            showObj['02'] = {
-              babyText: `${babyMonth}`,
-              predictDay: predictDay?(predictDay > 0 ? `离月经还有${predictDay}天` : `月经第${-predictDay}天`):'',
+          if (isLaw === '01') {
+            showObj= {
+              shouyun: this.getShouyunText(physiologicalCycle),
+              predictDay: predictDay?(predictDay > 0 ? `距离经期还有${predictDay}天` : `第  ${-predictDay}   天`):'',
               //下半部显示信息
-              lastText: this.installText(dy),
+              // lastText: this.installText(dy),
+              top: `${physiologicalCycle !== '01' && physiologicalCycle !== '05' && isPredict === '0' ? '' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
             }
 
           }
 
-          if (userModel === '01') {
-            showObj['01'] = {
-              //当前周期信息 预计:月经期第六天
-              top: `${physiologicalCycle !== '01' && physiologicalCycle !== '05' && isPredict === '0' ? '预测:' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
-              middle: predictDay > 0 ? `离月经还有${predictDay}天` : `月经第${-predictDay}天`,
-              shouyun: this.getShouyunText(physiologicalCycle)
+          if (isLaw === '02') {
+            showObj = {
+              upPredictDay: upPredictDay,
             }
             
           }
-          this.setData({show:true, currentDay: dy, showObj, userModel })
+          this.setData({ show: true, currentDay: dy, showObj, userModel, isLaw, upPredictDay})
         }
       }
       
@@ -152,7 +154,7 @@ Page({
     }
     const pcText = this.getphysiologicalCycleText(physiologicalCycle);
     if (isPredict === '0') {
-      return `预测:${pcText}第${predictDay}天`
+      return `${pcText}第${predictDay}天`
     }
     if (isPredict === '1') {
       return `${pcText}第${predictDay}天`
