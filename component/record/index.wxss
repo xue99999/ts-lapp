@@ -1,0 +1,51 @@
+.recode-panel{
+  margin-bottom: 10rpx;
+}
+.view-an{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+   justify-content: space-between; 
+    margin-top: 20rpx; 
+   padding-bottom: 20rpx;
+   border-bottom: 1rpx solid gainsboro;
+}
+.view-an view image{
+  width:50rpx;
+  height: 50rpx;
+}
+.view-mo{
+  width: 70%;
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+}
+.view-mo text{
+  margin-left: 10rpx;
+}
+.view-mo1{
+  display: flex;
+  margin-right: 30rpx;
+}
+.view-mo1 image{
+  margin-right: 20rpx;
+}
+.kong{
+  width: 100%;
+  height: 20rpx;
+  margin-top: 10rpx;
+  background: #F4F4F4;
+}
+.label{
+  width: 200rpx;
+  line-height: 50rpx;
+  text-align: center;
+  background: #FE9A9B;
+  color: white;
+  border-radius: 25px;
+  margin-right: 110rpx;
+}
+.wx-switch-input{width:42px !important;height:20px !important;}
+.wx-switch-input::before{width:41px !important;height: 20px !important;}
+.wx-switch-input::after{width: 18px !important;height: 18px !important;} 

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "i-switch": "../switch/index",
+    "i-toast": "../toast/index"
+  }
+}

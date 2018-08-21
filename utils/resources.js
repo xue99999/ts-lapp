@@ -11,7 +11,7 @@ module.exports = {
     // 乳房胀痛
     breastTenderness:'../img/breast@3x.png',
     // 小腹痛
-    abdominalPain:'../img/lower abdomen@3x.png',
+    abdominalPain:'../img/lowerabdomen@3x.png',
     // 心情
     mood:'../img/mood@3x.png',
     // 经期头痛
@@ -19,7 +19,7 @@ module.exports = {
     // 怕冷
     fearCold: '../img/cold@3x.png',
     // 乏力
-    weak:'../img/No tired@3x.png',
+    weak:'../img/Notired@3x.png',
     baby: '../img/wawa.png',
     
     record:'../img/edit.png',
