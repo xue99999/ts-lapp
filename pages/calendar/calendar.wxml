@@ -44,6 +44,8 @@
     </view>
 
     <view class='view-ri'>
+      <image src='/pages/img/ovulation@3x.png'></image>
+      <text>排卵日</text>
     </view>
   </view>
   <record wx:if="{{currentDay}}" show="{{bossShow}}" currentDay="{{currentDay}}" bindmyevent="updateStatusChange"></record>

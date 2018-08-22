@@ -20,11 +20,20 @@
   <view class='view-img'>
     <image src='../img/yuan@3x.png' mode="aspectFit" class='view-image'></image>
     <view class='view-inner' wx:if="{{isLaw === '01'}}">
-      <view class='view-last'>{{currentDay.physiologicalCycle ==='02'? ' ' :  showObj.shouyun}}</view>
-      <view class='view-predictDay {{currentDay.physiologicalCycle === "02" ? "view-predictDay-yuej" : ""}}'>{{currentDay.physiologicalCycle!=='0'?showObj.predictDay:''}}</view>
-      <view>{{showObj.top}}</view>
-      <view>{{showObj.upPredictDay}}</view>
-      <button bindtap='clickjinri' class='buttons'>今日提示</button>
+      <view class='view-last'>{{currentDay.physiologicalCycle ==='02'? ' ' : showObj.shouyun}}</view>
+      <!-- 月经期的显示样式 -->
+      <view  wx:if="{{currentDay.physiologicalCycle === '02'}}" class='view-predictDay-yuej'>
+        第
+        <text class='view-size'>{{currentDay.physiologicalCycle!=='0'?showObj.predictDay:''}}</text> 
+        天
+      </view>
+        <!-- 易孕期 安全期显示样式 -->
+      <view wx:else class='view-predictDay'>
+       {{currentDay.physiologicalCycle!=='0'?showObj.predictDay:''}}
+      </view>
+
+      <view class='view-physiologicalCycles'>{{showObj.top}}</view>
+      <button bindtap='clickjinri' class='{{currentDay.physiologicalCycle === "02" ? "jinribtn" : "buttons"}}'>今日提示</button>
     </view>
 
     <view class='view-inner' wx:if="{{isLaw === '02'}}">

@@ -121,7 +121,7 @@ Page({
           if (isLaw === '01') {
             showObj= {
               shouyun: this.getShouyunText(physiologicalCycle),
-              predictDay: predictDay?(predictDay > 0 ? `距离经期还有${predictDay}天` : `第  ${-predictDay}   天`):'',
+              predictDay: predictDay?(predictDay > 0 ? `距离经期还有${predictDay}天` : `${-predictDay}`):'',
               //下半部显示信息
               // lastText: this.installText(dy),
               top: `${physiologicalCycle !== '01' && physiologicalCycle !== '05' && isPredict === '0' ? '' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
