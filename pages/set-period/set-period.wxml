@@ -1,7 +1,7 @@
 <view class='navlist'>
 
   <view>
-    <view>月期天数</view>
+    <view>经期天数</view>
      <view class="section" class='color'>
       <picker bindchange="changeyuejing" mode="selector" value="{{multiIndex1}}" range="{{multiArray1}}">
         <view class="picker">

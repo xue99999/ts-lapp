@@ -10,7 +10,7 @@ const {
   auth
 } = require('../../utils/auth.js');
 const moment = require('../../utils/moment.js');
-var shaonv;
+let shaonv;
 Page({
   /**
    * 
@@ -182,16 +182,16 @@ Page({
         if (result.userModel) {
 
           if (result.userModel === '01') {
-            shaonv = '记经期'
+            shaonv = '只记经期'
           } else {
-            shaonv = '辣妈'
+            shaonv = '我是辣妈'
           }
           this.setData({
             shaonv: shaonv
           })
         } else {
           this.setData({
-            shaonv: '记经期',
+            shaonv: '只记经期',
           })
         }
 
