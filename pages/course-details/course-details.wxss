@@ -1,5 +1,5 @@
 /* 课程详情 */
-
+@import "../../wxParse/wxParse.wxss";
 .inclusion {
   background: #f3f4f5;
 }
@@ -190,7 +190,6 @@ padding-top: 30rpx;
 
 .course_remark_view {
   width: 100%;
-  height: 310.30rpx;
   background: #fff;
   padding-left: 30rpx;
   padding-right: 30rpx;

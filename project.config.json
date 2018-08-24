@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 25,
 			"list": [
 				{
 					"id": -1,
@@ -186,9 +186,9 @@
 					"query": "id=9acf1afa453f4e8a8b928168b3c8d924&courseId=9acf1afa453f4e8a8b928168b3c8d924"
 				},
 				{
-					"id": -1,
+					"id": 25,
 					"name": "日历-新",
-					"pathName": "pages/wxcalendar/wxcalendar",
+					"pathName": "pages/my-help/my-help",
 					"query": ""
 				}
 			]

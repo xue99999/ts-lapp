@@ -36,6 +36,7 @@ Page({
     selectDay: moment().format("YYYY-MM-DD"),
     weight: '../img/xing@3x.png',
     bossShow: true,
+    tipsShow:false,
     today: moment().format('YYYYMD'),
     //缓存月份数据
     cacheMonths: [],
@@ -75,14 +76,17 @@ Page({
 
     if (!sday.isAfter(today)) {
       this.data.bossShow = true;
+      this.data.tipsShow = false;
     } else {
       this.data.bossShow = false;
+      this.data.tipsShow = true;
     }
     this.setData({
-      currentDay:null,
+      currentDay: null,
       selectDay: sday.format('YYYY-MM-DD'),
       dateArr: dateArr,
-      bossShow: this.data.bossShow
+      bossShow: this.data.bossShow,
+      tipsShow:this.data.tipsShow,
     })
 
     this.initRecord(dates);
@@ -145,6 +149,7 @@ Page({
         list = [],
           userModel,
           code,
+          isLaw
       } = res;
 
       if (code === 500) {
@@ -154,13 +159,16 @@ Page({
         return;
       }
       app.globalData.bodyStatus = list;
+      app.globalData.obj.isLaw = isLaw;
+      console.log(res)
       const {
         lyear,
         lmonth
       } = this.data;
       this.setData({
         isShow: true,
-        bodyStatus: list
+        bodyStatus: list,
+        isLaw: isLaw
       })
       // 同步2018年月
       this.dateInit(lyear, lmonth);
@@ -219,7 +227,8 @@ Page({
     if (!isdy) {
       this.setData({
         currentDay: {
-          menstrualStatus: '02'
+          menstrualStatus: '02',
+          day: day
         }
       })
     }
@@ -277,13 +286,15 @@ Page({
       if (i >= startWeek) {
         num = i - startWeek + 1;
         let css
-        let tag 
+        let tag
+        let status
         for (let i = 0; i < list.length; i++) {
           const dy = list[i];
           const {
             day,
             isPredict,
-            physiologicalCycle
+            physiologicalCycle,
+            predictStatus
           } = dy;
           if (day) {
             const remoteDay = moment(day).format("D");
@@ -307,6 +318,12 @@ Page({
               if (physiologicalCycle === '04') {
                 tag = records['pailuanri']
               }
+              if (predictStatus === '0') {
+                status = records['start']
+              }
+              if (predictStatus === '1') {
+                status = records['end']
+              }
             }
           }
 
@@ -322,7 +339,8 @@ Page({
           css,
           // :'icon-record' 记录 icon-pailuan
           tag,
-
+          // 经期开始 结束标识
+          status,
         }
       } else {
         obj = {};
@@ -375,8 +393,8 @@ Page({
     })
 
     this.query(res.sdate, res.edate, null)
-    const currentMonthString = `${this.data.year}-${this.data.month}`;
-    this.cacheDatas(currentMonthString);
+    // const currentMonthString = `${this.data.year}-${this.data.month}`;
+    // this.cacheDatas(currentMonthString);
   },
 
   nextMonth: function() {
@@ -385,13 +403,13 @@ Page({
     let month = this.data.month > 11 ? 0 : this.data.month;
     //超过2月不请求
 
-    const maxMonth = moment().add(1, 'months');
+    // const maxMonth = moment().add(1, 'months');
 
     const currentMonthString = `${this.data.year}-${this.data.month}`;
-    const currentMonth = moment(currentMonthString)
-    if (!currentMonth.isBefore(maxMonth)) {
-      return;
-    }
+    // const currentMonth = moment(currentMonthString)
+    // if (!currentMonth.isBefore(maxMonth)) {
+      // return;
+    // }
 
     const res = this.dateInit(year, month);
     this.setData({
@@ -411,16 +429,14 @@ Page({
   }, // 更新身体回调
   updateStatusChange(data) {
 
-    console.log("... change",data)
+    console.log("... change", data)
     const day = this.data.selectDay;
     const cday = moment(day).format('YYYY-MM-D')
-   
-      //更新成功
-      this.query(this.data.startDay, this.data.endDay, day);
-      const currentMonthString = `${this.data.year}-${this.data.month}`;
-      this.cacheDatas(currentMonthString);
-      
-  
+
+    //更新成功
+    this.query(this.data.startDay, this.data.endDay, day);
+    // const currentMonthString = `${this.data.year}-${this.data.month}`;
+    // this.cacheDatas(currentMonthString);
   },
   //手指刚放到屏幕触发
   touchS: function(e) {
@@ -449,9 +465,9 @@ Page({
         const maxMonth = moment().add(1, 'months');
         console.log('00000----', maxMonth.format('YYYY-MM'))
         const currentMonth = moment(`${year}-${month}`)
-        if (currentMonth.isBefore(maxMonth)) {
+        // if (currentMonth.isBefore(maxMonth)) {
           that.nextMonth()
-        }
+        // }
 
       } else if (disX < -90) {
         that.lastMonth()

@@ -5,12 +5,19 @@ const {
   currentWeek
 } = require('../../utils/time.js');
 const {
-  userInfoQueryBodyStatus
+  userInfoQueryBodyStatus,
+  userInfoUpdateBodyStatus
 } = require('../../service/user.js')
 const resources = require('../../utils/resources.js');
 const {
   auth
 } = require('../../utils/auth.js');
+const {
+  $Toast
+} = require('../../component/base/index.js');
+const {
+  records
+} = resources;
 
 
 Page({
@@ -18,12 +25,32 @@ Page({
   /**
    * 页面的初始数据
    */
+  ready: function() {
+    console.log('ready', this.data.currentDay, this.data.onChange)
+
+    const {
+      chiropractic,
+      frictionalAbdomen
+    } = this.data.currentDay;
+    const {
+      anmo
+    } = this.data;
+    if (chiropractic === '01') {
+      anmo[0].select = true;
+    }
+    if (frictionalAbdomen === '01') {
+      anmo[1].select = true;
+    }
+    this.setData({
+      anmo
+    })
+  },
   data: {
-    show:false,
+    show: false,
     date: ['日', '一', '二', '三', '四', '五', '六'],
     days: [],
     userModel: '',
-    isLaw:'',
+    isLaw: '',
     list: [],
     today: moment().format('YYYY-MM-DD'),
     currentDay: {},
@@ -42,22 +69,115 @@ Page({
       "01": {
 
       }
-    }
+    },
+    anmo: [{
+
+        code: 'chiropractic',
+        name: '捏脊',
+        select: false,
+        imgUrl: '../img/nieji-@3x.png',
+        curUrl: '../img/nieji@3x.png',
+      },
+      {
+        code: 'frictionalAbdomen',
+        name: '摩腹',
+        select: false,
+        imgUrl: '../img/mofu@3x.png',
+        curUrl: '../img/mofu-@3x.png',
+      }
+    ],
   },
-  naState: function () {
+  // 更新身体信息
+  updateStatus(data) {
+    const {
+      day
+    } = this.data.currentDay;
+
+    userInfoUpdateBodyStatus({
+      day,
+      ...data
+    }).then(res => {
+
+      const {
+        code,
+        integral
+      } = res;
+      if (code === 200) {
+        if (integral && integral > 0) {
+          $Toast({
+            content: `积分+${integral}`,
+            mask: false,
+            duration: 1
+          });
+
+        }
+      }
+
+
+
+      this.triggerEvent('myevent', {
+        ...res
+      }, {
+        bubbles: false,
+        composed: true
+      })
+
+    })
+  },
+  chooseImg: function(e) {
+    const index = e.currentTarget.dataset.index;
+    const list1 = this.data.anmo;
+    let selectTag = false;
+    for (let i = 0; i < list1.length; i++) {
+      if (i == index) {
+        const {
+          select,
+          code
+        } = list1[i];
+        list1[i].select = !select;
+        const updateData = {};
+        if (list1[i].select) {
+          selectTag = true;
+
+          $Toast({
+            content: list1[i].name,
+            mask: false,
+            duration: 0.5
+          });
+        }
+      }
+    }
+    let updateData = {};
+    if (index === 0) {
+      updateData = {
+        chiropractic: selectTag ? "01" : "02"
+      }
+    } else {
+      updateData = {
+        frictionalAbdomen: selectTag ? "01" : "02"
+      }
+    }
+
+    this.updateStatus(updateData)
+
+    this.setData({
+      anmo: list1
+    })
+
+  },
+  naState: function() {
     const day = this.data.formatDay;
     wx.navigateTo({
       url: `/pages/state/state?day=${day}`
     })
 
   },
-  clickArr: function (e) {
-  },
+  clickArr: function(e) {},
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('DD');
     let todays;
@@ -69,14 +189,14 @@ Page({
 
     this.query(day, day, day);
   },
-  onShow: function () {
-    if (!this.data.show){
-        return;
+  onShow: function() {
+    if (!this.data.show) {
+      return;
     }
 
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('DD');
-  
+
     this.setData({
       today,
       days: currentWeek(),
@@ -90,8 +210,8 @@ Page({
    * endDay
    * currentDay 当前天数据
    */
-  query: function (startDay, endDay, cday) {
-    const currentDay=moment(currentDay).format('YYYY-MM-D');
+  query: function(startDay, endDay, cday) {
+    const currentDay = moment(currentDay).format('YYYY-MM-D');
     var query = {
       startDay,
       endDay
@@ -99,17 +219,18 @@ Page({
 
     userInfoQueryBodyStatus(query).then(res => {
       console.log(res)
+
       const {
-        list=[],
-        userModel,
-        isLaw,
+        list = [],
+          userModel,
+          isLaw,
       } = res;
       app.globalData.bodyStatus = list;
       for (let i = 0; i < list.length; i++) {
         const dy = list[i];
         const {
           day,
-          upPredictDay,
+          menstrualStartTime,
           isPredict,
           physiologicalCycle,
           predictDay = 0
@@ -119,9 +240,9 @@ Page({
           let showObj = {}
           // 处理当前需要显示的数据
           if (isLaw === '01') {
-            showObj= {
+            showObj = {
               shouyun: this.getShouyunText(physiologicalCycle),
-              predictDay: predictDay?(predictDay > 0 ? `距离经期还有${predictDay}天` : `${-predictDay}`):'',
+              predictDay: predictDay ? (predictDay > 0 ? `距离经期还有${predictDay}天` : `${-predictDay}`) : '',
               //下半部显示信息
               // lastText: this.installText(dy),
               top: `${physiologicalCycle !== '01' && physiologicalCycle !== '05' && isPredict === '0' ? '' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
@@ -131,14 +252,20 @@ Page({
 
           if (isLaw === '02') {
             showObj = {
-              upPredictDay: upPredictDay,
+              menstrualStartTime: menstrualStartTime,
             }
-            
+
           }
-          this.setData({ show: true, currentDay: dy, showObj, userModel, isLaw, upPredictDay})
+          this.setData({
+            show: true,
+            currentDay: dy,
+            showObj,
+            userModel,
+            isLaw,
+          })
         }
       }
-      
+
     })
   },
   // 拼接数据显示
@@ -149,7 +276,7 @@ Page({
       physiologicalCycle,
       predictDay
     } = dy;
-    if (!predictDay){
+    if (!predictDay) {
       return ''
     }
     const pcText = this.getphysiologicalCycleText(physiologicalCycle);
@@ -163,7 +290,7 @@ Page({
     //如果是实际产生的,则显示第X天
   },
   // 根据生理周期状态返回显示内容
-  getphysiologicalCycleText: function (status) {
+  getphysiologicalCycleText: function(status) {
     let result = {
       "01": "安全期",
       "02": "月经期",
@@ -175,7 +302,7 @@ Page({
   },
 
   // 根据生理周期状态返回受孕几率
-  getShouyunText: function (status) {
+  getShouyunText: function(status) {
     let text;
     switch (status) {
       case "01":
@@ -198,7 +325,7 @@ Page({
     return text;
   },
   // 获取所有几率的标签
-  getRecordsImg: function (dy) {
+  getRecordsImg: function(dy) {
 
     const list = [];
     const {
@@ -206,20 +333,20 @@ Page({
     } = resources;
     const {
       chiropractic = '02',
-      frictionalAbdomen = '02',
-      menstrualStatus,
-      menstrualVolume,
-      leucorrhea,
-      breastTenderness,
-      abdominalPain,
-      mood,
-      menstrualHeadache,
-      fearCold,
-      weak
+        frictionalAbdomen = '02',
+        menstrualStatus,
+        menstrualVolume,
+        leucorrhea,
+        breastTenderness,
+        abdominalPain,
+        mood,
+        menstrualHeadache,
+        fearCold,
+        weak
     } = dy;
-    if (chiropractic === '01' || frictionalAbdomen === '01') {
-      list.push(records['chiropractic'])
-    }
+    // if (chiropractic === '01' || frictionalAbdomen === '01') {
+    //   list.push(records['chiropractic'])
+    // }
     if (menstrualStatus) {
       list.push(records['menstrualStatus'])
     }
@@ -256,33 +383,30 @@ Page({
   },
 
 
-  clickjinri: function () {
+  clickjinri: function() {
     wx.navigateTo({
       url: '../today-recommend/today-recommend?day=' + this.data.formatDay
     })
   },
 
-  onShareAppMessage: function (options) {
-    　　var that = this;
-    　　// 设置菜单中的转发按钮触发转发事件时的转发内容
-    　　var shareObj = {
-      　　　　title: "她师",        // 默认是小程序的名称(可以写slogan等)
-      　　　　path: '/pages/today/today',        // 默认是当前页面，必须是以‘/’开头的完整路径
-      　　　　imgUrl: '',     //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
-      　　　　success: function (res) {
-        　　　　　　// 转发成功之后的回调
-        　　　　　　if (res.errMsg == 'shareAppMessage:ok') {
-        　　　　　　}
-      　　　　},
-      　　　　fail: function () {
-        　　　　　　// 转发失败之后的回调
-        　　　　　　if (res.errMsg == 'shareAppMessage:fail cancel') {
-          　　　　　　　　// 用户取消转发
-        　　　　　　} else if (res.errMsg == 'shareAppMessage:fail') {
-          　　　　　　　　// 转发失败，其中 detail message 为详细失败信息
-        　　　　　　}
-      　　　　}
-    　　}
+  onShareAppMessage: function(options) {　　
+    var that = this;　　 // 设置菜单中的转发按钮触发转发事件时的转发内容
+    　　
+    var shareObj = {　　　　
+      title: "她师", // 默认是小程序的名称(可以写slogan等)
+      　　　　path: '/pages/today/today', // 默认是当前页面，必须是以‘/’开头的完整路径
+      　　　　imgUrl: '', //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+      　　　　success: function(res) {　　　　　　 // 转发成功之后的回调
+        　　　　　　
+        if (res.errMsg == 'shareAppMessage:ok') {　　　　　　}　　　　
+      },
+      　　　　fail: function() {　　　　　　 // 转发失败之后的回调
+        　　　　　　
+        if (res.errMsg == 'shareAppMessage:fail cancel') {　　　　　　　　 // 用户取消转发
+          　　　　　　} else if (res.errMsg == 'shareAppMessage:fail') {　　　　　　　　 // 转发失败，其中 detail message 为详细失败信息
+          　　　　　　}　　　　
+      }　　
+    }
   }
 
 

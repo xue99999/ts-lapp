@@ -28,16 +28,16 @@
             <image src=" {{item.icon}}" mode="aspectFit" />
           </view>
           <view class="deg">
-            <view wx:if="{{item.name==='联系客服'}}">
+            <!-- <view wx:if="{{item.name==='联系客服'}}">
               <button open-type="contact" session-from="weapp">
                 {{item.name}}
               </button>
-            </view>
-            <view wx:else>
+            </view> -->
+            <!-- <view wx:else> -->
               <button>
                 {{item.name}}
               </button>
-            </view>
+            <!-- </view> -->
 
           </view>
         </view>

@@ -22,11 +22,11 @@ Component({
     },
   },
   //组件移除时
-  detached:function(){
-      console.log('remove')
+  detached: function() {
+    console.log('remove')
   },
   ready: function() {
-    console.log('ready', this.data.currentDay, this.data.onChange)
+    console.log('ready', this.data)
 
     const {
       physiologicalCycle,
@@ -477,20 +477,26 @@ Component({
     switchChange: function(e) {
       const tag = e.detail.value;
 
+      const { currentDay } = this.data;
+
       if (tag) {
-        const {
-          currentDay
-        } = this.data;
         currentDay['menstrualStatus'] = '01';
 
         this.setData({
           currentDay
         })
       } else {
-        const {
-          currentDay
-        } = this.data;
+        if (currentDay.predictStart === currentDay.day) {
+          wx.showModal({
+            // title: '提示',
+            content: `您已在${currentDay.predictStart}标记了月经开始日，确定要关闭月经期吗?`,
+            success: function (res) {
+
+            },
+          })
+        }
         currentDay['menstrualStatus'] = '02';
+
         this.setData({
           currentDay
         })
@@ -1042,6 +1048,7 @@ Component({
         day
       } = this.data.currentDay;
 
+      console.log("---day------", day);
       userInfoUpdateBodyStatus({
         day,
         ...data
@@ -1063,7 +1070,7 @@ Component({
         }
 
 
-        
+
         this.triggerEvent('myevent', { ...res
         }, {
           bubbles: false,
@@ -1071,9 +1078,12 @@ Component({
         })
 
       })
+
     },
     tchange: function() {
       console.log('r tchange')
-    }
+    },
+
+
   }
 })

@@ -27,10 +27,10 @@
     "pages/baby/baby",
     "pages/today-recommend/today-recommend",
     "pages/label-course/label-course",
-    "pages/set-period/set-period"
+    "pages/set-period/set-period",
+    "pages/my-help/my-help"
   ],
   "window": {
-    
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FE6F71",
     "navigationBarTitleText": "她师",

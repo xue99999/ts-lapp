@@ -11,25 +11,19 @@
   </view>
 
 
-  <!-- <view class='view-tishi'>
-    <view bindtap='clickjinri' class='view-jinr'>
-      <image src='../img/jinri@3x.png'></image>
-      <text>今日提示</text>
-    </view>
-  </view> -->
+    <!-- 圆圈内容 -->
   <view class='view-img'>
-    <image src='../img/yuan@3x.png' mode="aspectFit" class='view-image'></image>
+    <image src='../img/circular1.png' mode="aspectFit" class='view-image'></image>
     <view class='view-inner' wx:if="{{isLaw === '01'}}">
       <view class='view-last'>{{currentDay.physiologicalCycle ==='02'? ' ' : showObj.shouyun}}</view>
       <!-- 月经期的显示样式 -->
-      <view  wx:if="{{currentDay.physiologicalCycle === '02'}}" class='view-predictDay-yuej'>
+      <view wx:if="{{currentDay.physiologicalCycle === '02'}}" class='view-predictDay-yuej'>
         第
-        <text class='view-size'>{{currentDay.physiologicalCycle!=='0'?showObj.predictDay:''}}</text> 
-        天
+        <text class='view-size'>{{currentDay.physiologicalCycle!=='0'?showObj.predictDay:''}}</text> 天
       </view>
-        <!-- 易孕期 安全期显示样式 -->
+      <!-- 易孕期 安全期显示样式 -->
       <view wx:else class='view-predictDay'>
-       {{currentDay.physiologicalCycle!=='0'?showObj.predictDay:''}}
+        {{currentDay.physiologicalCycle!=='0'?showObj.predictDay:''}}
       </view>
 
       <view class='view-physiologicalCycles'>{{showObj.top}}</view>
@@ -37,9 +31,8 @@
     </view>
 
     <view class='view-inner' wx:if="{{isLaw === '02'}}">
-      <view class='view-last'></view>
-      <view class='view-predictDay'>上次月经开始时间</view>
-      <view>{{showObj.upPredictDay}}</view>
+      <view class='view-menstrualStartTime'>上次月经开始时间</view>
+      <view class='view-days'>{{showObj.menstrualStartTime}}</view>
     </view>
 
 
@@ -59,17 +52,25 @@
 
 
   </view>
+  <!-- 按摩 -->
+
+  <!-- <view class='view-an' wx:if="{{currentDay.userModel==='02'}}">
+    <view class='view-mo'>
+      <image src='../img/massage@3x.png'></image>
+      <text>按摩</text>
+    </view>
+    <view class='view-mo1' wx:for="{{anmo}}" wx:for-index="idx" wx:for-item="item" wx:key>
+      <image src="{{item.select?item.curUrl:item.imgUrl}}" bindtap="chooseImg" data-index="{{idx}}" />
+    </view>
+  </view> -->
 
   <view class='view-bu'>
-    <view></view>
     <view class='bushu' wx:for='{{recordsImg}}' wx:key>
       <image src='{{item}}'></image>
-      <!-- <text>16 步数</text> -->
     </view>
-    <view class='tupian' bindtap='naState'>
+    <view class=' {{currentDay.physiologicalCycle!=="02" ? "rightTupian":"tupian"}}' bindtap='naState'>
       <image src='../img/add@3x.png'></image>
     </view>
   </view>
-
-
+  <i-toast id="toast" />
 </view>

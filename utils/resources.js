@@ -1,29 +1,33 @@
 module.exports = {
-  records:{
+  records: {
     // 捏脊
-    chiropractic:'../img/massage@3x.png',
+    chiropractic: '/pages/img/massage@3x.png',
     // 揉腹
-    frictionalAbdomen:'../img/massage@3x.png',
+    frictionalAbdomen: '/pages/img/massage@3x.png',
     // 月经量
-    menstrualVolume:'../img/menstruation2@3x.png',
+    menstrualVolume: '/pages/img/state/menstruation@3x.png',
     // 白带
-    leucorrhea:'../img/leucorrhea@3x.png',
+    leucorrhea: '/pages/img/state/leucorrhea@3x.png',
     // 乳房胀痛
-    breastTenderness:'../img/breast@3x.png',
+    breastTenderness: '/pages/img/state/Breastpain@3x.png',
     // 小腹痛
-    abdominalPain:'../img/lowerabdomen@3x.png',
+    abdominalPain: '/pages/img/state/stomachache@3x.png',
     // 心情
-    mood:'../img/mood@3x.png',
+    mood: '/pages/img/state/mood@3x.png',
     // 经期头痛
-    menstrualHeadache:'../img/headache@3x.png',
+    menstrualHeadache: '/pages/img/state/headache@3x.png',
     // 怕冷
-    fearCold: '../img/cold@3x.png',
+    fearCold: '/pages/img/state/cold@3x.png',
     // 乏力
-    weak:'../img/Notired@3x.png',
-    baby: '../img/wawa.png',
-    
-    record:'../img/edit.png',
-    kongbai: '../img/bai.png',
-    pailuanri:'../img/xing@3x.png'
+    weak: '/pages/img/state/weak@3x.png',
+    // 笔
+    record: '/pages/img/edit.png',
+    kongbai: '/pages/img/bai.png',
+    // 排卵日
+    pailuanri: '/pages/img/addimg/ovulation@3x.png',
+    // 开始标识
+    start: '/pages/img/addimg/start@3x.png',
+    // 结束标识
+    end: '/pages/img/addimg/stop@3x.png'
   }
 };

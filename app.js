@@ -5,6 +5,7 @@ App({
   globalData: {
     userInfo: null,
     obj: {
+      isLaw: null,
       shaonv: null,
       menstrualStartTime: null,
       menstrualTimes: 5,
@@ -29,8 +30,8 @@ App({
       abdominalPain: null,
       bodyStatus: [],
       dates: null,
-      day: null
-
+      day: null,
+      
     },
   
   },

@@ -100,13 +100,15 @@ element.style {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 10rpx;
 }
 
-.view-bu view {
+/* .view-bu view {
   width: 33.3%;
-}
+} */
 
 .bushu {
+  flex: 0.9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,19 +116,33 @@ element.style {
 }
 
 .bushu image {
-  width: 40rpx;
-  height: 40rpx;
+  width: 30rpx;
+  height: 30rpx;
   margin: 0 10rpx;
 }
+
 .tupian {
+  flex: 0.1;
   display: flex;
   flex-direction: row-reverse;
-  margin-right: 40rpx;
+  margin-right: 31rpx;
+}
+
+.rightTupian {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 31rpx;
+}
+
+.rightTupian image {
+  width: 74rpx;
+  height: 74rpx;
 }
 
 .tupian image {
-  width: 70rpx;
-  height: 70rpx;
+  width: 74rpx;
+  height: 74rpx;
 }
 
 .buttons {
@@ -137,7 +153,7 @@ element.style {
   background: #fe6f71;
   color: white;
   font-size: 30rpx;
-  margin-top:56rpx;
+  margin-top: 66rpx;
 }
 
 .jinribtn {
@@ -147,13 +163,13 @@ element.style {
   /* text-align: center; */
   background: #fe6f71;
   color: white;
-  font-size: 30rpx;
+  font-size: 28rpx;
   margin-top: 60rpx;
 }
 
 .headday {
   text-align: center;
-  color: #FB5254;
+  color: #fb5254;
   margin-top: 94rpx;
   font-size: 36rpx;
 }
@@ -186,7 +202,51 @@ element.style {
   color: #fb5254;
   margin-top: 37rpx;
 }
+
 .view-size {
   font-size: 90rpx;
   color: #fb5254;
+}
+
+.view-an {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: #fb5254;
+  font-size: 26rpx;
+}
+
+.view-mo image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.view-mo {
+  display: flex;
+  align-items: center;
+}
+
+.view-mo image {
+  margin-left: 209rpx;
+}
+
+.view-mo text {
+  margin-left: 14rpx;
+  font-size: 35rpx;
+}
+
+.view-mo1 image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 58rpx;
+  margin-top: 10rpx;
+}
+
+.view-menstrualStartTime {
+  margin-top: 250rpx;
+  font-size: 27rpx;
+}
+
+.view-days {
+  margin-top: 50rpx;
 }

@@ -31,19 +31,19 @@ Page({
       {
         name: '全部课程',
         url: '../label-course/label-course',
-        icon: '../img/course@3x.png',
+        icon: '../img/addimg/allcourse@3x.png',
         code: '10'
       },
       {
         name: '我的课程',
         url: '../my-course/course',
-        icon: '../img/course@3x.png',
+        icon: '../img/addimg/course@3x.png',
         code: '10'
       },
       {
         name: '我的收藏',
         url: '../my-collection/collection',
-        icon: '../img/collection@3x.png',
+        icon: '../img/addimg/collection@3x.png',
         code: '11'
       },
       {
@@ -54,7 +54,7 @@ Page({
       },
       {
         name: '帮助中心',
-        url: '',
+        url: '../my-help/my-help',
         icon: '../img/feedback@3x.png',
         code: '10'
       }
@@ -65,7 +65,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var parmas = {
       tag: "switch"
     }
@@ -85,34 +85,33 @@ Page({
   clickTab() {
 
     wx.showModal({
-      title: '提示',
-      content: '确定更换模式',
-      success: function (res) { 
+      // title: '提示',
+      content: '1' === '1' ? '确定更换模式' : '',
+      success: function(res) {
         if (res.confirm) {
 
           userInfoQueryMensAndOvulation().then(res => {
             console.log('查询经期与排卵', res);
-            if (res.userModel==='01'){
-            var data = {
-              'userModel': '02',
-              'menstrualStartTime': res.menstrualStartTime,
-              'menstrualTimes': res.menstrualTimes,
-              'menstrualCycle': res.menstrualCycle,
-              'birthday': res.birthday
-            }
-            console.log(data)
+            if (res.userModel === '01') {
+              var data = {
+                'userModel': '02',
+                'menstrualStartTime': res.menstrualStartTime,
+                'menstrualTimes': res.menstrualTimes,
+                'menstrualCycle': res.menstrualCycle,
+                'birthday': res.birthday
+              }
+              console.log(data)
 
-            userInfoAdd(data).then(res => {
-              console.log('登录经期信息', res);
-              wx.switchTab({
-                url: '../today/today',
-                success: function (res) { },
-                fail: function (res) { },
-                complete: function (res) { },
+              userInfoAdd(data).then(res => {
+                console.log('登录经期信息', res);
+                wx.switchTab({
+                  url: '../today/today',
+                  success: function(res) {},
+                  fail: function(res) {},
+                  complete: function(res) {},
+                })
               })
-            })
-          }
-          else{
+            } else {
               var data = {
                 'userModel': '01',
                 'menstrualStartTime': res.menstrualStartTime,
@@ -126,31 +125,31 @@ Page({
                 console.log('登录经期信息', res);
                 wx.switchTab({
                   url: '../today/today',
-                  success: function (res) { },
-                  fail: function (res) { },
-                  complete: function (res) { },
+                  success: function(res) {},
+                  fail: function(res) {},
+                  complete: function(res) {},
                 })
               })
-            
-          }
+
+            }
 
 
           })
 
-          
+
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
       }
     })
-    
+
   },
-  initUser: function () {
+  initUser: function() {
     const that = this;
     ownerQuery().then(result => {
 
       wx.getUserInfo({
-        success: function (res) {
+        success: function(res) {
           const {
             nickName,
             avatarUrl,
@@ -167,7 +166,7 @@ Page({
     })
   },
   //在show函数里面做数据切换
-  onShow: function () {
+  onShow: function() {
     this.getDataDay();
     this.initUser();
   },

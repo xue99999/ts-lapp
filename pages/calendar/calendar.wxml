@@ -21,10 +21,11 @@
       <view class="date-head {{item.isSelect?'day-select':''}}">
         <view class="day {{item.css}}">
           <text>{{item.today===today?'今':item.dateNum}}</text>
+          <image src='{{item.status?item.status:""}}' class='icon-status'></image>
         </view>
       </view>
       <view class='date-weight'>
-        <image src='{{item.tag?item.tag:""}}' class='icon-record'></image>
+          <image src='{{item.tag?item.tag:""}}' class='icon-record'></image>
       </view>
     </view>
   </view>
@@ -44,12 +45,19 @@
     </view>
 
     <view class='view-ri'>
-      <image src='/pages/img/ovulation@3x.png'></image>
+      <image src='/pages/img/addimg/ovulation@3x.png'></image>
       <text>排卵日</text>
     </view>
   </view>
   <record wx:if="{{currentDay}}" show="{{bossShow}}" currentDay="{{currentDay}}" bindmyevent="updateStatusChange"></record>
+  <view wx:if="{{tipsShow}}" class='view-tips'>
+    <view wx:if="{{isLaw==='01'}}">
+      推算当前处于{{currentDay.physiologicalCycle === '01' || currentDay.physiologicalCycle === '05'? '安全期': '' || currentDay.physiologicalCycle === '02'? '月经期': '' || currentDay.physiologicalCycle === '03'? '易孕期': '' || currentDay.physiologicalCycle === '04'? '排卵日':
+      '' }}
+    </view>
+    <view wx:if="{{isLaw==='02'}}">
+    </view>
+    <view>无法记录未来的日子</view>
+  </view>
 </view>
-
-
 <i-toast id="toast" />
