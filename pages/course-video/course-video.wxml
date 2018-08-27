@@ -10,7 +10,7 @@
         <view class='view_play_list_text'> 课程列表</view>
       </view>
       <image class='view_play_img1' bindtap='toLast' src='../img/backward@3x.png '></image>
-      <image class='view_play_img2' bindtap='onSuspend' src="{{isplay===true?'../img/suspend.png':'../img/plays.png'}}"></image>
+      <image class='view_play_img2' bindtap='onSuspend' src="{{isplay===true?'../img/suspended@3x.png':'../img/plays.png'}}"></image>
       <image class='view_play_img3' bindtap='toNext' src='../img/speed@3x.png '></image>
     </view>
   </view>

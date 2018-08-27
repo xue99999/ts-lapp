@@ -245,14 +245,17 @@ Page({
               predictDay: predictDay ? (predictDay > 0 ? `距离经期还有${predictDay}天` : `${-predictDay}`) : '',
               //下半部显示信息
               // lastText: this.installText(dy),
-              top: `${physiologicalCycle !== '01' && physiologicalCycle !== '05' && isPredict === '0' ? '' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
+              top: `${physiologicalCycle === '02' && isPredict === '0' ? '预测 : ' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
             }
 
           }
 
           if (isLaw === '02') {
             showObj = {
+              predictDay: `${-predictDay}`,
+              //下半部显示信息
               menstrualStartTime: menstrualStartTime,
+              tops: `${physiologicalCycle === '02'}` ? `${this.getphysiologicalCycleText(physiologicalCycle)}` : ''
             }
 
           }

@@ -15,7 +15,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    indicatorDots: false,
+    indicatorDots: true,
+    indicatorColor: "white",
+    indicatorActiveColor:"#FE6F71",
     autoplay: true,
     interval: 5000,
     duration: 1000,

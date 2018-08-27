@@ -265,19 +265,19 @@ Component({
     ],
     // 月经量
     menstrualVolume: [{
-        name: '月经量偏少',
+        name: '偏少',
         imgUrl: '/pages/img/menstruation/1menstruation@3x.png',
         curUrl: '/pages/img/menstruation/1menstruation-1@3x.png',
         select: false
       },
       {
-        name: '月经量正常',
+        name: '正常',
         imgUrl: '/pages/img/menstruation/2menstruation@3x.png',
         curUrl: '/pages/img/menstruation/2menstruation-2@3x.png',
         select: false,
       },
       {
-        name: '月经量很多',
+        name: '偏多',
         imgUrl: '/pages/img/menstruation/3menstruation@3x.png',
         curUrl: '/pages/img/menstruation/3menstruation-3@3x.png',
         select: false,
@@ -576,7 +576,7 @@ Component({
         if (index == 0) {
 
           $Toast({
-            content: '月经量偏少',
+            content: '偏少',
             mask: false,
             duration: 0.5
           });
@@ -587,7 +587,7 @@ Component({
         } else if (index == 1) {
 
           $Toast({
-            content: '月经量正常',
+            content: '正常',
             mask: false,
             duration: 0.5
           });
@@ -598,7 +598,7 @@ Component({
         } else if (index == 2) {
 
           $Toast({
-            content: '月经量很多',
+            content: '偏多',
             mask: false,
             duration: 0.5
           });
@@ -714,7 +714,7 @@ Component({
         if (index == 0) {
 
           $Toast({
-            content: '基本不痛',
+            content: '轻微痛',
             mask: false,
             duration: 0.5
           });
@@ -725,7 +725,7 @@ Component({
         } else if (index == 1) {
 
           $Toast({
-            content: '轻微痛',
+            content: '痛',
             mask: false,
             duration: 0.5
           });
@@ -780,7 +780,7 @@ Component({
       } else {
         if (index == 0) {
           $Toast({
-            content: '基本不痛',
+            content: '轻微痛',
             mask: false,
             duration: 0.5
           });
@@ -791,7 +791,7 @@ Component({
         } else if (index == 1) {
 
           $Toast({
-            content: '轻微痛',
+            content: '痛',
             mask: false,
             duration: 0.5
           });
@@ -846,7 +846,7 @@ Component({
         if (index == 0) {
 
           $Toast({
-            content: '情绪平稳',
+            content: '平稳',
             mask: false,
             duration: 0.5
           });
@@ -857,7 +857,7 @@ Component({
         } else if (index == 1) {
 
           $Toast({
-            content: '烦躁易怒',
+            content: '易怒',
             mask: false,
             duration: 0.5
           });
@@ -868,7 +868,7 @@ Component({
         } else if (index == 2) {
 
           $Toast({
-            content: '情绪低落',
+            content: '低落',
             mask: false,
             duration: 0.5
           });
@@ -918,7 +918,7 @@ Component({
 
 
           $Toast({
-            content: '基本不痛',
+            content: '轻微痛',
             mask: false,
             duration: 0.5
           });
@@ -928,7 +928,7 @@ Component({
         } else if (index == 1) {
 
           $Toast({
-            content: '轻微痛',
+            content: '痛',
             mask: false,
             duration: 0.5
           });
@@ -978,7 +978,7 @@ Component({
       } else {
         if (index == 0) {
           $Toast({
-            content: '不怕冷',
+            content: '微冷',
             mask: false,
             duration: 0.5
           });
@@ -989,7 +989,7 @@ Component({
         } else if (index == 1) {
 
           $Toast({
-            content: '微微冷',
+            content: '冷',
             mask: false,
             duration: 0.5
           });
@@ -999,7 +999,7 @@ Component({
           }
         } else if (index == 2) {
           $Toast({
-            content: '很冷',
+            content: '非常冷',
             mask: false,
             duration: 0.5
           });
@@ -1043,7 +1043,7 @@ Component({
         if (index == 0) {
 
           $Toast({
-            content: '不乏力',
+            content: '轻微乏力',
             mask: false,
             duration: 0.5
           });
@@ -1053,7 +1053,7 @@ Component({
           }
         } else if (index == 1) {
           $Toast({
-            content: '轻微乏力',
+            content: '乏力',
             mask: false,
             duration: 0.5
           });

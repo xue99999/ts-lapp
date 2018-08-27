@@ -22,6 +22,7 @@
   margin-top: 20rpx;
   background: #f3f4f5;
   margin-bottom: 20rpx;
+
 }
 
 
@@ -57,7 +58,10 @@
   width: 30rpx;
   height: 30rpx;
 }
-
+.view_titles_text{
+  line-height: 60rpx;
+  font-size: 30rpx;
+}
 .view_pos {
   font-size: 34rpx;
 }
@@ -85,5 +89,9 @@ swiper-item {
   height: 100%;
   margin-bottom: 20rpx;
 }
-
+.view_titles{
+  text-align: center;
+  line-height: 100rpx;
+  border-bottom:0.5rpx solid gainsboro;
+}
 

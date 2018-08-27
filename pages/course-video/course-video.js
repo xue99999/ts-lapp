@@ -208,7 +208,7 @@ Page({
   },
   // 课节列表
   hahah: function (event){
-    console.log("------------", event);
+    // this.videoContext.stop();
   },
 
 
