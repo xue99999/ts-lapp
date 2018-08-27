@@ -475,36 +475,71 @@ Component({
     },
     // 来了
     switchChange: function(e) {
+      let that = this;
       const tag = e.detail.value;
-
-      const { currentDay } = this.data;
+      console.log(tag)
+      const {
+        currentDay
+      } = this.data;
 
       if (tag) {
+        //switch 目前是关的
+        // currentDay['menstrualStatus'] = '02';
+
+        // that.updateStatus({
+        //     menstrualStatus: '01'
+        //   }).then(res => {
+        //     if (res.code == 200) {
+        //       currentDay['menstrualStatus'] = '01';
+        //       this.setData({
+        //         currentDay
+        //       })
+        //     }
+        //   })
+
         currentDay['menstrualStatus'] = '01';
-
         this.setData({
           currentDay
         })
+        that.updateStatus({
+          menstrualStatus: '01'
+        })
+
       } else {
-        if (currentDay.predictStart === currentDay.day) {
-          wx.showModal({
-            // title: '提示',
-            content: `您已在${currentDay.predictStart}标记了月经开始日，确定要关闭月经期吗?`,
-            success: function (res) {
+        //switch 目前是开的
+        // currentDay['menstrualStatus'] = '01';
 
-            },
-          })
-        }
+        // if (currentDay.predictStart === currentDay.day) {
+        //   wx.showModal({
+        //     // title: '提示',
+        //     content: `您已在${currentDay.predictStart}标记了月经开始日，确定要关闭月经期吗?`,
+        //     success: function(res) {
+        //       that.updateStatus({
+        //           menstrualStatus: '02'
+        //       }).success(res => {
+        //           if (res.code == 200) {
+        //             currentDay['menstrualStatus'] = '02';
+        //             this.setData({
+        //               currentDay
+        //             })
+        //           }
+        //         })
+        //     },
+        //   })
+        // }
+
+
         currentDay['menstrualStatus'] = '02';
-
         this.setData({
           currentDay
         })
+        that.updateStatus({
+                  menstrualStatus: '02'
+              })
+
       }
 
-      this.updateStatus({
-        menstrualStatus: tag ? '01' : '02'
-      })
+
     },
     // 点击月经量
     chooseImg1: function(e) {

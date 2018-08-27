@@ -150,10 +150,10 @@ element.style {
   line-height: 65rpx;
   border-radius: 25px;
   text-align: center;
-  background: #fe6f71;
+  background: #FB5254;
   color: white;
-  font-size: 30rpx;
-  margin-top: 66rpx;
+  font-size: 28rpx;
+  margin-top: 50rpx;
 }
 
 .jinribtn {
@@ -161,10 +161,10 @@ element.style {
   line-height: 65rpx;
   border-radius: 25px;
   /* text-align: center; */
-  background: #fe6f71;
+  background: #FB5254;
   color: white;
   font-size: 28rpx;
-  margin-top: 60rpx;
+  margin-top: 46rpx;
 }
 
 .headday {
@@ -181,8 +181,8 @@ element.style {
 }
 
 .view-physiologicalCycles {
-  margin-top: 34rpx;
-  font-size: 35rpx;
+  margin-top: 24rpx;
+  font-size: 33.3rpx;
   color: #fb7274;
 }
 
@@ -192,15 +192,15 @@ element.style {
 }
 
 .view-last {
-  font-size: 30rpx;
+  font-size: 28rpx;
   color: #fb7274;
-  margin-top: 170rpx;
+  margin-top: 200rpx;
 }
 
 .view-predictDay {
   font-size: 40rpx;
   color: #fb5254;
-  margin-top: 37rpx;
+  margin-top: 27rpx;
 }
 
 .view-size {
@@ -249,4 +249,5 @@ element.style {
 
 .view-days {
   margin-top: 50rpx;
+  font-size: 42.6rpx;
 }

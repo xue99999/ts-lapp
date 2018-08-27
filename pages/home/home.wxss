@@ -30,7 +30,7 @@
 }
 
 .images {
-  margin-top: 127rpx;
+  margin-top: 126rpx;
   width: 100%;
   display: flex;
 }
@@ -69,4 +69,16 @@
   color: white;
   font-size: 90%;
   letter-spacing: 3.3rpx;
+}
+.foot_texts{
+  margin-top: 181rpx;
+  color: white;
+  font-size: 28rpx;
+  text-align: center;
+}
+.foot_texts text{
+ display: block;
+}
+.foot_lasttexts{
+  margin-top: 15rpx;
 }

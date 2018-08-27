@@ -83,10 +83,9 @@ Page({
   },
   // 切换模式功能
   clickTab() {
-
     wx.showModal({
       // title: '提示',
-      content: '1' === '1' ? '确定更换模式' : '',
+      content: `${shaonv}`=== '只记经期' ? '确定要切换到"我是辣妈"模式吗?' : '确定要切换到"只记经期"模式吗?',
       success: function(res) {
         if (res.confirm) {
 

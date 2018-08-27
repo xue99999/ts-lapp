@@ -13,7 +13,7 @@
 
     <!-- 圆圈内容 -->
   <view class='view-img'>
-    <image src='../img/circular1.png' mode="aspectFit" class='view-image'></image>
+    <image src="{{isLaw=== '01' ?'../img/circular1.png' :'../img/circular2.png'}}" mode="aspectFit" class='view-image'></image>
     <view class='view-inner' wx:if="{{isLaw === '01'}}">
       <view class='view-last'>{{currentDay.physiologicalCycle ==='02'? ' ' : showObj.shouyun}}</view>
       <!-- 月经期的显示样式 -->

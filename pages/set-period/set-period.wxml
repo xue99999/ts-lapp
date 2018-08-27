@@ -1,27 +1,25 @@
 <view class='navlist'>
 
-  <view>
-    <view>经期天数</view>
-     <view class="section" class='color'>
-      <picker bindchange="changeyuejing" mode="selector" value="{{multiIndex1}}" range="{{multiArray1}}">
-        <view class="picker">
-          {{multiArray1[multiIndex1]}} 天
-        </view>
-      </picker>
-    </view> 
-  </view>
-
-  <view>
-    <view>月经周期</view>
-    <view class="section" class='color'>
-      <picker bindchange="changejingqi" mode="selector" value="{{multiIndex}}" range="{{multiArray}}">
-        <view class="picker-text">
-          {{multiArray[multiIndex]}} 天
-        </view>
-      </picker>
+  <picker bindchange="changeyuejing" mode="selector" value="{{multiIndex1}}" range="{{multiArray1}}">
+    <view class='selects'>
+      <view>
+        <view>经期天数</view>
+      </view>
+      <view class='color'>
+        {{multiArray1[multiIndex1]}} 天
+      </view>
     </view>
-  </view>
+  </picker>
 
+
+  <picker bindchange="changejingqi" mode="selector" value="{{multiIndex}}" range="{{multiArray}}">
+    <view class='selects'>
+      <view>月经周期</view>
+      <view class='color'>
+        {{multiArray[multiIndex]}} 天
+      </view>
+    </view>
+  </picker>
 </view>
 <!-- <view class='view-zi'>
   <text>{{text}}</text>

@@ -110,7 +110,7 @@
 				{
 					"id": 12,
 					"name": "mother-one",
-					"pathName": "pages/home-mother/mother-one/mother-one",
+					"pathName": "pages/period/period-two/period-two",
 					"query": ""
 				},
 				{
@@ -162,7 +162,7 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 21,
 					"name": "课程详情",
 					"pathName": "pages/course-details/course-details",
 					"query": ""
@@ -188,7 +188,7 @@
 				{
 					"id": 25,
 					"name": "日历-新",
-					"pathName": "pages/my-help/my-help",
+					"pathName": "pages/period/period-two/period-two",
 					"query": ""
 				}
 			]

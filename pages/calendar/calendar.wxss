@@ -52,7 +52,7 @@
 
 .lt-arrow, .rt-arrow {
   position: absolute;
-  top: 1rpx;
+  top: 15rpx;
   width: 60rpx;
   height: 60rpx;
 }
@@ -345,6 +345,7 @@
 
 .view-tips {
   text-align: center;
+  padding-bottom: 100rpx;
 }
 
 .view-tips view:nth-of-type(1) {

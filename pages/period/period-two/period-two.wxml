@@ -13,6 +13,9 @@
             {{item}}
           </view>
         </picker-view-column>
+        <!-- <picker-view-column >
+        天
+        </picker-view-column> -->
       </picker-view>
     </view>
   </view>

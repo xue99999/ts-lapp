@@ -1,5 +1,5 @@
 /* 课程详情 */
-@import "../../wxParse/wxParse.wxss";
+/* @import "../../wxParse/wxParse.wxss"; */
 .inclusion {
   background: #f3f4f5;
 }
@@ -194,6 +194,8 @@ padding-top: 30rpx;
   padding-left: 30rpx;
   padding-right: 30rpx;
   padding-top: 20rpx;
+  box-sizing: border-box;
+  padding-bottom: 200rpx;
 }
 
 .tab-h {
@@ -247,7 +249,8 @@ padding-top: 30rpx;
   flex-direction: row;
   height: 90.90rpx;
   justify-content: center;
-  margin-bottom: 22rpx;
+  padding-bottom: 22rpx;
+  background: #FFFFFF;
 }
 
 .view_bottom_button1, .view_bottom_button2 {
@@ -271,8 +274,7 @@ padding-top: 30rpx;
 
 
 .view_bottom_button1_text {
-
-    flex: 1;
+  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -285,10 +287,7 @@ padding-top: 30rpx;
 }
 
 .collect-view {
-
-
   flex: 1;
-
   display: flex;
   flex-direction: unset;
   justify-content: center;

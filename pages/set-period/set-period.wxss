@@ -1,26 +1,47 @@
-.navlist{
+.navlist {
   width: 100%;
   font-size: 26rpx;
 }
-.navlist>view{
+
+.navlist>picker {
+  border-bottom: 1rpx solid gainsboro;
+  padding: 0 25rpx;
+}
+
+.selects {
+  width: 100%;
+  line-height: 80rpx;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1rpx solid gainsboro;
-  padding: 25rpx;
 }
-.color{
-  color: #FE5A5D;
+
+.color {
+  color: #fe5a5d;
 }
-.view-zi{
+
+.view-zi {
   font-size: 26rpx;
   padding: 25rpx;
-  background: #F3F4F5;
+  background: #f3f4f5;
   color: #838383;
 }
-.wx-switch-input{width:42px !important;height:20px !important;}
-.wx-switch-input::before{width:41px !important;height: 20px !important;}
-.wx-switch-input::after{width: 18px !important;height: 18px !important;} 
-.colors{
-  text-decoration-line: underline; 
-  color: #FE6F71;
+
+.wx-switch-input {
+  width: 42px !important;
+  height: 20px !important;
+}
+
+.wx-switch-input::before {
+  width: 41px !important;
+  height: 20px !important;
+}
+
+.wx-switch-input::after {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.colors {
+  text-decoration-line: underline;
+  color: #fe6f71;
 }
