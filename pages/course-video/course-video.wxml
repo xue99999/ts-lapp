@@ -1,7 +1,7 @@
 <!--视频播放-->
 <import src="../../wxParse/wxParse.wxml" />
 <view class="section_tc">
-  <video id="myVideo" src="{{filePath}}" objectFit="cover" bindtimeupdate="video_observer"></video>
+  <video id="myVideo" src="{{filePath}}" objectFit="cover" bindtimeupdate="video_observer" direction="{{videoDirection}}"></video>
   <view class='list'>
     <text class='view_fileName'>{{sectionName}}</text>
     <view class='view_1'>

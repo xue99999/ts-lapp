@@ -24,6 +24,7 @@ Page({
     teacherName: "",
     initial_times:0.0,
     remark: "",
+    videoDirection:"90",
     // 小节列表
     sections: [],
     // 课节所有列表
