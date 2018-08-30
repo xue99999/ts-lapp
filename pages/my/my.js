@@ -17,7 +17,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tsVersion: 'V1.0.8',
+    tsVersion: 'V1.0.9',
     nickName: "",
     avatarUrl: "",
     integral: 0,

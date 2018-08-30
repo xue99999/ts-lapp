@@ -105,10 +105,11 @@ Page({
   },
   onClickSubscriber() {
     if (this.data.isSubscibe > 0) {
-      wx.navigateTo({
-        url: '../course-video/course-video?courseId=' + id,
-      })
-    } else {
+      // wx.navigateTo({
+      //   url: '../course-video/course-video?courseId=' + id,
+      // })
+    } else 
+    {
       wx.navigateTo({
         url: '../pay/wx-pay/wx-pay?courseId=' + id + '&total=' + this.data.total + '&courseName=' + this.data.courseName + '&price=' + this.data.price
       })

@@ -12,6 +12,7 @@ Page({
    */
   data: {
     list: [],
+    shows:false,
     url: '../course-details/course-details',
   },
   /**

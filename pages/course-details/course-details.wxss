@@ -26,12 +26,16 @@
   display: block;
   color: #000;
 }
-
 .view_top_text1 {
+  width: 400rpx;
+ /* border: 1px solid red; */
   height: 44rpx;
   margin-top: 42.42rpx;
   line-height: 44rpx;
   font-size: 34rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 
 }
 

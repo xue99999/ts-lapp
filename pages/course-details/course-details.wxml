@@ -28,7 +28,7 @@
 
       <view wx:for="{{sectionList}}" wx:for-item="item" wx:key="{{item.playNum+item.duration}}">
         <navigator class='course_list_itme' url="{{url+'&id='+item.id+'&teacherName='+teacherName}}">
-          <view class='course_list_itme_text1'>{{(index+1)>9?(index+1):'0'+(index+1)}}</view>
+          <view class='course_list_itme_text1'>{{index}}</view>
           <view class='course_list_itme_text2'>
             <view class='course_list_itme_text_title'>{{item.sectionName}}</view>
             <view class='list_item_view_all'>

@@ -504,7 +504,6 @@ Component({
         that.updateStatus({
           menstrualStatus: '01'
         })
-
       } else {
         //switch 目前是开的
         // currentDay['menstrualStatus'] = '01';

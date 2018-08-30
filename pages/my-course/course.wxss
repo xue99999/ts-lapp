@@ -3,9 +3,24 @@
 .inclusion {
   height: 100%;
   width: 100%;
-  background: #e1e1e1;
+  /* background: #e1e1e1; */
 }
-
+.view_boxs{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.view_boxs image{
+  margin-top: 150rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+.view_kong{
+  text-align: center;
+  margin-top: 30rpx;
+  color: gray;
+}
 .scroll_view {
   height: 100%;
 }

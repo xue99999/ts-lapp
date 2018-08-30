@@ -1,6 +1,10 @@
 <!--我的课程-->
 <view class='inclusion'>
-  <view class='scroll_view' scroll-y="true">
+  <view class='scroll_view' scroll-y="true" wx:if="{{list.length}}">
     <course-list showAmount="{{false}}" list="{{list}}"></course-list>
+  </view>
+  <view class='view_boxs' wx:else>
+    <image src='../img/videos.png'></image>
+    <view class='view_kong'>暂无数据</view>
   </view>
 </view>

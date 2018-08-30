@@ -22,20 +22,22 @@ Page({
     videoID: "",
     filePath: "",
     teacherName: "",
-    initial_times:0.0,
+    initial_times: 0.0,
     remark: "",
-    videoDirection:"90",
+    videoDirection: "90",
     // 小节列表
     sections: [],
     // 课节所有列表
-    sectionAll:[],
-    sectionShowImgId:0,
+    sectionAll: [],
+    sectionShowImgId: 0,
+    pageGesture: true,
+    posters: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     console.log(options)
     //加载这个函数
     this.videoContext = wx.createVideoContext('myVideo')
@@ -54,7 +56,7 @@ Page({
         var sectionName = "";
         var remark = "";
         SectionList = list;
-      
+
         // 数据转换
         for (let i = 0; i < list.length; i++) {
           const section = list[i];
@@ -65,21 +67,13 @@ Page({
             sectionName = list[i].sectionName;
             this.onPlay(list[i].id);
             WxParse.wxParse('remark', 'html', list[i].remark, this, 0);
-          }else{
-            pos = 0;
-            sectionName = list[0].sectionName;
-            this.onPlay(list[0].id);
-            WxParse.wxParse('remark', 'html', list[i].remark, this, 0);
-            this.setData({
-              isplay: false,
-            })
           }
         }
         this.setData({
           list: list,
           sections,
           sectionName,
-          sectionAll:list,
+          sectionAll: list,
           sectionShowImgId: pos,
         })
       }
@@ -87,59 +81,68 @@ Page({
     });
 
   },
-  onReady:function(){
+  onReady: function () {
     //加载这个函数
     this.videoContext = wx.createVideoContext('myVideo')
   },
-  doPlay: function(id) {
-    const that=this;
+  doPlay: function (id) {
+    const that = this;
+    console.log('课节id--------', id)
     apiSectionPlay(id).then(result => {
+      console.log("课节播放", result)
+
+      this.setData({
+        sectionName: SectionList[pos].sectionName,
+      })
+      WxParse.wxParse('remark', 'html', SectionList[pos].remark, this, 0);
+
       if (result.code === 200) {
         this.setData({
           filePath: result.filePath,
-          isplay:true,
+          isplay: true,
         })
         that.videoContext.play();
-        if (record===1){
-         pos= pos + 1
-        } else if (record === 2){
-          pos = pos - 1
-        } else if (record===3){
-          pos = index
-        }
-        this.setData({
-          sectionName: SectionList[pos].sectionName,
-        })
-        WxParse.wxParse('remark', 'html', SectionList[pos].remark, this, 0);
+
       } else {
         this.setData({
           isplay: false,
         })
         wx.showToast({
-          title: "无权限播放",
+          title: "当前课程未订阅 , 无权观看",
           icon: 'none',
-          duration: 2000
+          duration:2000
         })
-        return;
       }
 
     })
   },
-  onPlay: function(id) {
-    for (let i = 0; i < SectionList.length; i++) {
-      if (SectionList[i].id === id) {
-         // 播放当前匹配的id
-        this.doPlay(SectionList[i].id);
-        //this.videoContext.play();
-      }
-    }
+  // 暂停
+  videoPlay() {
+    console.log()
+    this.setData({
+      isplay: true
+    })
+  },
+  // 播放
+  videoPause() {
+    this.setData({
+      isplay: false
+    })
+  },
+  videoError() {
+    this.setData({
+      isplay: false
+    })
+  },
+  onPlay: function (id) {
+    this.doPlay(id);
   },
 
   //点击那个列表
   handleClickItem1({
     detail
   }) {
-    index= detail.index;
+    index = detail.index;
     this.onPlay(SectionList[index].id);
     //点击之后播放视频
     record = 3;
@@ -161,56 +164,85 @@ Page({
 
   },
   //下一首
-  toNext: function() {
+  toNext: function () {
     //拿到数组的长度
-    var listLength=SectionList.length-1;
+    var listLength = SectionList.length - 1;
     //记录一下当前的位置
-  var s= pos+1;
-   if (s > listLength){
+    pos += 1
+    if (pos > listLength) {
+      pos = listLength
       wx.showToast({
-            title: '当前已是最后一节课',
-            icon: 'none',
-            duration: 2000
-          })
-          return;
+        title: '当前已是最后一节课',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
     }
-   record=1;
-   this.onPlay(SectionList[pos + 1].id);
+    this.onPlay(SectionList[pos].id);
+    this.onSuspend()
+    this.setData({
+      filePath: '',
+      isPlay: false,
+      visible1: false,
+      sectionName: SectionList[pos].sectionName,
+
+    })
+
+
   },
   //上一首
-  toLast: function() {
+  toLast: function () {
     //记录一下当前的位置
-    if (pos ===0) {
+    pos -= 1
+    if (pos < 0) {
+      pos = 0
       wx.showToast({
         title: '当前已为第一节课',
         icon: 'none',
         duration: 2000
       })
       return;
-    }
-    record = 2;
-    this.onPlay(SectionList[pos-1].id);
+    } 
+    this.onPlay(SectionList[pos].id);
+    this.onSuspend()
+    this.setData({
+      filePath: '',
+      isPlay: false,
+      visible1: false,
+      sectionName: SectionList[pos].sectionName,
+    })
   },
   //暂停播放
-  onSuspend: function() {
-    if (this.data.isplay){
+  onSuspend: function () {
+    if (this.data.isplay) {
       this.videoContext.pause();
       this.setData({
         isplay: false,
       })
-    }else{
+    } else {
       this.videoContext.play();
       this.setData({
         isplay: true,
       })
     }
-  
+
 
   },
   // 课节列表
-  hahah: function (event){
-    // this.videoContext.stop();
-  },
-
+  clickItem(e) {
+    console.log('~~~~~~~~~~~~~~~~~', e.target.dataset.index)
+    const ind = e.target.dataset.index
+    this.onSuspend()
+    this.setData({
+      filePath: '',
+      isPlay: false,
+      visible1: false,
+    })
+    pos = ind
+    setTimeout(_ => {
+      let id = e.target.dataset.id
+      this.doPlay(id)
+    }, 2000)
+  }
 
 })

@@ -309,19 +309,19 @@ Page({
     let text;
     switch (status) {
       case "01":
-        text = "受孕几率低";
+        text = "怀孕几率低";
         break;
       case "02":
-        text = "受孕几率低";
+        text = "怀孕几率低";
         break;
       case "03":
-        text = "受孕几率高"
+        text = "怀孕几率高"
         break;
       case "04":
-        text = "受孕几率高"
+        text = "怀孕几率高"
         break;
       case "05":
-        text = "受孕几率低";
+        text = "怀孕几率低";
         break;
     }
 

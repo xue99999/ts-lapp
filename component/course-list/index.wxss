@@ -54,8 +54,11 @@
 
 .list_item_text1 {
   color: #000;
-  height: 26.66rpx;
+  line-height: 26.66rpx;
   font-size: 26rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 
 .list_item_text2 {

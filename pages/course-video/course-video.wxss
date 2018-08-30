@@ -63,7 +63,6 @@ margin-left: 40rpx;
 .view_play_img1, .view_play_img3 {
   width: 24rpx;
   height: 22rpx;
-
 }
 
 .view_play_img2 {
@@ -74,7 +73,7 @@ margin-left: 40rpx;
 }
 
 .view_play_img1 {
-  margin-left: 96rpx;
+  margin-left: 110rpx;
 }
 
 .view_remark {
@@ -177,7 +176,7 @@ margin-left: 40rpx;
 }
 /* 播放列表 */
 .i_view_height{
-  height: 900rpx;
+  height: 600rpx;
   background: #f7f7f7;
 
 }
@@ -199,9 +198,6 @@ margin-left: 40rpx;
   text-align: left;
   display: block;
   color: #818080;
-}
-.i_view_xian{
-  height: 1rpx;
-   margin-left: 24rpx;
-   background: #e8e8e8;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e8e8e8;
 }

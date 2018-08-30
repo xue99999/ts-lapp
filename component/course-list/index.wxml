@@ -16,7 +16,7 @@
             </i-col>
             <i-col span="24" i-class="col-class">
               <view class='list_item_text2'>
-              {{item.teacherName}}共{{item.courseCount}}节课
+                <text>{{item.teacherName}} </text> 共{{item.courseCount}}节课
               </view>
             </i-col>
 

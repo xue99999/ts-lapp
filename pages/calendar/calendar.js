@@ -36,23 +36,22 @@ Page({
     selectDay: moment().format("YYYY-MM-DD"),
     weight: '../img/xing@3x.png',
     bossShow: true,
-    tipsShow:false,
+    tipsShow: false,
     today: moment().format('YYYYMD'),
     //缓存月份数据
     cacheMonths: [],
   },
 
   rili: function(e) {
-    let cmonth;
     const {
       year,
       month,
       list,
-      dateArr
+      dateArr,
     } = this.data;
-    if (month < 10) {
-      cmonth = '0' + month
-    }
+  //  大于9 月份加 0
+    const cmonth = month > 9 ? month : '0' + month
+    
     let day;
     day = e.currentTarget.dataset.day
     if (day < 10) {
@@ -86,7 +85,7 @@ Page({
       selectDay: sday.format('YYYY-MM-DD'),
       dateArr: dateArr,
       bossShow: this.data.bossShow,
-      tipsShow:this.data.tipsShow,
+      tipsShow: this.data.tipsShow,
     })
 
     this.initRecord(dates);
@@ -208,10 +207,12 @@ Page({
         } = this.data;
         //初始化选中
         const cday = moment(day).format('YYYYMD');
+        const cdays = moment(day).subtract('months').format('YYYYMD')
+        console.log('初始化选中', cdays)
         for (let i = 0; i < dateArr.length; i++) {
           const obj = dateArr[i];
 
-          if (cday == obj.today) {
+          if (cdays == obj.today) {
             obj.isSelect = true;
           } else {
             obj.isSelect = false;
@@ -222,6 +223,7 @@ Page({
           currentDay: dy
         })
       }
+
     }
     // 如果没有数据
     if (!isdy) {
@@ -408,7 +410,7 @@ Page({
     const currentMonthString = `${this.data.year}-${this.data.month}`;
     // const currentMonth = moment(currentMonthString)
     // if (!currentMonth.isBefore(maxMonth)) {
-      // return;
+    // return;
     // }
 
     const res = this.dateInit(year, month);
@@ -435,8 +437,8 @@ Page({
 
     //更新成功
     this.query(this.data.startDay, this.data.endDay, day);
-    // const currentMonthString = `${this.data.year}-${this.data.month}`;
-    // this.cacheDatas(currentMonthString);
+    const currentMonthString = `${this.data.year}-${this.data.month}`;
+    this.cacheDatas(currentMonthString);
   },
   //手指刚放到屏幕触发
   touchS: function(e) {
@@ -466,7 +468,7 @@ Page({
         console.log('00000----', maxMonth.format('YYYY-MM'))
         const currentMonth = moment(`${year}-${month}`)
         // if (currentMonth.isBefore(maxMonth)) {
-          that.nextMonth()
+        that.nextMonth()
         // }
 
       } else if (disX < -90) {
