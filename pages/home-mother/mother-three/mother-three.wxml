@@ -6,7 +6,7 @@
     <view class='view-tes'>您的月经周期平均多长？</view>
     <!-- 选择器 -->
     <view class='view-data'>
-      <picker-view class='view-picker' indicator-style="height: 50px;" style="width: 100%; height: 300px;  background: #FFF4F4;" value="{{[27]}}" data-index="{{array}}" bindchange="bindPickerChange">
+      <picker-view class='view-picker' indicator-style="height: 50px;" style="width: 100%; height: 300px;  background: #FFF4F4;" value="{{[18]}}" data-index="{{array}}" bindchange="bindPickerChange">
         <picker-view-column>
           <view wx:for="{{array}}" wx:key style="line-height: 50px;text-align:center;">
             {{item}}

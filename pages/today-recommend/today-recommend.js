@@ -25,15 +25,19 @@ Page({
     url: '../course-details/course-details',
     pos: 0,
     lists: [[
+      // 月经前期
       "../img/taichong.jpg",
       '../img/shaoze.jpg',
-      '../img/hegu.jpg'
+      '../img/lvgu.jpg',
+      '../img/hegu.jpg',
     ],
     [
       "../img/sanyin.jpg",
     ],
-    [
+    [ 
+      "../img/wushu.jpg",
     ],
+    // 月经后期
     [
       "../img/zusan.jpg",
       '../img/xuehai.jpg'

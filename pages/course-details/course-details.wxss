@@ -1,5 +1,6 @@
 /* 课程详情 */
-/* @import "../../wxParse/wxParse.wxss"; */
+@import "../../wxParse/wxParse.wxss";
+
 .inclusion {
   background: #f3f4f5;
 }
@@ -9,6 +10,7 @@
   height: 289rpx;
   background: #fff;
   display: flex;
+  overflow: hidden;
 }
 
 .view_top_img {
@@ -22,21 +24,20 @@
 }
 
 .view_top_text1, .view_top_text2, .view_top_text3 {
-  
   display: block;
   color: #000;
 }
+
 .view_top_text1 {
   width: 400rpx;
- /* border: 1px solid red; */
+  /* border: 1px solid red; */
   height: 44rpx;
   margin-top: 42.42rpx;
   line-height: 44rpx;
   font-size: 34rpx;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
-
 }
 
 .view_top_img_head {
@@ -51,11 +52,13 @@
   height: 40rpx;
   border-radius: 20rpx;
 }
-.neirong{
-display: block;
-font-size: 30rpx;
-margin-bottom: 20rpx;
+
+.neirong {
+  display: block;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
 }
+
 .view_top_text2 {
   height: 32rpx;
   margin-top: 39.39rpx;
@@ -74,7 +77,7 @@ margin-bottom: 20rpx;
 
 .view_top_text3 {
   margin-top: 60rpx;
-   font-size: 24rpx;
+  font-size: 24rpx;
   margin-left: 20rpx;
 }
 
@@ -112,9 +115,7 @@ margin-bottom: 20rpx;
 }
 
 .course_list_itme_text1 {
-
-  flex: 0.1; 
-
+  flex: 0.1;
   margin-left: 48.48rpx;
   justify-content: cente;
   color: #999;
@@ -122,9 +123,8 @@ margin-bottom: 20rpx;
 }
 
 .course_list_itme_text2 {
- flex: 0.9;
+  flex: 0.9;
   flex-direction: unset;
-
 }
 
 .course_list_itme_text_title, .course_list_itme_text1 {
@@ -137,13 +137,13 @@ margin-bottom: 20rpx;
 }
 
 .list_item_view_all {
-padding-top: 30rpx;
+  padding-top: 30rpx;
   height: 22rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
   align-content: center;
- 
+  overflow: hidden;
 }
 
 .list_item_view_all_img, .list_item_view_all_img1 {
@@ -166,7 +166,7 @@ padding-top: 30rpx;
   line-height: 24rpx;
   color: #9c9c9c;
   align-items: center;
-   margin-bottom: 30rpx;
+  margin-bottom: 30rpx;
 }
 
 .list_item_text3 {
@@ -254,11 +254,10 @@ padding-top: 30rpx;
   height: 90.90rpx;
   justify-content: center;
   padding-bottom: 22rpx;
-  background: #FFFFFF;
+  background: #fff;
 }
 
 .view_bottom_button1, .view_bottom_button2 {
-  
   background: #fe6f71;
   text-align: center;
   line-height: 90.90rpx;
@@ -271,11 +270,10 @@ padding-top: 30rpx;
 }
 
 .view_bottom_button2 {
-   flex: 0.6;
+  flex: 0.6;
   color: #fff;
   font-size: 32rpx;
 }
-
 
 .view_bottom_button1_text {
   flex: 1;
@@ -296,20 +294,16 @@ padding-top: 30rpx;
   flex-direction: unset;
   justify-content: center;
   align-items: center;
-
 }
 
 .collect-view-img {
   width: 32rpx;
   height: 28rpx;
-
-  
 }
 
 .collect-view-img {
   width: 38rpx;
   height: 35rpx;
-
 }
 
 .view_bottom_button1_text:after {
@@ -319,8 +313,6 @@ padding-top: 30rpx;
 }
 
 .view_bottom_img {
-
   width: 35rpx;
   height: 35rpx;
-
 }

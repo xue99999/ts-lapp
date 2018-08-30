@@ -174,13 +174,14 @@ element.style {
 }
 
 .view-predictDay-yuej {
+  text-align: center;
   margin-top: 179rpx;
   color: #fb5254;
   font-size: 40rpx;
 }
 
 .view-physiologicalCycles {
-  margin-top: 24rpx;
+  margin-top: 20rpx;
   font-size: 33.3rpx;
   color: #fb7274;
 }

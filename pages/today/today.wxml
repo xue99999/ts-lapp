@@ -33,7 +33,7 @@
     <view class='view-last'>{{currentDay.physiologicalCycle ==='02'? showObj.shouyun : ''}}</view>
       <!-- 不规律月经期的显示样式 -->
       <view wx:if="{{currentDay.physiologicalCycle === '02'}}" class='view-predictDay-yuej'>
-        第 <text class='view-size'>{{showObj.predictDay}}</text> 天
+        第<text class='view-size'>{{showObj.predictDay}}</text>天
       </view> 
       <!-- 不规律 显示样式 -->
       <view wx:else class='view-predictDay'>

@@ -105,6 +105,14 @@ Page({
   },
   onClickSubscriber() {
     if (this.data.isSubscibe > 0) {
+      
+      wx.showToast({
+        title: "当前课程已订阅 , 可直接观看",
+
+        // content:"",
+        icon: 'none',
+        duration: 2000
+      })
       // wx.navigateTo({
       //   url: '../course-video/course-video?courseId=' + id,
       // })
