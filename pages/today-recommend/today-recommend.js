@@ -26,21 +26,21 @@ Page({
     pos: 0,
     lists: [[
       // 月经前期
-      "../img/taichong.jpg",
-      '../img/shaoze.jpg',
-      '../img/lvgu.jpg',
-      '../img/hegu.jpg',
+      "../img/xuewei/taichong.jpg",
+      '../img/xuewei/shaoze.jpg',
+      '../img/xuewei/lvgu.jpg',
+      '../img/xuewei/hegu.jpg',
     ],
     [
-      "../img/sanyin.jpg",
+      "../img/xuewei/sanyin.jpg",
     ],
     [ 
-      "../img/wushu.jpg",
+      "../img/xuewei/wushu.jpg",
     ],
     // 月经后期
     [
-      "../img/zusan.jpg",
-      '../img/xuehai.jpg'
+      "../img/xuewei/zusan.jpg",
+      '../img/xuewei/xuehai.jpg'
     ]
     ],
 
