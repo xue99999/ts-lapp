@@ -74,7 +74,7 @@
   align-items: center;
 }
 .dingyue {
-  margin-top: 18rpx;
+  margin-top: 24rpx;
   color: #a0a0a0;
   height: 24rpx;
   font-size: 22rpx;
@@ -84,6 +84,7 @@
 .list_item_view_all_img, .list_item_view_all_img1 {
   width: 22rpx;
   height: 20rpx;
+  margin-top: 28rpx;
 }
 
 .list_item_view_all_img1 {

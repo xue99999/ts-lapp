@@ -49,7 +49,7 @@
 
   <template name="course_remark">
     <view class='course_remark_view'>
-    <text class='neirong'>内容简介</text>
+    <!-- <text class='neirong'>内容简介</text> -->
       <template is="wxParse" data="{{wxParseData:remark.nodes}}" />
     </view>
 
