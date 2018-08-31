@@ -7,7 +7,7 @@
 </view>
 <view class='view_pay2'>
     <text class='view_pay_text_left'> 集数</text>
-     <text class='view_pay_text_right'>预计更新{{total}}集</text>
+     <text class='view_pay_text_right'>已更新{{total}}集</text>
 </view>
 <view class='view_pay2'>
     <text class='view_pay_text_left'> 价格</text>
