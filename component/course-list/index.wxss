@@ -28,6 +28,7 @@
   background: #fff;
   align-items: center;
   justify-content: cente;
+  margin-top: 20rpx;
 }
 
 .list_item_img {

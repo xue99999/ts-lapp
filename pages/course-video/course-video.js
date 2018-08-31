@@ -17,6 +17,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    state:false,
+    videoDuration:'',
     visible1: false,
     sectionName: '',
     videoID: "",
@@ -32,6 +34,7 @@ Page({
     sectionShowImgId: 0,
     pageGesture: true,
     posters: "",
+    no_auth_status: false, // 无权播放
   },
 
   /**
@@ -100,12 +103,15 @@ Page({
         this.setData({
           filePath: result.filePath,
           isplay: true,
+          no_auth_status: false,
         })
-        that.videoContext.play();
+        // that.videoContext.play();
 
       } else {
         this.setData({
+          filePath: '',
           isplay: false,
+          no_auth_status: true,
         })
         wx.showToast({
           title: "当前课程未订阅 , 无权观看",
@@ -232,17 +238,20 @@ Page({
   clickItem(e) {
     console.log('~~~~~~~~~~~~~~~~~', e.target.dataset.index)
     const ind = e.target.dataset.index
-    this.onSuspend()
-    this.setData({
-      filePath: '',
-      isPlay: false,
-      visible1: false,
-    })
+    this.videoContext.stop();
+    setTimeout(_ => {
+      this.setData({
+        filePath: '',
+        isPlay: false,
+        visible1: false,
+        state:true
+      })
+    }, 0)
     pos = ind
     setTimeout(_ => {
       let id = e.target.dataset.id
       this.doPlay(id)
-    }, 2000)
+    }, 300)
   }
 
 })

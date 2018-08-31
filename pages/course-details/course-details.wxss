@@ -20,12 +20,13 @@
 }
 
 .view_top_text_view_all {
-  flex: 3;
+  /* flex: 3; */
 }
 
 .view_top_text1, .view_top_text2, .view_top_text3 {
   display: block;
   color: #000;
+  /* border: 1px solid red; */
 }
 
 .view_top_text1 {
@@ -39,18 +40,15 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-.view_top_img_head {
+.view_what2{
   margin-top: 39.39rpx;
-  /*   
-     display: block;
-      当时用头像功能是 none换成block!
-    */
-  display: none;
-  position: absolute;
-  width: 40rpx;
-  height: 40rpx;
-  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.view_top_img_head {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
 }
 
 .neirong {
@@ -61,22 +59,17 @@
 
 .view_top_text2 {
   height: 32rpx;
-  margin-top: 39.39rpx;
   font-size: 26rpx;
   color: #5c8edc;
-  margin-left: 52rpx;
+  margin-left: 32rpx;
 }
 
 .view_top_img_subscri {
-  margin-top: 68rpx;
-  position: absolute;
-  width: 12rpx;
-  height: 14rpx;
-  display: block;
+  width: 25rpx;
+  height: 30rpx;
 }
 
 .view_top_text3 {
-  margin-top: 60rpx;
   font-size: 24rpx;
   margin-left: 20rpx;
 }

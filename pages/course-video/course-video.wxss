@@ -5,7 +5,7 @@
   background: #f3f4f5;
 }
 
-#myVideo {
+#myVideo,#myVideo123{
   width: 100%;
   height: 400rpx;
 }
@@ -189,10 +189,19 @@ margin-left: 40rpx;
   color: #818080;
   border: 1rpx solid #e8e8e8;
 }
+.view_lists{
+  display: flex;
+  align-items: center;
+}
+.view_img{
+  margin-left: 15rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
 .i_text{
   width: 726rpx;
   height: 70rpx;
-  margin-left: 34rpx;
+  margin-left: 24rpx;
   font-size: 22rpx;
   line-height: 70rpx;
   text-align: left;

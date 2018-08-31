@@ -1,8 +1,8 @@
 <!--视频播放-->
 <import src="../../wxParse/wxParse.wxml" />
 <view class="section_tc">
-  <video id="myVideo"  src="{{filePath}}" objectFit="cover" direction="{{videoDirection}}"
-  page-gesture="{{pageGesture}}" poster="{{posters}}" bindplay="videoPlay" bindpause="videoPause" binderror="videoError"></video>
+  <video wx:if="{{!no_auth_status}}" id="myVideo" src="{{filePath}}" objectFit="cover" direction="{{videoDirection}}" page-gesture="{{pageGesture}}" poster="{{posters}}" bindplay="videoPlay" bindpause="videoPause" binderror="videoError"></video>
+  <video wx:else id="myVideo123" src="" objectFit="cover" direction="{{videoDirection}}" page-gesture="{{pageGesture}}" poster="{{posters}}" bindplay="videoPlay" bindpause="videoPause" binderror="videoError"></video>
   <view class='list'>
     <text class='view_fileName'>{{sectionName}}</text>
     <view class='view_1'>
@@ -26,9 +26,13 @@
     <view class='i_view_height'>
       <view class='i_bofang'>播放列表</view>
       <view wx:for="{{sectionAll}}" wx:for-item="item" wx:key="{{item.courseId}}" wx:for-index="pos">
-      <!--<image wx:if="{{pos===sectionShowImgId}}"></image> 是否显示播放图片,当pos===课程id下标的时候显示图片 -->
-      
-        <view class='i_text' data-id="{{item.id}}" data-index="{{pos}}" bindtap='clickItem'>{{item.sectionName}}</view>
+
+        <!-- 是否显示播放图片,当pos===课程id下标的时候显示图片 -->
+        <view class='view_lists'>
+          <image wx:if="{{state}}" src='../img/Intheplay@3x.png' class='view_img'></image>
+          <view class='i_text' data-id="{{item.id}}" data-index="{{pos}}" bindtap='clickItem'>{{item.sectionName}}</view>
+        </view>
+
       </view>
     </view>
   </i-popup>
