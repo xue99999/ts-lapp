@@ -1,7 +1,7 @@
 <!--视频播放-->
 <import src="../../wxParse/wxParse.wxml" />
 <view class="section_tc">
-  <video wx:if="{{!no_auth_status}}" id="myVideo" src="{{filePath}}" objectFit="cover" direction="{{videoDirection}}" page-gesture="{{pageGesture}}" poster="{{posters}}" bindplay="videoPlay" bindpause="videoPause" binderror="videoError"></video>
+  <video wx:if="{{!no_auth_status}}" id="myVideo" src="{{filePath}}" autoplay="{{true}}" objectFit="cover" direction="{{videoDirection}}" page-gesture="{{pageGesture}}" poster="{{posters}}" bindplay="videoPlay" bindpause="videoPause" binderror="videoError"></video>
   <video wx:else id="myVideo123" src="" objectFit="cover" direction="{{videoDirection}}" page-gesture="{{pageGesture}}" poster="{{posters}}" bindplay="videoPlay" bindpause="videoPause" binderror="videoError"></video>
   <view class='list'>
     <text class='view_fileName'>{{sectionName}}</text>

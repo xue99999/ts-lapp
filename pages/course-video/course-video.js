@@ -105,7 +105,7 @@ Page({
           isplay: true,
           no_auth_status: false,
         })
-        // that.videoContext.play();
+        that.videoContext.play();
 
       } else {
         this.setData({
@@ -219,19 +219,31 @@ Page({
     })
   },
   //暂停播放
-  onSuspend: function () {
-    if (this.data.isplay) {
-      this.videoContext.pause();
-      this.setData({
-        isplay: false,
-      })
-    } else {
-      this.videoContext.play();
-      this.setData({
-        isplay: true,
-      })
-    }
-
+  onSuspend(id) {
+    // apiSectionPlay(id).then(result => {
+    //   this.setData({
+    //     sectionName: SectionList[pos].sectionName,
+    //   })
+    //   if (result.code !== 200) {
+    //     this.setData({
+    //       isplay: false,
+    //     })
+    //   }
+    //   else{
+        
+        if (this.data.isplay) {
+          this.videoContext.pause();
+          this.setData({
+            isplay: false,
+          })
+        } else {
+          this.videoContext.play();
+          this.setData({
+            isplay: true,
+          })
+        }
+      // }
+    // })
 
   },
   // 课节列表
@@ -243,8 +255,7 @@ Page({
       this.setData({
         filePath: '',
         isPlay: false,
-        visible1: false,
-        state:true
+        visible1: false
       })
     }, 0)
     pos = ind
