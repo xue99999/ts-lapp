@@ -1,5 +1,18 @@
-
 /** 课程列表样式开始 **/
+
+.collect-view {
+  width: 10%;
+  height: 170rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.collect-view-img {
+  width: 45rpx;
+  height: 40rpx;
+}
+
 .scroll_view {
   height: 50%;
   background: #fff;
@@ -21,8 +34,13 @@
   border-bottom: 1rpx #e8e8e8 solid;
 }
 
-.list_view {
+.list_box {
   width: 100%;
+  display: flex;
+}
+
+.list_view {
+  width: 90%;
   height: 170rpx;
   display: flex;
   background: #fff;
@@ -58,7 +76,7 @@
   line-height: 26.66rpx;
   font-size: 26rpx;
   overflow: hidden;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
@@ -68,19 +86,20 @@
   font-size: 24rpx;
   margin-top: 20rpx;
 }
-.list_item_view_all{
+
+.list_item_view_all {
   display: flex;
   flex-direction: row;
   align-content: center;
   align-items: center;
 }
+
 .dingyue {
   margin-top: 24rpx;
   color: #a0a0a0;
   height: 24rpx;
   font-size: 22rpx;
 }
-
 
 .list_item_view_all_img, .list_item_view_all_img1 {
   width: 22rpx;

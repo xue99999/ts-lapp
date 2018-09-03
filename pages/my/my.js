@@ -22,12 +22,6 @@ Page({
     avatarUrl: "",
     integral: 0,
     routers: [
-      // {
-      //   name: '切换模式',
-      //   url: '../home/home?iscondition=true',
-      //   icon: '../img/mom1@3x.png',
-      //   code: '10'
-      // },
       {
         name: '全部课程',
         url: '../label-course/label-course',
@@ -51,6 +45,12 @@ Page({
         url: '../set-period/set-period',
         icon: '../img/shezhi.png',
         code: '11'
+      },
+      {
+        name: '记录经期',
+        url: '../home/home?iscondition=true',
+        icon: '../img/record.png',
+        code: '10'
       },
       {
         name: '帮助中心',

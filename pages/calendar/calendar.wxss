@@ -82,7 +82,6 @@
   font-size: 0;
   /* padding: 0 24rpx; */
 }
-
 .header>view {
   display: inline-block;
   width: 14%;
@@ -202,6 +201,10 @@
   height: 144.9rpx;
 }
 
+.swpier-box {
+  height: 700rpx;
+  width: 100%;
+}
 .view-fot {
   position: fixed;
   bottom: 36rpx;

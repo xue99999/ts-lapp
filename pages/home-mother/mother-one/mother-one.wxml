@@ -15,10 +15,10 @@
     </view>
 
     <view class="date-show"  wx:if="{{show==true}}">
-      <view class="lt-arrow" bindtap="lastMonth">
+      <view class="lt-arrow cwj-icon cwj-calendar-icon-left" bindtap="lastMonth">
       </view>
       {{year}}年{{month}}月
-      <view class='rt-arrow' bindtap='nextMonth'>
+      <view class='rt-arrow cwj-icon cwj-calendar-icon-right' bindtap='nextMonth'>
       </view>
     </view>
     <view class='header'>

@@ -1,4 +1,5 @@
 // component/course-list/index.js
+
 Component({
   /**
    * 组件的属性列表
@@ -17,6 +18,7 @@ Component({
       type: Boolean,  
       value:true 
     }
+    
   },
 
   /**
@@ -24,6 +26,7 @@ Component({
    */
   data: {
     title:null,
+    isCollect: -1,
     list: [],
     url: '/pages/course-details/course-details',
   },
@@ -33,5 +36,29 @@ Component({
    */
   methods: {
 
+    isCollect(e) {
+      const { id, status } = e.currentTarget.dataset
+      console.log(id, status)
+      if (this.data.isCollect === 0) {
+        this.setData({
+          isCollect: 1
+        })
+      } else {
+        this.setData({
+          isCollect: 0
+        })
+      }
+      this.getApiCourseCollectCourse(id, status);
+    },
+    getApiCourseCollectCourse(id, status) {
+      var data = {
+        courseId: id,
+        status: status === '01' ? '02' : '01'
+      }
+
+      apiCourseCollectCourse(data).then(result => {
+        console.log('collect or no')
+      })
+    },
   }
 })

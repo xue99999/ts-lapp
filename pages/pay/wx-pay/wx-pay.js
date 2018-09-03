@@ -48,7 +48,7 @@ Page({
     };
 
     payUnifiedorder(data).then(result => {
-      //企业兑换码code=503的时候不进行支付并且return 
+      // 企业兑换码code=503的时候不进行支付并且return 
       if (result.code === 666) {
         wx.showToast({
           title: result.msg,

@@ -16,20 +16,23 @@
 
   <view class='header'>
   </view>
-  <view class='date-box' bindtouchstart="touchS" bindtouchend="touchE">
-    <view class='date-view' wx:for='{{dateArr}}' wx:key data-date='{{item.isToday}}' data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili'>
-      <view class="date-head {{item.isSelect?'day-select':''}}">
-        <view class="day {{item.css}}">
-          <text>{{item.today===today?'今':item.dateNum}}</text>
-          <image src='{{item.status?item.status:""}}' class='icon-status'></image>
+  <!-- <swiper circular="true" class='swpier-box'> -->
+    <!-- <swiper-item class="swiper_items" bindchange="{{swiperchange}}"> -->
+      <view class='date-box' bindtouchstart="touchS" bindtouchend="touchE">
+        <view class='date-view' wx:for='{{dateArr}}' wx:key data-date='{{item.isToday}}' data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili'>
+          <view class="date-head {{item.isSelect?'day-select':''}}">
+            <view class="day {{item.css}}">
+              <text>{{item.today===today?'今':item.dateNum}}</text>
+              <image src='{{item.status?item.status:""}}' class='icon-status'></image>
+            </view>
+          </view>
+          <view class='date-weight'>
+            <image src='{{item.tag?item.tag:""}}' class='icon-record'></image>
+          </view>
         </view>
       </view>
-      <view class='date-weight'>
-          <image src='{{item.tag?item.tag:""}}' class='icon-record'></image>
-      </view>
-    </view>
-  </view>
-
+    <!-- </swiper-item> -->
+  <!-- </swiper> -->
   <view class='view-list'>
     <view class='view-jing'>
       <image src='/pages/img/pink@3x.png'></image>

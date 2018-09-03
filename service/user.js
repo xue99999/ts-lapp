@@ -5,7 +5,7 @@ import Http from '../utils/http.js';
 //程东林 本地测试路径
 // const baseUrl ='http://192.168.5.137:8081/ts-app-web/';
 //王丽娟 本地测试路径大家都在发
-// const baseUrl = 'http://192.168.5.82:8080/ts-app-web/';
+const baseUrl = 'http://192.168.5.82:8080/ts-app-web/';
 // const baseUrl ='http://192.168.5.82:8080/ts-app-web/';
 //李康 本地测试路径
 
@@ -14,12 +14,12 @@ import Http from '../utils/http.js';
 //const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 //171测试服务器
 // const baseUrl ='http://192.168.9.171:8089/'
-//const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
+// const baseUrl ='http://192.168.5.167:8080/ts-app-web/'
 //刘小东 本地测试路径
 //const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 //171测试服务器
 
-const baseUrl ='http://36.110.31.179:8090/'
+// const baseUrl ='http://36.110.31.179:8090/'
 // 生产地址
 // const baseUrl = 'https://api.tashi2018.com/'
 
@@ -166,6 +166,13 @@ function userInfoUpdateMensAndOvulation(params) {
     params
   })
 }
+//免费课程订阅
+function payFreeCourse(params) {
+  return post({
+    url: baseUrl + 'pay/freeCourse',
+    params
+  })
+}
 module.exports = {
   ownerQuery,
   apiSection,
@@ -184,5 +191,6 @@ module.exports = {
   userInfoQueryBodyStatus,
   userInfoUpdateBodyStatus,
   apiCourseCollectCourse,
-  userInfoUpdateMensAndOvulation
+  userInfoUpdateMensAndOvulation,
+  payFreeCourse
 };

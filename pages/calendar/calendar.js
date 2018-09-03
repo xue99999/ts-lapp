@@ -42,7 +42,7 @@ Page({
     cacheMonths: [],
   },
 
-  rili: function(e) {
+  rili: function (e) {
     const {
       year,
       month,
@@ -92,7 +92,7 @@ Page({
   },
 
 
-  onLoad: function() {
+  onLoad: function () {
     const parmas = {
       tag: 'switch'
     }
@@ -137,7 +137,7 @@ Page({
 
     this.cacheDatas(moment().format("YYYY-MM"))
   },
-  query: function(startDay, endDay, cday) {
+  query: function (startDay, endDay, cday) {
 
     var query = {
       startDay,
@@ -146,9 +146,9 @@ Page({
     userInfoQueryBodyStatus(query).then(res => {
       const {
         list = [],
-          userModel,
-          code,
-          isLaw
+        userModel,
+        code,
+        isLaw
       } = res;
 
       if (code === 500) {
@@ -238,12 +238,12 @@ Page({
     }
   },
 
-  onReady: function() {},
+  onReady: function () { },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
     if (!this.data.isShow) {
       return;
     }
@@ -254,7 +254,7 @@ Page({
     this.query(this.data.startDay, this.data.endDay, this.data.selectDay);
 
   },
-  dateInit: function(setYear, setMonth) {
+  dateInit: function (setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let dateArr = []; //需要遍历的日历数组数据
     let arrLen = 0; //dateArr的数组长度
@@ -381,7 +381,7 @@ Page({
       edate
     };
   },
-  lastMonth: function() {
+  lastMonth: function () {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
     let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
@@ -400,90 +400,91 @@ Page({
     // const currentMonthString = `${this.data.year}-${this.data.month}`;
     // this.cacheDatas(currentMonthString);
 
-},
+  },
 
-nextMonth: function() {
-  //全部时间的月份都是按0~11基准，显示月份才+1
-  let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
-  let month = this.data.month > 11 ? 0 : this.data.month;
-  //超过2月不请求
+  nextMonth: function () {
+    //全部时间的月份都是按0~11基准，显示月份才+1
+    let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
+    let month = this.data.month > 11 ? 0 : this.data.month;
+    //超过2月不请求
 
-  // const maxMonth = moment().add(1, 'months');
+    // const maxMonth = moment().add(1, 'months');
 
-  const currentMonthString = `${this.data.year}-${this.data.month}`;
-  // const currentMonth = moment(currentMonthString)
-  // if (!currentMonth.isBefore(maxMonth)) {
-  // return;
-  // }
+    const currentMonthString = `${this.data.year}-${this.data.month}`;
+    // const currentMonth = moment(currentMonthString)
+    // if (!currentMonth.isBefore(maxMonth)) {
+    // return;
+    // }
 
-  const res = this.dateInit(year, month);
-  this.setData({
-    bossShow: false,
-    startDay: res.sdate,
-    endDay: res.edate,
-    lyear: year,
-    lmonth: month,
-    year: year,
-    month: (month + 1)
-  })
-
-  this.query(res.sdate, res.edate, null)
-
-  this.cacheDatas(currentMonthString);
-
-
-}, // 更新身体回调
-updateStatusChange(data) {
-
-  console.log("... change", data)
-  const day = this.data.selectDay;
-  const cday = moment(day).format('YYYY-MM-D')
-
-  //更新成功
-  this.query(this.data.startDay, this.data.endDay, day);
-  const currentMonthString = `${this.data.year}-${this.data.month}`;
-  this.cacheDatas(currentMonthString);
-},
-//手指刚放到屏幕触发
-touchS: function(e) {
-  //判断是否只有一个触摸点
-  if (e.touches.length == 1) {
+    const res = this.dateInit(year, month);
     this.setData({
-      //记录触摸起始位置的X坐标
-      startX: e.touches[0].clientX
-    });
-  }
-},
-touchE: function(e) {
-  var that = this
-  if (e.changedTouches.length == 1) {
-    //手指移动结束后触摸点位置的X坐标
-    var endX = e.changedTouches[0].clientX;
-    //触摸开始与结束，手指移动的距离
-    var disX = that.data.startX - endX;
+      bossShow: false,
+      startDay: res.sdate,
+      endDay: res.edate,
+      lyear: year,
+      lmonth: month,
+      year: year,
+      month: (month + 1)
+    })
 
-    // console.log(disX);
-    if (disX > 90) {
-      const {
-        year,
-        month
-      } = this.data;
-      const maxMonth = moment().add(1, 'months');
-      console.log('00000----', maxMonth.format('YYYY-MM'))
-      const currentMonth = moment(`${year}-${month}`)
-      // if (currentMonth.isBefore(maxMonth)) {
-      that.nextMonth()
-      // }
+    this.query(res.sdate, res.edate, null)
 
-    } else if (disX < -90) {
-      that.lastMonth()
+    this.cacheDatas(currentMonthString);
+
+
+  }, // 更新身体回调
+  updateStatusChange(data) {
+
+    console.log("... change", data)
+    const day = this.data.selectDay;
+    const cday = moment(day).format('YYYY-MM-D')
+
+    //更新成功
+    this.query(this.data.startDay, this.data.endDay, day);
+    const currentMonthString = `${this.data.year}-${this.data.month}`;
+    this.cacheDatas(currentMonthString);
+  },
+  //手指刚放到屏幕触发
+  touchS: function (e) {
+    //判断是否只有一个触摸点
+    if (e.touches.length == 1) {
+      this.setData({
+        //记录触摸起始位置的X坐标
+        startX: e.touches[0].clientX
+      });
     }
-  }
-},
-// 是否有记录
-isRecord: function(dy) {
-  const {
-    chiropractic = '02',
+  },
+  
+  touchE: function (e) {
+    var that = this
+    if (e.changedTouches.length == 1) {
+      //手指移动结束后触摸点位置的X坐标
+      var endX = e.changedTouches[0].clientX;
+      //触摸开始与结束，手指移动的距离
+      var disX = that.data.startX - endX;
+
+      // console.log(disX);
+      if (disX > 90) {
+        const {
+          year,
+          month
+        } = this.data;
+        const maxMonth = moment().add(1, 'months');
+        console.log('00000----', maxMonth.format('YYYY-MM'))
+        const currentMonth = moment(`${year}-${month}`)
+        // if (currentMonth.isBefore(maxMonth)) {
+        that.nextMonth()
+        // }
+
+      } else if (disX < -90) {
+        that.lastMonth()
+      }
+    }
+  },
+  // 是否有记录
+  isRecord: function (dy) {
+    const {
+      chiropractic = '02',
       frictionalAbdomen = '02',
       menstrualVolume,
       leucorrhea,
@@ -493,105 +494,118 @@ isRecord: function(dy) {
       menstrualHeadache,
       fearCold,
       weak
-  } = dy;
+    } = dy;
 
-  if (chiropractic === '01' || frictionalAbdomen === '01') {
-    return true;
-  }
+    if (chiropractic === '01' || frictionalAbdomen === '01') {
+      return true;
+    }
 
-  if (leucorrhea) {
-    return true;
-  }
-  if (breastTenderness) {
-    return true;
-  }
-  if (abdominalPain) {
-    return true;
-  }
-  if (mood) {
-    return true;
-  }
-  if (menstrualHeadache) {
-    return true;
-  }
-  if (fearCold) {
-    return true;
-  }
-  if (menstrualVolume) {
-    return true;
-  }
-  if (weak) {
-    return true;
-  }
+    if (leucorrhea) {
+      return true;
+    }
+    if (breastTenderness) {
+      return true;
+    }
+    if (abdominalPain) {
+      return true;
+    }
+    if (mood) {
+      return true;
+    }
+    if (menstrualHeadache) {
+      return true;
+    }
+    if (fearCold) {
+      return true;
+    }
+    if (menstrualVolume) {
+      return true;
+    }
+    if (weak) {
+      return true;
+    }
 
-  return false;
-},
-onShareAppMessage: function(options) {
-  var that = this;
-  // 设置菜单中的转发按钮触发转发事件时的转发内容
-  var shareObj = {
-    title: "她师", // 默认是小程序的名称(可以写slogan等)
-    path: '/pages/today/today', // 默认是当前页面，必须是以‘/’开头的完整路径
-    imgUrl: '', //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
-    success: function(res) {
-      // 转发成功之后的回调
-      if (res.errMsg == 'shareAppMessage:ok') {}
-    },
-    fail: function() {
-      // 转发失败之后的回调
-      if (res.errMsg == 'shareAppMessage:fail cancel') {
-        // 用户取消转发
-      } else if (res.errMsg == 'shareAppMessage:fail') {
-        // 转发失败，其中 detail message 为详细失败信息
+    return false;
+  },
+  onShareAppMessage: function (options) {
+    var that = this;
+    // 设置菜单中的转发按钮触发转发事件时的转发内容
+    var shareObj = {
+      title: "她师", // 默认是小程序的名称(可以写slogan等)
+      path: '/pages/today/today', // 默认是当前页面，必须是以‘/’开头的完整路径
+      imgUrl: '', //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
+      success: function (res) {
+        // 转发成功之后的回调
+        if (res.errMsg == 'shareAppMessage:ok') { }
+      },
+      fail: function () {
+        // 转发失败之后的回调
+        if (res.errMsg == 'shareAppMessage:fail cancel') {
+          // 用户取消转发
+        } else if (res.errMsg == 'shareAppMessage:fail') {
+          // 转发失败，其中 detail message 为详细失败信息
+        }
       }
     }
-  }
-},
-
-//统一缓存方法
-cacheDatas: function(currentMonth) {
-  //获取前后两个月
-  const mms = this.totalPreMonthAndNextMonth(currentMonth)
-
-  // 缓存前后两个月数据
-  this.preloadingData(mms)
-},
-//预加载月份数据[2018-]
-preloadingData: function(months) {
-  const cacheMonths = {};
-  for (let i = 0; i < months.length; i++) {
-    const m = months[i];
-    const days = moment(m).daysInMonth();
-    const firstDay = '01';
-
-    const startDay = moment(`${m}-01`).format('YYYY-MM-DD');
-    const endDay = moment(`${m}-${days}`).format('YYYY-MM-DD');
-
-    var query = {
-      startDay,
-      endDay
+  },
+  //防止偶尔卡死
+  swiperchange: function (event) {
+    if (event.detail.source == "touch") {
+      //防止swiper控件卡死
+      if (this.data.current == 0 && this.data.preIndex > 1) {//卡死时，重置current为正确索引
+        this.setData({ current: this.data.preIndex });
+      }
+      else {//正常轮转时，记录正确页码索引
+        this.setData({ preIndex: this.data.current });
+      }
     }
-    userInfoQueryBodyStatus(query).then(res => {
-      const {
-        list = [],
+  },
+
+
+  //统一缓存方法
+  cacheDatas: function (currentMonth) {
+    //获取前后两个月 
+    const mms = this.totalPreMonthAndNextMonth(currentMonth)
+
+    // 缓存前后两个月数据
+    this.preloadingData(mms)
+  },
+  //预加载月份数据[2018-]
+  preloadingData: function (months) {
+    const cacheMonths = {};
+    for (let i = 0; i < months.length; i++) {
+      const m = months[i];
+      const days = moment(m).daysInMonth();
+      const firstDay = '01';
+
+      const startDay = moment(`${m}-01`).format('YYYY-MM-DD');
+      const endDay = moment(`${m}-${days}`).format('YYYY-MM-DD');
+
+      var query = {
+        startDay,
+        endDay
+      }
+      userInfoQueryBodyStatus(query).then(res => {
+        const {
+          list = [],
           userModel
-      } = res;
+        } = res;
 
-      const obj = {};
-      //obj[m] = list;
-      cacheMonths[m] = list;
+        const obj = {};
+        //obj[m] = list;
+        cacheMonths[m] = list;
+      })
+
+    }
+
+    this.setData({
+      cacheMonths
     })
-
+  },
+  //根据当前月计算上个月和下个月
+  totalPreMonthAndNextMonth: function (currentMonth) {
+    const next = moment(currentMonth).add(1, 'M').format('YYYY-MM');
+    const pre = moment(currentMonth).subtract(1, 'M').format('YYYY-MM');
+    return [next, pre]
   }
-
-  this.setData({
-    cacheMonths
-  })
-},
-//根据当前月计算上个月和下个月
-totalPreMonthAndNextMonth: function(currentMonth) {
-  const next = moment(currentMonth).add(1, 'M').format('YYYY-MM');
-  const pre = moment(currentMonth).subtract(1, 'M').format('YYYY-MM');
-  return [next, pre]
-}
 })

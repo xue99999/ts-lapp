@@ -3,7 +3,8 @@
 const {
   apiCourseId,
   apiSection,
-  apiCourseCollectCourse
+  apiCourseCollectCourse,
+  payFreeCourse
 } = require('../../service/user.js');
 const {
   auth
@@ -40,7 +41,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
 
     console.log(options)
     auth();
@@ -81,14 +82,14 @@ Page({
   },
 
   // 滚动切换标签样式
-  switchTab: function(e) {
+  switchTab: function (e) {
     this.setData({
       currentTab: e.detail.current
     });
     this.checkCor();
   },
   // 点击标题切换当前页时改变样式
-  swichNav: function(e) {
+  swichNav: function (e) {
     var cur = e.target.dataset.current;
     if (this.data.currentTaB == cur) {
       return false;
@@ -104,48 +105,63 @@ Page({
     })
   },
   onClickSubscriber() {
-    if (this.data.isSubscibe > 0) {
-      
-      wx.showToast({
-        title: "当前课程已订阅 , 可直接观看",
-
-        // content:"",
-        icon: 'none',
-        duration: 2000
-      })
-      // wx.navigateTo({
-      //   url: '../course-video/course-video?courseId=' + id,
-      // })
-    } else 
-    {
-      wx.navigateTo({
-        url: '../pay/wx-pay/wx-pay?courseId=' + id + '&total=' + this.data.total + '&courseName=' + this.data.courseName + '&price=' + this.data.price
-      })
+    auth();
+    const data = {
+      courseId: id
     }
+    payFreeCourse(data).then(result => {
+      console.log(result)
+      if (result.returnCode === 201) {
+        wx.showToast({
+          title: "当前课程已订阅 , 可直接观看",
+          icon: 'none',
+          duration: 2000
+        })
+        this.setData({ isSubscibe: 1 })
+      }
+      else{
+            // 已订阅
+        if (this.data.isSubscibe > 0) {
+
+          wx.showToast({
+            title: "当前课程已订阅 , 可直接观看",
+            icon: 'none',
+            duration: 2000
+          })
+        } else {
+            // 未订阅
+          wx.navigateTo({
+            url: '../pay/wx-pay/wx-pay?courseId=' + id + '&total=' + this.data.total + '&courseName=' + this.data.courseName + '&price=' + this.data.price
+          })
+        }
+
+      }
+    });
+
   },
-  onShareAppMessage: function(ops) {
+  onShareAppMessage: function (ops) {
 
     if (ops.from === 'button') {
       // 来自页面内转发按钮
     }
-    const path=`/pages/course-details/course-details?id=${id}`;
+    const path = `/pages/course-details/course-details?id=${id}`;
 
     console.log(path)
     return {
       title: '她师小程序',
       path,
-      success: function(res) {
+      success: function (res) {
         // 转发成功
         wx.showToast({
           title: '分享成功',
           icon: 'none'
         })
       },
-      fail: function(res) {
+      fail: function (res) {
         // 转发失败
         wx.showToast({
           title: '取消分享',
-          icon:'none'
+          icon: 'none'
         })
       }
     }
@@ -175,9 +191,9 @@ Page({
       status: status
     }
 
-    apiCourseCollectCourse(data).then(result => {})
+    apiCourseCollectCourse(data).then(result => { })
   },
-  onShow: function() {
+  onShow: function () {
     apiCourseId(id).then(result => {
       if (result.code === 200) {
         WxParse.wxParse('remark', 'html', result.data.remark, this, 0);
@@ -197,14 +213,14 @@ Page({
     apiSection(id).then(result => {
       if (result.code === 200) {
 
-       const  {list}=result;
+        const { list } = result;
 
-       for(let i=0;i<list.length;i++){
-         if(list[i].duration){
-           list[i].duration = formatSeconds(list[i].duration)
-         }
-        
-       }
+        for (let i = 0; i < list.length; i++) {
+          if (list[i].duration) {
+            list[i].duration = formatSeconds(list[i].duration)
+          }
+
+        }
 
         this.setData({
           total: result.total,

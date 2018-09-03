@@ -3,7 +3,7 @@
     {{title}}
   </view>
 
-  <view wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark+item.sectionName}}">
+  <view wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark+item.sectionName}}" class='list_box'>
     <navigator class='list_view' url="{{url+'?id='+item.id}}">
       <i-row style="width:100%">
         <i-col span="6" i-class="col-class list-heigh">
@@ -32,11 +32,17 @@
           <i-col span="4">
             <i-col span="24" i-class="margin-top-50">
               <view wx:if="{{showAmount}}" class="list_item_text5">¥{{item.price}}</view>
+
             </i-col>
+
           </i-col>
+
         </i-col>
       </i-row>
     </navigator>
+    <view class='collect-view' data-id="{{item.id}}" data-status="{{item.status}}" bindtap='isCollect'>
+      <image class="collect-view-img"  src="{{item.status==='01'?'../../pages/img/collection1@3x.png':'../../pages/img/collect.png'}}"></image>
+    </view>
   </view>
 
 </view>
