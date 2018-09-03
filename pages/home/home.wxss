@@ -71,7 +71,7 @@
   letter-spacing: 3.3rpx;
 }
 .foot_texts{
-  margin-top: 181rpx;
+  margin-top: 131rpx;
   color: white;
   font-size: 28rpx;
   text-align: center;
