@@ -1,0 +1,15 @@
+<!-- 经期记录 -->
+<view class='view_heads'>
+  <view>平均天数 : {{menstrualTimesAvg}}</view>
+  <view>平均周期 : {{menstrualCycleAvg}}</view>
+</view>
+<view class='view_tr'>
+  <view>月经开始日期</view>
+  <view>经期天数</view>
+  <view>月经周期</view>
+</view>
+<view class='view_li' wx:for="{{list}}" wx:key>
+  <view>{{item.menstrualStartTime}}</view>
+  <view>{{item.menstrualTimes}}</view>
+  <view>{{item.menstrualCycle}}</view>
+</view>

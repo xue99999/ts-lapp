@@ -47,8 +47,8 @@ Page({
         code: '11'
       },
       {
-        name: '记录经期',
-        url: '../home/home?iscondition=true',
+        name: '经期记录',
+        url: '../my-record/record?iscondition=true',
         icon: '../img/record.png',
         code: '10'
       },

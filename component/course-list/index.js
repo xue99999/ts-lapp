@@ -1,5 +1,7 @@
 // component/course-list/index.js
-
+const {
+  apiCourseCollectCourse
+} = require('../../service/user.js');
 Component({
   /**
    * 组件的属性列表
@@ -35,12 +37,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
     isCollect(e) {
       const { id, status } = e.currentTarget.dataset
-      console.log(id, status)
+      console.log(this.data.list)
       if (this.data.isCollect === 0) {
-        this.setData({
+        this.setData({ 
           isCollect: 1
         })
       } else {
@@ -57,7 +58,7 @@ Component({
       }
 
       apiCourseCollectCourse(data).then(result => {
-        console.log('collect or no')
+        console.log(result)
       })
     },
   }

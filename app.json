@@ -28,7 +28,8 @@
     "pages/today-recommend/today-recommend",
     "pages/label-course/label-course",
     "pages/set-period/set-period",
-    "pages/my-help/my-help"
+    "pages/my-help/my-help",
+    "pages/my-record/record"
   ],
   "window": {
     "backgroundTextStyle": "light",

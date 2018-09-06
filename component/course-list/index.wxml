@@ -41,7 +41,7 @@
       </i-row>
     </navigator>
     <view class='collect-view' data-id="{{item.id}}" data-status="{{item.status}}" bindtap='isCollect'>
-      <image class="collect-view-img"  src="{{item.status==='01'?'../../pages/img/collection1@3x.png':'../../pages/img/collect.png'}}"></image>
+      <image class="collect-view-img"  src="{{item.status==='02'?'../../pages/img/collection1@3x.png':'../../pages/img/collect.png'}}"></image> 
     </view>
   </view>
 

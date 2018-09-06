@@ -173,6 +173,26 @@ function payFreeCourse(params) {
     params
   })
 }
+//查询宝宝按摩打卡
+function userInfoQueryBabyRecord(params) {
+  return get({
+    url: baseUrl + 'userInfo/queryBabyRecord/'+ params.day,
+  })
+}
+//更新宝宝按摩打卡
+function userInfoUpdateBabyRecord(params) {
+  return get({
+    url: baseUrl + 'userInfo/updateBabyRecord',
+    params
+  })
+}
+//月经周期记录
+function userInfoQueryMensesCycleList(params) {
+  return get({
+    url: baseUrl + 'userInfo/queryMensesCycleList',
+    params
+  })
+}
 module.exports = {
   ownerQuery,
   apiSection,
@@ -192,5 +212,8 @@ module.exports = {
   userInfoUpdateBodyStatus,
   apiCourseCollectCourse,
   userInfoUpdateMensAndOvulation,
-  payFreeCourse
+  payFreeCourse,
+  userInfoQueryBabyRecord,
+  userInfoUpdateBabyRecord,
+  userInfoQueryMensesCycleList,
 };

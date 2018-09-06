@@ -2,6 +2,23 @@ element.style {
   height: 400px;
 }
 
+.view_amtoast{
+/* border: 1px solid red; */
+}
+.view_amtoast image{
+  position: absolute;
+  top: 75%;
+  left: 4%;
+  width: 290rpx;
+  height: 70rpx;
+}
+.view_amtoast text{
+  position: absolute;
+  top: 76%;
+  left: 6.5%;
+  color: white;
+  font-size: 24rpx;
+}
 .box {
   position: fixed;
   width: 100%;

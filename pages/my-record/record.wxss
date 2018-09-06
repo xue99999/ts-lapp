@@ -1,0 +1,40 @@
+.view_heads {
+  width: 100%;
+  display: flex;
+}
+
+.view_heads view {
+  flex: 0.5;
+  text-align: center;
+  margin-top: 60rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+}
+
+.view_tr {
+  width: 100%;
+  line-height: 60rpx;
+  display: flex;
+  background: #ff9090;
+  color: white;
+  font-size: 28rpx;
+}
+
+.view_tr view {
+  width: 33.33%;
+  text-align: center;
+}
+
+.view_li {
+  width: 100%;
+  line-height: 70rpx;
+  display: flex;
+  font-size: 28rpx;
+  color: #FE6F70;
+  border-bottom: 1rpx solid #ff9090;
+}
+
+.view_li view {
+  width: 33.33%;
+  text-align: center;
+}

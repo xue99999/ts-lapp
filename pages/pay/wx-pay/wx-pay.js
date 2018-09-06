@@ -40,6 +40,7 @@ Page({
     })
   },
   onClickPay() {
+    console.log(input)
     var data = {
 
       // courseId: "a3999360b36a4cfe835e78c9189ccde0",

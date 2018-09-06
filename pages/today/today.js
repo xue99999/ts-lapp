@@ -6,7 +6,9 @@ const {
 } = require('../../utils/time.js');
 const {
   userInfoQueryBodyStatus,
-  userInfoUpdateBodyStatus
+  userInfoUpdateBodyStatus,
+  userInfoQueryBabyRecord,
+  userInfoUpdateBabyRecord,
 } = require('../../service/user.js')
 const resources = require('../../utils/resources.js');
 const {
@@ -31,7 +33,7 @@ Page({
     const {
       chiropractic,
       frictionalAbdomen
-    } = this.data.currentDay;
+    } = this.data.anmo;
     const {
       anmo
     } = this.data;
@@ -52,6 +54,7 @@ Page({
     userModel: '',
     isLaw: '',
     list: [],
+    amtoast:false,    
     today: moment().format('YYYY-MM-DD'),
     currentDay: {},
     formatDay: null,
@@ -73,14 +76,14 @@ Page({
     anmo: [{
 
         code: 'chiropractic',
-        name: '捏脊',
+        name: '捏脊,好棒哦!',
         select: false,
         imgUrl: '../img/nieji-@3x.png',
         curUrl: '../img/nieji@3x.png',
       },
       {
         code: 'frictionalAbdomen',
-        name: '摩腹',
+        name: '摩腹,好棒哦!',
         select: false,
         imgUrl: '../img/mofu@3x.png',
         curUrl: '../img/mofu-@3x.png',
@@ -89,15 +92,16 @@ Page({
   },
   // 更新身体信息
   updateStatus(data) {
+
     const {
       day
     } = this.data.currentDay;
-
-    userInfoUpdateBodyStatus({
+    console.log(day)
+    userInfoUpdateBabyRecord({
       day,
       ...data
     }).then(res => {
-
+      console.log(res)
       const {
         code,
         integral
@@ -105,11 +109,11 @@ Page({
       if (code === 200) {
         if (integral && integral > 0) {
           $Toast({
-            content: `积分+${integral}`,
+            content: `好棒哦!+${integral}积分`,
             mask: false,
-            duration: 1
+            duration: 2,     
           });
-
+          
         }
       }
 
@@ -127,6 +131,7 @@ Page({
   chooseImg: function(e) {
     const index = e.currentTarget.dataset.index;
     const list1 = this.data.anmo;
+    console.log(list1)
     let selectTag = false;
     for (let i = 0; i < list1.length; i++) {
       if (i == index) {
@@ -178,6 +183,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log('onLoad')
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('DD');
     let todays;
@@ -186,8 +192,8 @@ Page({
       days: currentWeek(),
       formatDay: day
     })
-
     this.query(day, day, day);
+
   },
   onShow: function() {
     if (!this.data.show) {
@@ -201,9 +207,11 @@ Page({
       today,
       days: currentWeek(),
       formatDay: day
+
     })
 
     this.query(day, day, day);
+    
   },
   /**
    * startDay 开始时间
@@ -212,6 +220,7 @@ Page({
    */
   query: function(startDay, endDay, cday) {
     const currentDay = moment(currentDay).format('YYYY-MM-D');
+
     var query = {
       startDay,
       endDay
@@ -268,8 +277,26 @@ Page({
           })
         }
       }
-
     })
+    var nasa = { day: this.data.formatDay }
+    userInfoQueryBabyRecord(nasa).then(res => {
+      console.log(res)
+      if(res.data){
+        const { anmo } = this.data
+        anmo[0]['select'] = res.data.chiropractic == '01' ? true : false
+        anmo[1]['select'] = res.data.frictionalAbdomen == '01' ? true : false
+        this.setData({ anmo })       
+      }
+      else{
+        $Toast({
+          content:`今天您给宝宝按摩了吗?`,
+          mask: false,
+          duration: 3
+        });
+      }
+    })
+    
+
   },
   // 拼接数据显示
   installText(dy) {
@@ -392,25 +419,23 @@ Page({
     })
   },
 
-  onShareAppMessage: function(options) {　　
-    var that = this;　　 // 设置菜单中的转发按钮触发转发事件时的转发内容
-    　　
-    var shareObj = {　　　　
-      title: "她师", // 默认是小程序的名称(可以写slogan等)
-      　　　　path: '/pages/today/today', // 默认是当前页面，必须是以‘/’开头的完整路径
-      　　　　imgUrl: '', //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
-      　　　　success: function(res) {　　　　　　 // 转发成功之后的回调
-        　　　　　　
-        if (res.errMsg == 'shareAppMessage:ok') {　　　　　　}　　　　
+
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '她师',
+      path: '/pages/home/home',//这里填写首页的地址,一般为/pages/xxxx/xxx
+      // imageUrl:'../img/placeholder.jpg',
+      success: function (res) {
+        // 转发成功
       },
-      　　　　fail: function() {　　　　　　 // 转发失败之后的回调
-        　　　　　　
-        if (res.errMsg == 'shareAppMessage:fail cancel') {　　　　　　　　 // 用户取消转发
-          　　　　　　} else if (res.errMsg == 'shareAppMessage:fail') {　　　　　　　　 // 转发失败，其中 detail message 为详细失败信息
-          　　　　　　}　　　　
-      }　　
+      fail: function (res) {
+        // 转发失败
+      }
     }
   }
-
 
 })
