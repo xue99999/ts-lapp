@@ -24,7 +24,11 @@
   margin-bottom: 20rpx;
 
 }
-
+.view_tshw{
+  color: #007ACC;
+  /* text-decoration-line: underline; */
+  border-bottom: 1px solid #007ACC;
+}
 
 .view_top_s {
   margin: 0 20rpx 0 20rpx;
@@ -94,4 +98,3 @@ swiper-item {
   line-height: 100rpx;
   border-bottom:0.5rpx solid gainsboro;
 }
-

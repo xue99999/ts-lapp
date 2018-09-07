@@ -3,7 +3,7 @@
     {{title}}
   </view>
 
-  <view wx:for="{{list}}" wx:for-item="item" wx:key="{{item.remark+item.sectionName}}" class='list_box'>
+  <view wx:for="{{list}}" wx:for-item="item"  wx:for-index="bindex" wx:key="{{item.remark+item.sectionName}}" class='list_box'>
     <navigator class='list_view' url="{{url+'?id='+item.id}}">
       <i-row style="width:100%">
         <i-col span="6" i-class="col-class list-heigh">
@@ -40,8 +40,8 @@
         </i-col>
       </i-row>
     </navigator>
-    <view class='collect-view' data-id="{{item.id}}" data-isCollect="{{item.isCollect}}" bindtap='isCollect'>
-      <image class="collect-view-img" src="{{item.isCollect=='0'? collection1 : collect }}"></image> 
+    <view class='collect-view' data-id="{{item.id}}" data-bindex='{{bindex}}' data-isCollect="{{item.isCollect}}" bindtap='isCollect'>
+      <image class="collect-view-img" src="{{item.isCollect == 0 ? collection1 : collect }}"></image> 
     </view>
   </view>
 
