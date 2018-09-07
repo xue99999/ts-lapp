@@ -2,6 +2,9 @@
 const {
   apiCourseCollectCourse
 } = require('../../service/user.js');
+const {
+  auth
+} = require('../../utils/auth.js');
 Component({
   /**
    * 组件的属性列表
@@ -27,10 +30,12 @@ Component({
    * 组件的初始数据
    */
   data: {
-    title:null,
-    isCollect: -1,
+    isCollect: 0,
     list: [],
     url: '/pages/course-details/course-details',
+    collection1:'../../pages/img/collection1@3x.png',
+    collect:'../../pages/img/collect.png'
+    
   },
 
   /**
@@ -38,27 +43,45 @@ Component({
    */
   methods: {
     isCollect(e) {
-      const { id, status } = e.currentTarget.dataset
-      console.log(this.data.list)
-      if (this.data.isCollect === 0) {
-        this.setData({ 
-          isCollect: 1
+      const { id, isCollect } = e.currentTarget.dataset;
+      console.log('isCollect---', this.data.isCollect)
+      const that = this;
+      let status;
+      console.log(e)
+      
+      if (this.data.isCollect == '0') {
+        that.setData({ 
+          isCollect: 1,
+          hello: 'world++++',
         })
+        status = "01";
       } else {
-        this.setData({
-          isCollect: 0
+        that.setData({
+          isCollect: 0,
+          hello: 'world----',
         })
+        status = "02";
       }
-      this.getApiCourseCollectCourse(id, status);
+      console.log('this.data.isCollect---', this.data);
+      this.getApiCourseCollectCourse(id,status);
     },
-    getApiCourseCollectCourse(id, status) {
+    getApiCourseCollectCourse(id,status) {
       var data = {
         courseId: id,
-        status: status === '01' ? '02' : '01'
+        status: status
       }
-
       apiCourseCollectCourse(data).then(result => {
         console.log(result)
+        const { list } = this.data
+        for(let i=0;i<list.length;i++){
+          if(id==list[i].id){
+            list[i]['isCollect'] = 1;
+
+          }
+          this.setData({ list })
+        }
+        
+       
       })
     },
   }

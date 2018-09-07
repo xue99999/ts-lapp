@@ -191,7 +191,9 @@ Page({
       status: status
     }
 
-    apiCourseCollectCourse(data).then(result => { })
+    apiCourseCollectCourse(data).then(result => {
+      console.log(result)
+     })
   },
   onShow: function () {
     apiCourseId(id).then(result => {

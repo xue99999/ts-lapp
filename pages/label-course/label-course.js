@@ -36,6 +36,7 @@ Page({
 
 
   },
+
   getApiCourseSeriesList(page, label) {
     console.log('label', label);
     var data = {
