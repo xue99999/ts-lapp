@@ -110,7 +110,7 @@ Page({
       courseId: id
     }
     payFreeCourse(data).then(result => {
-      console.log(result)
+      // console.log(result)
       if (result.returnCode === 201) {
         wx.showToast({
           title: "当前课程已订阅 , 可直接观看",

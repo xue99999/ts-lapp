@@ -111,7 +111,7 @@ Page({
           $Toast({
             content: `好棒哦!+${integral}积分`,
             mask: false,
-            duration: 2,     
+            duration: 3,     
           });
           
         }
@@ -147,7 +147,7 @@ Page({
           $Toast({
             content: list1[i].name,
             mask: false,
-            duration: 0.5
+            duration: 1.5
           });
         }
       }
@@ -295,7 +295,7 @@ Page({
           this.setData({
             amtoast: false
           })
-        },3000)
+        },5000)
         // $Toast({
         //   content:`今天您给宝宝按摩了吗?`,
         //   mask: false,

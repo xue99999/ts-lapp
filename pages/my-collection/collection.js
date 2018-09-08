@@ -57,7 +57,9 @@ Page({
 onPullDownRefresh: function() {
   this.getapiCourseCollectList(1);
 },
-
+  onShow() {
+    this.getapiCourseCollectList(page)
+  },
 /**
  * 页面上拉触底事件的处理函数
  */

@@ -450,7 +450,7 @@ Component({
             $Toast({
               content: list1[i].name,
               mask: false,
-              duration: 0.5
+              duration: 3
             });
           }
         }

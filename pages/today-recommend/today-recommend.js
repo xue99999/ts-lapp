@@ -108,4 +108,7 @@ Page({
     })
 
   },
+  onShow() {
+    this.getData(page)
+  },
 })

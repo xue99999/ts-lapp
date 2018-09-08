@@ -4,14 +4,16 @@ const {
 } = require('../../../service/user.js');
 var input = '';
 var id;
-const { auth } = require('../../../utils/auth.js');
+
+const {
+  auth
+} = require('../../../utils/auth.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
     total: "",
     courseName: "",
     price: 0,
@@ -41,14 +43,13 @@ Page({
   },
   onClickPay() {
     console.log(input)
-    var data = {
-
-      // courseId: "a3999360b36a4cfe835e78c9189ccde0",
+    var datas = {};
+    datas = {
       courseId: id,
       ticketCode: input
     };
-
-    payUnifiedorder(data).then(result => {
+    console.log(datas)
+    payUnifiedorder(datas).then(result => {
       // 企业兑换码code=503的时候不进行支付并且return 
       if (result.code === 666) {
         wx.showToast({
@@ -56,7 +57,7 @@ Page({
           icon: 'none',
           duration: 2000
         })
-        console.log('企业兑换码')
+        console.log('企业兑换码', result.msg)
         return;
       };
       //当前课程已经购买
@@ -70,9 +71,10 @@ Page({
         return;
       };
       if (result.code === 200) {
+        input = '';
         if (result.returnCode === 201) {
           wx.redirectTo({
-             url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
+            url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
           })
           console.log('200成功')
           return;
@@ -97,10 +99,14 @@ Page({
 
         })
       }
+
     })
+    input = '';
+
+
   },
   bindObtain: function(e) {
     input = e.detail.value;
-    
+    console.log('bindObtain',input)
   }
 })
