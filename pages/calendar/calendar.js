@@ -175,7 +175,6 @@ Page({
     })
   },
   initRecord(day) {
-    console.log('ggggggggg', day)
     if (!day) {
       return;
     }
@@ -208,8 +207,6 @@ Page({
         //初始化选中
         const cday = moment(day).format('D');
         // const cdays = moment(day).subtract('months').format('YYYYMD')
-
-        console.log('sssss', cday)
         // console.log('dddddddddddddddddddd',cdays)
         for (let i = 0; i < dateArr.length; i++) {
           const obj = dateArr[i];

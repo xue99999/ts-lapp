@@ -85,7 +85,7 @@
       <image src='../img/add@3x.png'></image>
     </view>
   </view>
-  <view class='view_amtoast' wx:if="{{amtoast}}">
+  <view class='view_amtoast' wx:if="{{currentDay.userModel==='02' && amtoast}}">
     <image src='../img/addimg/bubble@3x.png'></image>
     <text>今天您给宝宝按摩了吗?</text>
   </view>

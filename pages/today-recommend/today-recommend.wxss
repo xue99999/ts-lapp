@@ -27,7 +27,7 @@
 .view_tshw{
   color: #007ACC;
   /* text-decoration-line: underline; */
-  border-bottom: 1px solid #007ACC;
+  /* border-bottom: 1px solid #007ACC; */
 }
 
 .view_top_s {

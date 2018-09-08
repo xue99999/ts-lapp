@@ -64,7 +64,7 @@ Component({
       }
 
       for (let o = 0; o < menstrualVolumes.length; o++) {
-        console.log('=====', o, index)
+        // console.log('=====', o, index)
         if (o == index) {
           menstrualVolumes[o].select = true;
         } else {

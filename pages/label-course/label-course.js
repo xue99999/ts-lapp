@@ -3,11 +3,14 @@ const {
   apiCourseSeriesList,
 
 } = require('../../service/user.js');
-const { auth } = require('../../utils/auth.js')
+const {
+  auth
+} = require('../../utils/auth.js')
 var page = 1,
   rows = 20,
   label;
 var CourseList = [];
+let hasMore = true
 Page({
 
   /**
@@ -25,7 +28,7 @@ Page({
    */
   onLoad: function(options) {
     auth();
-    label = options.label||"";
+    label = options.label || "";
     if (label !== "") {
       wx.setNavigationBarTitle({
         title: "精选课程" //页面标题为路由参数
@@ -36,6 +39,13 @@ Page({
 
 
   },
+  // onMyEvent: function (e) {
+  //   console.log(e.detail)
+  //   const idx = e.detail
+  //   const { list } = this.data
+  //   list[idx].isCollect == 0 ? 1 : 0
+  //   this.setData({ list })
+  // },
 
   getApiCourseSeriesList(page, label) {
     console.log('label', label);
@@ -48,26 +58,26 @@ Page({
       var that = this;
       console.log('全部课程', result);
       var list = that.data.list;
-     if (result.code === 200) {
+      if (result.code === 200) {
         if (page > 1) {
-          for (var i = 0; i < result.list.length; i++) {
-            list.push(result.list[i]);
+          list.concat(result.list)
+          if (result.list.length < rows) {
+            hasMore = false
           }
         } else {
-          list = [];
           list = result.list;
         }
         that.setData({
-          list: list
+          list
         })
 
-   }else{
-       getApp().getShouHint();
-   }
+      } else {
+        getApp().getShouHint();
+      }
 
     })
 
-    
+
   },
 
   /**
@@ -81,7 +91,15 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    if (!hasMore) {
+      return
+    }
+
+    const {
+      list
+    } = this.data
     page += 1;
+
     this.getApiCourseSeriesList(page, label)
   }
 

@@ -52,7 +52,7 @@ Page({
 
   },
   bindPickerChange: function (e) {
-    const index = (e.detail.value * 1) + 1;
+    const index = (e.detail.value * 1) + 10;
     // console.log('月经有多长' + menstrualCycle + '天')
     this.setData({
       menstrualCycle: index

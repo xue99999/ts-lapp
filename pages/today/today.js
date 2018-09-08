@@ -288,16 +288,26 @@ Page({
         this.setData({ anmo })       
       }
       else{
-        $Toast({
-          content:`今天您给宝宝按摩了吗?`,
-          mask: false,
-          duration: 3
-        });
+        this.setData({
+          amtoast:true
+        })
+        setTimeout(_ => {
+          this.setData({
+            amtoast: false
+          })
+        },3000)
+        // $Toast({
+        //   content:`今天您给宝宝按摩了吗?`,
+        //   mask: false,
+        //   duration: 3
+        // });
+
       }
     })
     
 
   },
+  
   // 拼接数据显示
   installText(dy) {
     //如果是预测，则显示预测第x天

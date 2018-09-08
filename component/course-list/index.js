@@ -66,17 +66,16 @@ Component({
         console.log('取消收藏')
       }
       console.log('this.data.isCollect---', this.data);
-      this.getApiCourseCollectCourse(id, status);
+      this.getApiCourseCollectCourse(id, status, bindex);
     },
-    getApiCourseCollectCourse(id, status) {
+    getApiCourseCollectCourse(id, status, bindex) {
       var data = {
         courseId: id,
         status: status
       }
       apiCourseCollectCourse(data).then(result => {
         console.log(result)
-
-
+        this.triggerEvent('myevent', bindex)
       })
     },
   }

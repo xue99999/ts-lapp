@@ -1,4 +1,4 @@
 <!--课程标签-->
 <view class='inclusion'>
- <course-list list="{{list}}"></course-list>
+ <course-list list="{{list}}" bindmyevent="onMyEvent" ></course-list>
 </view>

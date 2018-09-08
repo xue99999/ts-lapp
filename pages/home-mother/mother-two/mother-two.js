@@ -39,7 +39,7 @@ Page({
   },
   // 日期选择
   bindChange: function (e) {
-    const index = (e.detail.value * 1) + 1;
+    const index = (e.detail.value * 1) + 2;
     console.log(index)
     this.setData({
       menstrualTimes: index
