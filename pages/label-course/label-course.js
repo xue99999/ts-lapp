@@ -71,15 +71,16 @@ Page({
           list
         })
 
-      } else {
-        getApp().getShouHint();
       }
 
     })
 
 
   },
-
+  onShow:function(){
+    console.log('触发onshow方法')
+    this.getApiCourseSeriesList(page,label)
+  },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */

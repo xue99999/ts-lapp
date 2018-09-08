@@ -56,6 +56,7 @@ Page({
           icon: 'none',
           duration: 2000
         })
+        console.log('企业兑换码')
         return;
       };
       //当前课程已经购买
@@ -65,6 +66,7 @@ Page({
           icon: 'none',
           duration: 2000
         })
+        console.log('课程已购买')
         return;
       };
       if (result.code === 200) {
@@ -72,6 +74,7 @@ Page({
           wx.redirectTo({
              url: '/pages/pay/wx-status/wx-status?orderNo=' + result.data.orderNo + '&id=' + id
           })
+          console.log('200成功')
           return;
         }
         const wechat = result.data.wechat;
@@ -98,5 +101,6 @@ Page({
   },
   bindObtain: function(e) {
     input = e.detail.value;
+    
   }
 })

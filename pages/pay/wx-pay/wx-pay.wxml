@@ -16,7 +16,7 @@
 </view>
 <view class='view_pay2'>
     <text class='view_pay_text_left'> 企业兑换码</text>
-      <input class='view_pay_input_right' type="text" cursor='' bindblur="bindObtain" auto-focus placeholder="请输入您的企业兑换码"/>
+      <input class='view_pay_input_right' type="text" cursor='' bindinput="bindObtain" auto-focus placeholder="请输入您的企业兑换码"/>
 </view>
 <view class='view_pay1'>
     <text class='view_pay_text_left'> 总价</text>

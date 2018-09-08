@@ -35,14 +35,6 @@ App({
     },
   
   },
-  //当页面没有数据的时候调用次方法
-  // getShouHint() {
-  //   wx.showToast({
-  //     title: '服务器走散了',
-  //     icon: 'none',
-  //     duration: 1500
-  //   })
-  // },
   setStorageSync: function(key, value) {
     try {
       console.log('同步缓存数据', value);

@@ -7,14 +7,14 @@ element.style {
 }
 .view_amtoast image{
   position: absolute;
-  top: 75%;
+  top: 71%;
   left: 4%;
   width: 290rpx;
   height: 70rpx;
 }
 .view_amtoast text{
   position: absolute;
-  top: 76%;
+  top: 72%;
   left: 6.5%;
   color: white;
   font-size: 24rpx;
