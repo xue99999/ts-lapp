@@ -13,6 +13,7 @@ Page({
   data: {
     list: [],
     shows:false,
+    view_load:true,
     url: '../course-details/course-details',
   },
   /**
@@ -58,6 +59,13 @@ onPullDownRefresh: function() {
   this.getapiCourseCollectList(1);
 },
   onShow() {
+
+    setTimeout(_ => {
+
+      this.setData({
+        view_load: false
+      })
+    },2000)
     this.getapiCourseCollectList(page)
   },
 /**

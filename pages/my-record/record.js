@@ -8,8 +8,8 @@ Page({
    */
   data: {
     list:[],
-    menstrualCycleAvg: 0,
-    menstrualTimesAvg: 0,
+    menstrualCycleAvg: '00',
+    menstrualTimesAvg: '00',
   },
   /**
    * 生命周期函数--监听页面加载

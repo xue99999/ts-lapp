@@ -80,26 +80,38 @@ Page({
   onShow:function(){
     console.log('触发onshow方法')
     this.getApiCourseSeriesList(page,label)
+    console.log(page)
+      // var data = {
+      //   page: page,
+      //   rows: rows,
+      //   label: label
+      // }
+      // apiCourseSeriesList(data).then(result => {
+      //   console.log('全部课程', result);
+
+      // })
+
+
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    this.getApiCourseSeriesList(1, label);
+    this.getApiCourseSeriesList(page, label);
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    if (!hasMore) {
-      return
-    }
+    // if (!hasMore) {
+    //   return
+    // }
 
-    const {
-      list
-    } = this.data
-    page += 1;
+    // const {
+    //   list
+    // } = this.data
+    // page += 1;
 
     this.getApiCourseSeriesList(page, label)
   }
