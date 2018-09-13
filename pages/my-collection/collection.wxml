@@ -1,15 +1,12 @@
 <!--我的收藏-->
 <view class='inclusion'>
   <view class='scroll_view' scroll-y="true" wx:if="{{list.length}}">
-   <course-list showAmount="{{true}}" list="{{list}}"></course-list>
+    <course-list showAmount="{{true}}" list="{{list}}"></course-list>
   </view>
-  <view>
-  <view wx:if="{{view_load}}" class='view_kong'>正在请求数据，请稍等...</view>
-    <view class='view_boxs' wx:else>
-      <image src='../img/zanwu.png'></image>
-      <view class='view_kong'>暂无数据</view>
+  <view class='view_boxs' wx:else>
+    <image src='../img/zanwu.png'></image>
+    <view class='view_kong'>暂无数据</view>
   </view>
-  </view>
-
+  <!-- <view wx:if="{{view_load}}" class='view_kong'>正在请求数据，请稍等...</view> -->
 
 </view>

@@ -4,6 +4,7 @@ const {
   auth
 } = require('../../utils/auth.js');
 const {
+  userInfoAdd,
   loginWithCode,
   userInfoQueryBodyStatus
 } = require('../../service/user.js');
@@ -17,7 +18,6 @@ Page({
     shaonv: null
   },
   onLoad: function(option) {
-
     if (!option.iscondition) {
       this.getDataDay()
       auth();
@@ -42,6 +42,15 @@ Page({
       url: '../home-mother/mother-one/mother-one',
     })
   },
+  notrecord(){
+    var data={}
+    userInfoAdd(data).then(res=>{
+      console.log(res)
+      wx.switchTab({
+        url: '../today/today',
+      })
+    })
+  },
   getDataDay() {
     const day = moment().format('YYYY-MM-DD');
     var data = {
@@ -51,16 +60,17 @@ Page({
     userInfoQueryBodyStatus(data).then(result => {
       if (result.code === 200) {
      
-        if (result.userModel) {
+        if (result.birthday) {
           wx.switchTab({
             url: '../today/today',
           })
-        } else {
-          console.log('dddddd2');
-          wx.redirectTo({
-            url: '../home/home',
-          })
-        }
+        } 
+        // else {
+        //   console.log('dddddd2');
+        //   wx.redirectTo({
+        //     url: '../home/home',
+        //   })
+        // }
       }
     })
   },

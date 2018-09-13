@@ -5,11 +5,18 @@
   width: 100%;
   height: 100%;
   background: #fe6f71;
-  padding-top: 63px;
-}
 
+}
+.heads_notrecord{
+  color: white;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 20rpx;
+  margin-top:20rpx;
+}
 .imgs {
-  /* text-align: center;   */
+  margin-top: 43px;
 }
 
 .imgs image {

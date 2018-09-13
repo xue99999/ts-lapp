@@ -602,7 +602,7 @@ Page({
   //根据当前月计算上个月和下个月
   totalPreMonthAndNextMonth: function (currentMonth) {
     const next = moment(currentMonth).add(1, 'M').format('YYYY-MM');
-    const pre = moment(currentMonth).subtract(1, 'M').format('YYYY-MM');
+   const pre = moment(currentMonth).subtract(1, 'M').format('YYYY-MM');
     return [next, pre]
   }
 })

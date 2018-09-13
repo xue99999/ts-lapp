@@ -1,5 +1,6 @@
 {
   "pages": [
+        "pages/today/today",
     "pages/home/home",
     "pages/index/index",
     "pages/mycourse/course",
@@ -9,7 +10,7 @@
     "pages/period/period-two/period-two",
     "pages/period/period-three/period-three",
     "pages/period/period-four/period-four",
-    "pages/today/today",
+
     "pages/my-collection/collection",
     "pages/course-details/course-details",
     "pages/home-mother/mother-one/mother-one",

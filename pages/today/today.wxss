@@ -2,23 +2,26 @@ element.style {
   height: 400px;
 }
 
-.view_amtoast{
-/* border: 1px solid red; */
+.view_amtoast {
+  /* border: 1px solid red; */
 }
-.view_amtoast image{
+
+.view_amtoast image {
   position: absolute;
   top: 71%;
   left: 4%;
   width: 290rpx;
   height: 70rpx;
 }
-.view_amtoast text{
+
+.view_amtoast text {
   position: absolute;
   top: 72%;
   left: 6.5%;
   color: white;
   font-size: 24rpx;
 }
+
 .box {
   position: fixed;
   width: 100%;
@@ -107,6 +110,15 @@ element.style {
   color: #fe6f71;
 }
 
+.view_notrecord {
+  font-size: 40rpx;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 0%;
+  color: #fe6f71;
+}
+
 /* .view-img .view-inner view {
   margin: 40rpx 0;
 } */
@@ -166,7 +178,7 @@ element.style {
   line-height: 65rpx;
   border-radius: 25px;
   text-align: center;
-  background: #FB5254;
+  background: #fb5254;
   color: white;
   font-size: 28rpx;
   margin-top: 50rpx;
@@ -177,7 +189,7 @@ element.style {
   line-height: 65rpx;
   border-radius: 25px;
   /* text-align: center; */
-  background: #FB5254;
+  background: #fb5254;
   color: white;
   font-size: 28rpx;
   margin-top: 46rpx;
@@ -261,10 +273,32 @@ element.style {
 
 .view-menstrualStartTime {
   margin-top: 250rpx;
-  font-size: 27rpx;
+  font-size: 28rpx;
 }
 
 .view-days {
   margin-top: 50rpx;
   font-size: 42.6rpx;
+}
+
+.view_notrecord_text {
+  margin-top: 250rpx;
+  font-size: 30rpx;
+  color: #9d7578;
+}
+
+.view_notrecord_days {
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  color: #9d7578;
+}
+
+.view_notrecord_btn {
+  width: 186rpx;
+  line-height: 65rpx;
+  border-radius: 25px;
+  background: #FFBCC2;
+  color: white;
+  font-size: 28rpx;
+  margin-top: 46rpx;
 }

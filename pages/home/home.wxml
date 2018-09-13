@@ -1,5 +1,6 @@
 <!--pages/home/home.wxml-->
 <view class='heads'>
+  <view class='heads_notrecord' bindtap='notrecord'>暂不记录 >></view>
   <view class='imgs'>
     <image src='../img/tslogo.png'></image>
   </view>

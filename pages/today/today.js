@@ -92,7 +92,7 @@ Page({
   },
   // 更新身体信息
   updateStatus(data) {
-
+console.log(data)
     const {
       day
     } = this.data.currentDay;
@@ -196,9 +196,9 @@ Page({
 
   },
   onShow: function() {
-    if (!this.data.show) {
-      return;
-    }
+    // if (!this.data.show) {
+    //   return;
+    // }
 
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('DD');
@@ -212,6 +212,11 @@ Page({
 
     this.query(day, day, day);
     
+  },
+  recordPeriod:function(){
+    wx.navigateTo({
+      url: '../home/home',
+    })
   },
   /**
    * startDay 开始时间
@@ -251,7 +256,7 @@ Page({
           if (isLaw === '01') {
             showObj = {
               shouyun: this.getShouyunText(physiologicalCycle),
-              predictDay: predictDay ? (predictDay > 0 ? `距离经期还有${predictDay}天` : `${-predictDay}`) : '',
+              predictDay: predictDay ? (predictDay > 0 ? `距离经期还有${predictDay}天` : (isPredict==='0' ? `推迟了${-predictDay}天` : `${-predictDay}`)) : '',
               //下半部显示信息
               // lastText: this.installText(dy),
               top: `${physiologicalCycle === '02' && isPredict === '0' ? '预测 : ' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
@@ -296,11 +301,6 @@ Page({
             amtoast: false
           })
         },5000)
-        // $Toast({
-        //   content:`今天您给宝宝按摩了吗?`,
-        //   mask: false,
-        //   duration: 3
-        // });
 
       }
     })

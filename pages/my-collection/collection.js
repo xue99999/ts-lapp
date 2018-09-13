@@ -12,7 +12,6 @@ Page({
    */
   data: {
     list: [],
-    shows:false,
     view_load:true,
     url: '../course-details/course-details',
   },
@@ -67,6 +66,7 @@ onPullDownRefresh: function() {
       })
     },2000)
     this.getapiCourseCollectList(page)
+    
   },
 /**
  * 页面上拉触底事件的处理函数
