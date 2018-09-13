@@ -13,7 +13,7 @@ Component({
   properties: {
     currentDay: {
       type: Object,
-      value: false
+      value: false,
     },
     //是否显示日历,默认不显示
     show: {
@@ -483,20 +483,6 @@ Component({
       } = this.data;
 
       if (tag) {
-        //switch 目前是关的
-        // currentDay['menstrualStatus'] = '02';
-
-        // that.updateStatus({
-        //     menstrualStatus: '01'
-        //   }).then(res => {
-        //     if (res.code == 200) {
-        //       currentDay['menstrualStatus'] = '01';
-        //       this.setData({
-        //         currentDay
-        //       })
-        //     }
-        //   })
-
         currentDay['menstrualStatus'] = '01';
         this.setData({
           currentDay
@@ -505,27 +491,6 @@ Component({
           menstrualStatus: '01'
         })
       } else {
-        //switch 目前是开的
-        // currentDay['menstrualStatus'] = '01';
-
-        // if (currentDay.predictStart === currentDay.day) {
-        //   wx.showModal({
-        //     // title: '提示',
-        //     content: `您已在${currentDay.predictStart}标记了月经开始日，确定要关闭月经期吗?`,
-        //     success: function(res) {
-        //       that.updateStatus({
-        //           menstrualStatus: '02'
-        //       }).success(res => {
-        //           if (res.code == 200) {
-        //             currentDay['menstrualStatus'] = '02';
-        //             this.setData({
-        //               currentDay
-        //             })
-        //           }
-        //         })
-        //     },
-        //   })
-        // }
 
 
         currentDay['menstrualStatus'] = '02';
@@ -1090,7 +1055,8 @@ Component({
 
         const {
           code,
-          integral
+          integral,
+          message,
         } = res;
         if (code === 200) {
           if (integral && integral > 0) {
@@ -1102,7 +1068,16 @@ Component({
 
           }
         }
-
+        if (message){
+          // $Toast({
+          //   content: `${message}`,
+          //   mask: false,
+          //   duration: 3
+          // });
+          this.setData({
+            message:true,
+          })
+        }
 
 
         this.triggerEvent('myevent', { ...res

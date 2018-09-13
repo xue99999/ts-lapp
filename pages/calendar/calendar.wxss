@@ -51,7 +51,7 @@
   font-size: 40rpx;
   color: #282828;
   text-align: center;
-  margin: 30rpx auto 10rpx;
+  margin: 20rpx auto 10rpx;
 }
 
 .lt-arrow, .rt-arrow {
@@ -64,7 +64,12 @@
 .boss {
   margin-bottom: 20rpx;
 }
-
+.date_showphysiologicalCycle{
+  text-align: center;
+  line-height: 70rpx;
+  background: #F7C7CC;
+  color: #FE6F71;
+}
 .lt-arrow image, .rt-arrow image {
   width: 14rpx;
   height: 26rpx;

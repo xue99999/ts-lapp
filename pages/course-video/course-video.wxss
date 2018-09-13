@@ -200,10 +200,10 @@ margin-left: 40rpx;
 }
 .i_text{
   width: 726rpx;
-  height: 70rpx;
-  margin-left: 24rpx;
-  font-size: 22rpx;
-  line-height: 70rpx;
+  height: 90rpx;
+  margin-left: 48rpx;
+  font-size: 44rpx;
+  line-height: 90rpx;
   text-align: left;
   display: block;
   color: #818080;

@@ -1,4 +1,5 @@
 <view class='wrap'>
+  <view class='date_showphysiologicalCycle' wx:if="{{message}}">{{message}}</view>
   <view class='date-show'>
     <view class='lt-arrow cwj-icon cwj-calendar-icon-left' bindtap='lastMonth'>
     </view>
@@ -16,8 +17,8 @@
 
   <view class='header'>
   </view>
-  <!-- <swiper circular="true" class='swpier-box'> -->
-    <!-- <swiper-item class="swiper_items" bindchange="{{swiperchange}}"> -->
+  <swiper circular="true" class='swpier-box'>
+    <swiper-item class="swiper_items" bindchange="{{swiperchange}}">
       <view class='date-box' bindtouchstart="touchS" bindtouchend="touchE">
         <view class='date-view' wx:for='{{dateArr}}' wx:key data-date='{{item.isToday}}' data-index='{{index}}' data-day='{{item.dateNum}}' bindtap='rili'>
           <view class="date-head {{item.isSelect?'day-select':''}}">
@@ -31,8 +32,8 @@
           </view>
         </view>
       </view>
-    <!-- </swiper-item> -->
-  <!-- </swiper> -->
+    </swiper-item>
+  </swiper>
   <view class='view-list'>
     <view class='view-jing'>
       <image src='/pages/img/pink@3x.png'></image>

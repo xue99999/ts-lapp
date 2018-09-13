@@ -53,8 +53,9 @@ Page({
     days: [],
     userModel: '',
     isLaw: '',
+    menstrualTimes:'',
     list: [],
-    amtoast:false,    
+    amtoast: false,
     today: moment().format('YYYY-MM-DD'),
     currentDay: {},
     formatDay: null,
@@ -92,7 +93,7 @@ Page({
   },
   // 更新身体信息
   updateStatus(data) {
-console.log(data)
+    console.log(data)
     const {
       day
     } = this.data.currentDay;
@@ -111,9 +112,9 @@ console.log(data)
           $Toast({
             content: `好棒哦!+${integral}积分`,
             mask: false,
-            duration: 3,     
+            duration: 3,
           });
-          
+
         }
       }
 
@@ -211,9 +212,9 @@ console.log(data)
     })
 
     this.query(day, day, day);
-    
+
   },
-  recordPeriod:function(){
+  recordPeriod: function() {
     wx.navigateTo({
       url: '../home/home',
     })
@@ -237,7 +238,7 @@ console.log(data)
       const {
         list = [],
           userModel,
-          isLaw,
+          isLaw
       } = res;
       app.globalData.bodyStatus = list;
       for (let i = 0; i < list.length; i++) {
@@ -256,14 +257,16 @@ console.log(data)
           if (isLaw === '01') {
             showObj = {
               shouyun: this.getShouyunText(physiologicalCycle),
-              predictDay: predictDay ? (predictDay > 0 ? `距离经期还有${predictDay}天` : (isPredict==='0' ? `推迟了${-predictDay}天` : `${-predictDay}`)) : '',
+              predictDay: predictDay ? (predictDay > 0 ? `距离经期还有${predictDay}天` : (isPredict === '0' ? `推迟了${-predictDay}天` : `${-predictDay}`)) : '',
+              predictDays: predictDay ? (predictDay > 0 ? `距离经期还有${predictDay}天` : (`${predictDay}` == -1 ? `预测月经第${-predictDay}天` : (`${predictDay}` < 0 && `${predictDay}` != -1 ? `推迟了${-predictDay}天`:''))) : '',
               //下半部显示信息
               // lastText: this.installText(dy),
               top: `${physiologicalCycle === '02' && isPredict === '0' ? '预测 : ' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
+              startDay: `预测开始${day}`
             }
 
           }
-
+            
           if (isLaw === '02') {
             showObj = {
               predictDay: `${-predictDay}`,
@@ -278,36 +281,41 @@ console.log(data)
             currentDay: dy,
             showObj,
             userModel,
-            isLaw,
+            isLaw
           })
         }
       }
     })
-    var nasa = { day: this.data.formatDay }
+    var nasa = {
+      day: this.data.formatDay
+    }
     userInfoQueryBabyRecord(nasa).then(res => {
       console.log(res)
-      if(res.data){
-        const { anmo } = this.data
+      if (res.data) {
+        const {
+          anmo
+        } = this.data
         anmo[0]['select'] = res.data.chiropractic == '01' ? true : false
         anmo[1]['select'] = res.data.frictionalAbdomen == '01' ? true : false
-        this.setData({ anmo })       
-      }
-      else{
         this.setData({
-          amtoast:true
+          anmo
+        })
+      } else {
+        this.setData({
+          amtoast: true
         })
         setTimeout(_ => {
           this.setData({
             amtoast: false
           })
-        },5000)
+        }, 5000)
 
       }
     })
-    
+
 
   },
-  
+
   // 拼接数据显示
   installText(dy) {
     //如果是预测，则显示预测第x天
@@ -430,19 +438,19 @@ console.log(data)
   },
 
 
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     if (res.from === 'button') {
       // 来自页面内转发按钮
       console.log(res.target)
     }
     return {
       title: '她师',
-      path: '/pages/home/home',//这里填写首页的地址,一般为/pages/xxxx/xxx
+      path: '/pages/home/home', //这里填写首页的地址,一般为/pages/xxxx/xxx
       // imageUrl:'../img/placeholder.jpg',
-      success: function (res) {
+      success: function(res) {
         // 转发成功
       },
-      fail: function (res) {
+      fail: function(res) {
         // 转发失败
       }
     }

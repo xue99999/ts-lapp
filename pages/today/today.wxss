@@ -208,9 +208,11 @@ element.style {
   color: #fb5254;
   font-size: 40rpx;
 }
-
+.view-predictDays{
+  margin-top: 260rpx;
+}
 .view-physiologicalCycles {
-  margin-top: 20rpx;
+  margin-top: 22rpx;
   font-size: 33.3rpx;
   color: #fb7274;
 }
@@ -236,11 +238,16 @@ element.style {
   font-size: 90rpx;
   color: #fb5254;
 }
-
-.view-an {
+.view-text_sizes{
+  margin-top: 30rpx;
+  font-size: 40rpx;
+  color: #fb5254;
+}
+.view-an {  
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: #fb5254;
   font-size: 26rpx;
 }
@@ -260,14 +267,17 @@ element.style {
 }
 
 .view-mo text {
-  margin-left: 14rpx;
+  /* margin-left: 14rpx; */
   font-size: 35rpx;
 }
-
+.view-mo1{
+  width: 15%;
+  display: flex;
+  justify-content: center;
+}
 .view-mo1 image {
   width: 40rpx;
   height: 40rpx;
-  margin-left: 58rpx;
   margin-top: 10rpx;
 }
 
