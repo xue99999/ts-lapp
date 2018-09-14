@@ -6,6 +6,9 @@ const {
 const {
   userInfoUpdateBodyStatus
 } = require('../../service/user.js')
+
+const event = require('../../utils/eventManager.js');
+
 Component({
   /**
    * 组件的属性列表
@@ -477,6 +480,7 @@ Component({
     },
     // 来了
     switchChange: function(e) {
+      event.fireEvent('updateToadyPage')
       let that = this;
       const tag = e.detail.value;
       console.log(tag)

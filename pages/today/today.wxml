@@ -60,32 +60,20 @@
           <view wx:if="{{currentDay.physiologicalCycle==null}}" class='view_notrecord'>
             <view class='view_notrecord_text'>未获取经期预测</view>
             <view class='view_notrecord_days'>请记录您末次月经开始日期</view>
-
             <button class='view_notrecord_btn' bindtap='recordPeriod'>记录经期</button>
           </view>
-          <!-- <view class='view-inner' wx:if="{{userModel==='02' && isLaw === '01'}}">
-      <view class='view-last'>{{showObj['02'].shouyun}}</view>
-      <view class='view-predictDay'>{{showObj['02'].predictDay}}</view>
-      <view>{{showObj['02'].top}}</view>
-      <button bindtap='clickjinri' class='buttons'>今日提示</button>
-    </view>
-
-    <view class='view-inner' wx:if="{{userModel==='02' && isLaw === '02'}}">
-      <view class='view-last'></view>
-      <view class='view-predictDay'>上次月经开始时间</view>
-      <view>{{showObj['02'].top}}</view>
-    </view> -->
-
-
 
       </view>
       <!-- 按摩 -->
 
       <view class='view-an' wx:if="{{currentDay.userModel==='02'}}">
 
-        <view class='view-mo'>
-          <!-- <image src='../img/massage@3x.png'></image>
-          <text>按摩</text> -->
+        <view class='view_amtoast' wx:if="{{currentDay.userModel==='02' && amtoast}}">
+          <view class='view_amtoast_kong'>
+            <image src='../img/addimg/kong.png'></image>
+            <text>每天为宝宝按摩并记录,都有积分哦!</text>
+          </view>
+
         </view>
         <view class='view-mo1' wx:for="{{anmo}}" wx:for-index="idx" wx:for-item="item" wx:key>
           <image src="{{item.select ? item.curUrl : item.imgUrl}}" bindtap="chooseImg" data-index="{{idx}}" />
@@ -100,9 +88,6 @@
           <image src='../img/add@3x.png'></image>
         </view>
       </view>
-      <view class='view_amtoast' wx:if="{{currentDay.userModel==='02' && amtoast}}">
-        <image src='../img/addimg/bubble@3x.png'></image>
-        <text>今天您给宝宝按摩了吗?</text>
-      </view>
+
       <i-toast id="toast" />
     </view>

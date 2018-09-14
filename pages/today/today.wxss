@@ -3,29 +3,34 @@ element.style {
 }
 
 .view_amtoast {
-  /* border: 1px solid red; */
+  position: absolute;
+  top: -185rpx;
+  left: 30rpx;
 }
 
-.view_amtoast image {
-  position: absolute;
-  top: 71%;
-  left: 4%;
-  width: 290rpx;
-  height: 70rpx;
+.view_amtoast_kong image {
+  width: 100%;
+  height: 100%;
 }
 
-.view_amtoast text {
+.view_amtoast_kong {
+  width: 263rpx;
+  height: 215rpx;
+}
+
+.view_amtoast_kong text {
   position: absolute;
-  top: 72%;
-  left: 6.5%;
-  color: white;
-  font-size: 24rpx;
+  top: 46rpx;
+  left: 38.5rpx;
+  color: #f5686a;
+  font-size: 30rpx;
+  width: 170rpx;
 }
 
 .box {
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
-  height: 100%;
+  height: 1340rpx;
   background: #eee1eb;
 }
 
@@ -198,7 +203,7 @@ element.style {
 .headday {
   text-align: center;
   color: #fb5254;
-  margin-top: 94rpx;
+  padding-top: 90rpx;
   font-size: 36rpx;
 }
 
@@ -208,9 +213,11 @@ element.style {
   color: #fb5254;
   font-size: 40rpx;
 }
-.view-predictDays{
+
+.view-predictDays {
   margin-top: 260rpx;
 }
+
 .view-physiologicalCycles {
   margin-top: 22rpx;
   font-size: 33.3rpx;
@@ -238,12 +245,25 @@ element.style {
   font-size: 90rpx;
   color: #fb5254;
 }
-.view-text_sizes{
+
+.view-text_sizes {
   margin-top: 30rpx;
   font-size: 40rpx;
   color: #fb5254;
 }
-.view-an {  
+
+.view-an {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fb5254;
+  font-size: 26rpx;
+  margin-top: 65rpx;
+}
+
+.view-ans {
   width: 100%;
   display: flex;
   align-items: center;
@@ -270,14 +290,16 @@ element.style {
   /* margin-left: 14rpx; */
   font-size: 35rpx;
 }
-.view-mo1{
+
+.view-mo1 {
   width: 15%;
   display: flex;
   justify-content: center;
 }
+
 .view-mo1 image {
-  width: 40rpx;
-  height: 40rpx;
+  width: 50rpx;
+  height: 50rpx;
   margin-top: 10rpx;
 }
 
@@ -307,8 +329,9 @@ element.style {
   width: 186rpx;
   line-height: 65rpx;
   border-radius: 25px;
-  background: #FFBCC2;
+  background: #fb8689;
   color: white;
   font-size: 28rpx;
   margin-top: 46rpx;
+  border: none;
 }

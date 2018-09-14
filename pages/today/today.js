@@ -4,6 +4,8 @@ const moment = require('../../utils/moment.js');
 const {
   currentWeek
 } = require('../../utils/time.js');
+const event = require('../../utils/eventManager.js');
+
 const {
   userInfoQueryBodyStatus,
   userInfoUpdateBodyStatus,
@@ -20,6 +22,14 @@ const {
 const {
   records
 } = resources;
+
+
+// event.fireEvent('updateToadyPage')
+
+
+// event.listenEvent('updateToadyPage', () => {
+//   console.log('更改了日期， 我监听到了')
+// })
 
 
 Page({
@@ -196,9 +206,10 @@ Page({
 
   },
   onShow: function() {
-    // if (!this.data.show) {
-    //   return;
-    // }
+    console.log('onshow')
+    if (!this.data.show) {
+      return;
+    }
 
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('DD');
@@ -209,6 +220,7 @@ Page({
       formatDay: day
 
     })
+
 
     this.query(day, day, day);
 
@@ -240,6 +252,7 @@ Page({
           isLaw
       } = res;
       app.globalData.bodyStatus = list;
+      console.log(list.length)
       for (let i = 0; i < list.length; i++) {
         const dy = list[i];
         const {
@@ -257,7 +270,7 @@ Page({
             showObj = {
               shouyun: this.getShouyunText(physiologicalCycle),
               predictDay: predictDay ? (predictDay > 0 ? `距离经期还有${predictDay}天` : (isPredict === '0' ? `推迟了${-predictDay}天` : `${-predictDay}`)) : '',
-              predictDays: predictDay ? (predictDay > 0 ? `距离经期还有${predictDay}天` : (`${predictDay}` == -1 ? `预测月经第${-predictDay}天` : (`${predictDay}` < 0 && `${predictDay}` != -1 ? `推迟了${-predictDay}天`:''))) : '',
+              predictDays:`${predictDay}` == '0' ? `预测月经第1天` : `${predictDay}` < 0 ? `推迟了${-predictDay}天`:'',
               //下半部显示信息
               // lastText: this.installText(dy),
               top: `${physiologicalCycle === '02' && isPredict === '0' ? '预测 : ' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
@@ -284,6 +297,7 @@ Page({
           })
         }
       }
+
     })
     var nasa = {
       day: this.data.formatDay
