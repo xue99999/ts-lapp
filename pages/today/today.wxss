@@ -332,6 +332,6 @@ element.style {
   background: #fb8689;
   color: white;
   font-size: 28rpx;
-  margin-top: 46rpx;
+  margin-top: 70rpx;
   border: none;
 }

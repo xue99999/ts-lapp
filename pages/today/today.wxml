@@ -10,62 +10,64 @@
   <view class='headday'> {{month}}月{{day}}日 星期{{week=='0'? '日': ''|| week=='1'? '一': ''|| week=='2'? '二': ''|| week=='3'? '三': ''|| week=='4'? '四': ''|| week=='5'? '五': ''|| week=='6'? '六': '' }}
   </view>
 
-
   <!-- 圆圈内容 -->
   <view class='view-img'>
     <image src="{{isLaw=== '01' || (isLaw=== '02' && currentDay.physiologicalCycle==='02') ?'../img/circular1.png' :'../img/circular2.png'}}" mode="aspectFit" class='view-image'></image>
-    <view class='view-inner' wx:if="{{isLaw === '01'}}">
-      <!-- 怀孕几率 -->
-      <view class='view-last'>{{currentDay.predictDay
-        < 0 && currentDay.isPredict==='0' || currentDay.physiologicalCycle=='02' ? '' : showObj.shouyun}}</view>
-          <view class='view-last' wx:if="{{currentDay.physiologicalCycle==='02'}}">{{currentDay.physiologicalCycle=='02'? '' : showObj.shouyun}}</view>
-          <!-- 月经期的显示样式 -->
-          <view wx:if="{{currentDay.physiologicalCycle === '02' && currentDay.isPredict=='0'}}" class='view-predictDays'>
-            <text class='view-text_sizes'>{{showObj.predictDays}}</text>
-          </view>
-          <view wx:if="{{currentDay.physiologicalCycle === '02' && currentDay.isPredict!='0'}}" class='view-predictDay'>
-            第
-            <text class='view-size'>{{showObj.predictDay}}</text> 天
-          </view>
-          <!-- 易孕期 安全期显示样式 -->
-          <view wx:if="{{currentDay.physiologicalCycle!= '02'}}" class='view-predictDay'>
-            {{showObj.predictDay}}
-          </view>
 
-          <view class='view-physiologicalCycles'>{{currentDay.predictDay
-            < 0 && currentDay.isPredict==='0' ? showObj.startDay : showObj.top}}</view>
-              <button bindtap='clickjinri' class='{{currentDay.physiologicalCycle === "02" ? "jinribtn" : "buttons"}}'>今日提示</button>
-          </view>
+    <view wx:if="{{currentDay!=null}}">
 
-          <!-- 不规律 -->
-          <view class='view-inner' wx:if="{{isLaw === '02'}}">
-            <view class='view-last'>{{currentDay.physiologicalCycle ==='02'? showObj.shouyun : ''}}</view>
-            <!-- 不规律月经期的显示样式 -->
-            <view wx:if="{{currentDay.physiologicalCycle === '02'}}" class='view-predictDay-yuej'>
+      <view class='view-inner' wx:if="{{isLaw === '01'}}">
+        <!-- 怀孕几率 -->
+        <view class='view-last'>{{currentDay.predictDay
+          < 0 && currentDay.isPredict==='0' || currentDay.physiologicalCycle=='02' ? '' : showObj.shouyun}}</view>
+            <view class='view-last' wx:if="{{currentDay.physiologicalCycle==='02'}}">{{currentDay.physiologicalCycle=='02'? '' : showObj.shouyun}}</view>
+            <!-- 月经期的显示样式 -->
+            <view wx:if="{{currentDay.physiologicalCycle === '02' && currentDay.isPredict!='0'}}" class='view-predictDay'>
               第
-              <text class='view-size'>{{showObj.predictDay}}</text>天
+              <text class='view-size'>{{showObj.predictDay}}</text> 天
             </view>
-            <!-- 不规律 显示样式 -->
-            <view wx:if="{{currentDay.physiologicalCycle != '02'}}" class='view-predictDay'>
-              <view class='view-menstrualStartTime'>上次月经开始时间</view>
-              <view class='view-days'>{{showObj.menstrualStartTime}}</view>
+            <view wx:if="{{currentDay.physiologicalCycle === '02' && currentDay.isPredict=='0'}}" class='view-predictDays'>
+              <text class='view-text_sizes'>{{showObj.predictDays}}</text>
             </view>
-            <view class='view-physiologicalCycles'>{{currentDay.physiologicalCycle ==='02'? showObj.tops : ''}}</view>
-            <button wx:if="{{currentDay.physiologicalCycle ==='02'}}" bindtap='clickjinri' class='{{currentDay.physiologicalCycle === "02" ? "jinribtn" : ""}}'>今日提示</button>
 
+            <!-- 易孕期 安全期显示样式 -->
+            <view wx:if="{{currentDay.physiologicalCycle!= '02'}}" class='view-predictDay'>
+              {{showObj.predictDay}}
+            </view>
 
+            <view class='view-physiologicalCycles'>{{currentDay.predictDay
+              < 0 && currentDay.isPredict==='0' ? showObj.startDay : showObj.top}}</view>
+                <button bindtap='clickjinri' class='{{currentDay.physiologicalCycle === "02" ? "jinribtn" : "buttons"}}'>今日提示</button>
+            </view>
 
+            <!-- 不规律 -->
+            <view class='view-inner' wx:if="{{isLaw === '02'}}">
+              <view class='view-last'>{{currentDay.physiologicalCycle ==='02'? showObj.shouyun : ''}}</view>
+              <!-- 不规律月经期的显示样式 -->
+              <view wx:if="{{currentDay.physiologicalCycle === '02'}}" class='view-predictDay-yuej'>
+                第
+                <text class='view-size'>{{showObj.predictDay}}</text> 天
+              </view>
+              <!-- 不规律 显示样式 -->
+              <view wx:if="{{currentDay.physiologicalCycle != '02'}}" class='view-predictDay'>
+                <view class='view-menstrualStartTime'>上次月经开始时间</view>
+                <view class='view-days'>{{showObj.menstrualStartTime}}</view>
+              </view>
+              <view class='view-physiologicalCycles'>{{currentDay.physiologicalCycle ==='02'? showObj.tops : ''}}</view>
+              <button wx:if="{{currentDay.physiologicalCycle ==='02'}}" bindtap='clickjinri' class='{{currentDay.physiologicalCycle === "02" ? "jinribtn" : ""}}'>今日提示</button>
+            </view>
+        </view>
 
-          </view>
-          <view wx:if="{{currentDay.physiologicalCycle==null}}" class='view_notrecord'>
-            <view class='view_notrecord_text'>未获取经期预测</view>
-            <view class='view_notrecord_days'>请记录您末次月经开始日期</view>
-            <button class='view_notrecord_btn' bindtap='recordPeriod'>记录经期</button>
-          </view>
+        <view wx:if="{{currentDay==null}}" class='view_notrecord'>
+          <view class='view_notrecord_text'>未获取经期预测</view>
+          <view class='view_notrecord_days'>请记录您末次月经开始日期</view>
+          <button class='view_notrecord_btn' bindtap='recordPeriod'>记录经期</button>
+        </view>
 
       </view>
-      <!-- 按摩 -->
 
+
+      <!-- 按摩 -->
       <view class='view-an' wx:if="{{currentDay.userModel==='02'}}">
 
         <view class='view_amtoast' wx:if="{{currentDay.userModel==='02' && amtoast}}">

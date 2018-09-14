@@ -4,7 +4,6 @@ const moment = require('../../utils/moment.js');
 const {
   currentWeek
 } = require('../../utils/time.js');
-const event = require('../../utils/eventManager.js');
 
 const {
   userInfoQueryBodyStatus,
@@ -22,15 +21,6 @@ const {
 const {
   records
 } = resources;
-
-
-// event.fireEvent('updateToadyPage')
-
-
-// event.listenEvent('updateToadyPage', () => {
-//   console.log('更改了日期， 我监听到了')
-// })
-
 
 Page({
 
@@ -206,10 +196,10 @@ Page({
 
   },
   onShow: function() {
-    console.log('onshow')
-    if (!this.data.show) {
-      return;
-    }
+  
+    // if (!this.data.show) {
+    //   return;
+    // }
 
     const day = moment().format("YYYY-MM-D");
     const today = moment().format('DD');
@@ -223,12 +213,20 @@ Page({
 
 
     this.query(day, day, day);
-
+    console.log('onshow')
   },
   recordPeriod: function() {
-    wx.navigateTo({
-      url: '../home/home',
-    })
+    if (!app.globalData.obj.menstrualStartTime){
+      wx.navigateTo({
+        url: '../home/home',
+      })
+    }
+    else{
+      wx.switchTab({
+        url: '../calendar/calendar',
+      })
+    }
+
   },
   /**
    * startDay 开始时间
@@ -249,10 +247,18 @@ Page({
       const {
         list = [],
           userModel,
-          isLaw
+          isLaw,
+        birthday
       } = res;
       app.globalData.bodyStatus = list;
-      console.log(list.length)
+      if(list.length===1){
+        if (!list[0]['day']){
+          this.setData({
+            currentDay:null,
+          })
+          return;
+        }
+      }
       for (let i = 0; i < list.length; i++) {
         const dy = list[i];
         const {
@@ -262,6 +268,8 @@ Page({
           physiologicalCycle,
           predictDay = 0
         } = dy;
+
+
         if (day === currentDay) {
           this.getRecordsImg(dy)
           let showObj = {}
@@ -269,12 +277,12 @@ Page({
           if (isLaw === '01') {
             showObj = {
               shouyun: this.getShouyunText(physiologicalCycle),
-              predictDay: predictDay ? (predictDay > 0 ? `距离经期还有${predictDay}天` : (isPredict === '0' ? `推迟了${-predictDay}天` : `${-predictDay}`)) : '',
-              predictDays:`${predictDay}` == '0' ? `预测月经第1天` : `${predictDay}` < 0 ? `推迟了${-predictDay}天`:'',
+              predictDay: predictDay ? (predictDay > 0 ? `距离经期还有 ${predictDay} 天` : (isPredict === '0' ? `推迟 ${-predictDay} 天` : `${-predictDay}`)) : '',
+              predictDays:`${predictDay}` == '0' ? `第 1 天` : `${predictDay}` < 0 ? `推迟 ${-predictDay} 天`:'',
               //下半部显示信息
               // lastText: this.installText(dy),
               top: `${physiologicalCycle === '02' && isPredict === '0' ? '预测 : ' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
-              startDay: `预测开始${day}`
+              startDay: `预测开始 ${day}`
             }
 
           }
@@ -293,12 +301,14 @@ Page({
             currentDay: dy,
             showObj,
             userModel,
-            isLaw
+            isLaw,
+            birthday
           })
         }
       }
 
     })
+    
     var nasa = {
       day: this.data.formatDay
     }

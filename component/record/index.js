@@ -7,7 +7,6 @@ const {
   userInfoUpdateBodyStatus
 } = require('../../service/user.js')
 
-const event = require('../../utils/eventManager.js');
 
 Component({
   /**
@@ -480,7 +479,6 @@ Component({
     },
     // 来了
     switchChange: function(e) {
-      event.fireEvent('updateToadyPage')
       let that = this;
       const tag = e.detail.value;
       console.log(tag)
@@ -1053,7 +1051,6 @@ Component({
         day
       } = this.data.currentDay;
 
-      console.log("---day------", day);
       userInfoUpdateBodyStatus({
         day,
         ...data
@@ -1074,7 +1071,6 @@ Component({
 
           }
         }
-        console.log(message)
         if (message){
           $Toast({
             content: `${message}`,
@@ -1083,9 +1079,6 @@ Component({
           });
         
         }
-        this.setData({
-          message
-        })
 
         this.triggerEvent('myevent', { ...res
         }, {

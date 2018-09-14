@@ -63,10 +63,7 @@ Page({
   },
   navto: function () {
     wx.navigateTo({
-      url: '../mother-four/mother-four',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      url: '../mother-four/mother-four'
     })
   }
 })

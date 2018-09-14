@@ -54,16 +54,17 @@ Page({
   bindPickerChange: function (e) {
     const val = (e.detail.value * 1) + 10;
     console.log(val)
-    const menstrualCycle = this.data.array[val[0]]  //这里赋值
-    app.globalData.obj.menstrualCycle = menstrualCycle
+    this.setData({
+      menstrualCycle: val
+    })
+    // const menstrualCycle = this.data.array[val[0]]  
+    // app.globalData.obj.menstrualCycle = menstrualCycle
+    app.globalData.obj.menstrualCycle = val
 
   },
   navto: function () {
     wx.navigateTo({
-      url: '../period-four/period-four',
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      url: '../period-four/period-four'
     })
   }
 })

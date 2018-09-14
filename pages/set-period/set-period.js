@@ -37,7 +37,7 @@ Page({
       // lutealPhase:'' ,  //黄体期
       improve: '02',
       menstrualCycle: menstrualCycle,   //周期
-      menstrualTimes: null   //月经
+      menstrualTimes: menstrualTimes   //月经
     }
     userInfoUpdateMensAndOvulation(data).then(res => {
       console.log('设置经期与排卵', res);
@@ -63,7 +63,7 @@ Page({
       mayConception: '01',
       // lutealPhase:'' ,  //黄体期
       improve: '02',
-      menstrualCycle:null,
+      menstrualCycle: menstrualCycle,
       menstrualTimes: menstrualTimes
     }
     userInfoUpdateMensAndOvulation(data).then(res => {

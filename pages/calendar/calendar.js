@@ -7,7 +7,6 @@ const {
   userInfoUpdateBodyStatus
 } = require('../../service/user.js')
 const resources = require('../../utils/resources.js');
-const event = require('../../utils/eventManager.js');
 const {
   $Toast
 } = require('../base/index');
