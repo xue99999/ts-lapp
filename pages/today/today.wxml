@@ -75,8 +75,21 @@
             <image src='../img/addimg/kong.png'></image>
             <text>每天为宝宝按摩并记录,都有积分哦!</text>
           </view>
-
         </view>
+        <view class='view_amtoast_anmo' wx:if="{{anmo[0].select && anmo[0].isShow}}">
+          <view class='view_amtoast_anmo_kong'>
+            <image src='../img/addimg/bubble@3x.png'></image>
+            <text>捏脊,好棒哦!</text>
+          </view>
+        </view>
+
+        <view class='view_amtoast_roufu'  wx:if="{{anmo[1].select && anmo[1].isShow}}">
+          <view class='view_amtoast_roufu_kong'>
+            <image src='../img/addimg/bubble@3x.png'></image>
+            <text>揉腹,好棒哦!</text>
+          </view>
+        </view>
+
         <view class='view-mo1' wx:for="{{anmo}}" wx:for-index="idx" wx:for-item="item" wx:key>
           <image src="{{item.select ? item.curUrl : item.imgUrl}}" bindtap="chooseImg" data-index="{{idx}}" />
         </view>

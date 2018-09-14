@@ -78,15 +78,17 @@ Page({
         code: 'chiropractic',
         name: '捏脊,好棒哦!',
         select: false,
-        imgUrl: '../img/nieji-@3x.png',
-        curUrl: '../img/nieji@3x.png',
+        isShow: false,
+        curUrl: '../img/nieji-@3x.png',
+        imgUrl: '../img/nieji@3x.png',
       },
       {
         code: 'frictionalAbdomen',
         name: '摩腹,好棒哦!',
         select: false,
-        imgUrl: '../img/mofu@3x.png',
-        curUrl: '../img/mofu-@3x.png',
+        isShow: false,
+        curUrl: '../img/mofu@3x.png',
+        imgUrl: '../img/mofu-@3x.png',
       }
     ],
   },
@@ -142,13 +144,16 @@ Page({
         list1[i].select = !select;
         const updateData = {};
         if (list1[i].select) {
+          list1[i].isShow = true;
           selectTag = true;
 
-          $Toast({
-            content: list1[i].name,
-            mask: false,
-            duration: 1.5
-          });
+
+          setTimeout(_ => {
+            list1[i].isShow = false;
+            this.setData({
+              anmo: list1
+            })
+          }, 3000)
         }
       }
     }
@@ -196,7 +201,7 @@ Page({
 
   },
   onShow: function() {
-  
+
     // if (!this.data.show) {
     //   return;
     // }
@@ -216,12 +221,11 @@ Page({
     console.log('onshow')
   },
   recordPeriod: function() {
-    if (!app.globalData.obj.menstrualStartTime){
+    if (!app.globalData.obj.menstrualStartTime) {
       wx.navigateTo({
         url: '../home/home',
       })
-    }
-    else{
+    } else {
       wx.switchTab({
         url: '../calendar/calendar',
       })
@@ -248,13 +252,13 @@ Page({
         list = [],
           userModel,
           isLaw,
-        birthday
+          birthday
       } = res;
       app.globalData.bodyStatus = list;
-      if(list.length===1){
-        if (!list[0]['day']){
+      if (list.length === 1) {
+        if (!list[0]['day']) {
           this.setData({
-            currentDay:null,
+            currentDay: null,
           })
           return;
         }
@@ -278,7 +282,7 @@ Page({
             showObj = {
               shouyun: this.getShouyunText(physiologicalCycle),
               predictDay: predictDay ? (predictDay > 0 ? `距离经期还有 ${predictDay} 天` : (isPredict === '0' ? `推迟 ${-predictDay} 天` : `${-predictDay}`)) : '',
-              predictDays:`${predictDay}` == '0' ? `第 1 天` : `${predictDay}` < 0 ? `推迟 ${-predictDay} 天`:'',
+              predictDays: `${predictDay}` == '0' ? `第 1 天` : `${predictDay}` < 0 ? `推迟 ${-predictDay} 天` : '',
               //下半部显示信息
               // lastText: this.installText(dy),
               top: `${physiologicalCycle === '02' && isPredict === '0' ? '预测 : ' : ''}${this.getphysiologicalCycleText(physiologicalCycle)}`,
@@ -286,7 +290,7 @@ Page({
             }
 
           }
-            
+
           if (isLaw === '02') {
             showObj = {
               predictDay: `${-predictDay}`,
@@ -308,7 +312,7 @@ Page({
       }
 
     })
-    
+
     var nasa = {
       day: this.data.formatDay
     }

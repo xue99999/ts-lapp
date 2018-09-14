@@ -26,11 +26,43 @@ element.style {
   font-size: 30rpx;
   width: 170rpx;
 }
-
+.view_amtoast_anmo{
+  position: absolute;
+  top: -72rpx;
+  left: 160rpx;
+}
+.view_amtoast_anmo image{
+  width: 190rpx;
+  height: 80rpx;
+}
+.view_amtoast_anmo text{
+  position: absolute;
+  top: 14rpx;
+  left: 16.5rpx;
+  color:white;
+  font-size: 28rpx;
+}
+.view_amtoast_roufu{
+  position: absolute;
+  top: -72rpx;
+  left: 293rpx;
+}
+.view_amtoast_roufu image{
+  width: 190rpx;
+  height: 80rpx;
+}
+.view_amtoast_roufu text{
+  position: absolute;
+  top: 14rpx;
+  left: 16.5rpx;
+  color:white;
+  font-size: 28rpx;
+}
 .box {
-  /* position: fixed; */
+  position: fixed;
   width: 100%;
-  height: 1340rpx;
+  height: 100%;
+  /* height: 1340rpx; */
   background: #eee1eb;
 }
 
@@ -203,7 +235,7 @@ element.style {
 .headday {
   text-align: center;
   color: #fb5254;
-  padding-top: 90rpx;
+  padding-top: 80rpx;
   font-size: 36rpx;
 }
 
@@ -260,7 +292,7 @@ element.style {
   justify-content: center;
   color: #fb5254;
   font-size: 26rpx;
-  margin-top: 65rpx;
+  margin-top: 45rpx;
 }
 
 .view-ans {
