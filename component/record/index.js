@@ -247,6 +247,8 @@ Component({
    * 组件的初始数据
    */
   data: {
+
+    message: "",
     // 按摩
     anmo: [{
         name: '捏脊',
@@ -1068,17 +1070,18 @@ Component({
 
           }
         }
+        console.log(message)
         if (message){
-          // $Toast({
-          //   content: `${message}`,
-          //   mask: false,
-          //   duration: 3
-          // });
-          this.setData({
-            message:true,
-          })
+          $Toast({
+            content: `${message}`,
+            mask: false,
+            duration: 4
+          });
+        
         }
-
+        this.setData({
+          message
+        })
 
         this.triggerEvent('myevent', { ...res
         }, {

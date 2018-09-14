@@ -53,7 +53,6 @@ Page({
     days: [],
     userModel: '',
     isLaw: '',
-    menstrualTimes:'',
     list: [],
     amtoast: false,
     today: moment().format('YYYY-MM-DD'),
