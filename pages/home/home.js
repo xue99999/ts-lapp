@@ -66,7 +66,7 @@ Page({
           })
         } 
         // else {
-        //   console.log('dddddd2');
+        //   console.log('没有出生年月');
         //   wx.redirectTo({
         //     url: '../home/home',
         //   })

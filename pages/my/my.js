@@ -93,6 +93,7 @@ Page({
             console.log('查询经期与排卵', res);
             if (res.userModel === '01') {
               var data = {
+                'type':'01',
                 'userModel': '02',
                 'menstrualStartTime': res.menstrualStartTime,
                 'menstrualTimes': res.menstrualTimes,
@@ -112,6 +113,7 @@ Page({
               })
             } else {
               var data = {
+                'type': '01',
                 'userModel': '01',
                 'menstrualStartTime': res.menstrualStartTime,
                 'menstrualTimes': res.menstrualTimes,
