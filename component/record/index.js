@@ -39,19 +39,8 @@ Component({
       abdominalPain,
       breastTenderness,
       leucorrhea,
-      menstrualVolume,
-      chiropractic,
-      frictionalAbdomen
+      menstrualVolume
     } = this.data.currentDay;
-    const {
-      anmo
-    } = this.data;
-    if (chiropractic === '01') {
-      anmo[0].select = true;
-    }
-    if (frictionalAbdomen === '01') {
-      anmo[1].select = true;
-    }
 
     //初始化月经量
     const menstrualVolumes = this.data.menstrualVolume;
@@ -241,7 +230,6 @@ Component({
       breastTenderness: breastTendernesss,
       leucorrheas,
       menstrualVolume: menstrualVolumes,
-      anmo
     })
   },
 
@@ -251,22 +239,6 @@ Component({
   data: {
 
     message: "",
-    // 按摩
-    anmo: [{
-        name: '捏脊',
-        code: 'frictionalAbdomen',
-        select: false,
-        imgUrl: '/pages/img/nieji-@3x.png',
-        curUrl: '/pages/img/nieji@3x.png',
-      },
-      {
-        code: 'chiropractic',
-        name: '摩腹',
-        select: false,
-        imgUrl: '/pages/img/mofu@3x.png',
-        curUrl: '/pages/img/mofu-@3x.png',
-      }
-    ],
     // 月经量
     menstrualVolume: [{
         name: '偏少',
@@ -435,48 +407,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    //按摩
-    chooseImg: function(e) {
-      const index = e.currentTarget.dataset.index;
-      const list1 = this.data.anmo;
-      let selectTag = false;
-      for (let i = 0; i < list1.length; i++) {
-        if (i == index) {
-          const {
-            select,
-            code
-          } = list1[i];
-          list1[i].select = !select;
-          const updateData = {};
-          if (list1[i].select) {
-            selectTag = true;
-
-            $Toast({
-              content: list1[i].name,
-              mask: false,
-              duration: 3
-            });
-          }
-        }
-      }
-      let updateData = {};
-      if (index === 0) {
-        updateData = {
-          chiropractic: selectTag ? "01" : "02"
-        }
-      } else {
-        updateData = {
-          frictionalAbdomen: selectTag ? "01" : "02"
-        }
-      }
-
-      this.updateStatus(updateData)
-
-      this.setData({
-        anmo: list1
-      })
-
-    },
     // 来了
     switchChange: function(e) {
       let that = this;
@@ -502,8 +432,8 @@ Component({
           currentDay
         })
         that.updateStatus({
-                  menstrualStatus: '02'
-              })
+          menstrualStatus: '02'
+        })
 
       }
 
@@ -1071,13 +1001,13 @@ Component({
 
           }
         }
-        if (message){
+        if (message) {
           $Toast({
             content: `${message}`,
             mask: false,
             duration: 4
           });
-        
+
         }
 
         this.triggerEvent('myevent', { ...res

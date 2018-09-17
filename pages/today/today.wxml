@@ -96,7 +96,7 @@
       </view>
 
       <view class='view-bu'>
-        <view class='bushu' wx:for='{{ recordsImg}}' wx:key>
+        <view class='bushu' wx:for='{{recordsImg}}' wx:key>
           <image src='{{item}}'></image>
         </view>
         <view class='{{currentDay.physiologicalCycle==="02" && currentDay.isPredict !="0" ? "tupian":"rightTupian"}}' bindtap='naState'>

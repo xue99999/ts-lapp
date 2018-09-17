@@ -220,18 +220,8 @@ Page({
     this.query(day, day, day);
     console.log('onshow')
   },
+  //记录经期功能
   recordPeriod: function() {
-    
-    // if (!this.data.currentDay) {
-    //   wx.navigateTo({
-    //     url: '../home/home',
-    //   })
-    // } else {
-    //   wx.switchTab({
-    //     url: '../calendar/calendar',
-    //   })
-    // }
-
     const day = moment().format('YYYY-MM-DD');
     var data = {
       startDay: day,
@@ -244,8 +234,7 @@ Page({
           wx.switchTab({
             url: '../calendar/calendar',
           })
-        }
-        else {
+        } else {
           wx.navigateTo({
             url: '../home/home',
           })
@@ -278,6 +267,7 @@ Page({
           birthday
       } = res;
       app.globalData.bodyStatus = list;
+      // 当list里面没有数据的时候（显示样式）
       if (list.length === 1) {
         if (!list[0]['day']) {
           this.setData({
@@ -442,9 +432,6 @@ Page({
         fearCold,
         weak
     } = dy;
-    // if (chiropractic === '01' || frictionalAbdomen === '01') {
-    //   list.push(records['chiropractic'])
-    // }
     if (menstrualStatus) {
       list.push(records['menstrualStatus'])
     }
@@ -472,7 +459,14 @@ Page({
     if (weak) {
       list.push(records['weak'])
     }
-
+    if (list.length === 0) {
+      if (!list) {
+        this.setData({
+          list: null,
+        })
+        return;
+      }
+    }
 
     //设置变量
     this.setData({
@@ -494,9 +488,9 @@ Page({
       console.log(res.target)
     }
     return {
-      title: '她师',
-      path: '/pages/home/home', //这里填写首页的地址,一般为/pages/xxxx/xxx
-      // imageUrl:'../img/placeholder.jpg',
+      title: ' ',
+      // path: '/pages/home/home', //这里填写首页的地址,一般为/pages/xxxx/xxx
+      imageUrl:'../img/tashilogo.png',
       success: function(res) {
         // 转发成功
       },
