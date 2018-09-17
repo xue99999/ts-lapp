@@ -42,7 +42,8 @@ Page({
     cacheMonths: [],
   },
 
-  rili: function (e) {
+  defaultDay: function (e) {
+
     const {
       year,
       month,
@@ -54,6 +55,7 @@ Page({
 
     let day;
     day = e.currentTarget.dataset.day
+
     if (day < 10) {
       day = '0' + day
     }

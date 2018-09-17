@@ -221,15 +221,38 @@ Page({
     console.log('onshow')
   },
   recordPeriod: function() {
-    if (!app.globalData.obj.menstrualStartTime) {
-      wx.navigateTo({
-        url: '../home/home',
-      })
-    } else {
-      wx.switchTab({
-        url: '../calendar/calendar',
-      })
+    
+    // if (!this.data.currentDay) {
+    //   wx.navigateTo({
+    //     url: '../home/home',
+    //   })
+    // } else {
+    //   wx.switchTab({
+    //     url: '../calendar/calendar',
+    //   })
+    // }
+
+    const day = moment().format('YYYY-MM-DD');
+    var data = {
+      startDay: day,
+      endDay: day
     }
+    userInfoQueryBodyStatus(data).then(result => {
+      if (result.code === 200) {
+
+        if (result.birthday) {
+          wx.switchTab({
+            url: '../calendar/calendar',
+          })
+        }
+        else {
+          wx.navigateTo({
+            url: '../home/home',
+          })
+        }
+      }
+    })
+
 
   },
   /**

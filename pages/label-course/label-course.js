@@ -98,6 +98,9 @@ Page({
    */
   onPullDownRefresh: function() {
     this.getApiCourseSeriesList(page, label);
+        setTimeout(function(){
+            wx.stopPullDownRefresh()
+        },2000)
   },
 
   /**

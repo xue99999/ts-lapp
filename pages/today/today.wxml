@@ -85,7 +85,7 @@
 
         <view class='view_amtoast_roufu'  wx:if="{{anmo[1].select && anmo[1].isShow}}">
           <view class='view_amtoast_roufu_kong'>
-            <image src='../img/addimg/bubble@3x.png'></image>
+            <image src='../img/addimg/rightbubble@3x.png'></image>
             <text>揉腹,好棒哦!</text>
           </view>
         </view>

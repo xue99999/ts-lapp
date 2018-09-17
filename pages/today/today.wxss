@@ -29,7 +29,7 @@ element.style {
 .view_amtoast_anmo{
   position: absolute;
   top: -72rpx;
-  left: 160rpx;
+  left: 169rpx;
 }
 .view_amtoast_anmo image{
   width: 190rpx;
@@ -45,7 +45,7 @@ element.style {
 .view_amtoast_roufu{
   position: absolute;
   top: -72rpx;
-  left: 293rpx;
+  left: 400rpx;
 }
 .view_amtoast_roufu image{
   width: 190rpx;
