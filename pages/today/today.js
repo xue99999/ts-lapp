@@ -62,6 +62,8 @@ Page({
     month: moment().format('M'),
     day: moment().format('D'),
     week: moment().format('d'),
+    integral:'',
+    roufu:'',
     // 圆圈显示数据
     showObj: {
       // 模式辣妈
@@ -94,9 +96,10 @@ Page({
   },
   // 更新身体信息
   updateStatus(data) {
+    const that = this;
     console.log(data)
     const {
-      day
+      day,
     } = this.data.currentDay;
     console.log(day)
     userInfoUpdateBabyRecord({
@@ -106,19 +109,20 @@ Page({
       console.log(res)
       const {
         code,
-        integral
+        integral,
+        
       } = res;
       if (code === 200) {
         if (integral && integral > 0) {
-          $Toast({
-            content: `好棒哦!+${integral}积分`,
-            mask: false,
-            duration: 3,
-          });
-
+          that.setData({
+            roufu: '揉腹, 好棒哦!+' + integral + '积分',
+            nieji: '捏脊, 好棒哦!+' + integral + '积分',
+          })
         }
       }
-
+      this.setData({
+        integral,
+      })
 
 
       this.triggerEvent('myevent', {

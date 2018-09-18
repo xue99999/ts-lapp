@@ -76,17 +76,17 @@
             <text>每天为宝宝按摩并记录,都有积分哦!</text>
           </view>
         </view>
-        <view class='view_amtoast_anmo' wx:if="{{anmo[0].select && anmo[0].isShow}}">
+        <view class='{{integral && integral > 0 ? "view_amtoast_anmo" : "view_amtoast_anmo1"}}' wx:if="{{anmo[0].select && anmo[0].isShow}}">
           <view class='view_amtoast_anmo_kong'>
             <image src='../img/addimg/bubble@3x.png'></image>
-            <text>捏脊,好棒哦!</text>
+            <text>{{integral && integral > 0 ? nieji :'捏脊,好棒哦!'}}</text>
           </view>
         </view>
 
-        <view class='view_amtoast_roufu'  wx:if="{{anmo[1].select && anmo[1].isShow}}">
+        <view class='{{integral && integral > 0 ? "view_amtoast_roufu" : "view_amtoast_roufu1"}}'  wx:if="{{anmo[1].select && anmo[1].isShow}}">
           <view class='view_amtoast_roufu_kong'>
             <image src='../img/addimg/rightbubble@3x.png'></image>
-            <text>揉腹,好棒哦!</text>
+            <text>{{integral && integral > 0 ? roufu :'揉腹,好棒哦!'}}</text>
           </view>
         </view>
 

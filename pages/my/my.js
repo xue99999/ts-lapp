@@ -53,6 +53,12 @@ Page({
         code: '10'
       },
       {
+        name: '企业兑换码',
+        url: '../mycourse/course',
+        icon: '../img/record.png',
+        code: '10'
+      },
+      {
         name: '帮助中心',
         url: '../my-help/my-help',
         icon: '../img/feedback@3x.png',

@@ -1,0 +1,27 @@
+<!-- 优惠券 -->
+<view class='view_box'>
+
+  <view class='view_coupon'>
+    <view class='view_coupon_one'>
+      <view class='view_coupon_kuang' style="background: url('http://pbxyn1pgg.bkt.clouddn.com/youhuiq.png') no-repeat;">
+        <view class='view_coupon_text'>优惠券</view>
+        <view class='view_coupon_input'>
+          <input type='text' placeholder='     请输入优惠券券码' placeholder-style="color:#FFB4BB;font-size:32rpx;" bindinput="changeCoupon"></input>
+        </view>
+      </view>
+    </view>
+    <view class='showcoupon' wx:if="{{true}}">
+      <text> ! </text>
+      优惠券码错误
+    </view>
+
+
+    <button class='view_coupon_btn' bindtap='clickUse'>使用</button>
+
+    <view class='view_coupon_two'>
+      <image src='../../img/addimg/becareful.png'></image>
+      <text> 每张优惠券可兑换一次</text>
+    </view>
+  </view>
+
+</view>

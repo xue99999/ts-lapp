@@ -41,6 +41,11 @@ Page({
       price: options.price,
     })
   },
+  navto(){
+    wx.navigateTo({
+      url: '../wx-coupon/wx-coupon',
+    })
+  },
   onClickPay() {
     console.log(input)
     var datas = {};
