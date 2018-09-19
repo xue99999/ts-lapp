@@ -35,7 +35,9 @@ flex-direction: column;
   border: 2px solid #fff;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
-
+.userinfo-name{
+  color: white;
+}
 /* .imgs image {
   margin-left: 306rpx;
   width: 138rpx;

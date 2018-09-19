@@ -19,6 +19,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .view_coupon_kuang {
@@ -77,6 +78,7 @@
   margin-left: 6rpx;
 }
 .showcoupon{
+    position: absolute;
     margin-left: 56rpx;
     font-size: 24rpx;
     color: red;

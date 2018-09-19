@@ -17,7 +17,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tsVersion: 'V1.2.0',
+    tsVersion: 'V1.2.1',
     nickName: "",
     avatarUrl: "",
     integral: 0,
@@ -52,12 +52,12 @@ Page({
         icon: '../img/record.png',
         code: '10'
       },
-      {
-        name: '企业兑换码',
-        url: '../mycourse/course',
-        icon: '../img/record.png',
-        code: '10'
-      },
+      // {
+      //   name: '企业兑换码',
+      //   url: '../mycourse/course',
+      //   icon: '../img/record.png',
+      //   code: '10'
+      // },
       {
         name: '帮助中心',
         url: '../my-help/my-help',

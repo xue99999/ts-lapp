@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -99,6 +99,12 @@
 					"id": -1,
 					"name": "优惠券",
 					"pathName": "pages/pay/wx-coupon/wx-coupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "开始页",
+					"pathName": "pages/index/index",
 					"query": ""
 				}
 			]

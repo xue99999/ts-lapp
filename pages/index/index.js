@@ -25,18 +25,18 @@ Page({
   },
   onLoad: function (option) {
     console.log(option)
-    // var that=this;
-    // wx.getUserInfo({
-    //   success: function (res) {
-    //     console.log(res);
-    //     var avatarUrl = 'userInfo.avatarUrl';
-    //     var nickName = 'userInfo.nickName';
-    //     that.setData({
-    //       [avatarUrl]: res.userInfo.avatarUrl,
-    //       [nickName]: res.userInfo.nickName,
-    //     })
-    //   }
-    // })
+    var that=this;
+    wx.getUserInfo({
+      success: function (res) {
+        console.log(res);
+        var avatarUrl = 'userInfo.avatarUrl';
+        var nickName = 'userInfo.nickName';
+        that.setData({
+          [avatarUrl]: res.userInfo.avatarUrl,
+          [nickName]: res.userInfo.nickName,
+        })
+      }
+    })
 
 
     if(option){
@@ -74,6 +74,9 @@ Page({
 
 
   },
+  bindError(){
+    console.log('当使用开放能力时，发生错误的回调')
+  },
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
@@ -83,6 +86,7 @@ Page({
     })
   },
   bindGetUserInfo: function() {
+    console.log('点击开始授权')
     // 查看是否授权
     const that=this;
     wx.getSetting({

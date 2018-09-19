@@ -16,7 +16,7 @@
   </view>
 
   <view class='view_navs'></view>
-  <!-- <view class='view_pay2'>
+  <view class='view_pay2'>
     <text class='view_pay_text_left'> 企业兑换码</text>
       <input class='view_pay_input_right' type="text" cursor='' bindinput="bindObtain" auto-focus placeholder="请输入您的企业兑换码"/>
 </view>
@@ -24,8 +24,8 @@
     <text class='view_pay_text_left'> 总价</text>
      <text class='view_pay_text_right1'>{{price>0?price:"0.00"}}</text>
      <text class='view_pay_text_right2'>元</text>
-</view> -->
-  <view class='view_pay2' bindtap='navto'>
+</view>
+  <!-- <view class='view_pay2' bindtap='navto'>
     <text class='view_pay_text_lefts'> 优惠券</text>
 
     <view class='view_pay_input_rights'>
@@ -34,6 +34,6 @@
     </view>
 
 
-  </view>
-  <button class='view_pay_button' type="warn" size="{{warnSize}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="onClickPay">付款({{price>0?price:"0.00"}}元)</button>
+  </view> -->
+  <button class='view_pay_button' type="warn" size="{{warnSize}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="onClickPay">付款</button>
 </view>

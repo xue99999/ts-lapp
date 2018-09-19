@@ -10,9 +10,8 @@
         </view>
       </view>
     </view>
-    <view class='showcoupon' wx:if="{{true}}">
-      <text> ! </text>
-      优惠券码错误
+    <view class='showcoupon' wx:if="{{showcoupon}}">
+      <text> ! </text> 优惠券码错误
     </view>
 
 

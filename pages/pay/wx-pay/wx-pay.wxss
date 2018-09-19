@@ -1,6 +1,6 @@
 /*微信支付 */
 
-.inclusion {
+/* .inclusion {
   background: #e1e1e1;
 }
 
@@ -101,4 +101,99 @@
   margin-left: 20rpx;
   margin-right: 20rpx;
   margin-bottom: 70rpx;
+} */
+
+/*微信支付 */
+
+.inclusion {
+
+  background: #e1e1e1;
+}
+.view_navs{
+  width: 100%;
+  height: 20rpx;
+  background: #F3F4F5;
+}
+.view_pay1 {
+  display: flex;
+  height: 62rpx;
+  background: #fff;
+  flex-direction: row;
+  padding: 10rpx 0;
+  align-content: center;
+  justify-content: cente;
+  border-bottom: 1rpx #e1e1e1 solid;
+  
+}
+
+.view_pay_text_left, .view_pay_text_right, .view_pay_input_right {
+
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size: 30rpx;
+  margin: auto;
+}
+
+.view_pay_text_left {
+  flex: 0.3;
+  padding-left: 27rpx;
+  color: #999;
+}
+
+.view_pay_text_right {
+    flex: 0.7;
+  text-align: right;
+  padding-right: 27rpx;
+  color: #000;
+}
+
+.view_pay2 {
+  display: flex;
+  height: 62rpx;
+  padding: 10rpx 0;
+  background: #fff;
+  flex-direction: row;
+  align-content: center;
+  justify-content: cente;
+  border-bottom: 1rpx #e1e1e1 solid;
+}
+
+.view_pay_text_right1 {
+ flex: 0.7;
+  height: 27rpx;
+  line-height: 27rpx;
+  font-size: 27rpx;
+  margin: auto;
+  text-align: right;
+  color: #fe6f71;
+}
+
+.view_pay_text_right2 {
+  
+  line-height: 27rpx;
+  font-size: 30rpx;
+  margin: auto;
+  padding-right: 27rpx;
+}
+
+.view_pay_input_right {
+ flex: 0.7;
+  font-size: 27rpx;
+  padding-right: 27rpx;
+  height: 27rpx;
+  line-height: 27rpx;
+  text-align: right;
+}
+
+.view_pay_button {
+  position: fixed;
+  bottom: 0;
+  width: 95%;
+  height: 90rpx;
+  font-size: 36rpx;
+  text-align: center;
+  line-height: 90rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 600rpx;
 }
