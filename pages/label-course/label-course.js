@@ -39,14 +39,6 @@ Page({
 
 
   },
-  // onMyEvent: function (e) {
-  //   console.log(e.detail)
-  //   const idx = e.detail
-  //   const { list } = this.data
-  //   list[idx].isCollect == 0 ? 1 : 0
-  //   this.setData({ list })
-  // },
-
   getApiCourseSeriesList(page, label) {
     console.log('label', label);
     var data = {
@@ -77,45 +69,24 @@ Page({
 
 
   },
-  onShow:function(){
+  onShow: function() {
     console.log('触发onshow方法')
-    this.getApiCourseSeriesList(page,label)
-    console.log(page)
-      // var data = {
-      //   page: page,
-      //   rows: rows,
-      //   label: label
-      // }
-      // apiCourseSeriesList(data).then(result => {
-      //   console.log('全部课程', result);
-
-      // })
-
-
+    this.getApiCourseSeriesList(page, label)
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
     this.getApiCourseSeriesList(page, label);
-        setTimeout(function(){
-            wx.stopPullDownRefresh()
-        },2000)
+    setTimeout(function() {
+      wx.stopPullDownRefresh()
+    }, 2000)
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    // if (!hasMore) {
-    //   return
-    // }
-
-    // const {
-    //   list
-    // } = this.data
-    // page += 1;
-
     this.getApiCourseSeriesList(page, label)
   }
 

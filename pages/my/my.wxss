@@ -257,3 +257,7 @@
 .deg button:after {
   border: none;
 }
+.view_mianmo{
+  width: 300rpx;
+  height: 300rpx;
+}

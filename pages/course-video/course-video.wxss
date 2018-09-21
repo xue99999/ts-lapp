@@ -202,7 +202,7 @@ margin-left: 40rpx;
   width: 726rpx;
   height: 90rpx;
   margin-left: 48rpx;
-  font-size: 44rpx;
+  font-size: 30rpx;
   line-height: 90rpx;
   text-align: left;
   display: block;

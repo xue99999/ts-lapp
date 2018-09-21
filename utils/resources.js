@@ -22,7 +22,6 @@ module.exports = {
     weak: '/pages/img/state/weak@3x.png',
     // 笔
     record: '/pages/img/edit.png',
-    // kongbai: '/pages/img/bai.png',
     // 排卵日
     pailuanri: '/pages/img/addimg/ovulation@3x.png',
     // 开始标识

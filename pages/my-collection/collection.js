@@ -72,7 +72,7 @@ onPullDownRefresh: function() {
  * 页面上拉触底事件的处理函数
  */
 onReachBottom: function() {
-page += 1;
+// page += 1;
   this.getapiCourseCollectList(page)
 }
 

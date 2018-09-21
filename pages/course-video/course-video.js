@@ -17,8 +17,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    state:false,
-    videoDuration:'',
+    state: false,
+    videoDuration: '',
     visible1: false,
     sectionName: '',
     videoID: "",
@@ -40,7 +40,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     console.log(options)
     //加载这个函数
     this.videoContext = wx.createVideoContext('myVideo')
@@ -84,11 +84,11 @@ Page({
     });
 
   },
-  onReady: function () {
+  onReady: function() {
     //加载这个函数
     this.videoContext = wx.createVideoContext('myVideo')
   },
-  doPlay: function (id) {
+  doPlay: function(id) {
     const that = this;
     console.log('课节id--------', id)
     apiSectionPlay(id).then(result => {
@@ -116,7 +116,7 @@ Page({
         wx.showToast({
           title: "当前课程未订阅 , 无权观看",
           icon: 'none',
-          duration:2000
+          duration: 2000
         })
       }
 
@@ -140,7 +140,7 @@ Page({
       isplay: false
     })
   },
-  onPlay: function (id) {
+  onPlay: function(id) {
     this.doPlay(id);
   },
 
@@ -170,7 +170,7 @@ Page({
 
   },
   //下一首
-  toNext: function () {
+  toNext: function() {
     //拿到数组的长度
     var listLength = SectionList.length - 1;
     //记录一下当前的位置
@@ -197,7 +197,7 @@ Page({
 
   },
   //上一首
-  toLast: function () {
+  toLast: function() {
     //记录一下当前的位置
     pos -= 1
     if (pos < 0) {
@@ -208,7 +208,7 @@ Page({
         duration: 2000
       })
       return;
-    } 
+    }
     this.onPlay(SectionList[pos].id);
     this.onSuspend()
     this.setData({
@@ -230,19 +230,19 @@ Page({
     //     })
     //   }
     //   else{
-        
-        if (this.data.isplay) {
-          this.videoContext.pause();
-          this.setData({
-            isplay: false,
-          })
-        } else {
-          this.videoContext.play();
-          this.setData({
-            isplay: true,
-          })
-        }
-      // }
+
+    if (this.data.isplay) {
+      this.videoContext.pause();
+      this.setData({
+        isplay: false,
+      })
+    } else {
+      this.videoContext.play();
+      this.setData({
+        isplay: true,
+      })
+    }
+    // }
     // })
 
   },

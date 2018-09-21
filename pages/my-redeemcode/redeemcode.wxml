@@ -1,0 +1,29 @@
+<!-- 企业兑换码 -->
+<view class='view_box'>
+  <view class='view_coupon'>
+    <view class='view_coupon_one'>
+      <view class='view_coupon_kuang' style="background: url('http://pbxyn1pgg.bkt.clouddn.com/youhuiq.png') no-repeat;">
+        <view class='view_coupon_text'>兑换码</view>
+        <view class='view_coupon_input'>
+          <input type='text' placeholder='     请输入企业兑换码' placeholder-style="color:#FFB4BB;font-size:32rpx;" bindinput="changeCoupon"></input>
+        </view>
+      </view>
+    </view>
+    <view class='showcoupon' wx:if="{{showcoupon}}">
+      <text> ! </text> 兑换码错误
+    </view>
+
+
+    <button class='view_coupon_btn' bindtap='clickUse'>立即兑换</button>
+
+    <view class='view_coupon_two'>
+      <view>
+        <image src='../img/addimg/becareful.png'></image>
+      </view>
+      <text> 企业兑换仅对支持的企业；每张优惠券仅可兑换1次；兑换成功后，可在看我的课程中查看</text>
+      
+    </view>
+
+  </view>
+
+</view>

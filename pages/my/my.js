@@ -49,15 +49,15 @@ Page({
       {
         name: '经期记录',
         url: '../my-record/record?iscondition=true',
-        icon: '../img/record.png',
+        icon: '../img/addimg/record.png',
         code: '10'
       },
-      // {
-      //   name: '企业兑换码',
-      //   url: '../mycourse/course',
-      //   icon: '../img/record.png',
-      //   code: '10'
-      // },
+      {
+        name: '企业兑换码',
+        url: '../my-redeemcode/redeemcode',
+        icon: '../img/addimg/redeemCode.png',
+        code: '10'
+      },
       {
         name: '帮助中心',
         url: '../my-help/my-help',

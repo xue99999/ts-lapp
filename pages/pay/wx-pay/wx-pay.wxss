@@ -1,6 +1,6 @@
 /*微信支付 */
 
-/* .inclusion {
+.inclusion {
   background: #e1e1e1;
 }
 
@@ -84,11 +84,28 @@
   display: flex;
   margin-left: 65rpx;
   align-items: center;
+  
+}
+.discountStyle {
+  flex: 0.3;
+  display: flex;
+  margin-left: 190rpx;
+  align-items: center;
+  font-size:30rpx;
+}
+
+.discountStyle image{
+  width: 34rpx;
+  height: 34rpx;
+  margin-top: 5rpx;
 }
 .view_pay_input_rights image{
   width: 34rpx;
   height: 34rpx;
   margin-top: 5rpx;
+}
+.view_jian{
+ margin-bottom: 5rpx; 
 }
 .view_pay_button {
   position: fixed;
@@ -101,10 +118,10 @@
   margin-left: 20rpx;
   margin-right: 20rpx;
   margin-bottom: 70rpx;
-} */
+}
 
 /*微信支付 */
-
+/* 
 .inclusion {
 
   background: #e1e1e1;
@@ -196,4 +213,4 @@
   margin-left: 20rpx;
   margin-right: 20rpx;
   margin-bottom: 600rpx;
-}
+} */

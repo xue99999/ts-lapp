@@ -62,8 +62,9 @@ Page({
     month: moment().format('M'),
     day: moment().format('D'),
     week: moment().format('d'),
-    integral:'',
-    roufu:'',
+    integral: '',
+    roufu: '',
+    birthday: '',
     // 圆圈显示数据
     showObj: {
       // 模式辣妈
@@ -110,7 +111,7 @@ Page({
       const {
         code,
         integral,
-        
+
       } = res;
       if (code === 200) {
         if (integral && integral > 0) {
@@ -494,7 +495,7 @@ Page({
     return {
       title: ' ',
       // path: '/pages/home/home', //这里填写首页的地址,一般为/pages/xxxx/xxx
-      imageUrl:'../img/tashilogo.png',
+      imageUrl: '../img/tashilogo.png',
       success: function(res) {
         // 转发成功
       },

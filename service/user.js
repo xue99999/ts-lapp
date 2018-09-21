@@ -19,7 +19,7 @@ import Http from '../utils/http.js';
 // const baseUrl = 'http://192.168.5.113:8083/ts-app-web/'
 //171测试服务器
 
-const baseUrl ='http://36.110.31.179:8090/'
+const baseUrl = 'http://36.110.31.179:8090/'
 // 生产地址
 // const baseUrl = 'https://api.tashi2018.com/'
 
@@ -176,7 +176,7 @@ function payFreeCourse(params) {
 //查询宝宝按摩打卡
 function userInfoQueryBabyRecord(params) {
   return get({
-    url: baseUrl + 'userInfo/queryBabyRecord/'+ params.day,
+    url: baseUrl + 'userInfo/queryBabyRecord/' + params.day,
   })
 }
 //更新宝宝按摩打卡
@@ -190,6 +190,13 @@ function userInfoUpdateBabyRecord(params) {
 function userInfoQueryMensesCycleList(params) {
   return get({
     url: baseUrl + 'userInfo/queryMensesCycleList',
+    params
+  })
+}
+//优惠券验证
+function couponValidate(params) {
+  return get({
+    url: baseUrl + 'api/coupon/validate',
     params
   })
 }
@@ -216,4 +223,5 @@ module.exports = {
   userInfoQueryBabyRecord,
   userInfoUpdateBabyRecord,
   userInfoQueryMensesCycleList,
+  couponValidate,
 };

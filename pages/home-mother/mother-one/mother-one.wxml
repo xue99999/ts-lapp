@@ -10,11 +10,11 @@
     <view class='header'>
       <view wx:for='{{date}}' wx:key class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>
         {{item}}
-        
+
       </view>
     </view>
 
-    <view class="date-show"  wx:if="{{show==true}}">
+    <view class="date-show" wx:if="{{show==true}}">
       <view class="lt-arrow cwj-icon cwj-calendar-icon-left" bindtap="lastMonth">
       </view>
       {{year}}年{{month}}月
@@ -22,14 +22,14 @@
       </view>
     </view>
     <view class='header'>
-  </view>
-  <view class='date-box' bindtouchstart="touchS" bindtouchend="touchE">
-    <view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
-      <view class='date-head'>
-        <view data-index='{{index}}' bindtap='dianji' class="active" data-day='{{item.dateNum}}'>{{item.dateNum}}</view>
+    </view>
+    <view class='date-box' bindtouchstart="touchS" bindtouchend="touchE">
+      <view wx:for='{{dateArr}}' wx:key class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
+        <view class='date-head'>
+          <view data-index='{{index}}' bindtap='dianji' class="active" data-day='{{item.dateNum}}'>{{item.dateNum}}</view>
+        </view>
       </view>
     </view>
-  </view>
   </view>
 
 
@@ -40,7 +40,7 @@
   <!-- <view class='view-month'> {{year}}年{{month}}月 </view> -->
 
   <!-- <view class='view-fot'> -->
-    <!-- <view class='fot-one'>
+  <!-- <view class='fot-one'>
     <view class='box'>
       <view class='box_list' data-current="{{index}}" bindtap="chooseImg">
         <image class="box-image" src="{{show ? imgUrl : curUrl}}"></image>
@@ -48,6 +48,6 @@
       </view>
     </view>
     </view> -->
-    <button class='btn' bindtap='navto'>下一步</button>
+  <button class='btn' bindtap='navto'>下一步</button>
   <!-- </view> -->
 </view>

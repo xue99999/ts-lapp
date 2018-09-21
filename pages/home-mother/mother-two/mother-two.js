@@ -1,4 +1,6 @@
-const { auth } = require('../../../utils/auth.js');
+const {
+  auth
+} = require('../../../utils/auth.js');
 const app = getApp()
 Page({
 
@@ -7,8 +9,7 @@ Page({
    */
   data: {
     array: ['2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'],
-    objectArray: [
-      {
+    objectArray: [{
         id: 0,
         name: '1'
       },
@@ -31,14 +32,14 @@ Page({
     curUrl: '../../img/choose@3x.png',
     scrollShow: true,
   },
-  onLoad:function(){
+  onLoad: function() {
     const parmas = {
       tag: 'switch'
     }
     auth(parmas)
   },
   // 日期选择
-  bindChange: function (e) {
+  bindChange: function(e) {
     const index = (e.detail.value * 1) + 2;
     console.log(index)
     this.setData({
@@ -47,12 +48,12 @@ Page({
     app.globalData.obj.menstrualTimes = index
 
   },
-  navto: function () {
+  navto: function() {
     wx.navigateTo({
       url: '../mother-three/mother-three'
     })
   },
-  chooseImg: function (e) {
+  chooseImg: function(e) {
 
     this.setData({
       show: !this.data.show
@@ -64,8 +65,7 @@ Page({
       this.setData({
         scrollShow: false
       })
-    }
-    else {
+    } else {
       this.setData({
         scrollShow: true
       })
@@ -73,6 +73,6 @@ Page({
 
     }
 
-    console.log('默认时间----'+app.globalData.obj.menstrualTimes)
+    console.log('默认时间----' + app.globalData.obj.menstrualTimes)
   }
 })

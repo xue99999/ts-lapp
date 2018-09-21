@@ -4,7 +4,7 @@ const {
 } = require('../../../service/user.js');
 var input = '';
 var id;
-
+var app = getApp();
 const {
   auth
 } = require('../../../utils/auth.js');
@@ -19,11 +19,7 @@ Page({
     price: 0,
     theTotalPrice: 0,
     focus: false,
-    timeStamp: "",
-    nonceStr: "",
-    package: "",
-    paySign: "",
-    orderNo1: ""
+    discount:''
   },
 
   /**
@@ -31,23 +27,35 @@ Page({
    */
   onLoad: function(options) {
     auth();
+    console.log(options)
+    const { payMoney, deductMoney} =options;
 
-    id = options.courseId;
-
+      id = app.getStorageSync('courseId'),
+      this.setData({
+        total: app.getStorageSync('total'),
+        courseName: app.getStorageSync('courseName'),
+        price: app.getStorageSync('price'),
+        payMoney,
+        deductMoney,
+      })
+  },
+onShow(){
+  const { discount, deductMoney} = this.data
+  if (deductMoney){
     this.setData({
+      discount : `${deductMoney}元`
+    })
 
-      total: options.total,
-      courseName: options.courseName,
-      price: options.price,
-    })
-  },
-  navto(){
+  }
+},
+  //跳转优惠券
+  navto() {
     wx.navigateTo({
-      url: '../wx-coupon/wx-coupon',
+      url: '../wx-coupon/wx-coupon?id=' + id,
     })
   },
+  //付款
   onClickPay() {
-    console.log(input)
     var datas = {};
     datas = {
       courseId: id,
@@ -110,8 +118,9 @@ Page({
 
 
   },
+  // input  value值
   bindObtain: function(e) {
     input = e.detail.value;
-    console.log('bindObtain',input)
+    console.log('bindObtain', input)
   }
 })

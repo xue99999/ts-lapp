@@ -1,20 +1,5 @@
 <view class='heads'>
-  <view class='imgs'>
-    <!-- <image src='../img/logo@3x.png'></image> -->
-    <view class="userinfo-avatar">
-      <open-data type="userAvatarUrl"></open-data>
-      <!-- <image src='{{userInfo.avatarUrl}}'></image> -->
-    </view>
-    <view class='userinfo-name'>
-      <open-data type="userNickName"></open-data>
-      <!-- {{userInfo.nickName}} -->
-    </view>
-  </view>
-
-  <view data-id='{{shaonv}}'>
-    <button wx:if="{{canIUse}}" class='images_mom' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" binderror="bindError">
-      微信登录</button>
-    <view wx:else>请升级微信版本</view>
-  </view>
-
+  <button wx:if="{{canIUse}}" class='images_mom' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" binderror="bindError">
+    微信登录</button>
+  <view wx:else>请升级微信版本</view>
 </view>

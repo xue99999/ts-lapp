@@ -30,7 +30,8 @@
     "pages/set-period/set-period",
     "pages/my-help/my-help",
     "pages/my-record/record",
-    "pages/pay/wx-coupon/wx-coupon"
+    "pages/pay/wx-coupon/wx-coupon",
+    "pages/my-redeemcode/redeemcode"
   ],
   "window": {
     "backgroundTextStyle": "light",

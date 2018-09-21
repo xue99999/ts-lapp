@@ -2,8 +2,12 @@
 //获取应用实例
 const app = getApp()
 const moment = require('../../../utils/moment.js');
-const { userInfoAdd } = require('../../../service/user.js')
-const { auth } = require('../../../utils/auth.js');
+const {
+  userInfoAdd
+} = require('../../../service/user.js')
+const {
+  auth
+} = require('../../../utils/auth.js');
 Page({
   data: {
     year: 0,
@@ -17,48 +21,50 @@ Page({
     show: true,
     imgUrl: '../../img/choose1@3x.png',
     curUrl: '../../img/choose@3x.png',
-    day:null,
+    day: null,
   },
-  chooseImg: function (e) {
+  chooseImg: function(e) {
     this.setData({
       show: !this.data.show
     })
   },
   navto: function() {
-   if(!this.data.show){
+    if (!this.data.show) {
       //跳过经期设定
-     var data = {
-       'userModel': app.globalData.obj.shaonv,
-       'babySex': app.globalData.obj.babySex,
-       'babyBirthday': app.globalData.obj.babyBirthday
-     }
+      var data = {
+        'userModel': app.globalData.obj.shaonv,
+        'babySex': app.globalData.obj.babySex,
+        'babyBirthday': app.globalData.obj.babyBirthday
+      }
 
-     userInfoAdd(data).then(res => {
-       const {code}=res;
-       if(code===200){
-         wx.switchTab({
-           url: '/pages/today/today'
-         })
-       }
-      
-     })
+      userInfoAdd(data).then(res => {
+        const {
+          code
+        } = res;
+        if (code === 200) {
+          wx.switchTab({
+            url: '/pages/today/today'
+          })
+        }
 
-  
-   }else{
-     if (!this.data.day) {
-       wx.showToast({
-         title: "请选择上次开始日期",
-         icon: 'none'
-       })
-       return;
-     }
-     wx.navigateTo({
-       url: '../mother-two/mother-two',
-     })
+      })
 
-   }
 
-  
+    } else {
+      if (!this.data.day) {
+        wx.showToast({
+          title: "请选择上次开始日期",
+          icon: 'none'
+        })
+        return;
+      }
+      wx.navigateTo({
+        url: '../mother-two/mother-two',
+      })
+
+    }
+
+
   },
   dianji: function(e) {
     var month;
@@ -178,7 +184,7 @@ Page({
     this.dateInit(year, month);
   },
   //手指刚放到屏幕触发
-  touchS: function (e) {
+  touchS: function(e) {
     //判断是否只有一个触摸点
     if (e.touches.length == 1) {
       this.setData({
@@ -187,7 +193,7 @@ Page({
       });
     }
   },
-  touchE: function (e) {
+  touchE: function(e) {
     var that = this
     if (e.changedTouches.length == 1) {
       //手指移动结束后触摸点位置的X坐标

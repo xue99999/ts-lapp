@@ -24,11 +24,11 @@
       <view class="date-head {{item.isSelect?'day-select':''}}">
         <view class="day {{item.css}}">
           <text>{{item.today===today?'今':item.dateNum}}</text>
-          <image src='{{item.status?item.status:""}}' class='icon-status'></image>
+          <image src='{{item.status ? item.status :""}}' class='icon-status'></image>
         </view>
       </view>
       <view class='date-weight'>
-        <image src='{{item.tag?item.tag:""}}' class='icon-record'></image>
+        <image src='{{item.tag?tag:""}}' class='icon-record'></image>
       </view>
     </view>
   </view>
@@ -36,7 +36,7 @@
   </swiper> -->
   <view class='view-list'>
     <view class='view-jing'>
-      <image src='/pages/img/pink@3x.png'></image>
+      <image src='../img/pink@3x.png'></image>
       <text>月经期</text>
     </view>
     <view class='view-luan'>
@@ -44,12 +44,12 @@
       <text>预测经期</text>
     </view>
     <view class='view-jing'>
-      <image src='/pages/img/zise@3x.png'></image>
+      <image src='../img/zise@3x.png'></image>
       <text>易孕期</text>
     </view>
 
     <view class='view-ri'>
-      <image src='/pages/img/addimg/ovulation@3x.png'></image>
+      <image src='../img/addimg/ovulation@3x.png'></image>
       <text>排卵日</text>
     </view>
   </view>

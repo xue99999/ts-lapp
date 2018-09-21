@@ -23,7 +23,6 @@ flex-direction: column;
 .nickname{
   text-align: center;
 }
-
 .userinfo-avatar {
   overflow:hidden;
   display: block;
@@ -70,7 +69,7 @@ flex-direction: column;
 }
 
 .images_menst, .images_mom {
-  margin-top: 20rpx;
+  margin-top: 300rpx;
   width: 352rpx;
   height: 80rpx;
   background: #fd918d;

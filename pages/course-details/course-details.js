@@ -104,6 +104,7 @@ Page({
       url: '../course-video/course-video?courseId=' + id,
     })
   },
+  //订阅功能
   onClickSubscriber() {
     auth();
     const data = {
@@ -130,8 +131,11 @@ Page({
           })
         } else {
             // 未订阅
+          app.setStorageSync('total',this.data.total)
+          app.setStorageSync('courseName', this.data.courseName)
+          app.setStorageSync('price', this.data.price)
           wx.navigateTo({
-            url: '../pay/wx-pay/wx-pay?courseId=' + id + '&total=' + this.data.total + '&courseName=' + this.data.courseName + '&price=' + this.data.price
+            url: '../pay/wx-pay/wx-pay'
           })
         }
 
@@ -166,6 +170,7 @@ Page({
       }
     }
   },
+  //收藏状态变化
   isCollect() {
     if (this.data.isCollect === 0) {
       this.setData({
