@@ -40,7 +40,7 @@ Page({
     cacheMonths: [],
   },
 
-  defaultDay: function(e) {
+  defaultDay: function (e) {
 
     const {
       year,
@@ -90,9 +90,29 @@ Page({
 
     this.initRecord(dates);
   },
+  changeGoodsSwip: function (detail) {
+    if (detail.detail.source == "touch") {
+      //当页面卡死的时候，current的值会变成0 
+      if (detail.detail.current == 0) {
+        //有时候这算是正常情况，所以暂定连续出现3次就是卡了
+        let swiperError = this.data.swiperError
+        swiperError += 1
+        this.setData({ swiperError: swiperError })
+        if (swiperError >= 3) { //在开关被触发3次以上
+          console.error(this.data.swiperError)
+          this.setData({ goodsIndex: this.data.preIndex });//，重置current为正确索引
+          this.setData({ swiperError: 0 })
+        }
+      } else {//正常轮播时，记录正确页码索引
+        this.setData({ preIndex: detail.detail.current });
+        //将开关重置为0
+        this.setData({ swiperError: 0 })
+      }
+    }
+  },
 
-// 页面初次渲染
-  onLoad: function() {
+  // 页面初次渲染
+  onLoad: function () {
     const parmas = {
       tag: 'switch'
     }
@@ -137,7 +157,7 @@ Page({
 
     this.cacheDatas(moment().format("YYYY-MM"))
   },
-  query: function(startDay, endDay, cday) {
+  query: function (startDay, endDay, cday) {
 
     var query = {
       startDay,
@@ -146,9 +166,9 @@ Page({
     userInfoQueryBodyStatus(query).then(res => {
       const {
         list = [],
-          userModel,
-          code,
-          isLaw
+        userModel,
+        code,
+        isLaw
       } = res;
 
       if (code === 500) {
@@ -235,12 +255,12 @@ Page({
     }
   },
 
-  onReady: function() {},
+  onReady: function () { },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
 
     if (!this.data.isShow) {
@@ -253,7 +273,7 @@ Page({
     this.query(this.data.startDay, this.data.endDay, this.data.selectDay);
 
   },
-  dateInit: function(setYear, setMonth) {
+  dateInit: function (setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let dateArr = []; //需要遍历的日历数组数据
     let arrLen = 0; //dateArr的数组长度
@@ -381,7 +401,7 @@ Page({
     };
   },
   //当月之后的数据
-  lastMonth: function() {
+  lastMonth: function () {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month - 2 < 0 ? this.data.year - 1 : this.data.year;
     let month = this.data.month - 2 < 0 ? 11 : this.data.month - 2;
@@ -401,8 +421,8 @@ Page({
     // this.cacheDatas(currentMonthString);
 
   },
-//当月之前的数据
-  nextMonth: function() {
+  //当月之前的数据
+  nextMonth: function () {
     //全部时间的月份都是按0~11基准，显示月份才+1
     let year = this.data.month > 11 ? this.data.year + 1 : this.data.year;
     let month = this.data.month > 11 ? 0 : this.data.month;
@@ -445,7 +465,7 @@ Page({
     this.cacheDatas(currentMonthString);
   },
   //手指刚放到屏幕触发
-  touchS: function(e) {
+  touchS: function (e) {
     //判断是否只有一个触摸点
     if (e.touches.length == 1) {
       this.setData({
@@ -455,7 +475,7 @@ Page({
     }
   },
 
-  touchE: function(e) {
+  touchE: function (e) {
     var that = this
     if (e.changedTouches.length == 1) {
       //手指移动结束后触摸点位置的X坐标
@@ -482,18 +502,18 @@ Page({
     }
   },
   // 是否有记录
-  isRecord: function(dy) {
+  isRecord: function (dy) {
     const {
       chiropractic = '02',
-        frictionalAbdomen = '02',
-        menstrualVolume,
-        leucorrhea,
-        breastTenderness,
-        abdominalPain,
-        mood,
-        menstrualHeadache,
-        fearCold,
-        weak
+      frictionalAbdomen = '02',
+      menstrualVolume,
+      leucorrhea,
+      breastTenderness,
+      abdominalPain,
+      mood,
+      menstrualHeadache,
+      fearCold,
+      weak
     } = dy;
 
     if (chiropractic === '01' || frictionalAbdomen === '01') {
@@ -527,18 +547,18 @@ Page({
 
     return false;
   },
-  onShareAppMessage: function(options) {
+  onShareAppMessage: function (options) {
     var that = this;
     // 设置菜单中的转发按钮触发转发事件时的转发内容
     var shareObj = {
       title: "她师", // 默认是小程序的名称(可以写slogan等)
       path: '/pages/today/today', // 默认是当前页面，必须是以‘/’开头的完整路径
       imgUrl: '', //自定义图片路径，可以是本地文件路径、代码包文件路径或者网络图片路径，支持PNG及JPG，不传入 imageUrl 则使用默认截图。显示图片长宽比是 5:4
-      success: function(res) {
+      success: function (res) {
         // 转发成功之后的回调
-        if (res.errMsg == 'shareAppMessage:ok') {}
+        if (res.errMsg == 'shareAppMessage:ok') { }
       },
-      fail: function() {
+      fail: function () {
         // 转发失败之后的回调
         if (res.errMsg == 'shareAppMessage:fail cancel') {
           // 用户取消转发
@@ -549,7 +569,7 @@ Page({
     }
   },
   //防止偶尔卡死
-  swiperchange: function(event) {
+  swiperchange: function (event) {
     if (event.detail.source == "touch") {
       //防止swiper控件卡死
       if (this.data.current == 0 && this.data.preIndex > 1) { //卡死时，重置current为正确索引
@@ -566,7 +586,7 @@ Page({
 
 
   //统一缓存方法
-  cacheDatas: function(currentMonth) {
+  cacheDatas: function (currentMonth) {
     //获取前后两个月 
     const mms = this.totalPreMonthAndNextMonth(currentMonth)
 
@@ -574,7 +594,7 @@ Page({
     this.preloadingData(mms)
   },
   //预加载月份数据[2018-]
-  preloadingData: function(months) {
+  preloadingData: function (months) {
     const cacheMonths = {};
     for (let i = 0; i < months.length; i++) {
       const m = months[i];
@@ -591,7 +611,7 @@ Page({
       userInfoQueryBodyStatus(query).then(res => {
         const {
           list = [],
-            userModel
+          userModel
         } = res;
 
         const obj = {};
@@ -606,7 +626,7 @@ Page({
     })
   },
   //根据当前月计算上个月和下个月
-  totalPreMonthAndNextMonth: function(currentMonth) {
+  totalPreMonthAndNextMonth: function (currentMonth) {
     const next = moment(currentMonth).add(1, 'M').format('YYYY-MM');
     const pre = moment(currentMonth).subtract(1, 'M').format('YYYY-MM');
     return [next, pre]
